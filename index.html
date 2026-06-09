@@ -4653,6 +4653,312 @@
       white-space:nowrap;
       font-size:clamp(25px,7vw,34px)!important;
     }
+    .phone-body.curated{
+      gap:9px;
+    }
+    .phone-pack{
+      flex:1 1 auto;
+      min-height:0;
+      display:grid;
+      grid-template-columns:1fr;
+      grid-auto-rows:minmax(0,1fr);
+      gap:9px;
+      overflow:hidden;
+    }
+    .phone-pack.matrix{
+      grid-template-columns:repeat(2,minmax(0,1fr));
+    }
+    .phone-pack.single .phone-card,
+    .phone-pack.single .phone-row-card,
+    .phone-pack.single .phone-source-card{
+      justify-content:center;
+    }
+    .phone-card,
+    .phone-row-card,
+    .phone-deal-card,
+    .phone-client-section,
+    .phone-source-card{
+      min-height:0;
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+      padding:12px!important;
+      border:1px solid rgba(6,25,39,.13)!important;
+      background:rgba(255,255,255,.96)!important;
+      color:var(--ink)!important;
+      overflow:hidden;
+    }
+    .phone-card{
+      justify-content:center;
+    }
+    .phone-card.dark,
+    .phone-deal-card.dark,
+    .phone-client-section.dark{
+      background:linear-gradient(180deg,#07324a,#06283d)!important;
+      color:#fff!important;
+      border-color:rgba(255,255,255,.18)!important;
+    }
+    .phone-kicker,
+    .phone-meta{
+      font-family:var(--mono);
+      font-size:10.5px!important;
+      line-height:1.18!important;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      color:var(--gold)!important;
+    }
+    .phone-card h3,
+    .phone-row-card h3,
+    .phone-deal-card h3,
+    .phone-client-section h3,
+    .phone-source-card h3{
+      margin:0!important;
+      font-size:18px!important;
+      line-height:1.14!important;
+      font-weight:650!important;
+      color:var(--navy)!important;
+    }
+    .phone-card.dark h3,
+    .phone-deal-card.dark h3,
+    .phone-client-section.dark h3{
+      color:#fff!important;
+    }
+    .phone-card p,
+    .phone-row-card p,
+    .phone-deal-card p,
+    .phone-client-section p,
+    .phone-source-card p{
+      margin:0!important;
+      font-size:14px!important;
+      line-height:1.42!important;
+      color:rgba(6,25,39,.78)!important;
+    }
+    .phone-card.dark p,
+    .phone-deal-card.dark p,
+    .phone-client-section.dark p{
+      color:rgba(255,255,255,.78)!important;
+    }
+    .phone-kpi-grid,
+    .phone-rank-grid,
+    .phone-flow-grid{
+      flex:1 1 auto;
+      min-height:0;
+      min-width:0;
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:8px;
+      overflow:hidden;
+    }
+    .phone-kpi,
+    .phone-rank{
+      min-height:0;
+      min-width:0;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      padding:10px;
+      border:1px solid rgba(6,25,39,.13);
+      background:#fff;
+    }
+    .phone-kpi b,
+    .phone-rank b{
+      display:block;
+      font-size:clamp(22px,7.8vw,34px)!important;
+      line-height:1.02!important;
+      font-weight:700;
+      color:var(--gold)!important;
+      overflow-wrap:anywhere;
+    }
+    .phone-kpi span,
+    .phone-rank span{
+      display:block;
+      margin-top:6px;
+      font-size:13px!important;
+      line-height:1.34!important;
+      color:rgba(6,25,39,.72)!important;
+    }
+    .phone-rank em{
+      font-style:normal;
+      font-family:var(--mono);
+      font-size:13px!important;
+      line-height:1.18!important;
+      color:rgba(6,25,39,.55)!important;
+    }
+    .phone-row-fields,
+    .phone-deal-fields{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:6px;
+      margin-top:auto;
+      overflow:hidden;
+    }
+    .phone-field{
+      display:grid;
+      grid-template-columns:56px minmax(0,1fr);
+      gap:8px;
+      padding-top:7px;
+      border-top:1px solid rgba(6,25,39,.1);
+    }
+    .phone-field b{
+      font-size:13px!important;
+      line-height:1.25!important;
+      color:var(--gold)!important;
+      font-weight:650!important;
+    }
+    .phone-field span{
+      font-size:14px!important;
+      line-height:1.34!important;
+      color:rgba(6,25,39,.76)!important;
+    }
+    .phone-deal-card.dark .phone-field,
+    .phone-card.dark .phone-field{
+      border-top-color:rgba(255,255,255,.16);
+    }
+    .phone-deal-card.dark .phone-field span,
+    .phone-card.dark .phone-field span{
+      color:rgba(255,255,255,.78)!important;
+    }
+    .phone-deal-top{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:8px;
+    }
+    .phone-deal-code{
+      flex:0 0 auto;
+      max-width:42%;
+      padding:4px 7px;
+      border:1px solid rgba(194,151,91,.35);
+      color:var(--gold)!important;
+      font-family:var(--mono);
+      font-size:11px!important;
+      line-height:1.1!important;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+    .phone-result{
+      margin-top:auto!important;
+      padding:8px 9px;
+      background:rgba(194,151,91,.12);
+      border:1px solid rgba(194,151,91,.26);
+      color:var(--navy)!important;
+      font-size:16px!important;
+      line-height:1.28!important;
+      font-weight:650!important;
+    }
+    .phone-deal-card.dark .phone-result{
+      background:rgba(255,255,255,.1);
+      color:#fff!important;
+      border-color:rgba(255,255,255,.2);
+    }
+    .phone-deal-card.compact .phone-result{
+      margin-top:10px!important;
+    }
+    .phone-client-grid{
+      flex:1 1 auto;
+      min-height:0;
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:7px;
+      overflow:hidden;
+    }
+    .phone-client-chip{
+      min-height:0;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      gap:3px;
+      padding:9px;
+      border:1px solid rgba(6,25,39,.11);
+      background:#fff;
+      overflow:hidden;
+    }
+    .phone-client-chip.featured{
+      border-color:rgba(194,151,91,.42);
+      background:rgba(194,151,91,.09);
+    }
+    .phone-client-section.dark .phone-client-chip{
+      background:rgba(255,255,255,.1);
+      border-color:rgba(255,255,255,.16);
+    }
+    .phone-client-name{
+      display:block;
+      font-size:16px!important;
+      line-height:1.15!important;
+      font-weight:680;
+      color:var(--navy)!important;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+    .phone-client-section.dark .phone-client-name{
+      color:#fff!important;
+    }
+    .phone-client-code,
+    .phone-client-tag{
+      display:block;
+      font-size:12px!important;
+      line-height:1.15!important;
+      color:rgba(6,25,39,.58)!important;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+    .phone-client-section.dark .phone-client-code,
+    .phone-client-section.dark .phone-client-tag{
+      color:rgba(255,255,255,.68)!important;
+    }
+    .phone-source-card{
+      justify-content:center;
+    }
+    .phone-source-card p{
+      word-break:break-word;
+      font-size:13px!important;
+    }
+    .phone-cover-lock{
+      flex:1 1 auto;
+      min-height:0;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      gap:24px;
+    }
+    .phone-cover-title{
+      font-size:clamp(36px,10.4vw,50px)!important;
+      line-height:1.05!important;
+      font-weight:520!important;
+      color:#fff!important;
+      margin:0!important;
+    }
+    .phone-cover-title.closing span{
+      display:block;
+      white-space:nowrap;
+      font-size:clamp(30px,8.2vw,38px)!important;
+      line-height:1.14!important;
+    }
+    .phone-cover-line{
+      width:58px;
+      height:2px;
+      background:var(--gold);
+    }
+    .phone-cover-grid{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:1px;
+      border:1px solid rgba(255,255,255,.18);
+      background:rgba(255,255,255,.16);
+    }
+    .phone-cover-grid div{
+      min-height:72px;
+      display:flex;
+      align-items:center;
+      padding:12px;
+      background:rgba(255,255,255,.08);
+      color:#fff;
+      font-size:15px!important;
+      line-height:1.35!important;
+    }
   }
 
 </style>
@@ -6018,6 +6324,7 @@ function phoneBrand(slide){
 function makePhonePage(slide, slideIndex, partNo, partTotal, fragments, opts={}){
   const page=document.createElement('section');
   page.className='phone-page';
+  if(opts.pageClass) page.classList.add(...String(opts.pageClass).split(/\s+/).filter(Boolean));
   if(opts.dark || slide.classList.contains('dark') || slide.classList.contains('accent')) page.classList.add('dark');
   if(opts.cover || slide.classList.contains('cover')) page.classList.add('phone-cover');
   page.dataset.slideIndex=slideIndex;
@@ -6037,16 +6344,16 @@ function makePhonePage(slide, slideIndex, partNo, partTotal, fragments, opts={})
   if(!opts.omitTitle){
     const titleWrap=document.createElement('div');
     titleWrap.className='phone-title';
-    const eyebrow=phoneEyebrow(slide);
+    const eyebrow=opts.eyebrow ?? phoneEyebrow(slide);
     if(eyebrow){
       const e=document.createElement('div');
       e.className='eyebrow';
       e.textContent=eyebrow;
       titleWrap.appendChild(e);
     }
-    const titleHTML=phoneTitleHTML(slide);
+    const titleHTML=opts.title ?? phoneTitleHTML(slide);
     if(titleHTML){
-      const h=document.createElement(slide.querySelector('.closing-title,.headline.big') ? 'h1' : 'h2');
+      const h=document.createElement(opts.headingTag || (slide.querySelector('.closing-title,.headline.big') ? 'h1' : 'h2'));
       h.innerHTML=titleHTML;
       titleWrap.appendChild(h);
     }
@@ -6237,6 +6544,426 @@ function phoneFragmentsForSlide(slide, slideIndex){
   flush();
   return pages;
 }
+
+function nodeText(root, sel){
+  const node=sel ? root.querySelector(sel) : root;
+  return node ? node.textContent.replace(/\s+/g,' ').trim() : '';
+}
+
+function makeTextEl(tag, cls, text){
+  const el=document.createElement(tag);
+  if(cls) el.className=cls;
+  if(text!==undefined) el.textContent=text;
+  return el;
+}
+
+function makePack(nodes, cls=''){
+  const pack=document.createElement('div');
+  pack.className=`phone-pack${cls ? ' '+cls : ''}`;
+  nodes.filter(Boolean).forEach(node=>pack.appendChild(node));
+  return pack;
+}
+
+function makeDef(nodes, opts={}){
+  return {
+    fragments:[makePack(nodes, `${opts.packClass || ''}${nodes.length===1 ? ' single' : ''}`.trim())],
+    opts:{...opts, bodyClass:`curated${opts.bodyClass ? ' '+opts.bodyClass : ''}`}
+  };
+}
+
+function makeField(label, value){
+  const field=document.createElement('div');
+  field.className='phone-field';
+  field.append(makeTextEl('b','',label), makeTextEl('span','',value));
+  return field;
+}
+
+function makeInfoCard({kicker='', title='', body='', fields=[], result='', dark=false, cls='phone-card'}){
+  const card=document.createElement('div');
+  card.className=cls+(dark?' dark':'');
+  if(kicker) card.appendChild(makeTextEl('div','phone-kicker',kicker));
+  if(title) card.appendChild(makeTextEl('h3','',title));
+  if(body) card.appendChild(makeTextEl('p','',body));
+  if(fields.length){
+    const fieldWrap=document.createElement('div');
+    fieldWrap.className=cls.includes('deal') ? 'phone-deal-fields' : 'phone-row-fields';
+    fields.forEach(field=>fieldWrap.appendChild(makeField(field.label, field.value)));
+    card.appendChild(fieldWrap);
+  }
+  if(result) card.appendChild(makeTextEl('div','phone-result',result));
+  return card;
+}
+
+function chunkItems(items, size){
+  const out=[];
+  for(let i=0;i<items.length;i+=size) out.push(items.slice(i,i+size));
+  return out;
+}
+
+function splitTextParts(text){
+  return text.split(/[。；;]\s*/).map(s=>s.trim()).filter(Boolean);
+}
+
+function cardsToDefs(cards, perPage, opts={}){
+  return chunkItems(cards, perPage).map(group=>makeDef(group, {...opts, packClass:opts.packClass || (group.length>=4 ? 'matrix' : '')}));
+}
+
+function cardFromSimpleNode(node, opts={}){
+  const kicker=nodeText(node,'.ops-tag,.code,.idx,.meta span:first-child,.type span:first-child');
+  const title=nodeText(node,'h3,b') || nodeText(node);
+  const paragraphs=[...node.querySelectorAll('p,li,.out,.ops-output,.result,.sub')]
+    .map(el=>nodeText(el))
+    .filter(Boolean)
+    .slice(0,5);
+  return makeInfoCard({
+    kicker:opts.kicker || kicker,
+    title:opts.title || title,
+    body:paragraphs.join('；'),
+    dark:opts.dark ?? node.classList.contains('dark')
+  });
+}
+
+function metricGridFrom(nodes){
+  const grid=document.createElement('div');
+  grid.className='phone-kpi-grid';
+  nodes.forEach((node,i)=>{
+    const kpi=document.createElement('div');
+    kpi.className='phone-kpi';
+    kpi.append(makeTextEl('b','',nodeText(node,'.num,b') || nodeText(node)));
+    kpi.append(makeTextEl('span','',nodeText(node,'span,p') || nodeText(node)));
+    grid.appendChild(kpi);
+  });
+  return grid;
+}
+
+function rankGridFrom(slide){
+  const grid=document.createElement('div');
+  grid.className='phone-rank-grid';
+  const ranks=[...slide.querySelectorAll('.rank-ledger > div:not(.rank-head)')];
+  ranks.forEach(node=>{
+    const rank=document.createElement('div');
+    rank.className='phone-rank';
+    rank.append(makeTextEl('em','',nodeText(node,'.rank-year')));
+    rank.append(makeTextEl('b','',nodeText(node,'.rank-no')));
+    rank.append(makeTextEl('span','',nodeText(node,'.rank-note')));
+    grid.appendChild(rank);
+  });
+  return grid;
+}
+
+function rowCardFrom(row, headers=[]){
+  const cells=[...row.children].map(cell=>cell.textContent.replace(/\s+/g,' ').trim()).filter(Boolean);
+  const title=cells.shift() || '';
+  const fields=cells.map((value,i)=>({label:(headers[i+1] || `要点${i+1}`).replace(/\s+/g,' ').trim(), value})).slice(0,3);
+  return makeInfoCard({title, fields, cls:'phone-row-card'});
+}
+
+function rowCardsFrom(slide, selector){
+  const table=slide.querySelector(selector);
+  const headers=table ? [...table.querySelectorAll('.case-row.head > div,.banker-row.head > div')].map(h=>nodeText(h)) : [];
+  return table ? [...table.querySelectorAll('.case-row:not(.head),.banker-row:not(.head)')].map(row=>rowCardFrom(row,headers)) : [];
+}
+
+function dealCardFromOps(node){
+  const meta=[...node.querySelectorAll('.meta span')].map(el=>nodeText(el)).filter(Boolean).join(' · ');
+  const title=nodeText(node,'.deal-name h3,h3');
+  const code=nodeText(node,'.deal-name em');
+  const fields=[...node.querySelectorAll('.deal-fields > div')].map(div=>({
+    label:nodeText(div,'b'),
+    value:nodeText(div,'span')
+  })).filter(f=>f.label&&f.value);
+  const result=fields.find(f=>/Result|结果/i.test(f.label))?.value || nodeText(node,'.result');
+  const shown=fields.filter(f=>!/Result|Execution|执行/i.test(f.label)).slice(0,2);
+  const card=makeInfoCard({
+    kicker:meta,
+    title,
+    fields:shown,
+    result,
+    dark:node.classList.contains('dark'),
+    cls:'phone-deal-card'
+  });
+  const top=card.querySelector('h3');
+  if(top && code){
+    const wrap=document.createElement('div');
+    wrap.className='phone-deal-top';
+    top.replaceWith(wrap);
+    wrap.append(top, makeTextEl('span','phone-deal-code',code));
+  }
+  return card;
+}
+
+function dealCardFromYearbook(node){
+  const meta=[...node.querySelectorAll('.type span')].map(el=>nodeText(el)).filter(Boolean).join(' · ');
+  const detail=nodeText(node,'.details');
+  return makeInfoCard({
+    kicker:meta,
+    title:nodeText(node,'h3'),
+    body:nodeText(node,'.desc'),
+    fields:detail ? [{label:'要点',value:detail}] : [],
+    result:nodeText(node,'.amount'),
+    cls:'phone-deal-card'
+  });
+}
+
+function clientPageFromCluster(cluster){
+  const section=document.createElement('div');
+  section.className='phone-client-section'+(cluster.classList.contains('dark')?' dark':'');
+  section.append(makeTextEl('div','phone-kicker','Client Coverage'));
+  section.append(makeTextEl('h3','',nodeText(cluster,'.client-cluster-head h3')));
+  section.append(makeTextEl('p','',nodeText(cluster,'.client-cluster-head p')));
+  const grid=document.createElement('div');
+  grid.className='phone-client-grid';
+  [...cluster.querySelectorAll('.client-chip')].forEach(chip=>{
+    const item=document.createElement('div');
+    item.className='phone-client-chip'+(chip.classList.contains('featured')?' featured':'');
+    item.append(makeTextEl('span','phone-client-name',nodeText(chip,'.client-name')));
+    item.append(makeTextEl('span','phone-client-code',nodeText(chip,'.client-code')));
+    item.append(makeTextEl('span','phone-client-tag',nodeText(chip,'em')));
+    grid.appendChild(item);
+  });
+  section.appendChild(grid);
+  return section;
+}
+
+function archCardFrom(node){
+  const fields=[...node.querySelectorAll('.ops-arch-row')].map(row=>({
+    label:nodeText(row,'b'),
+    value:nodeText(row,'span')
+  })).filter(f=>f.label&&f.value).slice(0,4);
+  return makeInfoCard({
+    kicker:nodeText(node,'.ops-tag'),
+    title:nodeText(node,'h3'),
+    body:nodeText(node,'.sub'),
+    fields,
+    result:nodeText(node,'.ops-arch-result'),
+    dark:node.classList.contains('dark'),
+    cls:'phone-deal-card'
+  });
+}
+
+function sourceCardFrom(node){
+  return makeInfoCard({
+    title:nodeText(node,'h3'),
+    body:nodeText(node,'p'),
+    cls:'phone-source-card'
+  });
+}
+
+function coverDef(slide, slideIndex){
+  const isClosing=slideIndex===total-1;
+  const wrap=document.createElement('div');
+  wrap.className='phone-cover-lock';
+  wrap.appendChild(makeTextEl('div','phone-kicker',isClosing?'Investment Banking Department VII':'Investment Banking Department VII'));
+  const title=document.createElement('h1');
+  title.className='phone-cover-title';
+  title.innerHTML=isClosing ? '<span>长期陪伴成长型企业</span><span>完成关键资本市场任务</span>' : '国金证券<br/>投资银行七部介绍';
+  if(isClosing) title.classList.add('closing');
+  wrap.appendChild(title);
+  wrap.appendChild(makeTextEl('div','phone-cover-line',''));
+  const grid=document.createElement('div');
+  grid.className='phone-cover-grid';
+  [...slide.querySelectorAll('.cover-meta-grid div')].forEach(item=>grid.appendChild(makeTextEl('div','',nodeText(item))));
+  wrap.appendChild(grid);
+  return {fragments:[wrap], opts:{cover:true,omitTitle:true,bodyClass:'curated'}};
+}
+
+function defsForAgenda(slide){
+  const cards=[...slide.querySelectorAll('.agenda-item')].map(node=>cardFromSimpleNode(node,{dark:node.classList.contains('dark')}));
+  return [makeDef(cards,{packClass:'matrix'})];
+}
+
+function defsForRankingSlide(slide){
+  const defs=[makeDef([rankGridFrom(slide)],{title:'IPO 主承销排名更新至 2026 年前 5 月'})];
+  const advisory=[...slide.querySelectorAll('.advisory-card')].map(cardFromSimpleNode);
+  defs.push(...cardsToDefs(advisory,2,{title:'全周期服务链条'}));
+  const cells=[...slide.querySelectorAll('.matrix-cell')].map(cardFromSimpleNode);
+  defs.push(makeDef(cells,{packClass:'matrix',title:'客户关键节点覆盖'}));
+  return defs;
+}
+
+function defsForProductRows(slide){
+  const rows=rowCardsFrom(slide,'.service-rows');
+  return [
+    makeDef(rows.slice(0,2),{title:'股权服务与上市路径'}),
+    makeDef(rows.slice(2,4),{title:'融资与并购服务'}),
+    makeDef(rows.slice(4,6),{title:'债务与场外市场'}),
+    makeDef(rows.slice(6),{title:'配套财务顾问'})
+  ];
+}
+
+function defsForExecutionPlatform(slide){
+  const defs=[];
+  const exec=[...slide.querySelectorAll('.execution-card-v7')].map(cardFromSimpleNode);
+  defs.push(...cardsToDefs(exec,3,{title:'项目执行资源'}));
+  const steps=[...slide.querySelectorAll('.process-strip-v7 > div')].map(node=>makeInfoCard({kicker:nodeText(node,'b'),title:nodeText(node,'b'),body:nodeText(node,'span')}));
+  defs.push(makeDef(steps,{packClass:'matrix',title:'项目推进节奏'}));
+  const rows=rowCardsFrom(slide,'.execution-rows');
+  defs.push(makeDef(rows,{title:'协同资源如何转化为确定性'}));
+  return defs;
+}
+
+function defsForCompany(slide){
+  const defs=[];
+  const stats=[...slide.querySelectorAll('.stat-tile')];
+  if(stats[0]) defs.push(makeDef([cardFromSimpleNode(stats[0],{dark:true})],{title:'公司基础'}));
+  defs.push(makeDef([metricGridFrom(stats.slice(1))],{title:'经营与网络'}));
+  const timeline=[...slide.querySelectorAll('.timeline-node')].map(node=>makeInfoCard({kicker:nodeText(node,'b'),title:nodeText(node,'b'),body:nodeText(node,'span')}));
+  defs.push(...cardsToDefs(timeline,4,{packClass:'matrix',title:'发展沿革'}));
+  return defs;
+}
+
+function defsForMetricsAndRows(slide, title){
+  const defs=[];
+  const metrics=[...slide.querySelectorAll('.metric-box')];
+  chunkItems(metrics,4).forEach(group=>defs.push(makeDef([metricGridFrom(group)],{title})));
+  const rows=rowCardsFrom(slide,'.banker-table');
+  defs.push(...cardsToDefs(rows,2,{title:'业务条线与客户价值'}));
+  return defs;
+}
+
+function defsForRecognition(slide){
+  const defs=[];
+  defs.push(makeDef([...slide.querySelectorAll('.ops-proof')].map(cardFromSimpleNode),{packClass:'matrix',title:'市场认可'}));
+  defs.push(makeDef([...slide.querySelectorAll('.ops-ledger-row')].map(row=>makeInfoCard({kicker:'Recognition',title:nodeText(row,'b'),body:nodeText(row,'span')})),{packClass:'matrix',title:'奖项与排名'}));
+  defs.push(...cardsToDefs([...slide.querySelectorAll('.ops-cell')].map(cardFromSimpleNode),3,{title:'研究覆盖如何支持投行'}));
+  return defs;
+}
+
+function defsForPricing(slide){
+  const defs=[];
+  defs.push(makeDef([...slide.querySelectorAll('.ops-flow:first-of-type .ops-step')].map(cardFromSimpleNode),{packClass:'matrix',title:'发行组织五步'}));
+  defs.push(...cardsToDefs([...slide.querySelectorAll('.ops-role')].map(cardFromSimpleNode),2,{title:'研究、投行、销售与市场闭环'}));
+  defs.push(makeDef([...slide.querySelectorAll('.ops-proof')].map(cardFromSimpleNode),{packClass:'matrix',title:'发行与定价证据'}));
+  return defs;
+}
+
+function defsForIpoRanking(slide){
+  const defs=[makeDef([rankGridFrom(slide)],{title:'2020-2026YTD IPO 主承销排名'})];
+  const kpis=[...slide.querySelectorAll('.ops-kpi')].map(node=>makeInfoCard({kicker:'2026.01-05',title:nodeText(node,'b'),body:nodeText(node,'span')}));
+  const cells=[...slide.querySelectorAll('.ops-cell,.ops-step')].map(cardFromSimpleNode);
+  defs.push(makeDef([...kpis,...cells],{packClass:'matrix',title:'2026 年前 5 月阶段性动能'}));
+  return defs;
+}
+
+function defsForClients(slide){
+  return [...slide.querySelectorAll('.client-cluster')].map(cluster=>makeDef([clientPageFromCluster(cluster)],{title:nodeText(cluster,'.client-cluster-head h3') || '客户覆盖'}));
+}
+
+function defsForTeam(slide){
+  const defs=[];
+  chunkItems([...slide.querySelectorAll('.ops-kpi')],2).forEach(group=>defs.push(makeDef([metricGridFrom(group)],{title:'团队配置'})));
+  defs.push(...cardsToDefs([...slide.querySelectorAll('.ops-cell')].map(cardFromSimpleNode),2,{title:'项目组织模型'}));
+  defs.push(makeDef([...slide.querySelectorAll('.ops-ledger-row')].map(row=>makeInfoCard({title:nodeText(row,'b'),body:nodeText(row,'span')})),{packClass:'matrix',title:'执行机制'}));
+  defs.push(makeDef([...slide.querySelectorAll('.ops-flow .ops-step')].map(cardFromSimpleNode),{packClass:'matrix',title:'服务节奏'}));
+  return defs;
+}
+
+function defsForOpsDeals(slide, title){
+  const deals=[...slide.querySelectorAll('.ops-deal')].map(dealCardFromOps);
+  return cardsToDefs(deals,3,{title});
+}
+
+function defsForTebao(slide){
+  const defs=[];
+  const tomb=slide.querySelector('.tombstone');
+  if(tomb){
+    const metricCards=[...tomb.querySelectorAll('.deal-metrics > div')].map(node=>makeInfoCard({kicker:'Key Fact',title:nodeText(node,'b'),body:nodeText(node,'span')}));
+    const main=makeInfoCard({
+      kicker:nodeText(tomb,'.code'),
+      title:nodeText(tomb,'.co'),
+      body:nodeText(tomb,'.deal-label'),
+      result:nodeText(tomb,'.status-box'),
+      dark:true,
+      cls:'phone-deal-card'
+    });
+    const factWrap=document.createElement('div');
+    factWrap.className='phone-pack';
+    factWrap.style.gridTemplateRows='auto minmax(0,1fr)';
+    main.classList.add('compact');
+    factWrap.appendChild(main);
+    factWrap.appendChild(makePack(metricCards,'matrix'));
+    defs.push({fragments:[factWrap], opts:{title:'特宝生物再融资交易要点', bodyClass:'curated'}});
+  }
+  const timeline=[...slide.querySelectorAll('.milestone')].map(node=>makeInfoCard({kicker:nodeText(node,'b'),title:nodeText(node,'b'),body:nodeText(node,'span')}));
+  const proceeds=[...slide.querySelectorAll('.use-of-proceeds > div')].map(node=>makeInfoCard({kicker:'Use of proceeds',title:nodeText(node,'b'),body:nodeText(node,'span')}));
+  defs.push(makeDef([...timeline,...proceeds],{packClass:'matrix',title:'时间线与募投方向'}));
+  defs.push(...cardsToDefs([...slide.querySelectorAll('.case-workbench > div')].map(node=>makeInfoCard({title:nodeText(node,'b'),body:nodeText(node,'span')})),3,{title:'项目执行要点'}));
+  return defs;
+}
+
+function defsForTimelineDeals(slide){
+  const defs=[];
+  const timeline=[...slide.querySelectorAll('.ops-node')].map(node=>makeInfoCard({kicker:nodeText(node,'b'),title:nodeText(node,'b'),body:nodeText(node,'span')}));
+  defs.push(makeDef(timeline,{packClass:'matrix',title:'融资接续时间线'}));
+  defs.push(...defsForOpsDeals(slide,'再融资与可转债案例'));
+  return defs;
+}
+
+function defsForArch(slide, title){
+  const defs=cardsToDefs([...slide.querySelectorAll('.ops-arch')].map(archCardFrom),1,{title});
+  const steps=[...slide.querySelectorAll('.ops-flow .ops-step')].map(cardFromSimpleNode);
+  if(steps.length) defs.push(makeDef(steps,{packClass:'matrix',title:'执行能力归纳'}));
+  return defs;
+}
+
+function defsForAdvantages(slide){
+  const roles=[...slide.querySelectorAll('.ops-role')].map(cardFromSimpleNode);
+  const defs=[makeDef([roles[0]],{title:'客户项目确定性'})];
+  defs.push(...cardsToDefs(roles.slice(1),2,{title:'执行优势'}));
+  defs.push(makeDef([...slide.querySelectorAll('.ops-deliverables > div')].map(node=>makeInfoCard({kicker:nodeText(node,'b'),title:nodeText(node,'b'),body:nodeText(node,'span')})),{packClass:'matrix',title:'交付物清单'}));
+  return defs;
+}
+
+function defsForYearbook(slide){
+  return cardsToDefs([...slide.querySelectorAll('.deal-card')].map(dealCardFromYearbook),2,{title:'交易年鉴'});
+}
+
+function defsForSummary(slide){
+  const stages=[...slide.querySelectorAll('.ops-stage')].map(cardFromSimpleNode);
+  const defs=cardsToDefs(stages,2,{title:'客户服务旅程'});
+  defs.push(makeDef([...slide.querySelectorAll('.ops-deliverables > div')].map(node=>makeInfoCard({kicker:nodeText(node,'b'),title:nodeText(node,'b'),body:nodeText(node,'span')})),{packClass:'matrix',title:'客户获得的交付物'}));
+  return defs;
+}
+
+function defsForSources(slide){
+  return cardsToDefs([...slide.querySelectorAll('.source-box')].map(sourceCardFrom),2,{title:'资料来源'});
+}
+
+function defsForGeneric(slide){
+  const selectors='.metric-box,.stat-tile,.ops-cell,.ops-proof,.ops-step,.ops-role,.ops-stage,.advisory-card,.execution-card-v7';
+  const nodes=[...slide.querySelectorAll(selectors)].filter(el=>!el.closest('.page-top,.page-foot'));
+  const unique=nodes.filter((el,_,arr)=>!arr.some(other=>other!==el && other.contains(el)));
+  const cards=unique.map(cardFromSimpleNode);
+  return cards.length ? cardsToDefs(cards,3,{title:nodeText(slide,'.headline')}) : [{fragments:[makePack([cleanPhoneClone(slide.querySelector('.canvas-card') || slide)])], opts:{bodyClass:'curated'}}];
+}
+
+phoneFragmentsForSlide=function(slide, slideIndex){
+  const pageNo=slideIndex+1;
+  if(pageNo===1 || pageNo===total) return [coverDef(slide, slideIndex)];
+  if(pageNo===2) return defsForAgenda(slide);
+  if(pageNo===3) return defsForRankingSlide(slide);
+  if(pageNo===4) return defsForProductRows(slide);
+  if(pageNo===5) return defsForExecutionPlatform(slide);
+  if(pageNo===6) return defsForCompany(slide);
+  if(pageNo===7) return defsForMetricsAndRows(slide,'投行平台关键数据');
+  if(pageNo===8) return defsForRecognition(slide);
+  if(pageNo===9) return defsForPricing(slide);
+  if(pageNo===10) return defsForIpoRanking(slide);
+  if(pageNo===11) return defsForMetricsAndRows(slide,'2025 年项目基础');
+  if(pageNo>=12 && pageNo<=15) return defsForClients(slide);
+  if(pageNo===16) return defsForTeam(slide);
+  if(pageNo>=17 && pageNo<=19) return defsForOpsDeals(slide,'IPO 代表案例');
+  if(pageNo===20) return defsForTebao(slide);
+  if(pageNo===21) return defsForOpsDeals(slide,'再融资代表案例');
+  if(pageNo===22) return defsForTimelineDeals(slide);
+  if(pageNo===23) return defsForArch(slide,'借壳上市交易结构');
+  if(pageNo===24) return defsForArch(slide,'并购交易矩阵');
+  if(pageNo===25) return defsForAdvantages(slide);
+  if(pageNo===26) return defsForYearbook(slide);
+  if(pageNo===27) return defsForSummary(slide);
+  if(pageNo===28) return defsForSources(slide);
+  return defsForGeneric(slide);
+};
 
 function buildPhoneDeck(){
   phoneTrack.innerHTML='';
