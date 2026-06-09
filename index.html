@@ -1747,6 +1747,11 @@
     object-fit:contain;
     filter:brightness(0) invert(1);
   }
+  .tombstone .top-band img.logo-white{
+    max-width:11vw;
+    max-height:5.2vh;
+    filter:none;
+  }
   .tombstone .case-mark{
     width:5.2vw;
     aspect-ratio:1;
@@ -1757,21 +1762,6 @@
     font-size:max(18px,1.2vw);
     letter-spacing:.08em;
     color:var(--gold-2);
-  }
-  .tombstone .logo-plaque{
-    width:11.8vw;
-    min-height:5.8vh;
-    padding:.75vh .8vw;
-    background:#fff;
-    border:1px solid rgba(255,255,255,.52);
-    display:grid;
-    place-items:center;
-  }
-  .tombstone .logo-plaque img{
-    max-width:10.2vw;
-    max-height:4.6vh;
-    object-fit:contain;
-    filter:none;
   }
   .tombstone .co{
     font-size:min(2.55vw,4.4vh);
@@ -4089,6 +4079,11 @@
       max-width:92px!important;
       max-height:44px!important;
     }
+    body.reading-flow .tombstone .top-band img.logo-white{
+      max-width:112px!important;
+      max-height:46px!important;
+      filter:none!important;
+    }
     body.reading-flow .tombstone .co,
     body.reading-flow .deal-summary .band h3{
       font-size:clamp(28px,8.8vw,38px)!important;
@@ -4620,6 +4615,16 @@
       max-height:42px!important;
       object-fit:contain;
     }
+    .phone-page .tombstone .top-band{
+      background:var(--navy)!important;
+      color:#fff!important;
+      padding:16px!important;
+    }
+    .phone-page .tombstone .top-band img.logo-white{
+      max-width:112px!important;
+      max-height:44px!important;
+      filter:none!important;
+    }
     .phone-page .milestone-line{
       display:grid!important;
       grid-template-columns:1fr!important;
@@ -4685,6 +4690,8 @@
     .phone-pack{
       flex:1 1 auto;
       min-height:0;
+      min-width:0;
+      width:100%;
       display:grid;
       grid-template-columns:1fr;
       grid-auto-rows:minmax(0,1fr);
@@ -4705,6 +4712,8 @@
     .phone-client-section,
     .phone-source-card{
       min-height:0;
+      min-width:0;
+      width:100%;
       display:flex;
       flex-direction:column;
       gap:8px;
@@ -4743,6 +4752,7 @@
       line-height:1.14!important;
       font-weight:650!important;
       color:var(--navy)!important;
+      overflow-wrap:anywhere;
     }
     .phone-card.dark h3,
     .phone-deal-card.dark h3,
@@ -5765,7 +5775,7 @@
       <div><div class="eyebrow">IPO Case</div><h2 class="headline">云汉芯城：穿越长周期审核与外部事件的创业板 IPO</h2></div>
 
       <div class="case-layout">
-        <div class="tombstone"><div class="top-band"><div><div class="co">云汉芯城</div><div class="code">301563.SZ</div></div><div class="logo-plaque"><img src="assets/logos/yunhan.png" alt="云汉芯城"></div></div><div class="deal-label">首次公开发行股票并在创业板上市</div><div class="deal-metrics"><div><b>27.00 元/股</b><span>发行价格</span></div><div><b>1,627.9025 万股</b><span>公开发行股数</span></div><div><b>43,953.37 万元</b><span>募集资金总额</span></div><div><b>保荐 / 主承销</b><span>Sinolink</span></div></div><div class="deal-notes"><div><b>公司定位</b><span>电子元器件 B2B 销售及 PCBA 业务，服务研发和生产采购场景。</span></div><div><b>项目周期</b><span>申报、问询、注册和发行跨越多个市场与行业周期。</span></div><div><b>外部事件</b><span>子公司云汉香港被美国 BIS 列入实体清单，需解释影响边界。</span></div><div><b>经营波动</b><span>审核和发行期间面临行业景气、收入利润波动和库存管理问题。</span></div></div><div class="status-box">2025 年 9 月 30 日在深交所创业板上市，股票代码 301563。</div></div>
+        <div class="tombstone"><div class="top-band"><div><div class="co">云汉芯城</div><div class="code">301563.SZ</div></div><img class="logo-white" src="assets/logos/yunhan-white.png" alt="云汉芯城"></div><div class="deal-label">首次公开发行股票并在创业板上市</div><div class="deal-metrics"><div><b>27.00 元/股</b><span>发行价格</span></div><div><b>1,627.9025 万股</b><span>公开发行股数</span></div><div><b>43,953.37 万元</b><span>募集资金总额</span></div><div><b>保荐 / 主承销</b><span>Sinolink</span></div></div><div class="deal-notes"><div><b>公司定位</b><span>电子元器件 B2B 销售及 PCBA 业务，服务研发和生产采购场景。</span></div><div><b>项目周期</b><span>申报、问询、注册和发行跨越多个市场与行业周期。</span></div><div><b>外部事件</b><span>子公司云汉香港被美国 BIS 列入实体清单，需解释影响边界。</span></div><div><b>经营波动</b><span>审核和发行期间面临行业景气、收入利润波动和库存管理问题。</span></div></div><div class="status-box">2025 年 9 月 30 日在深交所创业板上市，股票代码 301563。</div></div>
         <div class="timeline-plus"><div class="milestone-line"><div class="milestone"><b>2022.06</b><span>创业板 IPO 申请获受理，进入审核问询阶段。</span></div><div class="milestone"><b>2023.03</b><span>子公司云汉香港被列入实体清单，触发贸易合规和业务影响关注。</span></div><div class="milestone"><b>2025.09</b><span>完成发行并在创业板上市。</span></div><div class="milestone"><b>后续</b><span>上市后持续督导、再融资、并购咨询。</span></div></div><div class="use-of-proceeds"><div><b>B2B 服务能力</b><span>强化线上交易、仓储交付和客户服务能力。</span></div><div><b>PCBA 与供应链</b><span>围绕电子制造采购场景提升配套服务效率。</span></div><div><b>数字化运营</b><span>用交易数据、SKU 管理和库存周转支撑规模化服务。</span></div></div><div class="case-workbench"><div><b>长周期执行</b><span>持续衔接审核问询、注册阶段、发行准备和上市节奏。</span></div><div><b>合规解释</b><span>把实体清单事件拆分为主体、业务、供应链和财务影响边界。</span></div><div><b>业绩波动</b><span>说明行业周期、客户结构、毛利率和库存管理对经营表现的影响。</span></div><div><b>投资者沟通</b><span>把元器件供应链平台的商业模式转化为可理解的增长逻辑。</span></div><div><b>发行组织</b><span>在市场窗口中完成询价、定价、配售和上市安排。</span></div><div><b>客户价值</b><span>高不确定性项目最终落地，体现复杂科技企业资本市场执行能力。</span></div></div></div>
       </div>
     </div>
