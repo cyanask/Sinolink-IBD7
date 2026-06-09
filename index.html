@@ -3678,6 +3678,9 @@
     font-size:max(13.5px,.76vw);
     line-height:1.18;
   }
+  #phone-deck{
+    display:none;
+  }
 
   @media (max-width:767px) and (orientation:portrait){
     html,body{
@@ -4164,6 +4167,492 @@
     body.reading-flow .closing-title span{
       white-space:nowrap!important;
     }
+    html.phone-paged-root,
+    html.phone-paged-root body{
+      width:100%;
+      height:100%;
+      min-height:100%;
+      overflow:hidden!important;
+      background:var(--paper);
+    }
+    body.phone-paged{
+      position:fixed;
+      inset:0;
+      overflow:hidden!important;
+      touch-action:none;
+      -webkit-text-size-adjust:100%;
+    }
+    body.phone-paged #deck,
+    body.phone-paged #nav,
+    body.phone-paged #hint{
+      display:none!important;
+    }
+    body.phone-paged #phone-deck{
+      display:block;
+      position:fixed;
+      inset:0;
+      width:100vw;
+      height:100svh;
+      overflow:hidden;
+      background:var(--paper);
+      color:var(--ink);
+      z-index:80;
+    }
+    .phone-track{
+      width:100%;
+      height:100%;
+      display:flex;
+      flex-direction:column;
+      transition:transform .38s cubic-bezier(.2,0,.2,1);
+      will-change:transform;
+    }
+    .phone-page{
+      width:100%;
+      height:100svh;
+      flex:0 0 100svh;
+      min-height:0;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      padding:18px 17px 16px;
+      overflow:hidden;
+      background:
+        linear-gradient(90deg,rgba(6,50,75,.08) 0 1px,transparent 1px) 0 0/25% 100%,
+        var(--paper);
+      color:var(--ink);
+    }
+    .phone-page.dark,
+    .phone-page.phone-cover{
+      background:
+        linear-gradient(180deg,rgba(7,50,74,.96),rgba(7,50,74,.88)),
+        url("assets/cover-background.png") center / cover no-repeat;
+      color:#fff;
+    }
+    .phone-top,
+    .phone-foot{
+      flex:0 0 auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      font-family:var(--mono);
+      font-size:10px;
+      line-height:1.2;
+      letter-spacing:.1em;
+      text-transform:uppercase;
+      color:rgba(6,25,39,.58);
+    }
+    .phone-page.dark .phone-top,
+    .phone-page.dark .phone-foot,
+    .phone-page.phone-cover .phone-top,
+    .phone-page.phone-cover .phone-foot{
+      color:rgba(255,255,255,.72);
+    }
+    .phone-top{
+      padding-bottom:10px;
+      border-bottom:1px solid rgba(6,25,39,.14);
+    }
+    .phone-page.dark .phone-top,
+    .phone-page.phone-cover .phone-top{
+      border-bottom-color:rgba(255,255,255,.22);
+    }
+    .phone-brand,
+    .phone-page-no{
+      min-width:0;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+    .phone-page-no{
+      color:var(--gold);
+      flex:0 0 auto;
+    }
+    .phone-title{
+      flex:0 0 auto;
+      display:flex;
+      flex-direction:column;
+      gap:5px;
+    }
+    .phone-title .eyebrow{
+      margin:0;
+      font-size:11px!important;
+      line-height:1.2!important;
+      letter-spacing:.14em!important;
+      color:var(--gold);
+    }
+    .phone-title h1,
+    .phone-title h2{
+      margin:0!important;
+      font-size:clamp(23px,6.4vw,31px)!important;
+      line-height:1.12!important;
+      font-weight:520!important;
+      color:inherit;
+      letter-spacing:0;
+      overflow-wrap:break-word;
+    }
+    .phone-title h1{
+      font-size:clamp(30px,9vw,43px)!important;
+      line-height:1.03!important;
+    }
+    .phone-body{
+      flex:1 1 auto;
+      min-height:0;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      overflow:hidden;
+    }
+    .phone-unit-grid{
+      flex:1 1 auto;
+      min-height:0;
+      display:grid;
+      grid-template-columns:1fr;
+      align-content:start;
+      gap:9px;
+      overflow:hidden;
+    }
+    .phone-unit-grid.compact{
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:8px;
+    }
+    .phone-unit-grid.flow{
+      grid-template-columns:1fr;
+      gap:8px;
+    }
+    .phone-page [data-anim]{
+      opacity:1!important;
+      transform:none!important;
+    }
+    .phone-page p,
+    .phone-page li,
+    .phone-page span,
+    .phone-page .desc,
+    .phone-page .sub,
+    .phone-page .out,
+    .phone-page .result,
+    .phone-page .ops-output,
+    .phone-page .rank-note,
+    .phone-page .details{
+      font-size:14px!important;
+      line-height:1.38!important;
+    }
+    .phone-page h3{
+      margin:0 0 6px!important;
+      font-size:18px!important;
+      line-height:1.16!important;
+      font-weight:620!important;
+      color:var(--navy);
+    }
+    .phone-page .dark h3,
+    .phone-page .ops-deal.dark h3,
+    .phone-page .client-cluster.dark h3,
+    .phone-page .phone-cover h3{
+      color:#fff;
+    }
+    .phone-page ul{
+      margin:7px 0 0!important;
+      padding-left:17px!important;
+    }
+    .phone-page li+li{
+      margin-top:4px!important;
+    }
+    .phone-page .agenda-item,
+    .phone-page .stat-tile,
+    .phone-page .metric-box,
+    .phone-page .execution-card-v7,
+    .phone-page .advisory-card,
+    .phone-page .ops-panel,
+    .phone-page .ops-cell,
+    .phone-page .ops-deal,
+    .phone-page .ops-stage,
+    .phone-page .ops-role,
+    .phone-page .ops-arch,
+    .phone-page .ops-proof,
+    .phone-page .source-box,
+    .phone-page .deal-card,
+    .phone-page .client-cluster,
+    .phone-page .case-row,
+    .phone-page .process-row,
+    .phone-page .matrix-cell,
+    .phone-page .milestone,
+    .phone-page .timeline-node,
+    .phone-page .ops-step,
+    .phone-page .rank-ledger,
+    .phone-page .execution-matrix,
+    .phone-page .process-strip-v7,
+    .phone-page .ops-flow,
+    .phone-page .ops-deliverables,
+    .phone-page .deal-notes,
+    .phone-page .case-workbench,
+    .phone-page .use-of-proceeds,
+    .phone-page .deal-metrics{
+      height:auto!important;
+      min-height:0!important;
+      display:block!important;
+      padding:12px!important;
+      border:1px solid rgba(6,25,39,.13)!important;
+      background:rgba(255,255,255,.94)!important;
+      box-shadow:none!important;
+      color:var(--ink)!important;
+      overflow:hidden;
+    }
+    .phone-page .dark,
+    .phone-page .agenda-item.dark,
+    .phone-page .stat-tile.dark,
+    .phone-page .execution-card-v7.dark,
+    .phone-page .advisory-card.dark,
+    .phone-page .ops-deal.dark,
+    .phone-page .ops-stage.dark,
+    .phone-page .ops-role.dark,
+    .phone-page .ops-arch.dark,
+    .phone-page .client-cluster.dark{
+      background:var(--navy)!important;
+      border-color:rgba(255,255,255,.18)!important;
+      color:#fff!important;
+    }
+    .phone-page .idx,
+    .phone-page .code,
+    .phone-page .ops-tag,
+    .phone-page .type,
+    .phone-page .deal-label{
+      color:var(--gold)!important;
+    }
+    .phone-page .stat-tile .num,
+    .phone-page .metric-box b,
+    .phone-page .rank-no,
+    .phone-page .deal-metrics b,
+    .phone-page .deal-card .amount,
+    .phone-page .amount,
+    .phone-page .co,
+    .phone-page .client-name,
+    .phone-page .status-box{
+      font-size:16px!important;
+      line-height:1.2!important;
+    }
+    .phone-page .stat-tile .num,
+    .phone-page .rank-no,
+    .phone-page .co{
+      font-size:clamp(25px,8vw,36px)!important;
+      color:var(--gold)!important;
+      font-weight:620!important;
+    }
+    .phone-page .rank-ledger{
+      display:grid!important;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:1px;
+      background:rgba(6,25,39,.12)!important;
+      padding:1px!important;
+    }
+    .phone-page .rank-ledger > div{
+      background:#fff;
+      padding:10px!important;
+      min-height:72px!important;
+    }
+    .phone-page .rank-head{
+      grid-column:1 / -1;
+    }
+    .phone-page .client-chip-grid{
+      display:grid!important;
+      grid-template-columns:repeat(2,minmax(0,1fr))!important;
+      gap:1px!important;
+      margin-top:9px;
+      background:rgba(6,25,39,.12)!important;
+    }
+    .phone-page .client-chip{
+      min-height:58px!important;
+      padding:8px!important;
+      display:flex!important;
+      flex-direction:column;
+      justify-content:center;
+      background:#fff!important;
+      border:0!important;
+    }
+    .phone-page .client-cluster.dark .client-chip{
+      background:rgba(255,255,255,.1)!important;
+    }
+    .phone-page .client-name{
+      white-space:normal!important;
+      overflow:visible!important;
+      text-overflow:clip!important;
+      color:var(--navy)!important;
+      font-weight:620!important;
+    }
+    .phone-page .client-cluster.dark .client-name{
+      color:#fff!important;
+    }
+    .phone-page .client-code,
+    .phone-page .client-chip em{
+      font-size:13px!important;
+      line-height:1.18!important;
+      color:rgba(6,25,39,.62)!important;
+      white-space:normal!important;
+    }
+    .phone-page .client-cluster.dark .client-code,
+    .phone-page .client-cluster.dark .client-chip em{
+      color:rgba(255,255,255,.65)!important;
+    }
+    .phone-page .case-row,
+    .phone-page .process-row{
+      display:grid!important;
+      grid-template-columns:1fr!important;
+      gap:0;
+      padding:0!important;
+    }
+    .phone-page .case-row > div,
+    .phone-page .process-row > div{
+      padding:8px 10px!important;
+      border-top:1px solid rgba(6,25,39,.1)!important;
+      border-right:0!important;
+    }
+    .phone-page .case-row > div:first-child,
+    .phone-page .process-row > div:first-child{
+      border-top:0!important;
+    }
+    .phone-page .deal-card{
+      display:flex!important;
+      flex-direction:column;
+      gap:7px;
+    }
+    .phone-page .deal-card h3,
+    .phone-page .ops-deal h3,
+    .phone-page .source-box h3{
+      font-size:19px!important;
+    }
+    .phone-page .deal-card .type{
+      display:flex!important;
+      justify-content:space-between;
+      gap:8px;
+      padding:0!important;
+      border:0!important;
+      background:transparent!important;
+      font-family:var(--mono);
+      font-size:13px!important;
+      letter-spacing:.1em;
+    }
+    .phone-page .deal-card .type span,
+    .phone-page .deal-card .details span,
+    .phone-page .deal-card .details b{
+      font-size:13px!important;
+      line-height:1.22!important;
+    }
+    .phone-page .deal-card .amount,
+    .phone-page .ops-deal .result,
+    .phone-page .ops-output{
+      margin-top:auto;
+      color:var(--navy)!important;
+      font-weight:620!important;
+    }
+    .phone-page .deal-metrics,
+    .phone-page .deal-notes,
+    .phone-page .case-workbench,
+    .phone-page .use-of-proceeds,
+    .phone-page .ops-arch-facts,
+    .phone-page .ops-deliverables{
+      display:grid!important;
+      grid-template-columns:1fr!important;
+      gap:7px;
+      padding:0!important;
+      border:0!important;
+      background:transparent!important;
+    }
+    .phone-page .deal-metrics > div,
+    .phone-page .deal-notes > div,
+    .phone-page .case-workbench > div,
+    .phone-page .use-of-proceeds > div,
+    .phone-page .ops-arch-row,
+    .phone-page .ops-deliverables > div{
+      padding:10px!important;
+      border:1px solid rgba(6,25,39,.12)!important;
+      background:#fff!important;
+    }
+    .phone-page .deal-label,
+    .phone-page .status-box{
+      display:block!important;
+      padding:11px 12px!important;
+      border:1px solid rgba(194,151,91,.28)!important;
+      background:rgba(194,151,91,.1)!important;
+      font-weight:620!important;
+    }
+    .phone-page .tombstone,
+    .phone-page .phone-tombstone{
+      display:flex!important;
+      flex-direction:column;
+      gap:10px;
+      min-height:0!important;
+    }
+    .phone-page .top-band{
+      display:grid!important;
+      grid-template-columns:1fr auto!important;
+      align-items:center;
+      gap:12px;
+      padding:0!important;
+      border:0!important;
+      background:transparent!important;
+    }
+    .phone-page .top-band img{
+      max-width:84px!important;
+      max-height:42px!important;
+      object-fit:contain;
+    }
+    .phone-page .milestone-line{
+      display:grid!important;
+      grid-template-columns:1fr!important;
+      gap:8px!important;
+      padding:0!important;
+      border:0!important;
+    }
+    .phone-page .source-box p{
+      word-break:break-word;
+    }
+    .phone-counter{
+      display:none;
+    }
+    .phone-tap-zone{
+      position:fixed;
+      left:0;
+      width:100%;
+      height:22%;
+      z-index:88;
+      border:0;
+      background:transparent;
+      padding:0;
+      opacity:0;
+    }
+    .phone-tap-zone.prev{top:0}
+    .phone-tap-zone.next{bottom:0}
+    .phone-page.phone-cover .cover-body{
+      flex:1 1 auto;
+      display:flex!important;
+      flex-direction:column;
+      justify-content:center;
+      gap:28px;
+    }
+    .phone-page.phone-cover .cover-meta-grid{
+      display:grid!important;
+      grid-template-columns:repeat(2,minmax(0,1fr))!important;
+      gap:1px!important;
+      background:rgba(255,255,255,.16)!important;
+      border:1px solid rgba(255,255,255,.18)!important;
+    }
+    .phone-page.phone-cover .cover-meta-grid div{
+      min-height:74px!important;
+      padding:12px!important;
+      background:rgba(255,255,255,.08)!important;
+      color:#fff!important;
+      font-size:15px!important;
+      line-height:1.35!important;
+    }
+    .phone-page.phone-cover .headline.big,
+    .phone-page.phone-cover .closing-title{
+      color:#fff!important;
+      font-size:clamp(35px,10.4vw,48px)!important;
+      line-height:1.04!important;
+    }
+    .phone-page.phone-cover .closing-title span{
+      display:block;
+      white-space:nowrap;
+      font-size:clamp(25px,7vw,34px)!important;
+    }
   }
 
 </style>
@@ -4173,13 +4662,16 @@
   (function(){
     const query = matchMedia('(max-width: 767px) and (orientation: portrait)');
     function sync(){
-      document.body.classList.toggle('reading-flow', query.matches);
+      document.body.classList.remove('reading-flow');
+      document.body.classList.toggle('phone-paged', query.matches);
+      document.documentElement.classList.toggle('phone-paged-root', query.matches);
     }
     sync();
     if(query.addEventListener) query.addEventListener('change', sync);
     else query.addListener(sync);
+    window.__phonePagedQuery = query;
+    window.__syncPhonePagedClass = sync;
     window.__readingFlowQuery = query;
-    window.__syncReadingFlowClass = sync;
   })();
   // Windows 平台标记 — 雅黑没有 ExtraLight,需要字重补偿
   if(/Win/i.test(navigator.platform || navigator.userAgentData?.platform || '')){
@@ -5441,15 +5933,20 @@ const deck=document.getElementById('deck');
 const slides=deck.querySelectorAll('.slide');
 const nav=document.getElementById('nav');
 let idx=0,total=slides.length,lock=false;
-const readingQuery = window.__readingFlowQuery || matchMedia('(max-width: 767px) and (orientation: portrait)');
+const phoneQuery = window.__phonePagedQuery || matchMedia('(max-width: 767px) and (orientation: portrait)');
+const readingQuery = window.__readingFlowQuery || phoneQuery;
+
+function phoneActive(){
+  return document.body.classList.contains('phone-paged');
+}
 
 function readingActive(){
-  return document.body.classList.contains('reading-flow');
+  return document.body.classList.contains('reading-flow') && !phoneActive();
 }
 
 function setDeckGeometry(){
-  deck.style.width = readingActive() ? '100%' : (total*100)+'vw';
-  if(readingActive()) deck.style.transform = 'none';
+  deck.style.width = (readingActive() || phoneActive()) ? '100%' : (total*100)+'vw';
+  if(readingActive() || phoneActive()) deck.style.transform = 'none';
 }
 
 setDeckGeometry();
@@ -5461,9 +5958,342 @@ slides.forEach((s,i)=>{
   nav.appendChild(b);
 });
 
+const phoneDeck=document.createElement('div');
+phoneDeck.id='phone-deck';
+phoneDeck.setAttribute('aria-hidden','true');
+const phoneTrack=document.createElement('div');
+phoneTrack.className='phone-track';
+const phoneCounter=document.createElement('div');
+phoneCounter.className='phone-counter';
+const phoneTapPrev=document.createElement('button');
+phoneTapPrev.type='button';
+phoneTapPrev.className='phone-tap-zone prev';
+phoneTapPrev.setAttribute('aria-label','Previous page');
+const phoneTapNext=document.createElement('button');
+phoneTapNext.type='button';
+phoneTapNext.className='phone-tap-zone next';
+phoneTapNext.setAttribute('aria-label','Next page');
+phoneDeck.append(phoneTrack, phoneCounter, phoneTapPrev, phoneTapNext);
+deck.insertAdjacentElement('afterend', phoneDeck);
+
+let phoneReady=false;
+let phoneIdx=0;
+let phonePages=[];
+let phoneIndexBySlide=[];
+
+function cleanPhoneClone(node){
+  const clone=node.cloneNode(true);
+  if(clone.nodeType===1){
+    clone.removeAttribute('style');
+    clone.removeAttribute('data-anim');
+  }
+  clone.querySelectorAll('[style],[data-anim]').forEach(el=>{
+    el.removeAttribute('style');
+    el.removeAttribute('data-anim');
+  });
+  return clone;
+}
+
+function phoneSlideLabel(slideIndex, partNo, partTotal){
+  const base=String(slideIndex+1).padStart(2,'0');
+  const suffix=partTotal>1 ? String.fromCharCode(64+partNo) : '';
+  return `${base}${suffix}/${total}`;
+}
+
+function phoneTitleHTML(slide){
+  const title=slide.querySelector('.headline,.closing-title');
+  return title ? title.innerHTML : '';
+}
+
+function phoneEyebrow(slide){
+  const eyebrow=slide.querySelector('.eyebrow');
+  return eyebrow ? eyebrow.textContent.trim() : '';
+}
+
+function phoneBrand(slide){
+  const brand=slide.querySelector('.brand-lockup');
+  return brand ? brand.textContent.trim() : 'Sinolink';
+}
+
+function makePhonePage(slide, slideIndex, partNo, partTotal, fragments, opts={}){
+  const page=document.createElement('section');
+  page.className='phone-page';
+  if(opts.dark || slide.classList.contains('dark') || slide.classList.contains('accent')) page.classList.add('dark');
+  if(opts.cover || slide.classList.contains('cover')) page.classList.add('phone-cover');
+  page.dataset.slideIndex=slideIndex;
+  page.dataset.phoneLabel=phoneSlideLabel(slideIndex,partNo,partTotal);
+
+  const top=document.createElement('div');
+  top.className='phone-top';
+  const brand=document.createElement('div');
+  brand.className='phone-brand';
+  brand.textContent=phoneBrand(slide);
+  const no=document.createElement('div');
+  no.className='phone-page-no';
+  no.textContent=`2026.06.08 · ${page.dataset.phoneLabel}`;
+  top.append(brand,no);
+  page.appendChild(top);
+
+  if(!opts.omitTitle){
+    const titleWrap=document.createElement('div');
+    titleWrap.className='phone-title';
+    const eyebrow=phoneEyebrow(slide);
+    if(eyebrow){
+      const e=document.createElement('div');
+      e.className='eyebrow';
+      e.textContent=eyebrow;
+      titleWrap.appendChild(e);
+    }
+    const titleHTML=phoneTitleHTML(slide);
+    if(titleHTML){
+      const h=document.createElement(slide.querySelector('.closing-title,.headline.big') ? 'h1' : 'h2');
+      h.innerHTML=titleHTML;
+      titleWrap.appendChild(h);
+    }
+    page.appendChild(titleWrap);
+  }
+
+  const body=document.createElement('div');
+  body.className=`phone-body${opts.bodyClass ? ' '+opts.bodyClass : ''}`;
+  fragments.forEach(fragment=>body.appendChild(fragment));
+  page.appendChild(body);
+
+  const foot=document.createElement('div');
+  foot.className='phone-foot';
+  const footLeft=document.createElement('span');
+  footLeft.textContent='Sinolink';
+  const footRight=document.createElement('span');
+  footRight.textContent='2026.06.08';
+  foot.append(footLeft,footRight);
+  page.appendChild(foot);
+  return page;
+}
+
+function makeUnitGrid(nodes, group=''){
+  const grid=document.createElement('div');
+  grid.className=`phone-unit-grid${group ? ' '+group : ''}`;
+  nodes.forEach(n=>grid.appendChild(cleanPhoneClone(n)));
+  return grid;
+}
+
+function chunkArray(items,size){
+  const out=[];
+  for(let i=0;i<items.length;i+=size) out.push(items.slice(i,i+size));
+  return out;
+}
+
+function unitGroup(el){
+  if(el.classList.contains('client-cluster')) return 'client-cluster';
+  if(el.classList.contains('deal-card')) return 'deal-card';
+  if(el.classList.contains('ops-deal')) return 'ops-deal';
+  if(el.classList.contains('source-box')) return 'source-box';
+  if(el.classList.contains('case-row') || el.classList.contains('process-row')) return 'case-row';
+  if(el.classList.contains('agenda-item')) return 'agenda-item';
+  if(el.classList.contains('stat-tile')) return 'stat-tile';
+  if(el.classList.contains('metric-box')) return 'metric-box';
+  if(el.classList.contains('execution-card-v7')) return 'execution-card';
+  if(el.classList.contains('advisory-card')) return 'advisory-card';
+  if(el.classList.contains('ops-stage')) return 'ops-stage';
+  if(el.classList.contains('ops-role')) return 'ops-role';
+  if(el.classList.contains('ops-arch')) return 'ops-arch';
+  if(el.classList.contains('ops-panel') || el.classList.contains('ops-cell') || el.classList.contains('ops-proof')) return 'ops-panel';
+  if(el.classList.contains('milestone') || el.classList.contains('timeline-node') || el.classList.contains('ops-step')) return 'small-flow';
+  return 'single';
+}
+
+function unitChunkSize(group){
+  if(group==='client-cluster' || group==='ops-arch') return 1;
+  if(group==='deal-card' || group==='ops-deal' || group==='source-box' || group==='case-row' || group==='execution-card' || group==='advisory-card' || group==='ops-stage' || group==='ops-role' || group==='ops-panel') return 2;
+  if(group==='agenda-item' || group==='stat-tile' || group==='metric-box' || group==='small-flow') return 3;
+  return 1;
+}
+
+function gridClassFor(group,count){
+  if((group==='deal-card' || group==='ops-deal' || group==='source-box' || group==='agenda-item' || group==='stat-tile' || group==='metric-box' || group==='small-flow') && count>1) return 'compact';
+  return '';
+}
+
+function splitClientCluster(cluster){
+  const chips=[...cluster.querySelectorAll('.client-chip')];
+  if(chips.length<=8) return [cleanPhoneClone(cluster)];
+  const out=[];
+  chunkArray(chips,8).forEach(slice=>{
+    const wrap=document.createElement('div');
+    wrap.className=cluster.className;
+    const head=cluster.querySelector('.client-cluster-head');
+    if(head) wrap.appendChild(cleanPhoneClone(head));
+    const grid=document.createElement('div');
+    grid.className='client-chip-grid';
+    slice.forEach(chip=>grid.appendChild(cleanPhoneClone(chip)));
+    wrap.appendChild(grid);
+    out.push(wrap);
+  });
+  return out;
+}
+
+function makeTombstonePages(slide, slideIndex){
+  const tomb=slide.querySelector('.tombstone');
+  const parts=[];
+  if(!tomb) return parts;
+
+  const fact=document.createElement('div');
+  fact.className='phone-tombstone';
+  ['.top-band','.deal-label','.deal-metrics','.status-box'].forEach(sel=>{
+    const el=tomb.querySelector(sel);
+    if(el) fact.appendChild(cleanPhoneClone(el));
+  });
+  parts.push([fact]);
+
+  const timeline=document.createElement('div');
+  timeline.className='phone-unit-grid flow';
+  ['.milestone-line','.use-of-proceeds'].forEach(sel=>{
+    const el=slide.querySelector(sel);
+    if(el) timeline.appendChild(cleanPhoneClone(el));
+  });
+  if(timeline.childElementCount) parts.push([timeline]);
+
+  const notes=tomb.querySelector('.deal-notes');
+  if(notes) parts.push([cleanPhoneClone(notes)]);
+
+  const workbench=slide.querySelector('.case-workbench');
+  if(workbench) parts.push([cleanPhoneClone(workbench)]);
+  return parts;
+}
+
+function collectPhoneUnits(slide){
+  const selectors=[
+    '.client-cluster',
+    '.deal-card',
+    '.source-box',
+    '.ops-deal',
+    '.ops-arch',
+    '.ops-stage',
+    '.ops-role',
+    '.advisory-card',
+    '.execution-card-v7',
+    '.stat-tile',
+    '.metric-box',
+    '.agenda-item',
+    '.case-row:not(.head)',
+    '.process-row:not(.head)',
+    '.ops-panel',
+    '.ops-cell',
+    '.ops-proof',
+    '.milestone',
+    '.timeline-node',
+    '.ops-step',
+    '.rank-ledger',
+    '.execution-matrix',
+    '.process-strip-v7',
+    '.ops-flow',
+    '.ops-deliverables',
+    '.metric-strip'
+  ];
+  const found=[...slide.querySelectorAll(selectors.join(','))]
+    .filter(el=>!el.closest('.page-top,.page-foot,.tombstone'));
+  const unique=found.filter((el,_,arr)=>!arr.some(other=>other!==el && other.contains(el)));
+  unique.sort((a,b)=>a.compareDocumentPosition(b)&Node.DOCUMENT_POSITION_PRECEDING ? 1 : -1);
+  return unique;
+}
+
+function phoneFragmentsForSlide(slide, slideIndex){
+  if(slide.classList.contains('cover')){
+    const body=slide.querySelector('.cover-body');
+    return [{fragments:[body ? cleanPhoneClone(body) : document.createElement('div')], opts:{cover:true,omitTitle:true}}];
+  }
+  const tombPages=makeTombstonePages(slide,slideIndex);
+  if(tombPages.length){
+    return tombPages.map(fragments=>({fragments, opts:{}}));
+  }
+  const units=collectPhoneUnits(slide);
+  if(!units.length){
+    const card=slide.querySelector('.canvas-card');
+    const fragment=document.createElement('div');
+    fragment.className='phone-unit-grid';
+    [...card.children].filter(el=>!el.classList.contains('page-top')&&!el.classList.contains('page-foot')).forEach(el=>fragment.appendChild(cleanPhoneClone(el)));
+    return [{fragments:[fragment], opts:{}}];
+  }
+  const pages=[];
+  let buffer=[], group=null;
+  function flush(){
+    if(!buffer.length) return;
+    const cls=gridClassFor(group,buffer.length);
+    pages.push({fragments:[makeUnitGrid(buffer,cls)], opts:{}});
+    buffer=[];group=null;
+  }
+  units.forEach(unit=>{
+    if(unit.classList.contains('client-cluster')){
+      flush();
+      splitClientCluster(unit).forEach(cluster=>pages.push({fragments:[makeUnitGrid([cluster])], opts:{}}));
+      return;
+    }
+    const g=unitGroup(unit);
+    const size=unitChunkSize(g);
+    if(group && (group!==g || buffer.length>=unitChunkSize(group))) flush();
+    group=g;
+    buffer.push(unit);
+    if(buffer.length>=size) flush();
+  });
+  flush();
+  return pages;
+}
+
+function buildPhoneDeck(){
+  phoneTrack.innerHTML='';
+  phonePages=[];
+  phoneIndexBySlide=[];
+  slides.forEach((slide,slideIndex)=>{
+    const pageDefs=phoneFragmentsForSlide(slide,slideIndex);
+    pageDefs.forEach((def,i)=>{
+      const page=makePhonePage(slide,slideIndex,i+1,pageDefs.length,def.fragments,def.opts);
+      if(phoneIndexBySlide[slideIndex]===undefined) phoneIndexBySlide[slideIndex]=phonePages.length;
+      phoneTrack.appendChild(page);
+      phonePages.push(page);
+    });
+  });
+  phoneReady=true;
+}
+
+function ensurePhoneDeck(){
+  if(!phoneReady) buildPhoneDeck();
+}
+
+function syncPhoneState(page){
+  const original=slides[Number(page.dataset.slideIndex)] || slides[idx];
+  const isDark=page.classList.contains('dark') || page.classList.contains('phone-cover');
+  document.body.classList.toggle('dark-bg', isDark);
+  darkMode=isDark;
+  idx=Number(page.dataset.slideIndex) || 0;
+  window.__currentSlideIndex=idx;
+  nav.querySelectorAll('.dot').forEach((d,i)=>d.classList.toggle('active',i===idx));
+  if(original) syncSlideState(original);
+  document.body.classList.toggle('dark-bg', isDark);
+}
+
+function goPhone(n, opts={}){
+  ensurePhoneDeck();
+  phoneIdx=Math.max(0,Math.min(phonePages.length-1,n));
+  const page=phonePages[phoneIdx];
+  const transition=opts.instant ? 'none' : '';
+  if(transition) phoneTrack.style.transition=transition;
+  phoneTrack.style.transform=`translate3d(0,${-phoneIdx*100}svh,0)`;
+  if(transition) requestAnimationFrame(()=>{phoneTrack.style.transition='';});
+  phoneCounter.textContent=`${phoneIdx+1}/${phonePages.length}`;
+  if(page) syncPhoneState(page);
+}
+
+function goPhoneBySlide(slideIndex, opts={}){
+  ensurePhoneDeck();
+  const target=phoneIndexBySlide[Math.max(0,Math.min(total-1,slideIndex))] ?? 0;
+  goPhone(target,opts);
+}
+
+phoneTapPrev.onclick=()=>goPhone(phoneIdx-1);
+phoneTapNext.onclick=()=>goPhone(phoneIdx+1);
+
 function syncSlideState(el){
   const isDark = el.classList.contains('dark') || el.classList.contains('accent') || el.classList.contains('cover');
-  document.body.classList.toggle('dark-bg', isDark && !readingActive());
+  document.body.classList.toggle('dark-bg', isDark && !readingActive() && !phoneActive());
   darkMode = isDark;
 }
 
@@ -5476,7 +6306,12 @@ function go(n, opts={}){
   idx=Math.max(0,Math.min(total-1,n));
   window.__currentSlideIndex = idx;
   const el=slides[idx];
-  if(readingActive()){
+  if(phoneActive()){
+    setDeckGeometry();
+    goPhoneBySlide(idx,opts);
+    lock=false;
+    return;
+  }else if(readingActive()){
     setDeckGeometry();
     if(opts.scroll !== false){
       scrollToReadingSlide(el, !!opts.instant);
@@ -5495,7 +6330,9 @@ function go(n, opts={}){
 }
 
 function syncReadingLayout(){
-  if(window.__syncReadingFlowClass) window.__syncReadingFlowClass();
+  if(window.__syncPhonePagedClass) window.__syncPhonePagedClass();
+  else if(window.__syncReadingFlowClass) window.__syncReadingFlowClass();
+  if(phoneActive()) ensurePhoneDeck();
   setDeckGeometry();
   go(idx,{force:true,instant:true,scroll:readingActive()});
 }
@@ -5567,6 +6404,20 @@ addEventListener('keydown',e=>{
     window.__setLowPowerMode(!window.__lowPowerMode);
     return;
   }
+  if(phoneActive()){
+    if(e.key==='ArrowRight'||e.key==='PageDown'||e.key===' '||e.key==='ArrowDown'){
+      e.preventDefault();
+      goPhone(phoneIdx+1);
+      return;
+    }
+    if(e.key==='ArrowLeft'||e.key==='PageUp'||e.key==='ArrowUp'){
+      e.preventDefault();
+      goPhone(phoneIdx-1);
+      return;
+    }
+    if(e.key==='Home'){e.preventDefault();goPhone(0);return;}
+    if(e.key==='End'){e.preventDefault();goPhone(phonePages.length-1);return;}
+  }
   if(overviewOn)return;
   if(e.key==='ArrowRight'||e.key==='PageDown'||e.key===' '||e.key==='ArrowDown'){
     if(window.__pipeAdvance && window.__pipeAdvance()) return;
@@ -5580,6 +6431,16 @@ addEventListener('keydown',e=>{
 
 let wheelTO=null,wheelAcc=0;
 addEventListener('wheel',e=>{
+  if(phoneActive()){
+    e.preventDefault();
+    wheelAcc+=e.deltaY+e.deltaX;
+    if(Math.abs(wheelAcc)>45){
+      goPhone(phoneIdx+(wheelAcc>0?1:-1));
+      wheelAcc=0;
+    }
+    clearTimeout(wheelTO);wheelTO=setTimeout(()=>wheelAcc=0,150);
+    return;
+  }
   if(readingActive())return;
   wheelAcc+=e.deltaY+e.deltaX;
   if(Math.abs(wheelAcc)>50){
@@ -5590,11 +6451,22 @@ addEventListener('wheel',e=>{
     }
   }
   clearTimeout(wheelTO);wheelTO=setTimeout(()=>wheelAcc=0,150);
-},{passive:true});
+},{passive:false});
 
 let tx=0,ty=0;
 addEventListener('touchstart',e=>{tx=e.touches[0].clientX;ty=e.touches[0].clientY},{passive:true});
+addEventListener('touchmove',e=>{
+  if(phoneActive()) e.preventDefault();
+},{passive:false});
 addEventListener('touchend',e=>{
+  if(phoneActive()){
+    const dx=(e.changedTouches[0].clientX-tx);
+    const dy=(e.changedTouches[0].clientY-ty);
+    if(Math.abs(dy)>42&&Math.abs(dy)>Math.abs(dx)){
+      goPhone(phoneIdx+(dy<0?1:-1));
+    }
+    return;
+  }
   if(readingActive())return;
   const dx=(e.changedTouches[0].clientX-tx);
   const dy=(e.changedTouches[0].clientY-ty);
@@ -5609,7 +6481,7 @@ const initialSlide = initialSlideParam ? Number(initialSlideParam) - 1 : 0;
 syncReadingLayout();
 go(Number.isFinite(initialSlide) ? initialSlide : 0,{force:true,instant:true});
 addEventListener('load',()=>{
-  if(readingActive()) setTimeout(()=>go(idx,{force:true,instant:true}),120);
+  if(readingActive() || phoneActive()) setTimeout(()=>go(idx,{force:true,instant:true}),120);
 },{once:true});
 </script>
 <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
