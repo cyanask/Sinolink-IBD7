@@ -4242,12 +4242,41 @@
         var(--paper);
       color:var(--ink);
     }
-    .phone-page.dark,
-    .phone-page.phone-cover{
+    .phone-page.dark{
       background:
         linear-gradient(180deg,rgba(7,50,74,.96),rgba(7,50,74,.88)),
         url("assets/cover-background.png") center / cover no-repeat;
       color:#fff;
+    }
+    .phone-page.phone-cover{
+      position:relative;
+      isolation:isolate;
+      background:
+        linear-gradient(180deg,rgba(3,22,34,.70) 0%,rgba(5,34,51,.52) 45%,rgba(3,22,34,.88) 100%),
+        url("assets/cover-background.png") 62% center / cover no-repeat;
+      color:#fff;
+    }
+    .phone-page.phone-cover::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      z-index:-1;
+      background:
+        linear-gradient(90deg,rgba(3,22,34,.66) 0%,rgba(3,22,34,.18) 54%,rgba(3,22,34,.42) 100%),
+        radial-gradient(circle at 72% 18%,rgba(194,151,91,.30),transparent 34%);
+      pointer-events:none;
+    }
+    .phone-page.phone-cover::after{
+      content:"";
+      position:absolute;
+      left:17px;
+      right:17px;
+      bottom:22px;
+      height:1px;
+      z-index:-1;
+      background:linear-gradient(90deg,var(--gold),rgba(255,255,255,.18),transparent);
+      opacity:.8;
+      pointer-events:none;
     }
     .phone-top,
     .phone-foot{
@@ -4272,6 +4301,9 @@
     .phone-top{
       padding-bottom:10px;
       border-bottom:1px solid rgba(6,25,39,.14);
+    }
+    .phone-foot{
+      display:none!important;
     }
     .phone-page.dark .phone-top,
     .phone-page.phone-cover .phone-top{
@@ -4655,20 +4687,23 @@
       flex:1 1 auto;
       display:flex!important;
       flex-direction:column;
-      justify-content:center;
-      gap:28px;
+      justify-content:flex-end;
+      gap:24px;
+      padding-bottom:22px;
     }
     .phone-page.phone-cover .cover-meta-grid{
       display:grid!important;
       grid-template-columns:repeat(2,minmax(0,1fr))!important;
       gap:1px!important;
-      background:rgba(255,255,255,.16)!important;
-      border:1px solid rgba(255,255,255,.18)!important;
+      background:rgba(255,255,255,.20)!important;
+      border:1px solid rgba(255,255,255,.26)!important;
+      box-shadow:0 16px 38px rgba(0,0,0,.18);
+      backdrop-filter:blur(2px);
     }
     .phone-page.phone-cover .cover-meta-grid div{
       min-height:74px!important;
       padding:12px!important;
-      background:rgba(255,255,255,.08)!important;
+      background:rgba(255,255,255,.12)!important;
       color:#fff!important;
       font-size:15px!important;
       line-height:1.35!important;
@@ -4678,6 +4713,7 @@
       color:#fff!important;
       font-size:clamp(35px,10.4vw,48px)!important;
       line-height:1.04!important;
+      text-shadow:0 10px 28px rgba(0,0,0,.34);
     }
     .phone-page.phone-cover .closing-title span{
       display:block;
@@ -4957,8 +4993,9 @@
       min-height:0;
       display:flex;
       flex-direction:column;
-      justify-content:center;
-      gap:24px;
+      justify-content:flex-end;
+      gap:22px;
+      padding-bottom:22px;
     }
     .phone-cover-title{
       font-size:clamp(36px,10.4vw,50px)!important;
@@ -4966,6 +5003,7 @@
       font-weight:520!important;
       color:#fff!important;
       margin:0!important;
+      text-shadow:0 12px 30px rgba(0,0,0,.36);
     }
     .phone-cover-title.closing span{
       display:block;
@@ -4974,9 +5012,9 @@
       line-height:1.14!important;
     }
     .phone-cover-line{
-      width:58px;
-      height:2px;
-      background:var(--gold);
+      width:76px;
+      height:3px;
+      background:linear-gradient(90deg,var(--gold),rgba(255,255,255,.18));
     }
     .phone-cover-grid{
       display:grid;
@@ -7031,7 +7069,7 @@ function coverDef(slide, slideIndex){
   grid.className='phone-cover-grid';
   [...slide.querySelectorAll('.cover-meta-grid div')].forEach(item=>grid.appendChild(makeTextEl('div','',nodeText(item))));
   wrap.appendChild(grid);
-  return {fragments:[wrap], opts:{cover:true,omitTitle:true,bodyClass:'curated'}};
+  return {fragments:[wrap], opts:{cover:true,omitTitle:true,bodyClass:'curated',pageClass:isClosing?'closing-cover':'opening-cover'}};
 }
 
 function defsForAgenda(slide){
