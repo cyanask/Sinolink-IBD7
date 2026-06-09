@@ -4995,6 +4995,112 @@
       font-size:15px!important;
       line-height:1.35!important;
     }
+    .phone-page.roadshow{
+      gap:10px;
+      padding:18px 17px 15px;
+    }
+    .phone-page.roadshow .phone-title h2{
+      font-size:clamp(24px,6.7vw,30px)!important;
+      line-height:1.12!important;
+      font-weight:560!important;
+    }
+    .phone-page.roadshow .phone-body,
+    .phone-page.roadshow .phone-pack,
+    .phone-page.roadshow .phone-kpi-grid,
+    .phone-page.roadshow .phone-rank-grid,
+    .phone-page.roadshow .phone-client-grid,
+    .phone-page.roadshow .phone-row-fields,
+    .phone-page.roadshow .phone-deal-fields{
+      overflow:visible!important;
+    }
+    .phone-page.roadshow .phone-body{
+      gap:10px;
+    }
+    .phone-page.roadshow .phone-pack{
+      grid-auto-rows:auto;
+      align-content:stretch;
+      gap:9px;
+    }
+    .phone-page.roadshow .phone-pack.matrix{
+      grid-template-columns:repeat(2,minmax(0,1fr));
+    }
+    .phone-page.roadshow .phone-card,
+    .phone-page.roadshow .phone-row-card,
+    .phone-page.roadshow .phone-deal-card,
+    .phone-page.roadshow .phone-client-section,
+    .phone-page.roadshow .phone-source-card{
+      overflow:visible!important;
+      padding:13px!important;
+      gap:8px;
+      justify-content:flex-start;
+    }
+    .phone-page.roadshow .phone-card h3,
+    .phone-page.roadshow .phone-row-card h3,
+    .phone-page.roadshow .phone-deal-card h3,
+    .phone-page.roadshow .phone-client-section h3,
+    .phone-page.roadshow .phone-source-card h3{
+      font-size:19px!important;
+      line-height:1.16!important;
+    }
+    .phone-page.roadshow .phone-card p,
+    .phone-page.roadshow .phone-row-card p,
+    .phone-page.roadshow .phone-deal-card p,
+    .phone-page.roadshow .phone-client-section p,
+    .phone-page.roadshow .phone-source-card p,
+    .phone-page.roadshow .phone-field span{
+      font-size:15px!important;
+      line-height:1.38!important;
+    }
+    .phone-page.roadshow .phone-kicker,
+    .phone-page.roadshow .phone-meta{
+      font-size:11px!important;
+    }
+    .phone-page.roadshow .phone-field{
+      grid-template-columns:64px minmax(0,1fr);
+    }
+    .phone-page.roadshow .phone-result{
+      margin-top:2px!important;
+      font-size:16px!important;
+      line-height:1.32!important;
+    }
+    .phone-page.roadshow .phone-client-grid{
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:7px;
+    }
+    .phone-page.roadshow .phone-client-chip{
+      min-height:54px;
+      overflow:visible;
+    }
+    .phone-page.roadshow .phone-client-name{
+      font-size:17px!important;
+    }
+    .phone-page.roadshow .phone-client-code,
+    .phone-page.roadshow .phone-client-tag{
+      font-size:12.5px!important;
+    }
+    .phone-page.roadshow .phone-deal-top{
+      align-items:flex-start;
+    }
+    .phone-page.roadshow .phone-deal-code{
+      max-width:46%;
+      font-size:12px!important;
+    }
+  }
+
+  @media (max-width: 767px) and (orientation: portrait) and (max-height: 620px){
+    .phone-cover-lock{
+      gap:16px;
+    }
+    .phone-cover-title.closing span{
+      font-size:clamp(23px,7.1vw,30px)!important;
+      line-height:1.08!important;
+    }
+    .phone-cover-grid div{
+      min-height:54px;
+      padding:9px 10px;
+      font-size:13px!important;
+      line-height:1.25!important;
+    }
   }
 
 </style>
@@ -6376,13 +6482,13 @@ function makePhonePage(slide, slideIndex, partNo, partTotal, fragments, opts={})
   if(opts.dark || slide.classList.contains('dark') || slide.classList.contains('accent')) page.classList.add('dark');
   if(opts.cover || slide.classList.contains('cover')) page.classList.add('phone-cover');
   page.dataset.slideIndex=slideIndex;
-  page.dataset.phoneLabel=phoneSlideLabel(slideIndex,partNo,partTotal);
+  page.dataset.phoneLabel=opts.label || phoneSlideLabel(slideIndex,partNo,partTotal);
 
   const top=document.createElement('div');
   top.className='phone-top';
   const brand=document.createElement('div');
   brand.className='phone-brand';
-  brand.textContent=phoneBrand(slide);
+  brand.textContent=opts.brand || 'Sinolink';
   const no=document.createElement('div');
   no.className='phone-page-no';
   no.textContent=`2026.06.08 · ${page.dataset.phoneLabel}`;
@@ -6986,47 +7092,293 @@ function defsForGeneric(slide){
   return cards.length ? cardsToDefs(cards,3,{title:nodeText(slide,'.headline')}) : [{fragments:[makePack([cleanPhoneClone(slide.querySelector('.canvas-card') || slide)])], opts:{bodyClass:'curated'}}];
 }
 
+function roadPage(eyebrow,title,nodes,opts={}){
+  const packClass=opts.packClass || (nodes.length>=4 ? 'matrix' : '');
+  return makeDef(nodes,{
+    ...opts,
+    eyebrow,
+    title,
+    pageClass:`roadshow${opts.pageClass ? ' '+opts.pageClass : ''}`,
+    bodyClass:`curated${opts.bodyClass ? ' '+opts.bodyClass : ''}`,
+    packClass
+  });
+}
+
+function roadCard(kicker,title,body,result='',dark=false){
+  return makeInfoCard({kicker,title,body,result,dark});
+}
+
+function roadDeal(kicker,title,body,fields=[],result='',dark=false){
+  return makeInfoCard({kicker,title,body,fields,result,dark,cls:'phone-deal-card'});
+}
+
+function roadClientSection(title,body,clients,dark=false){
+  const section=document.createElement('div');
+  section.className='phone-client-section'+(dark?' dark':'');
+  section.append(makeTextEl('div','phone-kicker','Client Coverage'));
+  section.append(makeTextEl('h3','',title));
+  section.append(makeTextEl('p','',body));
+  const grid=document.createElement('div');
+  grid.className='phone-client-grid';
+  clients.forEach(client=>{
+    const item=document.createElement('div');
+    item.className='phone-client-chip'+(client.featured?' featured':'');
+    item.append(makeTextEl('span','phone-client-name',client.name));
+    item.append(makeTextEl('span','phone-client-code',client.code));
+    item.append(makeTextEl('span','phone-client-tag',client.tag));
+    grid.appendChild(item);
+  });
+  section.appendChild(grid);
+  return section;
+}
+
+function roadSource(title,body){
+  return makeInfoCard({title,body,cls:'phone-source-card'});
+}
+
 phoneFragmentsForSlide=function(slide, slideIndex){
   const pageNo=slideIndex+1;
   if(pageNo===1 || pageNo===total) return [coverDef(slide, slideIndex)];
-  if(pageNo===2) return defsForAgenda(slide);
-  if(pageNo===3) return defsForRankingSlide(slide);
-  if(pageNo===4) return defsForProductRows(slide);
-  if(pageNo===5) return defsForExecutionPlatform(slide);
-  if(pageNo===6) return defsForCompany(slide);
-  if(pageNo===7) return defsForMetricsAndRows(slide,'投行平台关键数据');
-  if(pageNo===8) return defsForRecognition(slide);
-  if(pageNo===9) return defsForPricing(slide);
-  if(pageNo===10) return defsForIpoRanking(slide);
-  if(pageNo===11) return defsForMetricsAndRows(slide,'2025 年项目基础');
-  if(pageNo>=12 && pageNo<=15) return defsForClients(slide);
-  if(pageNo===16) return defsForTeam(slide);
-  if(pageNo>=17 && pageNo<=19) return defsForOpsDeals(slide,'IPO 代表案例');
-  if(pageNo===20 || pageNo===21) return defsForTebao(slide);
-  if(pageNo===22) return defsForOpsDeals(slide,'再融资代表案例');
-  if(pageNo===23) return defsForTimelineDeals(slide);
-  if(pageNo===24) return defsForArch(slide,'借壳上市交易结构');
-  if(pageNo===25) return defsForArch(slide,'并购交易矩阵');
-  if(pageNo===26) return defsForAdvantages(slide);
-  if(pageNo===27) return defsForYearbook(slide);
-  if(pageNo===28) return defsForSummary(slide);
-  if(pageNo===29) return defsForSources(slide);
-  return defsForGeneric(slide);
+  if(pageNo===2){
+    return [roadPage('Overview','手机端精选导览',[
+      roadCard('Positioning','一套贯穿企业阶段的资本市场任务链','上市前财务顾问、IPO、上市后持续督导、再融资和并购咨询。','客户获得的是持续服务，而不是单点项目。',true),
+      roadCard('Coverage','行业客户覆盖','信息技术、半导体、医药健康、工业制造、消费服务等领域形成案例基础。'),
+      roadCard('Execution','项目执行确定性','研究、销售、质控、内核和项目团队协同，提高复杂事项解释和发行组织效率。'),
+      roadCard('Cases','重点案例','云汉芯城 IPO、特宝生物再融资及多个 IPO、再融资、并购项目。')
+    ])];
+  }
+  if(pageNo===3){
+    return [
+      roadPage('Core','IPO 主承销排名更新至 2026 年前 5 月',[
+        roadCard('2026.01-05','阶段性市场 TOP5','前 5 月保荐上市家数进入市场前列，显示最新项目动能。','IPO 主承销排名持续更新。',true),
+        roadCard('2020-2025','连续年度市场位置','保留完整年度 IPO 及北交所上市主承销家数口径。'),
+        roadCard('Sector','科技与成长企业','半导体、电子、医药健康和先进制造客户是重点覆盖方向。'),
+        roadCard('Task','复杂事项解释','历史沿革、业务模式、外部合规事件、业绩波动和募投可行性。')
+      ]),
+      roadPage('Client Journey','全周期服务链条',[
+        roadCard('上市前','股改、合规、融资与财务顾问','股改咨询、合规咨询、股权融资咨询、规范运行和上市路径判断。'),
+        roadCard('IPO','申报、审核、发行与上市','材料组织、问询回复、投资者沟通、定价配售和上市安排。'),
+        roadCard('上市后','持续督导、再融资、并购咨询','持续督导、可转债/定增、产业并购、资产重组和资本市场沟通。')
+      ])
+    ];
+  }
+  if(pageNo===4){
+    return [roadPage('Services','产品与财务顾问矩阵',[
+      roadCard('Equity','IPO / 北交所 / 股权融资','帮助客户判断板块、监管基础、资本路径和发行窗口。', '', true),
+      roadCard('Follow-on','再融资 / 可转债 / 定增','围绕研发、产能和产业整合需求设计融资工具。'),
+      roadCard('Advisory','上市前财务顾问','股改咨询、合规咨询、股权融资咨询、规范运行和引战服务。'),
+      roadCard('M&A','并购重组 / 产业整合','交易结构、尽调组织、估值逻辑、审议程序和信息披露。')
+    ])];
+  }
+  if(pageNo===5){
+    return [roadPage('Platform','项目执行平台',[
+      roadCard('Sponsor Team','保荐与项目组','项目负责人、现场团队和专业支持围绕客户阶段持续推进。', '', true),
+      roadCard('Research','研究支持','行业定位、估值锚定、路演材料和投资者理解框架。'),
+      roadCard('Sales','销售与发行','路演反馈、投资者沟通、簿记配售和发行窗口判断。'),
+      roadCard('Quality Control','质控内核','底稿一致性、监管问题复核和公告文件质量控制。')
+    ])];
+  }
+  if(pageNo===6){
+    return [roadPage('Pricing','定价承销与投资者沟通',[
+      roadCard('Position','发行定位','把业务模式、行业周期和增长逻辑转译为投资者可理解的材料。', '', true),
+      roadCard('Roadshow','路演反馈','围绕核心投资者问题调整沟通重点，提升发行协同效率。'),
+      roadCard('Pricing','询价与定价','跟踪市场窗口、簿记反馈和配售结构，支持定价判断。'),
+      roadCard('Aftermarket','上市后沟通','延续持续督导、再融资和并购咨询的资本市场沟通。')
+    ])];
+  }
+  if(pageNo===12){
+    return [roadPage('Clients','半导体 / 电子 / 信息技术',[
+      roadClientSection('硬科技客户精选','突出半导体器件、电子制造、数字政务和信息技术服务客户。',[
+        {name:'三安光电',code:'600703',tag:'Refi',featured:true},
+        {name:'云汉芯城',code:'301563',tag:'IPO',featured:true},
+        {name:'富满微',code:'300671',tag:'IC'},
+        {name:'汉威电子',code:'300007',tag:'Sensors'},
+        {name:'榕基软件',code:'002474',tag:'IPO'},
+        {name:'博思软件',code:'300525',tag:'Refi'}
+      ],true)
+    ])];
+  }
+  if(pageNo===13){
+    return [roadPage('Clients','医药健康',[
+      roadClientSection('医药健康客户精选','覆盖生物药、化学制药、医疗器械和创新药产业链。',[
+        {name:'特宝生物',code:'688278',tag:'IPO / Refi',featured:true},
+        {name:'莱美药业',code:'300006',tag:'Pharma'},
+        {name:'济川药业',code:'600566',tag:'Pharma'},
+        {name:'英科医疗',code:'300677',tag:'Medical'},
+        {name:'康惠制药',code:'603139',tag:'Pharma'},
+        {name:'奥翔药业',code:'603229',tag:'Pharma'}
+      ])
+    ])];
+  }
+  if(pageNo===14){
+    return [roadPage('Clients','先进制造 / 军工装备',[
+      roadClientSection('制造业客户精选','覆盖装备制造、汽车产业链、工业零部件和军工电子等方向。',[
+        {name:'爱柯迪',code:'600933',tag:'Auto',featured:true},
+        {name:'日上集团',code:'002593',tag:'Industrial'},
+        {name:'东安动力',code:'600178',tag:'Auto'},
+        {name:'冠盛股份',code:'605088',tag:'Auto'},
+        {name:'罗普特',code:'688619',tag:'Defense'},
+        {name:'全信股份',code:'300447',tag:'Defense'}
+      ])
+    ])];
+  }
+  if(pageNo===15){
+    return [roadPage('Clients','消费 / 环保 / 地产金融',[
+      roadClientSection('多行业覆盖精选','兼顾消费、生活服务、环保、地产建筑服务和金融商贸类客户。',[
+        {name:'七匹狼',code:'002029',tag:'Consumer'},
+        {name:'海欣食品',code:'002702',tag:'Food'},
+        {name:'中国天楹',code:'000035',tag:'Env'},
+        {name:'博世科',code:'300422',tag:'Env'},
+        {name:'大名城',code:'600094',tag:'Real estate'},
+        {name:'兴业证券',code:'601377',tag:'Finance'}
+      ])
+    ])];
+  }
+  if(pageNo===16){
+    return [roadPage('Team','项目组织模型',[
+      roadCard('Lead','项目负责人','统一客户沟通、监管节奏、发行窗口和中介协同。', '', true),
+      roadCard('Execution','现场团队','材料组织、底稿证据、问询响应和进度推进。'),
+      roadCard('Review','质控内核','重要问题复核、公告文件把关和风险边界判断。'),
+      roadCard('Market','研究销售','估值锚定、路演反馈、投资者沟通和定价协同。')
+    ])];
+  }
+  if(pageNo===17){
+    return [roadPage('IPO Cases','早期 IPO 代表案例',[
+      roadDeal('SME · IPO','榕基软件','电子政务领域竞争力企业；二次上会，无条件过会。',[{label:'代码',value:'002474'}],'复杂审核沟通与业务解释。',true),
+      roadDeal('GEM · IPO','元力股份','木质活性炭龙头；上市前一年净利润不足 2,000 万。',[{label:'代码',value:'300174'}],'成长性与盈利波动解释。'),
+      roadDeal('Main · IPO','三安光电','LED 与化合物半导体产业链代表企业。',[{label:'代码',value:'600703'}],'后续持续资本市场服务。')
+    ])];
+  }
+  if(pageNo===18){
+    return [roadPage('IPO Cases','科技与先进制造 IPO',[
+      roadDeal('STAR · IPO','特宝生物','重组蛋白质及长效修饰药物研发、生产和销售。',[{label:'代码',value:'688278'}],'形成医药科创企业服务样本。',true),
+      roadDeal('GEM · IPO','力芯微','高性能模拟及数模混合集成电路企业。',[{label:'代码',value:'688601'}],'半导体企业业务与技术解释。'),
+      roadDeal('GEM · IPO','明微电子','互联网内容服务平台建设、运维和大数据服务。',[{label:'代码',value:'300556'}],'科技企业商业模式沟通。')
+    ])];
+  }
+  if(pageNo===19){
+    return [roadPage('IPO Cases','近年 IPO 项目落地',[
+      roadDeal('GEM · 2025','云汉芯城','电子元器件 B2B 销售及 PCBA 业务，服务研发和生产采购场景。',[{label:'代码',value:'301563.SZ'}],'长周期审核与外部事件后完成上市。',true),
+      roadDeal('GEM · IPO','宏工科技','精密注塑模具研发、设计、制造和销售。',[{label:'要点',value:'制造业项目'}],'产业链客户项目推进。'),
+      roadDeal('IPO · Summary','执行要点','复杂业务解释、二次上会沟通、历史沿革协调和发行定价。',[],'以客户关键问题为主线组织材料。')
+    ])];
+  }
+  if(pageNo===20){
+    return [
+      roadPage('IPO Case','云汉芯城交易要点',[
+        roadDeal('301563.SZ','云汉芯城','首次公开发行股票并在创业板上市。',[
+          {label:'发行价',value:'27.00 元/股'},
+          {label:'发行股数',value:'1,627.9025 万股'},
+          {label:'募资总额',value:'43,953.37 万元'}
+        ],'2025 年 9 月 30 日在深交所创业板上市。',true),
+        roadCard('Role','保荐 / 主承销','Sinolink')
+      ]),
+      roadPage('IPO Case','云汉芯城执行要点',[
+        roadCard('Cycle','长周期执行','持续衔接申报、问询、注册、发行准备和上市节奏。', '', true),
+        roadCard('External Event','实体清单事件解释','围绕主体、业务、供应链和财务影响边界进行解释。'),
+        roadCard('Business','业绩波动沟通','说明行业周期、客户结构、毛利率和库存管理对经营表现的影响。')
+      ])
+    ];
+  }
+  if(pageNo===21){
+    return [
+      roadPage('Refinancing Case','特宝生物交易要点',[
+        roadDeal('688278.SH','特宝生物','向不特定对象发行可转换公司债券。',[
+          {label:'募资上限',value:'153,326.69 万元'},
+          {label:'角色',value:'保荐 / 主承销'},
+          {label:'节点',value:'上交所上市委审核通过'}
+        ],'尚需中国证监会同意注册后实施。',true)
+      ]),
+      roadPage('Refinancing Case','特宝生物执行要点',[
+        roadCard('Service','从 IPO 到再融资','IPO 后延续客户关系，支持上市后研发和产能投入。', '', true),
+        roadCard('Use','募投方向','新药研发项目、生物技术创新融合中心、创新药物生产改扩产线。'),
+        roadCard('Status','监管状态','已获上交所上市委审核通过，尚需中国证监会同意注册。')
+      ])
+    ];
+  }
+  if(pageNo===22){
+    return [roadPage('Refinancing','再融资代表案例',[
+      roadDeal('Refi','元力股份','三次再融资服务，多个项目无条件过会。',[{label:'客户价值',value:'上市后融资接续'}],'持续服务样本。',true),
+      roadDeal('Refi','博思软件','完成再融资，支持软件与信息化业务发展。',[{label:'方向',value:'数字政务'}],'发行组织与投资者沟通。'),
+      roadDeal('CB / Refi','日上集团','上市后融资和资本市场沟通。',[{label:'方向',value:'先进制造'}],'围绕产业链需求设计工具。')
+    ])];
+  }
+  if(pageNo===23){
+    return [roadPage('Follow-on','上市后服务接续',[
+      roadCard('01','持续督导','规范运作、信息披露、募集资金管理和客户关系维护。', '', true),
+      roadCard('02','再融资','可转债、定增和其他上市后融资工具论证。'),
+      roadCard('03','并购咨询','围绕产业整合、主业资产和非主业资产处置设计交易方案。')
+    ])];
+  }
+  if(pageNo===24){
+    return [roadPage('Transactions','借壳与重组交易结构',[
+      roadDeal('Backdoor','复杂重组案例','交易方案、资产边界、审议程序和信息披露协同。',[{label:'任务',value:'交易结构设计'}],'强调复杂交易执行能力。',true),
+      roadDeal('Restructuring','产业整合案例','围绕主业资产注入、非主业资产剥离和业务协同。',[{label:'任务',value:'估值与尽调组织'}],'帮助客户完成关键资本市场动作。')
+    ])];
+  }
+  if(pageNo===25){
+    return [roadPage('M&A','并购咨询矩阵',[
+      roadCard('Acquire','收购主业资产','补强产业链、技术能力、渠道资源或客户结构。', '', true),
+      roadCard('Divest','出售非主业资产','优化资产结构，聚焦主业和上市公司治理质量。'),
+      roadCard('Integrate','产业整合','交易结构、估值逻辑、审议程序、信息披露和投后协同。')
+    ])];
+  }
+  if(pageNo===27){
+    return [
+      roadPage('Yearbook','交易年鉴精选',[
+        roadDeal('IPO','榕基软件 / 元力股份','覆盖电子政务、活性炭、新材料和先进制造等早期项目。',[{label:'类型',value:'IPO'}],'审核沟通与发行组织。',true),
+        roadDeal('IPO','特宝生物 / 力芯微 / 云汉芯城','覆盖医药科创、半导体和电子供应链平台。',[{label:'类型',value:'IPO'}],'科技企业解释与定价沟通。')
+      ]),
+      roadPage('Yearbook','上市后交易精选',[
+        roadDeal('Refi','元力股份 / 博思软件 / 日上集团','持续服务上市公司再融资和可转债需求。',[{label:'类型',value:'再融资'}],'服务上市后资本开支与产业升级。',true),
+        roadDeal('M&A','借壳 / 并购 / 资产处置','覆盖复杂重组、产业整合和资本市场沟通。',[{label:'类型',value:'并购咨询'}],'以交易结构和执行组织为核心。')
+      ])
+    ];
+  }
+  if(pageNo===28){
+    return [roadPage('Service','客户服务旅程',[
+      roadCard('上市前','股改咨询、合规咨询、股权融资咨询','帮助客户建立可验证的业财口径和资本路径。', '', true),
+      roadCard('IPO','申报、审核、发行和上市','围绕监管关注、投资者沟通和发行窗口组织项目。'),
+      roadCard('上市后','持续督导、再融资、并购咨询','延续客户关系，完成关键资本市场任务。')
+    ])];
+  }
+  if(pageNo===29){
+    return [roadPage('Appendix','资料来源',[
+      roadSource('原始材料','桌面正式版页面中的公司介绍、客户名单、项目案例和来源口径。'),
+      roadSource('特宝生物再融资','上交所上市保荐书、募集说明书及上市委审核通过公告口径。'),
+      roadSource('云汉芯城 IPO','招股说明书、审核问询和上市公告等公开披露资料。')
+    ])];
+  }
+  return [];
 };
 
 function buildPhoneDeck(){
   phoneTrack.innerHTML='';
   phonePages=[];
   phoneIndexBySlide=[];
+  const planned=[];
   slides.forEach((slide,slideIndex)=>{
     const pageDefs=phoneFragmentsForSlide(slide,slideIndex);
     pageDefs.forEach((def,i)=>{
-      const page=makePhonePage(slide,slideIndex,i+1,pageDefs.length,def.fragments,def.opts);
-      if(phoneIndexBySlide[slideIndex]===undefined) phoneIndexBySlide[slideIndex]=phonePages.length;
-      phoneTrack.appendChild(page);
-      phonePages.push(page);
+      planned.push({slide,slideIndex,def});
     });
   });
+  planned.forEach((item,i)=>{
+    const label=`${String(i+1).padStart(2,'0')}/${planned.length}`;
+    const opts={...item.def.opts,label};
+    const page=makePhonePage(item.slide,item.slideIndex,i+1,planned.length,item.def.fragments,opts);
+    if(phoneIndexBySlide[item.slideIndex]===undefined) phoneIndexBySlide[item.slideIndex]=phonePages.length;
+    phoneTrack.appendChild(page);
+    phonePages.push(page);
+  });
+  for(let i=0;i<total;i++){
+    if(phoneIndexBySlide[i]!==undefined) continue;
+    let prev=i-1;
+    while(prev>=0 && phoneIndexBySlide[prev]===undefined) prev--;
+    let next=i+1;
+    while(next<total && phoneIndexBySlide[next]===undefined) next++;
+    phoneIndexBySlide[i]=prev>=0 ? phoneIndexBySlide[prev] : (next<total ? phoneIndexBySlide[next] : 0);
+  }
   phoneReady=true;
 }
 
