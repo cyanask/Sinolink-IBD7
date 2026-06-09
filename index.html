@@ -5084,6 +5084,12 @@
       align-content:stretch;
       gap:9px;
     }
+    .phone-page.roadshow .phone-pack.deal-focus{
+      grid-template-rows:1.2fr .72fr .72fr;
+      grid-auto-rows:auto;
+      align-content:stretch;
+      gap:8px;
+    }
     .phone-page.roadshow .phone-pack.matrix{
       grid-template-columns:repeat(2,minmax(0,1fr));
     }
@@ -5096,6 +5102,18 @@
       padding:13px!important;
       gap:8px;
       justify-content:flex-start;
+    }
+    .phone-page.roadshow .phone-pack.deal-focus .phone-deal-card,
+    .phone-page.roadshow .phone-pack.deal-focus .phone-card{
+      min-height:0;
+      justify-content:flex-start;
+    }
+    .phone-page.roadshow .phone-pack.deal-focus .phone-deal-card{
+      gap:7px;
+    }
+    .phone-page.roadshow .phone-pack.deal-focus .phone-card{
+      padding:12px 13px!important;
+      gap:7px;
     }
     .phone-page.roadshow .phone-card h3,
     .phone-page.roadshow .phone-row-card h3,
@@ -5125,6 +5143,9 @@
       margin-top:2px!important;
       font-size:16px!important;
       line-height:1.32!important;
+    }
+    .phone-page.roadshow .phone-pack.deal-focus .phone-result{
+      margin-top:auto!important;
     }
     .phone-page.roadshow .phone-card.dark,
     .phone-page.roadshow .phone-row-card.dark,
@@ -7478,8 +7499,9 @@ phoneFragmentsForSlide=function(slide, slideIndex){
           {label:'发行股数',value:'1,627.9025 万股'},
           {label:'募资总额',value:'43,953.37 万元'}
         ],'2025 年 9 月 30 日在深交所创业板上市。',true),
-        roadCard('Role','保荐 / 主承销','Sinolink')
-      ]),
+        roadCard('Business','电子元器件供应链平台','服务研发和生产采购场景，覆盖 B2B 销售及 PCBA 业务。'),
+        roadCard('Execution','长周期审核落地','Sinolink 担任保荐 / 主承销，跨越申报、问询、注册和发行阶段。')
+      ],{packClass:'deal-focus'}),
       roadPage('IPO Case','云汉芯城执行要点',[
         roadCard('Cycle','长周期执行','持续衔接申报、问询、注册、发行准备和上市节奏。', '', true),
         roadCard('External Event','实体清单事件解释','围绕主体、业务、供应链和财务影响边界进行解释。'),
@@ -7494,8 +7516,10 @@ phoneFragmentsForSlide=function(slide, slideIndex){
           {label:'募资上限',value:'153,326.69 万元'},
           {label:'角色',value:'保荐 / 主承销'},
           {label:'节点',value:'上交所上市委审核通过'}
-        ],'尚需中国证监会同意注册后实施。',true)
-      ]),
+        ],'尚需中国证监会同意注册后实施。',true),
+        roadCard('Use','募投方向','新药研发项目、生物技术创新融合中心、创新药物生产改扩产线。'),
+        roadCard('Status','监管状态','已获上交所上市委审核通过，尚需中国证监会同意注册。')
+      ],{packClass:'deal-focus'}),
       roadPage('Refinancing Case','特宝生物执行要点',[
         roadCard('Service','从 IPO 到再融资','IPO 后延续客户关系，支持上市后研发和产能投入。', '', true),
         roadCard('Use','募投方向','新药研发项目、生物技术创新融合中心、创新药物生产改扩产线。'),
