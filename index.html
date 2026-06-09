@@ -3,15 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sinolink 投行七部 V9 投影优化版</title>
+<title>Sinolink 投行七部介绍</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600&family=Noto+Sans+SC:wght@200;300;400;500;700;900&display=swap" rel="stylesheet">
 <style>
   :root{
-    /* ============ 主题色(默认: 🔵 克莱因蓝 IKB) ============
-       切换主题: 从 references/themes-swiss.md 复制对应的 :root 块
-       整体替换标有"主题色"注释的所有变量,其他散落的 var() 引用无需逐处改 */
     --paper:#fafaf8;          /* 主底色: 高级灰白 */
     --paper-rgb:250,250,248;
     --ink:#0a0a0a;            /* 文字主色: 近黑 */
@@ -609,8 +606,6 @@
   .card-ink .t-meta,.card-ink .t-cat{color:rgba(255,255,255,.6)}
   .card-accent{background:var(--accent);border:0;color:var(--accent-on)}
   .card-accent .t-meta,.card-accent .t-cat{color:var(--accent-on)}
-
-  /* ============ 动效 (与原模板一致) ============ */
   [data-anim]{opacity:1}
   body.motion-ready [data-anim]{opacity:0}
   body.motion-ready [data-anim="left"]{transform:translateX(-24px)}
@@ -2866,7 +2861,7 @@
     font-weight:650;
   }
   .client-matrix-row b{color:var(--navy);font-weight:560}
-  .v8-split{
+  .ops-split{
     display:grid;
     grid-template-columns:.9fr 1.45fr;
     gap:1px;
@@ -2874,91 +2869,91 @@
     border:1px solid rgba(6,25,39,.16);
     min-height:0;
   }
-  .v8-panel{
+  .ops-panel{
     background:#fff;
     min-height:0;
     padding:1.15vh 1vw;
     display:grid;
     align-content:start;
   }
-  .v8-panel.dark{
+  .ops-panel.dark{
     background:var(--navy);
     color:#fff;
   }
-  .v8-panel h3{
+  .ops-panel h3{
     color:inherit;
     font-size:max(19px,1.05vw);
     line-height:1.16;
     font-weight:560;
     margin:0 0 .85vh;
   }
-  .v8-panel p,.v8-panel li{
+  .ops-panel p,.ops-panel li{
     color:var(--text-secondary);
     font-size:max(12px,.69vw);
     line-height:1.32;
   }
-  .v8-panel.dark p,.v8-panel.dark li{color:rgba(255,255,255,.78)}
-  .v8-kpi-row{
+  .ops-panel.dark p,.ops-panel.dark li{color:rgba(255,255,255,.78)}
+  .ops-kpi-row{
     display:grid;
     grid-template-columns:repeat(4,1fr);
     gap:1px;
     background:rgba(6,25,39,.12);
     margin-top:1vh;
   }
-  .v8-kpi{
+  .ops-kpi{
     background:#fff;
     padding:.82vh .75vw;
     min-height:7.2vh;
   }
-  .v8-kpi b{
+  .ops-kpi b{
     display:block;
     color:var(--gold);
     font-family:var(--mono);
     font-size:max(22px,1.35vw);
     line-height:1;
   }
-  .v8-kpi span{
+  .ops-kpi span{
     display:block;
     margin-top:.45vh;
     color:var(--text-secondary);
     font-size:max(11px,.63vw);
     line-height:1.25;
   }
-  .v8-grid-2,.v8-grid-3,.v8-grid-4{
+  .ops-grid-2,.ops-grid-3,.ops-grid-4{
     display:grid;
     gap:1px;
     background:rgba(6,25,39,.16);
     border:1px solid rgba(6,25,39,.16);
     min-height:0;
   }
-  .v8-grid-2{grid-template-columns:repeat(2,1fr)}
-  .v8-grid-3{grid-template-columns:repeat(3,1fr)}
-  .v8-grid-4{grid-template-columns:repeat(4,1fr)}
-  .v8-cell{
+  .ops-grid-2{grid-template-columns:repeat(2,1fr)}
+  .ops-grid-3{grid-template-columns:repeat(3,1fr)}
+  .ops-grid-4{grid-template-columns:repeat(4,1fr)}
+  .ops-cell{
     background:#fff;
     padding:.92vh .78vw;
     min-height:0;
     display:grid;
     align-content:start;
   }
-  .v8-cell.dark{
+  .ops-cell.dark{
     background:var(--navy);
     color:#fff;
   }
-  .v8-cell h3{
+  .ops-cell h3{
     color:inherit;
     font-size:max(17px,.95vw);
     line-height:1.14;
     font-weight:560;
     margin:0 0 .55vh;
   }
-  .v8-cell p,.v8-cell li{
+  .ops-cell p,.ops-cell li{
     color:var(--text-secondary);
     font-size:max(11px,.64vw);
     line-height:1.27;
   }
-  .v8-cell.dark p,.v8-cell.dark li{color:rgba(255,255,255,.76)}
-  .v8-tag{
+  .ops-cell.dark p,.ops-cell.dark li{color:rgba(255,255,255,.76)}
+  .ops-tag{
     display:inline-block;
     font-family:var(--mono);
     color:var(--gold);
@@ -2967,33 +2962,33 @@
     text-transform:uppercase;
     margin-bottom:.55vh;
   }
-  .v8-flow{
+  .ops-flow{
     display:grid;
     grid-template-columns:repeat(5,1fr);
     gap:1px;
     background:rgba(6,25,39,.16);
     border:1px solid rgba(6,25,39,.16);
   }
-  .v8-step{
+  .ops-step{
     background:#fff;
     padding:.9vh .75vw;
     min-height:9.2vh;
     border-top:3px solid var(--gold);
   }
-  .v8-step b{
+  .ops-step b{
     display:block;
     color:var(--navy);
     font-size:max(15px,.86vw);
     line-height:1.15;
   }
-  .v8-step span{
+  .ops-step span{
     display:block;
     margin-top:.55vh;
     color:var(--text-secondary);
     font-size:max(11px,.63vw);
     line-height:1.28;
   }
-  .v8-deal-grid{
+  .ops-deal-grid{
     display:grid;
     grid-template-columns:repeat(3,1fr);
     gap:1px;
@@ -3003,8 +2998,8 @@
     height:100%;
     grid-auto-rows:1fr;
   }
-  .v8-deal-grid.four{grid-template-columns:repeat(4,1fr)}
-  .v8-deal{
+  .ops-deal-grid.four{grid-template-columns:repeat(4,1fr)}
+  .ops-deal{
     background:var(--cool-paper);
     background-image:repeating-linear-gradient(180deg,rgba(6,25,39,0) 0,rgba(6,25,39,0) 5.9vh,rgba(6,25,39,.035) 5.9vh,rgba(6,25,39,.035) 6vh);
     min-height:16.8vh;
@@ -3016,18 +3011,18 @@
     border-left:4px solid transparent;
     align-content:start;
   }
-  .v8-deal.dark{
+  .ops-deal.dark{
     background:var(--navy);
     background-image:repeating-linear-gradient(180deg,rgba(255,255,255,0) 0,rgba(255,255,255,0) 5.9vh,rgba(255,255,255,.05) 5.9vh,rgba(255,255,255,.05) 6vh);
     color:#fff;
     border-left-color:var(--gold);
   }
-  .v8-deal.featured{
+  .ops-deal.featured{
     background:var(--cool-blue);
     background-image:repeating-linear-gradient(180deg,rgba(6,25,39,0) 0,rgba(6,25,39,0) 5.9vh,rgba(7,56,74,.075) 5.9vh,rgba(7,56,74,.075) 6vh);
     border-left-color:var(--gold);
   }
-  .v8-deal .meta{
+  .ops-deal .meta{
     display:flex;
     justify-content:space-between;
     gap:.5vw;
@@ -3036,21 +3031,21 @@
     font-size:max(10px,.58vw);
     letter-spacing:.04em;
   }
-  .v8-deal h3{
+  .ops-deal h3{
     color:inherit;
     font-size:max(18px,1vw);
     line-height:1.12;
     font-weight:590;
     margin:0;
   }
-  .v8-deal p{
+  .ops-deal p{
     color:var(--text-secondary);
     font-size:max(11px,.64vw);
     line-height:1.27;
     margin:0;
   }
-  .v8-deal.dark p{color:rgba(255,255,255,.75)}
-  .v8-deal .result{
+  .ops-deal.dark p{color:rgba(255,255,255,.75)}
+  .ops-deal .result{
     color:var(--navy);
     font-weight:560;
     font-size:max(12px,.69vw);
@@ -3058,14 +3053,14 @@
     border-top:1px solid rgba(6,25,39,.12);
     padding-top:.55vh;
   }
-  .v8-deal.dark .result{color:#fff;border-top-color:rgba(255,255,255,.18)}
-  .v8-deal .deal-name{
+  .ops-deal.dark .result{color:#fff;border-top-color:rgba(255,255,255,.18)}
+  .ops-deal .deal-name{
     display:grid;
     grid-template-columns:1fr auto;
     gap:.6vw;
     align-items:start;
   }
-  .v8-deal .deal-name em{
+  .ops-deal .deal-name em{
     font-family:var(--mono);
     font-style:normal;
     color:var(--text-secondary);
@@ -3073,7 +3068,7 @@
     white-space:nowrap;
     padding-top:.16vh;
   }
-  .v8-deal.dark .deal-name em{color:rgba(255,255,255,.66)}
+  .ops-deal.dark .deal-name em{color:rgba(255,255,255,.66)}
   .deal-fields{
     display:grid;
     grid-template-rows:repeat(4,1fr);
@@ -3092,8 +3087,8 @@
     align-items:center;
     min-height:0;
   }
-  .v8-deal.dark .deal-fields{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.16)}
-  .v8-deal.dark .deal-fields div{background:rgba(255,255,255,.08)}
+  .ops-deal.dark .deal-fields{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.16)}
+  .ops-deal.dark .deal-fields div{background:rgba(255,255,255,.08)}
   .deal-fields b{
     color:var(--gold);
     font-family:var(--mono);
@@ -3107,33 +3102,33 @@
     font-size:max(11px,.64vw);
     line-height:1.28;
   }
-  .v8-deal.dark .deal-fields span{color:rgba(255,255,255,.78)}
-  .v8-timeline{
+  .ops-deal.dark .deal-fields span{color:rgba(255,255,255,.78)}
+  .ops-timeline{
     display:grid;
     grid-template-columns:repeat(5,1fr);
     gap:1px;
     background:rgba(6,25,39,.16);
     border:1px solid rgba(6,25,39,.16);
   }
-  .v8-node{
+  .ops-node{
     background:#fff;
     padding:.9vh .75vw;
     min-height:9.5vh;
   }
-  .v8-node b{
+  .ops-node b{
     display:block;
     color:var(--gold);
     font-family:var(--mono);
     font-size:max(15px,.86vw);
   }
-  .v8-node span{
+  .ops-node span{
     display:block;
     margin-top:.55vh;
     color:var(--text-secondary);
     font-size:max(11px,.63vw);
     line-height:1.28;
   }
-  .v8-center-map{
+  .ops-center-map{
     display:grid;
     grid-template-columns:1fr 1.1fr 1fr;
     grid-template-rows:1fr 1fr;
@@ -3142,7 +3137,7 @@
     border:1px solid rgba(6,25,39,.16);
     min-height:0;
   }
-  .v8-core{
+  .ops-core{
     grid-column:2;
     grid-row:1 / span 2;
     background:var(--navy);
@@ -3152,17 +3147,17 @@
     align-content:center;
     gap:.75vh;
   }
-  .v8-core h3{
+  .ops-core h3{
     color:#fff;
     font-size:max(26px,1.55vw);
     line-height:1.15;
   }
-  .v8-core p{
+  .ops-core p{
     color:rgba(255,255,255,.78);
     font-size:max(13px,.74vw);
     line-height:1.36;
   }
-  .v8-journey{
+  .ops-journey{
     display:grid;
     grid-template-columns:repeat(4,1fr);
     gap:1px;
@@ -3170,7 +3165,7 @@
     border:1px solid rgba(6,25,39,.16);
     min-height:0;
   }
-  .v8-stage{
+  .ops-stage{
     background:#fff;
     padding:1vh .85vw;
     display:grid;
@@ -3179,27 +3174,27 @@
     min-height:0;
     align-content:start;
   }
-  .v8-stage.dark{background:var(--navy);color:#fff}
-  .v8-stage h3{
+  .ops-stage.dark{background:var(--navy);color:#fff}
+  .ops-stage h3{
     color:inherit;
     font-size:max(20px,1.08vw);
     line-height:1.14;
     font-weight:580;
   }
-  .v8-stage ul{
+  .ops-stage ul{
     margin:0;
     padding-left:1em;
     display:grid;
     gap:.35vh;
     align-content:start;
   }
-  .v8-stage li,.v8-stage p{
+  .ops-stage li,.ops-stage p{
     color:var(--text-secondary);
     font-size:max(11px,.64vw);
     line-height:1.28;
   }
-  .v8-stage.dark li,.v8-stage.dark p{color:rgba(255,255,255,.76)}
-  .v8-output{
+  .ops-stage.dark li,.ops-stage.dark p{color:rgba(255,255,255,.76)}
+  .ops-output{
     border-top:1px solid rgba(6,25,39,.12);
     padding-top:.65vh;
     color:var(--navy);
@@ -3207,7 +3202,7 @@
     line-height:1.25;
     font-weight:560;
   }
-  .v8-stage.dark .v8-output{color:#fff;border-top-color:rgba(255,255,255,.18)}
+  .ops-stage.dark .ops-output{color:#fff;border-top-color:rgba(255,255,255,.18)}
   .closing-lockup{
     max-width:none;
   }
@@ -3222,16 +3217,16 @@
     display:block;
     white-space:nowrap;
   }
-  .v8-page-stack{
+  .ops-page-stack{
     display:grid;
     grid-template-rows:auto 1fr auto;
     gap:1.12vh;
     min-height:0;
   }
-  .v8-page-stack.two{
+  .ops-page-stack.two{
     grid-template-rows:1fr auto;
   }
-  .v8-proof-grid{
+  .ops-proof-grid{
     display:grid;
     grid-template-columns:repeat(4,1fr);
     gap:1px;
@@ -3239,7 +3234,7 @@
     border:1px solid rgba(6,25,39,.16);
     min-height:0;
   }
-  .v8-proof{
+  .ops-proof{
     background:#fff;
     padding:.9vh .78vw;
     min-height:9.4vh;
@@ -3247,34 +3242,34 @@
     grid-template-rows:auto auto 1fr;
     gap:.45vh;
   }
-  .v8-proof.dark{background:var(--navy);color:#fff}
-  .v8-proof b{
+  .ops-proof.dark{background:var(--navy);color:#fff}
+  .ops-proof b{
     color:inherit;
     font-size:max(15px,.86vw);
     line-height:1.16;
   }
-  .v8-proof span{
+  .ops-proof span{
     font-family:var(--mono);
     color:var(--gold);
     font-size:max(10px,.56vw);
     letter-spacing:.08em;
     text-transform:uppercase;
   }
-  .v8-proof p{
+  .ops-proof p{
     margin:0;
     color:var(--text-secondary);
     font-size:max(11px,.62vw);
     line-height:1.27;
   }
-  .v8-proof.dark p{color:rgba(255,255,255,.78)}
-  .v8-mini-ledger{
+  .ops-proof.dark p{color:rgba(255,255,255,.78)}
+  .ops-mini-ledger{
     display:grid;
     gap:1px;
     background:rgba(6,25,39,.12);
     border:1px solid rgba(6,25,39,.12);
   }
-  .v8-panel.dark .v8-mini-ledger{background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.16)}
-  .v8-ledger-row{
+  .ops-panel.dark .ops-mini-ledger{background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.16)}
+  .ops-ledger-row{
     display:grid;
     grid-template-columns:.58fr 1fr;
     gap:.7vw;
@@ -3282,20 +3277,20 @@
     padding:.62vh .62vw;
     min-height:4.7vh;
   }
-  .v8-panel.dark .v8-ledger-row{background:rgba(255,255,255,.08)}
-  .v8-ledger-row b{
+  .ops-panel.dark .ops-ledger-row{background:rgba(255,255,255,.08)}
+  .ops-ledger-row b{
     color:var(--gold);
     font-family:var(--mono);
     font-size:max(10px,.56vw);
     line-height:1.2;
   }
-  .v8-ledger-row span{
+  .ops-ledger-row span{
     color:var(--text-secondary);
     font-size:max(10px,.58vw);
     line-height:1.25;
   }
-  .v8-panel.dark .v8-ledger-row span{color:rgba(255,255,255,.78)}
-  .v8-role-loop{
+  .ops-panel.dark .ops-ledger-row span{color:rgba(255,255,255,.78)}
+  .ops-role-loop{
     display:grid;
     grid-template-columns:repeat(4,1fr);
     gap:1px;
@@ -3303,7 +3298,7 @@
     border:1px solid rgba(6,25,39,.16);
     min-height:0;
   }
-  .v8-role{
+  .ops-role{
     background:#fff;
     background-image:repeating-linear-gradient(180deg,rgba(6,25,39,0) 0,rgba(6,25,39,0) 5.9vh,rgba(6,25,39,.035) 5.9vh,rgba(6,25,39,.035) 6vh);
     padding:.95vh .8vw;
@@ -3313,22 +3308,22 @@
     gap:.55vh;
     border-top:4px solid var(--gold);
   }
-  .v8-role.dark{background:var(--navy);color:#fff}
-  .v8-role.dark{background-image:repeating-linear-gradient(180deg,rgba(255,255,255,0) 0,rgba(255,255,255,0) 5.9vh,rgba(255,255,255,.05) 5.9vh,rgba(255,255,255,.05) 6vh)}
-  .v8-role h3{
+  .ops-role.dark{background:var(--navy);color:#fff}
+  .ops-role.dark{background-image:repeating-linear-gradient(180deg,rgba(255,255,255,0) 0,rgba(255,255,255,0) 5.9vh,rgba(255,255,255,.05) 5.9vh,rgba(255,255,255,.05) 6vh)}
+  .ops-role h3{
     color:inherit;
     font-size:max(18px,1vw);
     line-height:1.14;
     margin:0;
   }
-  .v8-role p,.v8-role li{
+  .ops-role p,.ops-role li{
     color:var(--text-secondary);
     font-size:max(11px,.62vw);
     line-height:1.25;
   }
-  .v8-role ul{margin:0;padding-left:1em;display:grid;gap:.32vh;align-content:start}
-  .v8-role.dark p,.v8-role.dark li{color:rgba(255,255,255,.78)}
-  .v8-role .out{
+  .ops-role ul{margin:0;padding-left:1em;display:grid;gap:.32vh;align-content:start}
+  .ops-role.dark p,.ops-role.dark li{color:rgba(255,255,255,.78)}
+  .ops-role .out{
     border-top:1px solid rgba(6,25,39,.12);
     padding-top:.55vh;
     color:var(--navy);
@@ -3336,14 +3331,14 @@
     font-size:max(11px,.62vw);
     line-height:1.22;
   }
-  .v8-role.dark .out{color:#fff;border-top-color:rgba(255,255,255,.18)}
-  .v8-bar-list{
+  .ops-role.dark .out{color:#fff;border-top-color:rgba(255,255,255,.18)}
+  .ops-bar-list{
     display:grid;
     gap:1px;
     background:rgba(6,25,39,.14);
     border:1px solid rgba(6,25,39,.14);
   }
-  .v8-bar-row{
+  .ops-bar-row{
     display:grid;
     grid-template-columns:.52fr 1fr .55fr;
     align-items:center;
@@ -3351,25 +3346,25 @@
     background:#fff;
     padding:.65vh .7vw;
   }
-  .v8-bar-row b{
+  .ops-bar-row b{
     color:var(--navy);
     font-family:var(--mono);
     font-size:max(12px,.68vw);
   }
-  .v8-bar-row i{
+  .ops-bar-row i{
     display:block;
     height:.72vh;
     background:linear-gradient(90deg,var(--navy),var(--gold));
     width:var(--w);
     min-width:16%;
   }
-  .v8-bar-row span{
+  .ops-bar-row span{
     color:var(--text-secondary);
     font-size:max(11px,.62vw);
     line-height:1.18;
     text-align:right;
   }
-  .v8-org-grid{
+  .ops-org-grid{
     display:grid;
     grid-template-columns:1.45fr .95fr;
     gap:1px;
@@ -3377,33 +3372,33 @@
     border:1px solid rgba(6,25,39,.16);
     min-height:0;
   }
-  .v8-org-grid .v8-grid-2{border:0;background:transparent}
-  .v8-deliverables{
+  .ops-org-grid .ops-grid-2{border:0;background:transparent}
+  .ops-deliverables{
     display:grid;
     grid-template-columns:repeat(5,1fr);
     gap:1px;
     background:rgba(6,25,39,.16);
     border:1px solid rgba(6,25,39,.16);
   }
-  .v8-deliverables div{
+  .ops-deliverables div{
     background:#fff;
     padding:.8vh .72vw;
     min-height:7.2vh;
   }
-  .v8-deliverables b{
+  .ops-deliverables b{
     display:block;
     color:var(--gold);
     font-family:var(--mono);
     font-size:max(10px,.56vw);
     margin-bottom:.38vh;
   }
-  .v8-deliverables span{
+  .ops-deliverables span{
     display:block;
     color:var(--text-secondary);
     font-size:max(10px,.58vw);
     line-height:1.24;
   }
-  .v8-arch-grid{
+  .ops-arch-grid{
     display:grid;
     grid-template-columns:repeat(2,1fr);
     gap:1px;
@@ -3413,8 +3408,8 @@
     height:100%;
     grid-auto-rows:1fr;
   }
-  .v8-arch-grid.three{grid-template-columns:repeat(3,1fr)}
-  .v8-arch{
+  .ops-arch-grid.three{grid-template-columns:repeat(3,1fr)}
+  .ops-arch{
     background:#fff;
     background-image:repeating-linear-gradient(180deg,rgba(6,25,39,0) 0,rgba(6,25,39,0) 5.9vh,rgba(6,25,39,.035) 5.9vh,rgba(6,25,39,.035) 6vh);
     padding:1vh .9vw;
@@ -3425,21 +3420,21 @@
     height:100%;
     align-content:start;
   }
-  .v8-arch.dark{background:var(--navy);color:#fff}
-  .v8-arch.dark{background-image:repeating-linear-gradient(180deg,rgba(255,255,255,0) 0,rgba(255,255,255,0) 5.9vh,rgba(255,255,255,.05) 5.9vh,rgba(255,255,255,.05) 6vh)}
-  .v8-arch h3{
+  .ops-arch.dark{background:var(--navy);color:#fff}
+  .ops-arch.dark{background-image:repeating-linear-gradient(180deg,rgba(255,255,255,0) 0,rgba(255,255,255,0) 5.9vh,rgba(255,255,255,.05) 5.9vh,rgba(255,255,255,.05) 6vh)}
+  .ops-arch h3{
     color:inherit;
     font-size:max(19px,1.08vw);
     line-height:1.15;
     margin:0;
   }
-  .v8-arch .sub{
+  .ops-arch .sub{
     color:var(--text-secondary);
     font-size:max(11px,.62vw);
     line-height:1.25;
   }
-  .v8-arch.dark .sub{color:rgba(255,255,255,.76)}
-  .v8-arch-facts{
+  .ops-arch.dark .sub{color:rgba(255,255,255,.76)}
+  .ops-arch-facts{
     display:grid;
     gap:1px;
     background:rgba(6,25,39,.12);
@@ -3447,8 +3442,8 @@
     height:100%;
     grid-auto-rows:1fr;
   }
-  .v8-arch.dark .v8-arch-facts{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.16)}
-  .v8-arch-row{
+  .ops-arch.dark .ops-arch-facts{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.16)}
+  .ops-arch-row{
     display:grid;
     grid-template-columns:.62fr 1fr;
     gap:.65vw;
@@ -3457,20 +3452,20 @@
     min-height:4.8vh;
     align-items:center;
   }
-  .v8-arch.dark .v8-arch-row{background:rgba(255,255,255,.08)}
-  .v8-arch-row b{
+  .ops-arch.dark .ops-arch-row{background:rgba(255,255,255,.08)}
+  .ops-arch-row b{
     color:var(--gold);
     font-family:var(--mono);
     font-size:max(10px,.56vw);
     line-height:1.2;
   }
-  .v8-arch-row span{
+  .ops-arch-row span{
     color:var(--text-secondary);
     font-size:max(11px,.62vw);
     line-height:1.26;
   }
-  .v8-arch.dark .v8-arch-row span{color:rgba(255,255,255,.78)}
-  .v8-arch-result{
+  .ops-arch.dark .ops-arch-row span{color:rgba(255,255,255,.78)}
+  .ops-arch-result{
     border-top:1px solid rgba(6,25,39,.12);
     padding-top:.62vh;
     color:var(--navy);
@@ -3479,8 +3474,8 @@
     line-height:1.24;
     align-self:end;
   }
-  .v8-arch.dark .v8-arch-result{color:#fff;border-top-color:rgba(255,255,255,.18)}
-  .v8-mechanism-grid{
+  .ops-arch.dark .ops-arch-result{color:#fff;border-top-color:rgba(255,255,255,.18)}
+  .ops-mechanism-grid{
     display:grid;
     grid-template-columns:1.05fr repeat(4,1fr);
     gap:1px;
@@ -3488,7 +3483,7 @@
     border:1px solid rgba(6,25,39,.16);
     min-height:0;
   }
-  .v8-mechanism-core{
+  .ops-mechanism-core{
     background:var(--navy);
     color:#fff;
     padding:1.15vh .95vw;
@@ -3496,40 +3491,37 @@
     grid-template-rows:auto auto 1fr;
     gap:.8vh;
   }
-  .v8-mechanism-core h3{
+  .ops-mechanism-core h3{
     color:#fff;
     font-size:max(24px,1.42vw);
     line-height:1.13;
   }
-  .v8-mechanism-core p{
+  .ops-mechanism-core p{
     color:rgba(255,255,255,.78);
     font-size:max(12px,.68vw);
     line-height:1.32;
   }
-  .v8-mechanism-core .v8-mini-ledger{border-color:rgba(255,255,255,.16);background:rgba(255,255,255,.16)}
-  .v8-mechanism-core .v8-ledger-row{background:rgba(255,255,255,.08)}
-  .v8-mechanism-core .v8-ledger-row span{color:rgba(255,255,255,.78)}
-
-
-  /* V9 projection readability pass: keep V8 visual system, raise readable text layers. */
+  .ops-mechanism-core .ops-mini-ledger{border-color:rgba(255,255,255,.16);background:rgba(255,255,255,.16)}
+  .ops-mechanism-core .ops-ledger-row{background:rgba(255,255,255,.08)}
+  .ops-mechanism-core .ops-ledger-row span{color:rgba(255,255,255,.78)}
   .service-card li,
   .resource-cell p,
   .resource-cell li,
   .process-strip-v7 span,
-  .v8-panel p,
-  .v8-panel li,
-  .v8-cell p,
-  .v8-cell li,
-  .v8-step span,
-  .v8-node span,
-  .v8-stage li,
-  .v8-stage p,
-  .v8-role p,
-  .v8-role li,
-  .v8-arch .sub,
-  .v8-arch-row span,
-  .v8-arch-result,
-  .v8-output{
+  .ops-panel p,
+  .ops-panel li,
+  .ops-cell p,
+  .ops-cell li,
+  .ops-step span,
+  .ops-node span,
+  .ops-stage li,
+  .ops-stage p,
+  .ops-role p,
+  .ops-role li,
+  .ops-arch .sub,
+  .ops-arch-row span,
+  .ops-arch-result,
+  .ops-output{
     font-size:max(13px,.74vw);
     line-height:1.3;
   }
@@ -3589,34 +3581,34 @@
   .rank-year,
   .rank-note,
   .rank-head span,
-  .v8-bar-row span,
+  .ops-bar-row span,
   .matrix-axis em{
     font-size:max(12.5px,.7vw);
     line-height:1.16;
   }
-  .v8-tag,
-  .v8-deal .meta,
-  .v8-deal .deal-name em,
-  .v8-ledger-row b,
-  .v8-deliverables b,
-  .v8-arch-row b,
-  .v8-proof span{
+  .ops-tag,
+  .ops-deal .meta,
+  .ops-deal .deal-name em,
+  .ops-ledger-row b,
+  .ops-deliverables b,
+  .ops-arch-row b,
+  .ops-proof span{
     font-size:max(11.5px,.64vw);
     line-height:1.16;
     letter-spacing:.04em;
   }
-  .v8-ledger-row span,
-  .v8-deliverables span,
-  .v8-proof p{
+  .ops-ledger-row span,
+  .ops-deliverables span,
+  .ops-proof p{
     font-size:max(12.5px,.7vw);
     line-height:1.24;
   }
-  .v8-deal{
+  .ops-deal{
     min-height:16.8vh;
     padding:.82vh .68vw;
     gap:.45vh;
   }
-  .v8-deal h3{
+  .ops-deal h3{
     font-size:max(18.5px,1.04vw);
     line-height:1.1;
   }
@@ -3637,26 +3629,26 @@
     font-size:max(13px,.74vw);
     line-height:1.24;
   }
-  .v8-deal-grid.four .deal-fields span,
-  .v8-deal-grid.four .deal-fields b{
+  .ops-deal-grid.four .deal-fields span,
+  .ops-deal-grid.four .deal-fields b{
     font-size:max(12px,.68vw);
   }
-  .v8-role{
+  .ops-role{
     padding:.85vh .7vw;
     gap:.45vh;
   }
-  .v8-role h3{
+  .ops-role h3{
     font-size:max(17.5px,.98vw);
   }
-  .v8-role .out{
+  .ops-role .out{
     font-size:max(12.5px,.7vw);
     line-height:1.2;
   }
-  .v8-deliverables div{
+  .ops-deliverables div{
     padding:.68vh .64vw;
     min-height:7vh;
   }
-  .v8-stage{
+  .ops-stage{
     padding:.86vh .72vw;
     gap:.55vh;
   }
@@ -3911,40 +3903,40 @@
       <div><div class="eyebrow">Awards & Research</div><h2 class="headline">市场认可与研究能力共同支撑项目定位、估值和销售</h2></div>
       
       <div style="display:grid;grid-template-rows:1fr auto;gap:1.2vh;min-height:0">
-        <div class="v8-page-stack">
-        <div class="v8-proof-grid">
-          <div class="v8-proof dark"><span>Awards</span><b>市场认可</b><p>君鼎奖、新财富和行业奖项共同体现 IPO、再融资、股票承销和科创板服务能力。</p></div>
-          <div class="v8-proof"><span>IPO</span><b>最佳 IPO 投行</b><p>项目执行、审核沟通和发行承销能力获得市场排名和奖项支撑。</p></div>
-          <div class="v8-proof"><span>Refi</span><b>最佳再融资投行</b><p>上市后定增、可转债和资本运作服务能力形成案例积累。</p></div>
-          <div class="v8-proof"><span>STAR</span><b>科创企业服务</b><p>医疗健康、硬科技和成长型企业上市服务形成差异化能力。</p></div>
+        <div class="ops-page-stack">
+        <div class="ops-proof-grid">
+          <div class="ops-proof dark"><span>Awards</span><b>市场认可</b><p>君鼎奖、新财富和行业奖项共同体现 IPO、再融资、股票承销和科创板服务能力。</p></div>
+          <div class="ops-proof"><span>IPO</span><b>最佳 IPO 投行</b><p>项目执行、审核沟通和发行承销能力获得市场排名和奖项支撑。</p></div>
+          <div class="ops-proof"><span>Refi</span><b>最佳再融资投行</b><p>上市后定增、可转债和资本运作服务能力形成案例积累。</p></div>
+          <div class="ops-proof"><span>STAR</span><b>科创企业服务</b><p>医疗健康、硬科技和成长型企业上市服务形成差异化能力。</p></div>
         </div>
-        <div class="v8-split" style="grid-template-columns:.94fr 1.4fr">
-          <div class="v8-panel dark">
+        <div class="ops-split" style="grid-template-columns:.94fr 1.4fr">
+          <div class="ops-panel dark">
             <h3>奖项与市场认可时间轴</h3>
-            <div class="v8-mini-ledger">
-              <div class="v8-ledger-row"><b>君鼎奖</b><span>新锐投行、创业板投行、主板/创业板融资项目、投资银行家等多项荣誉。</span></div>
-              <div class="v8-ledger-row"><b>股票承销</b><span>A 股最佳股票承销商团队奖，体现发行组织和销售协同能力。</span></div>
-              <div class="v8-ledger-row"><b>科创板</b><span>科创板年度最佳服务机构，支撑硬科技客户上市服务。</span></div>
-              <div class="v8-ledger-row"><b>新财富</b><span>最佳潜力投行第一名、最佳 IPO 投行第十名、最佳再融资投行第十名。</span></div>
+            <div class="ops-mini-ledger">
+              <div class="ops-ledger-row"><b>君鼎奖</b><span>新锐投行、创业板投行、主板/创业板融资项目、投资银行家等多项荣誉。</span></div>
+              <div class="ops-ledger-row"><b>股票承销</b><span>A 股最佳股票承销商团队奖，体现发行组织和销售协同能力。</span></div>
+              <div class="ops-ledger-row"><b>科创板</b><span>科创板年度最佳服务机构，支撑硬科技客户上市服务。</span></div>
+              <div class="ops-ledger-row"><b>新财富</b><span>最佳潜力投行第一名、最佳 IPO 投行第十名、最佳再融资投行第十名。</span></div>
             </div>
           </div>
-          <div class="v8-panel">
+          <div class="ops-panel">
             <h3>研究覆盖转化为投行项目能力</h3>
-            <div class="v8-grid-3" style="border:0">
-              <div class="v8-cell"><span class="v8-tag">Industry</span><h3>重点行业</h3><p>医药生物、新能源、装备制造、汽车、消费、TMT 等。</p></div>
-              <div class="v8-cell"><span class="v8-tag">Team</span><h3>复合背景</h3><p>博士、硕士比例高，具备行业背景和财务分析能力。</p></div>
-              <div class="v8-cell"><span class="v8-tag">Output</span><h3>项目交付</h3><p>支持板块定位、估值锚定、投价报告、路演问答和投资者沟通。</p></div>
-              <div class="v8-cell"><span class="v8-tag">Coverage</span><h3>客户覆盖</h3><p>把行业研究沉淀用于客户筛选、辅导路径和上市板块判断。</p></div>
-              <div class="v8-cell"><span class="v8-tag">Pricing</span><h3>估值支持</h3><p>通过可比公司、市场反馈和投资者问答支持发行定价。</p></div>
-              <div class="v8-cell"><span class="v8-tag">IR</span><h3>持续沟通</h3><p>上市后支持再融资、可转债和资本市场表达持续迭代。</p></div>
+            <div class="ops-grid-3" style="border:0">
+              <div class="ops-cell"><span class="ops-tag">Industry</span><h3>重点行业</h3><p>医药生物、新能源、装备制造、汽车、消费、TMT 等。</p></div>
+              <div class="ops-cell"><span class="ops-tag">Team</span><h3>复合背景</h3><p>博士、硕士比例高，具备行业背景和财务分析能力。</p></div>
+              <div class="ops-cell"><span class="ops-tag">Output</span><h3>项目交付</h3><p>支持板块定位、估值锚定、投价报告、路演问答和投资者沟通。</p></div>
+              <div class="ops-cell"><span class="ops-tag">Coverage</span><h3>客户覆盖</h3><p>把行业研究沉淀用于客户筛选、辅导路径和上市板块判断。</p></div>
+              <div class="ops-cell"><span class="ops-tag">Pricing</span><h3>估值支持</h3><p>通过可比公司、市场反馈和投资者问答支持发行定价。</p></div>
+              <div class="ops-cell"><span class="ops-tag">IR</span><h3>持续沟通</h3><p>上市后支持再融资、可转债和资本市场表达持续迭代。</p></div>
             </div>
           </div>
         </div>
-        <div class="v8-flow" style="grid-template-columns:repeat(4,1fr)">
-          <div class="v8-step"><b>行业判断</b><span>产业趋势、竞争格局、监管和商业化路径。</span></div>
-          <div class="v8-step"><b>估值表达</b><span>可比公司、成长逻辑、募投和资本开支解释。</span></div>
-          <div class="v8-step"><b>销售反馈</b><span>机构投资者关注点、路演纪要和发行反馈。</span></div>
-          <div class="v8-step"><b>项目推进</b><span>把市场语言转化为审核、发行和上市后沟通材料。</span></div>
+        <div class="ops-flow" style="grid-template-columns:repeat(4,1fr)">
+          <div class="ops-step"><b>行业判断</b><span>产业趋势、竞争格局、监管和商业化路径。</span></div>
+          <div class="ops-step"><b>估值表达</b><span>可比公司、成长逻辑、募投和资本开支解释。</span></div>
+          <div class="ops-step"><b>销售反馈</b><span>机构投资者关注点、路演纪要和发行反馈。</span></div>
+          <div class="ops-step"><b>项目推进</b><span>把市场语言转化为审核、发行和上市后沟通材料。</span></div>
         </div>
         </div>
       </div>
@@ -3960,24 +3952,24 @@
       <div><div class="eyebrow">Pricing & Distribution</div><h2 class="headline">发行组织把研究、销售、投行和投资者反馈连成闭环</h2></div>
       
       <div style="display:grid;grid-template-rows:auto 1fr auto;gap:1.15vh;min-height:0">
-        <div class="v8-flow">
-          <div class="v8-step"><b>定位</b><span>梳理行业、增长、募投和估值锚点。</span></div>
-          <div class="v8-step"><b>材料</b><span>路演推介、投价报告、问答和发行方案。</span></div>
-          <div class="v8-step"><b>路演</b><span>组织路演培训、投资者沟通和每日反馈。</span></div>
-          <div class="v8-step"><b>反馈</b><span>汇总机构关注，调整沟通重点和发行节奏。</span></div>
-          <div class="v8-step"><b>定价</b><span>簿记配售、缴款上市和后续资本市场维护。</span></div>
+        <div class="ops-flow">
+          <div class="ops-step"><b>定位</b><span>梳理行业、增长、募投和估值锚点。</span></div>
+          <div class="ops-step"><b>材料</b><span>路演推介、投价报告、问答和发行方案。</span></div>
+          <div class="ops-step"><b>路演</b><span>组织路演培训、投资者沟通和每日反馈。</span></div>
+          <div class="ops-step"><b>反馈</b><span>汇总机构关注，调整沟通重点和发行节奏。</span></div>
+          <div class="ops-step"><b>定价</b><span>簿记配售、缴款上市和后续资本市场维护。</span></div>
         </div>
-        <div class="v8-role-loop">
-          <div class="v8-role dark"><span class="v8-tag">Research</span><h3>研究</h3><ul><li>产业判断、行业周期和竞争格局。</li><li>可比公司、估值锚点和投资者关注点。</li></ul><div class="out">输出：行业观点、估值框架、投价素材</div></div>
-          <div class="v8-role"><span class="v8-tag">IBD</span><h3>投行</h3><ul><li>发行方案、募投逻辑和审核口径。</li><li>发行节奏、公告安排和注册材料衔接。</li></ul><div class="out">输出：发行方案、问答清单、材料版本</div></div>
-          <div class="v8-role"><span class="v8-tag">Sales</span><h3>销售</h3><ul><li>机构覆盖、路演安排和反馈整理。</li><li>投资者分层、重点问题和需求管理。</li></ul><div class="out">输出：路演排期、投资者反馈、询价画像</div></div>
-          <div class="v8-role"><span class="v8-tag">Market</span><h3>市场</h3><ul><li>发行窗口、簿记配售和缴款上市。</li><li>上市后交易表现和持续沟通反馈。</li></ul><div class="out">输出：定价建议、配售安排、上市节奏</div></div>
+        <div class="ops-role-loop">
+          <div class="ops-role dark"><span class="ops-tag">Research</span><h3>研究</h3><ul><li>产业判断、行业周期和竞争格局。</li><li>可比公司、估值锚点和投资者关注点。</li></ul><div class="out">输出：行业观点、估值框架、投价素材</div></div>
+          <div class="ops-role"><span class="ops-tag">IBD</span><h3>投行</h3><ul><li>发行方案、募投逻辑和审核口径。</li><li>发行节奏、公告安排和注册材料衔接。</li></ul><div class="out">输出：发行方案、问答清单、材料版本</div></div>
+          <div class="ops-role"><span class="ops-tag">Sales</span><h3>销售</h3><ul><li>机构覆盖、路演安排和反馈整理。</li><li>投资者分层、重点问题和需求管理。</li></ul><div class="out">输出：路演排期、投资者反馈、询价画像</div></div>
+          <div class="ops-role"><span class="ops-tag">Market</span><h3>市场</h3><ul><li>发行窗口、簿记配售和缴款上市。</li><li>上市后交易表现和持续沟通反馈。</li></ul><div class="out">输出：定价建议、配售安排、上市节奏</div></div>
         </div>
-        <div class="v8-proof-grid">
-          <div class="v8-proof"><span>IPO</span><b>高市盈率发行</b><p>百诚医药、光庭信息等项目发行市盈率和超募比例表现突出。</p></div>
-          <div class="v8-proof"><span>REFI</span><b>再融资销售</b><p>不利市场环境中挖掘企业价值，引入产业或战略投资者。</p></div>
-          <div class="v8-proof"><span>Feedback</span><b>每日反馈</b><p>路演纪要、投资者问题和定价反馈同步回到项目组。</p></div>
-          <div class="v8-proof dark"><span>Value</span><b>客户价值</b><p>把投资者关注转化为发行沟通材料和长期资本市场表达。</p></div>
+        <div class="ops-proof-grid">
+          <div class="ops-proof"><span>IPO</span><b>高市盈率发行</b><p>百诚医药、光庭信息等项目发行市盈率和超募比例表现突出。</p></div>
+          <div class="ops-proof"><span>REFI</span><b>再融资销售</b><p>不利市场环境中挖掘企业价值，引入产业或战略投资者。</p></div>
+          <div class="ops-proof"><span>Feedback</span><b>每日反馈</b><p>路演纪要、投资者问题和定价反馈同步回到项目组。</p></div>
+          <div class="ops-proof dark"><span>Value</span><b>客户价值</b><p>把投资者关注转化为发行沟通材料和长期资本市场表达。</p></div>
         </div>
       </div>
     </div>
@@ -3991,7 +3983,7 @@
     <div style="display:grid;grid-template-rows:auto 1fr;gap:2vh;min-height:0">
       <div><div class="eyebrow">IPO Track Record</div><h2 class="headline">IPO主承销排名保持行业前列，2026年前5月保荐家数进入市场TOP5</h2></div>
       
-      <div class="v8-split">
+      <div class="ops-split">
         <div class="rank-ledger" style="grid-template-columns:1fr 1fr;grid-auto-rows:1fr">
           <div class="rank-head"><b>完整年度排名</b><span>IPO及北交所上市主承销家数排名。</span></div>
           <div><div class="rank-year">2020</div><div class="rank-no">#8</div><div class="rank-note">行业排名</div></div>
@@ -4002,26 +3994,26 @@
           <div><div class="rank-year">2025</div><div class="rank-no">#10</div><div class="rank-note">并列</div></div>
           <div class="rank-ytd"><div class="rank-year">2026.01-05</div><div class="rank-no">TOP5</div><div class="rank-note">5 家保荐上市</div></div>
         </div>
-        <div class="v8-panel">
+        <div class="ops-panel">
           <h3>2026 年前 5 月阶段性动能</h3>
-          <div class="v8-kpi-row" style="grid-template-columns:repeat(2,1fr);margin-top:0">
-            <div class="v8-kpi"><b>TOP5</b><span>A 股发行上市保荐家数。</span></div>
-            <div class="v8-kpi"><b>5家</b><span>截至 2026 年 5 月阶段性数据。</span></div>
+          <div class="ops-kpi-row" style="grid-template-columns:repeat(2,1fr);margin-top:0">
+            <div class="ops-kpi"><b>TOP5</b><span>A 股发行上市保荐家数。</span></div>
+            <div class="ops-kpi"><b>5家</b><span>截至 2026 年 5 月阶段性数据。</span></div>
           </div>
-          <div class="v8-bar-list" style="margin-top:1.05vh">
-            <div class="v8-bar-row"><b>2026YTD</b><i style="--w:96%"></i><span>TOP5 / 5家</span></div>
-            <div class="v8-bar-row"><b>2025</b><i style="--w:78%"></i><span>#10 并列</span></div>
-            <div class="v8-bar-row"><b>2024</b><i style="--w:78%"></i><span>#10 并列</span></div>
-            <div class="v8-bar-row"><b>2023</b><i style="--w:82%"></i><span>#9</span></div>
+          <div class="ops-bar-list" style="margin-top:1.05vh">
+            <div class="ops-bar-row"><b>2026YTD</b><i style="--w:96%"></i><span>TOP5 / 5家</span></div>
+            <div class="ops-bar-row"><b>2025</b><i style="--w:78%"></i><span>#10 并列</span></div>
+            <div class="ops-bar-row"><b>2024</b><i style="--w:78%"></i><span>#10 并列</span></div>
+            <div class="ops-bar-row"><b>2023</b><i style="--w:82%"></i><span>#9</span></div>
           </div>
-          <div class="v8-grid-2" style="margin-top:1.05vh;border:0">
-            <div class="v8-cell"><span class="v8-tag">2020-2025</span><h3>完整年度排名</h3><p>展示 IPO 及北交所上市主承销家数的连续市场位置。</p></div>
-            <div class="v8-cell dark"><span class="v8-tag">2026.01-05</span><h3>阶段性领先</h3><p>前 5 月保荐上市家数进入市场 TOP5，显示最新项目动能。</p></div>
+          <div class="ops-grid-2" style="margin-top:1.05vh;border:0">
+            <div class="ops-cell"><span class="ops-tag">2020-2025</span><h3>完整年度排名</h3><p>展示 IPO 及北交所上市主承销家数的连续市场位置。</p></div>
+            <div class="ops-cell dark"><span class="ops-tag">2026.01-05</span><h3>阶段性领先</h3><p>前 5 月保荐上市家数进入市场 TOP5，显示最新项目动能。</p></div>
           </div>
-          <div class="v8-flow" style="grid-template-columns:repeat(3,1fr);margin-top:1.05vh">
-            <div class="v8-step"><b>传统优势</b><span>IPO 保荐承销项目基础。</span></div>
-            <div class="v8-step"><b>最新动能</b><span>2026YTD 保荐上市家数进入 TOP5。</span></div>
-            <div class="v8-step"><b>客户价值</b><span>支撑上市路径判断和申报推进信心。</span></div>
+          <div class="ops-flow" style="grid-template-columns:repeat(3,1fr);margin-top:1.05vh">
+            <div class="ops-step"><b>传统优势</b><span>IPO 保荐承销项目基础。</span></div>
+            <div class="ops-step"><b>最新动能</b><span>2026YTD 保荐上市家数进入 TOP5。</span></div>
+            <div class="ops-step"><b>客户价值</b><span>支撑上市路径判断和申报推进信心。</span></div>
           </div>
         </div>
       </div>
@@ -4214,36 +4206,36 @@
       <div><div class="eyebrow">Department VII</div><h2 class="headline">投行七部以项目负责人为核心组织专业团队、质控内核和外部资源</h2></div>
       
       <div style="display:grid;grid-template-rows:auto 1fr auto;gap:1.2vh;min-height:0">
-        <div class="v8-kpi-row">
-          <div class="v8-kpi"><b>2008</b><span>部门成立时间，长期服务华东、华南客户。</span></div>
-          <div class="v8-kpi"><b>43名</b><span>现有人员覆盖财务、法律、企业管理、金融等专业。</span></div>
-          <div class="v8-kpi"><b>33名</b><span>保荐代表人，多人拥有 CPA、律师、CFA 等资格。</span></div>
-          <div class="v8-kpi"><b>IPO/Refi/M&A</b><span>团队经验覆盖上市、再融资和重组项目。</span></div>
+        <div class="ops-kpi-row">
+          <div class="ops-kpi"><b>2008</b><span>部门成立时间，长期服务华东、华南客户。</span></div>
+          <div class="ops-kpi"><b>43名</b><span>现有人员覆盖财务、法律、企业管理、金融等专业。</span></div>
+          <div class="ops-kpi"><b>33名</b><span>保荐代表人，多人拥有 CPA、律师、CFA 等资格。</span></div>
+          <div class="ops-kpi"><b>IPO/Refi/M&A</b><span>团队经验覆盖上市、再融资和重组项目。</span></div>
         </div>
-        <div class="v8-org-grid">
-          <div class="v8-grid-2">
-            <div class="v8-cell"><span class="v8-tag">Owner</span><h3>项目负责人</h3><p>直接协调项目组、公司高层和关键外部资源，缩短反馈链条。</p></div>
-            <div class="v8-cell"><span class="v8-tag">Onsite</span><h3>现场团队</h3><p>负责申报文件、底稿证据、问询回复、发行组织和持续服务。</p></div>
-            <div class="v8-cell"><span class="v8-tag">Control</span><h3>质控内核</h3><p>提前复核审核风险、材料质量、底稿一致性和信息披露边界。</p></div>
-            <div class="v8-cell"><span class="v8-tag">Network</span><h3>外部协同</h3><p>与证监局、发改委、国资委、会计师、律师等保持沟通机制。</p></div>
+        <div class="ops-org-grid">
+          <div class="ops-grid-2">
+            <div class="ops-cell"><span class="ops-tag">Owner</span><h3>项目负责人</h3><p>直接协调项目组、公司高层和关键外部资源，缩短反馈链条。</p></div>
+            <div class="ops-cell"><span class="ops-tag">Onsite</span><h3>现场团队</h3><p>负责申报文件、底稿证据、问询回复、发行组织和持续服务。</p></div>
+            <div class="ops-cell"><span class="ops-tag">Control</span><h3>质控内核</h3><p>提前复核审核风险、材料质量、底稿一致性和信息披露边界。</p></div>
+            <div class="ops-cell"><span class="ops-tag">Network</span><h3>外部协同</h3><p>与证监局、发改委、国资委、会计师、律师等保持沟通机制。</p></div>
           </div>
-          <div class="v8-panel dark">
+          <div class="ops-panel dark">
             <h3>执行组织模型</h3>
-            <div class="v8-mini-ledger">
-              <div class="v8-ledger-row"><b>组织</b><span>项目负责人统一调度现场团队、研究销售、质控内核和中介机构。</span></div>
-              <div class="v8-ledger-row"><b>质量</b><span>材料、底稿、问询和披露口径在项目节奏内滚动复核。</span></div>
-              <div class="v8-ledger-row"><b>沟通</b><span>客户管理层、监管、中介和投资者反馈形成短链路响应。</span></div>
-              <div class="v8-ledger-row"><b>结果</b><span>把专业分工转化为审核推进、发行执行和上市后持续服务。</span></div>
+            <div class="ops-mini-ledger">
+              <div class="ops-ledger-row"><b>组织</b><span>项目负责人统一调度现场团队、研究销售、质控内核和中介机构。</span></div>
+              <div class="ops-ledger-row"><b>质量</b><span>材料、底稿、问询和披露口径在项目节奏内滚动复核。</span></div>
+              <div class="ops-ledger-row"><b>沟通</b><span>客户管理层、监管、中介和投资者反馈形成短链路响应。</span></div>
+              <div class="ops-ledger-row"><b>结果</b><span>把专业分工转化为审核推进、发行执行和上市后持续服务。</span></div>
             </div>
           </div>
         </div>
-        <div class="v8-flow" style="grid-template-columns:repeat(6,1fr)">
-          <div class="v8-step"><b>规范</b><span>股改、合规、内控和股权结构。</span></div>
-          <div class="v8-step"><b>申报</b><span>招股书、底稿、申报文件。</span></div>
-          <div class="v8-step"><b>审核</b><span>问询回复、监管沟通和质控复核。</span></div>
-          <div class="v8-step"><b>发行</b><span>路演、簿记、配售和上市。</span></div>
-          <div class="v8-step"><b>融资</b><span>定增、可转债、配套融资。</span></div>
-          <div class="v8-step"><b>并购</b><span>交易结构、资产优化和信息披露。</span></div>
+        <div class="ops-flow" style="grid-template-columns:repeat(6,1fr)">
+          <div class="ops-step"><b>规范</b><span>股改、合规、内控和股权结构。</span></div>
+          <div class="ops-step"><b>申报</b><span>招股书、底稿、申报文件。</span></div>
+          <div class="ops-step"><b>审核</b><span>问询回复、监管沟通和质控复核。</span></div>
+          <div class="ops-step"><b>发行</b><span>路演、簿记、配售和上市。</span></div>
+          <div class="ops-step"><b>融资</b><span>定增、可转债、配套融资。</span></div>
+          <div class="ops-step"><b>并购</b><span>交易结构、资产优化和信息披露。</span></div>
         </div>
       </div>
     </div>
@@ -4257,8 +4249,8 @@
     <div style="display:grid;grid-template-rows:auto 1fr;gap:2vh;min-height:0">
       <div><div class="eyebrow">IPO Cases</div><h2 class="headline">早期 IPO 案例体现复杂业务解释、二次上会沟通和发行定价能力</h2></div>
       
-      <div class="v8-deal-grid">
-          <div class="v8-deal dark">
+      <div class="ops-deal-grid">
+          <div class="ops-deal dark">
               <div class="meta"><span>IPO</span><span>2010</span></div>
             <div class="deal-name"><h3>榕基软件</h3><em>002474</em></div>
             <div class="deal-fields">
@@ -4267,7 +4259,7 @@
               <div><b>Execution</b><span>业务解释、审核沟通、发行组织和客户持续服务。</span></div>
             </div>
           </div>
-          <div class="v8-deal featured">
+          <div class="ops-deal featured">
               <div class="meta"><span>IPO</span><span>2010</span></div>
             <div class="deal-name"><h3>青松股份</h3><em>300132</em></div>
             <div class="deal-fields">
@@ -4276,7 +4268,7 @@
               <div><b>Execution</b><span>业务解释、审核沟通、发行组织和客户持续服务。</span></div>
             </div>
           </div>
-          <div class="v8-deal">
+          <div class="ops-deal">
               <div class="meta"><span>IPO</span><span>2012</span></div>
             <div class="deal-name"><h3>海欣食品</h3><em>002702</em></div>
             <div class="deal-fields">
@@ -4285,7 +4277,7 @@
               <div><b>Execution</b><span>业务解释、审核沟通、发行组织和客户持续服务。</span></div>
             </div>
           </div>
-          <div class="v8-deal featured">
+          <div class="ops-deal featured">
               <div class="meta"><span>IPO</span><span>2012</span></div>
             <div class="deal-name"><h3>元力股份</h3><em>300174</em></div>
             <div class="deal-fields">
@@ -4294,7 +4286,7 @@
               <div><b>Execution</b><span>业务解释、审核沟通、发行组织和客户持续服务。</span></div>
             </div>
           </div>
-          <div class="v8-deal">
+          <div class="ops-deal">
               <div class="meta"><span>IPO</span><span>2011</span></div>
             <div class="deal-name"><h3>麦迪电气</h3><em>300341</em></div>
             <div class="deal-fields">
@@ -4303,7 +4295,7 @@
               <div><b>Execution</b><span>业务解释、审核沟通、发行组织和客户持续服务。</span></div>
             </div>
           </div>
-          <div class="v8-deal">
+          <div class="ops-deal">
               <div class="meta"><span>Capability</span><span>2010-2012</span></div>
             <div class="deal-name"><h3>早期执行能力</h3><em>IPO</em></div>
             <div class="deal-fields">
@@ -4323,8 +4315,8 @@
     <div style="display:grid;grid-template-rows:auto 1fr;gap:2vh;min-height:0">
       <div><div class="eyebrow">IPO Cases</div><h2 class="headline">2014-2017 年 IPO 项目覆盖软件、汽车零部件、消费用品和新材料</h2></div>
       
-      <div class="v8-deal-grid">
-          <div class="v8-deal dark">
+      <div class="ops-deal-grid">
+          <div class="ops-deal dark">
               <div class="meta"><span>Software</span><span>2016</span></div>
             <div class="deal-name"><h3>博思软件</h3><em>300525</em></div>
             <div class="deal-fields">
@@ -4333,7 +4325,7 @@
               <div><b>Execution</b><span>业务解释、审核沟通、发行组织和客户持续服务。</span></div>
             </div>
           </div>
-          <div class="v8-deal">
+          <div class="ops-deal">
               <div class="meta"><span>Electronics</span><span>2014</span></div>
             <div class="deal-name"><h3>好利来</h3><em>002729</em></div>
             <div class="deal-fields">
@@ -4342,7 +4334,7 @@
               <div><b>Execution</b><span>业务解释、审核沟通、发行组织和客户持续服务。</span></div>
             </div>
           </div>
-          <div class="v8-deal featured">
+          <div class="ops-deal featured">
               <div class="meta"><span>Auto</span><span>2014</span></div>
             <div class="deal-name"><h3>华懋科技</h3><em>603306</em></div>
             <div class="deal-fields">
@@ -4351,7 +4343,7 @@
               <div><b>Execution</b><span>业务解释、审核沟通、发行组织和客户持续服务。</span></div>
             </div>
           </div>
-          <div class="v8-deal">
+          <div class="ops-deal">
               <div class="meta"><span>Consumer</span><span>2017</span></div>
             <div class="deal-name"><h3>茶花股份</h3><em>603615</em></div>
             <div class="deal-fields">
@@ -4360,7 +4352,7 @@
               <div><b>Execution</b><span>业务解释、审核沟通、发行组织和客户持续服务。</span></div>
             </div>
           </div>
-          <div class="v8-deal featured">
+          <div class="ops-deal featured">
               <div class="meta"><span>Materials</span><span>2017</span></div>
             <div class="deal-name"><h3>坤彩材料</h3><em>603826</em></div>
             <div class="deal-fields">
@@ -4369,7 +4361,7 @@
               <div><b>Execution</b><span>业务解释、审核沟通、发行组织和客户持续服务。</span></div>
             </div>
           </div>
-          <div class="v8-deal">
+          <div class="ops-deal">
               <div class="meta"><span>Coverage</span><span>2014-2017</span></div>
             <div class="deal-name"><h3>行业覆盖</h3><em>IPO</em></div>
             <div class="deal-fields">
@@ -4389,8 +4381,8 @@
     <div style="display:grid;grid-template-rows:auto 1fr;gap:2vh;min-height:0">
       <div><div class="eyebrow">IPO Cases</div><h2 class="headline">2020年以来 IPO 项目覆盖科创板、创业板和主板多行业客户</h2></div>
       
-      <div class="v8-deal-grid">
-          <div class="v8-deal dark">
+      <div class="ops-deal-grid">
+          <div class="ops-deal dark">
               <div class="meta"><span>STAR</span><span>2020</span></div>
             <div class="deal-name"><h3>特宝生物</h3><em>688278</em></div>
             <div class="deal-fields">
@@ -4399,7 +4391,7 @@
               <div><b>Execution</b><span>业务解释、审核沟通、发行组织和客户持续服务。</span></div>
             </div>
           </div>
-          <div class="v8-deal">
+          <div class="ops-deal">
               <div class="meta"><span>GEM</span><span>2017</span></div>
             <div class="deal-name"><h3>富满电子</h3><em>300671</em></div>
             <div class="deal-fields">
@@ -4408,7 +4400,7 @@
               <div><b>Execution</b><span>业务解释、审核沟通、发行组织和客户持续服务。</span></div>
             </div>
           </div>
-          <div class="v8-deal featured">
+          <div class="ops-deal featured">
               <div class="meta"><span>STAR</span><span>2020</span></div>
             <div class="deal-name"><h3>开普云</h3><em>688228</em></div>
             <div class="deal-fields">
@@ -4417,7 +4409,7 @@
               <div><b>Execution</b><span>业务解释、审核沟通、发行组织和客户持续服务。</span></div>
             </div>
           </div>
-          <div class="v8-deal">
+          <div class="ops-deal">
               <div class="meta"><span>Main</span><span>2020</span></div>
             <div class="deal-name"><h3>力鼎光电</h3><em>605118</em></div>
             <div class="deal-fields">
@@ -4426,7 +4418,7 @@
               <div><b>Execution</b><span>业务解释、审核沟通、发行组织和客户持续服务。</span></div>
             </div>
           </div>
-          <div class="v8-deal featured">
+          <div class="ops-deal featured">
               <div class="meta"><span>GEM</span><span>2022</span></div>
             <div class="deal-name"><h3>唯科科技</h3><em>301196</em></div>
             <div class="deal-fields">
@@ -4435,7 +4427,7 @@
               <div><b>Execution</b><span>业务解释、审核沟通、发行组织和客户持续服务。</span></div>
             </div>
           </div>
-          <div class="v8-deal">
+          <div class="ops-deal">
               <div class="meta"><span>Main</span><span>2023</span></div>
             <div class="deal-name"><h3>通达创智</h3><em>001368</em></div>
             <div class="deal-fields">
@@ -4470,8 +4462,8 @@
     <div style="display:grid;grid-template-rows:auto 1fr;gap:2vh;min-height:0">
       <div><div class="eyebrow">Refinancing Cases</div><h2 class="headline">多轮再融资案例体现窗口判断、定价组织和上市后持续服务能力</h2></div>
       
-      <div class="v8-deal-grid">
-          <div class="v8-deal dark">
+      <div class="ops-deal-grid">
+          <div class="ops-deal dark">
               <div class="meta"><span>REFI</span><span>2009/2010/2015</span></div>
             <div class="deal-name"><h3>三安光电</h3><em>600703</em></div>
             <div class="deal-fields">
@@ -4480,7 +4472,7 @@
               <div><b>Execution</b><span>业务解释、审核沟通、发行组织和客户持续服务。</span></div>
             </div>
           </div>
-          <div class="v8-deal featured">
+          <div class="ops-deal featured">
               <div class="meta"><span>REFI</span><span>2009</span></div>
             <div class="deal-name"><h3>龙净环保</h3><em>600388</em></div>
             <div class="deal-fields">
@@ -4489,7 +4481,7 @@
               <div><b>Execution</b><span>业务解释、审核沟通、发行组织和客户持续服务。</span></div>
             </div>
           </div>
-          <div class="v8-deal">
+          <div class="ops-deal">
               <div class="meta"><span>REFI</span><span>2010</span></div>
             <div class="deal-name"><h3>时代新材</h3><em>600458</em></div>
             <div class="deal-fields">
@@ -4498,7 +4490,7 @@
               <div><b>Execution</b><span>业务解释、审核沟通、发行组织和客户持续服务。</span></div>
             </div>
           </div>
-          <div class="v8-deal">
+          <div class="ops-deal">
               <div class="meta"><span>REFI</span><span>2012</span></div>
             <div class="deal-name"><h3>七匹狼</h3><em>002029</em></div>
             <div class="deal-fields">
@@ -4507,7 +4499,7 @@
               <div><b>Execution</b><span>业务解释、审核沟通、发行组织和客户持续服务。</span></div>
             </div>
           </div>
-          <div class="v8-deal featured">
+          <div class="ops-deal featured">
               <div class="meta"><span>REFI</span><span>2014</span></div>
             <div class="deal-name"><h3>大名城</h3><em>600094</em></div>
             <div class="deal-fields">
@@ -4516,7 +4508,7 @@
               <div><b>Execution</b><span>业务解释、审核沟通、发行组织和客户持续服务。</span></div>
             </div>
           </div>
-          <div class="v8-deal">
+          <div class="ops-deal">
               <div class="meta"><span>REFI</span><span>2018/2019</span></div>
             <div class="deal-name"><h3>博思软件</h3><em>300525</em></div>
             <div class="deal-fields">
@@ -4537,15 +4529,15 @@
       <div><div class="eyebrow">Refinancing Cases</div><h2 class="headline">元力股份等客户展示定增、可转债与资本运作衔接</h2></div>
       
       <div style="display:grid;grid-template-rows:auto 1fr;gap:1.25vh;min-height:0">
-        <div class="v8-timeline">
-          <div class="v8-node"><b>2019</b><span>元力股份重大资产出售后申报再融资。</span></div>
-          <div class="v8-node"><b>2020</b><span>元力股份完成定增，募集资金 8.83 亿元。</span></div>
-          <div class="v8-node"><b>2021</b><span>元力股份可转债通过上市委审核并完成发行，规模 9.00 亿元。</span></div>
-          <div class="v8-node"><b>2023</b><span>海欣食品再融资通过注册并完成发行，募集资金 3.65 亿元。</span></div>
-          <div class="v8-node"><b>2026</b><span>特宝生物可转债上市委审核通过，尚需证监会注册。</span></div>
+        <div class="ops-timeline">
+          <div class="ops-node"><b>2019</b><span>元力股份重大资产出售后申报再融资。</span></div>
+          <div class="ops-node"><b>2020</b><span>元力股份完成定增，募集资金 8.83 亿元。</span></div>
+          <div class="ops-node"><b>2021</b><span>元力股份可转债通过上市委审核并完成发行，规模 9.00 亿元。</span></div>
+          <div class="ops-node"><b>2023</b><span>海欣食品再融资通过注册并完成发行，募集资金 3.65 亿元。</span></div>
+          <div class="ops-node"><b>2026</b><span>特宝生物可转债上市委审核通过，尚需证监会注册。</span></div>
         </div>
-        <div class="v8-deal-grid">
-          <div class="v8-deal dark">
+        <div class="ops-deal-grid">
+          <div class="ops-deal dark">
               <div class="meta"><span>REFI+CB</span><span>2019-2021</span></div>
             <div class="deal-name"><h3>元力股份</h3><em>300174</em></div>
             <div class="deal-fields">
@@ -4554,7 +4546,7 @@
               <div><b>Execution</b><span>业务解释、审核沟通、发行组织和客户持续服务。</span></div>
             </div>
           </div>
-          <div class="v8-deal">
+          <div class="ops-deal">
               <div class="meta"><span>REFI</span><span>2018-2019</span></div>
             <div class="deal-name"><h3>博思软件</h3><em>300525</em></div>
             <div class="deal-fields">
@@ -4563,7 +4555,7 @@
               <div><b>Execution</b><span>业务解释、审核沟通、发行组织和客户持续服务。</span></div>
             </div>
           </div>
-          <div class="v8-deal">
+          <div class="ops-deal">
               <div class="meta"><span>REFI</span><span>2020-2021</span></div>
             <div class="deal-name"><h3>日上集团</h3><em>002593</em></div>
             <div class="deal-fields">
@@ -4572,7 +4564,7 @@
               <div><b>Execution</b><span>业务解释、审核沟通、发行组织和客户持续服务。</span></div>
             </div>
           </div>
-          <div class="v8-deal featured">
+          <div class="ops-deal featured">
               <div class="meta"><span>REFI</span><span>2023</span></div>
             <div class="deal-name"><h3>海欣食品</h3><em>002702</em></div>
             <div class="deal-fields">
@@ -4581,7 +4573,7 @@
               <div><b>Execution</b><span>业务解释、审核沟通、发行组织和客户持续服务。</span></div>
             </div>
           </div>
-          <div class="v8-deal">
+          <div class="ops-deal">
               <div class="meta"><span>REFI</span><span>2022</span></div>
             <div class="deal-name"><h3>茶花股份</h3><em>603615</em></div>
             <div class="deal-fields">
@@ -4590,7 +4582,7 @@
               <div><b>Execution</b><span>业务解释、审核沟通、发行组织和客户持续服务。</span></div>
             </div>
           </div>
-          <div class="v8-deal featured">
+          <div class="ops-deal featured">
               <div class="meta"><span>CB</span><span>2026</span></div>
             <div class="deal-name"><h3>特宝生物</h3><em>688278</em></div>
             <div class="deal-fields">
@@ -4612,33 +4604,33 @@
       <div><div class="eyebrow">Backdoor Listing</div><h2 class="headline">借壳上市案例体现复杂重组、破产重整和协商定价项目执行能力</h2></div>
       
       <div style="display:grid;grid-template-rows:1fr auto;gap:1.2vh;min-height:0">
-        <div class="v8-arch-grid">
-          <div class="v8-arch dark">
-            <div><span class="v8-tag">600094.SH</span><h3>名城地产借壳 ST 华源</h3><div class="sub">破产重整 + 协商定价 + A/B 股上市平台重组。</div></div>
-            <div class="v8-arch-facts">
-              <div class="v8-arch-row"><b>交易结构</b><span>重整方案、股东权益调整、资产注入和上市平台控制权安排。</span></div>
-              <div class="v8-arch-row"><b>执行难点</b><span>兼有 A/B 股、央企上市公司破产重整、民营企业借壳和协商定价机制。</span></div>
-              <div class="v8-arch-row"><b>客户价值</b><span>帮助优质地产资产取得资本市场平台，并恢复上市公司持续融资能力。</span></div>
-              <div class="v8-arch-row"><b>投行任务</b><span>交易方案论证、沟通协调、信息披露和审核反馈组织。</span></div>
+        <div class="ops-arch-grid">
+          <div class="ops-arch dark">
+            <div><span class="ops-tag">600094.SH</span><h3>名城地产借壳 ST 华源</h3><div class="sub">破产重整 + 协商定价 + A/B 股上市平台重组。</div></div>
+            <div class="ops-arch-facts">
+              <div class="ops-arch-row"><b>交易结构</b><span>重整方案、股东权益调整、资产注入和上市平台控制权安排。</span></div>
+              <div class="ops-arch-row"><b>执行难点</b><span>兼有 A/B 股、央企上市公司破产重整、民营企业借壳和协商定价机制。</span></div>
+              <div class="ops-arch-row"><b>客户价值</b><span>帮助优质地产资产取得资本市场平台，并恢复上市公司持续融资能力。</span></div>
+              <div class="ops-arch-row"><b>投行任务</b><span>交易方案论证、沟通协调、信息披露和审核反馈组织。</span></div>
             </div>
-            <div class="v8-arch-result">复杂重组执行样本：央企壳资源、民营资产和资本市场平台之间的交易落地。</div>
+            <div class="ops-arch-result">复杂重组执行样本：央企壳资源、民营资产和资本市场平台之间的交易落地。</div>
           </div>
-          <div class="v8-arch">
-            <div><span class="v8-tag">000592.SZ</span><h3>中福实业借壳 ST 昌源</h3><div class="sub">暂停上市公司恢复上市，清偿占款并注入优质资产。</div></div>
-            <div class="v8-arch-facts">
-              <div class="v8-arch-row"><b>交易结构</b><span>定向增发、资产置换、资产注入和债务/占款清偿同步推进。</span></div>
-              <div class="v8-arch-row"><b>执行难点</b><span>暂停上市、历史占款、资产质量、恢复上市条件和投资者信心重建。</span></div>
-              <div class="v8-arch-row"><b>客户价值</b><span>恢复上市平台功能，重组后首个交易日股价表现获得市场认可。</span></div>
-              <div class="v8-arch-row"><b>投行任务</b><span>交易路径设计、资产边界梳理、披露材料和多方沟通。</span></div>
+          <div class="ops-arch">
+            <div><span class="ops-tag">000592.SZ</span><h3>中福实业借壳 ST 昌源</h3><div class="sub">暂停上市公司恢复上市，清偿占款并注入优质资产。</div></div>
+            <div class="ops-arch-facts">
+              <div class="ops-arch-row"><b>交易结构</b><span>定向增发、资产置换、资产注入和债务/占款清偿同步推进。</span></div>
+              <div class="ops-arch-row"><b>执行难点</b><span>暂停上市、历史占款、资产质量、恢复上市条件和投资者信心重建。</span></div>
+              <div class="ops-arch-row"><b>客户价值</b><span>恢复上市平台功能，重组后首个交易日股价表现获得市场认可。</span></div>
+              <div class="ops-arch-row"><b>投行任务</b><span>交易路径设计、资产边界梳理、披露材料和多方沟通。</span></div>
             </div>
-            <div class="v8-arch-result">区域重组标杆：通过交易结构恢复上市平台和资本市场功能。</div>
+            <div class="ops-arch-result">区域重组标杆：通过交易结构恢复上市平台和资本市场功能。</div>
           </div>
         </div>
-        <div class="v8-flow" style="grid-template-columns:repeat(4,1fr)">
-          <div class="v8-step"><b>交易结构</b><span>重整、置换、增发、资产注入。</span></div>
-          <div class="v8-step"><b>核心难点</b><span>权属、债务、股东权益和定价机制。</span></div>
-          <div class="v8-step"><b>执行能力</b><span>多方协调、信息披露和监管沟通。</span></div>
-          <div class="v8-step"><b>客户价值</b><span>恢复上市平台和资本市场功能。</span></div>
+        <div class="ops-flow" style="grid-template-columns:repeat(4,1fr)">
+          <div class="ops-step"><b>交易结构</b><span>重整、置换、增发、资产注入。</span></div>
+          <div class="ops-step"><b>核心难点</b><span>权属、债务、股东权益和定价机制。</span></div>
+          <div class="ops-step"><b>执行能力</b><span>多方协调、信息披露和监管沟通。</span></div>
+          <div class="ops-step"><b>客户价值</b><span>恢复上市平台和资本市场功能。</span></div>
         </div>
       </div>
     </div>
@@ -4653,41 +4645,41 @@
       <div><div class="eyebrow">M&A Cases</div><h2 class="headline">市场化并购案例围绕主业扩张、技术升级、业务剥离和资产优化展开</h2></div>
       
       <div style="display:grid;grid-template-rows:1fr auto;gap:1.2vh;min-height:0">
-        <div class="v8-arch-grid three">
-          <div class="v8-arch dark">
-            <div><span class="v8-tag">Buy-side</span><h3>收购主业资产</h3><div class="sub">围绕客户主业扩张和产业链补强组织收购。</div></div>
-            <div class="v8-arch-facts">
-              <div class="v8-arch-row"><b>元力股份</b><span>收购怀玉山三达、满洲里鑫富活性炭，扩大活性炭主业布局。</span></div>
-              <div class="v8-arch-row"><b>中能电气</b><span>收购广东科源电气，实现变压器业务战略升级。</span></div>
-              <div class="v8-arch-row"><b>客户价值</b><span>补强核心资产、扩大收入基础、形成上市后产业整合路径。</span></div>
+        <div class="ops-arch-grid three">
+          <div class="ops-arch dark">
+            <div><span class="ops-tag">Buy-side</span><h3>收购主业资产</h3><div class="sub">围绕客户主业扩张和产业链补强组织收购。</div></div>
+            <div class="ops-arch-facts">
+              <div class="ops-arch-row"><b>元力股份</b><span>收购怀玉山三达、满洲里鑫富活性炭，扩大活性炭主业布局。</span></div>
+              <div class="ops-arch-row"><b>中能电气</b><span>收购广东科源电气，实现变压器业务战略升级。</span></div>
+              <div class="ops-arch-row"><b>客户价值</b><span>补强核心资产、扩大收入基础、形成上市后产业整合路径。</span></div>
             </div>
-            <div class="v8-arch-result">交易重点：资产质量、产业协同、估值定价和交割安排。</div>
+            <div class="ops-arch-result">交易重点：资产质量、产业协同、估值定价和交割安排。</div>
           </div>
-          <div class="v8-arch">
-            <div><span class="v8-tag">Integration</span><h3>产业整合升级</h3><div class="sub">通过横向或纵向整合提升产品、客户和供应链能力。</div></div>
-            <div class="v8-arch-facts">
-              <div class="v8-arch-row"><b>海欣食品</b><span>收购嘉兴松村食品，获取高端餐饮流通先进生产工艺。</span></div>
-              <div class="v8-arch-row"><b>中能 / 诺邦</b><span>资产出售及并购整合，服务盈利能力和业务结构优化。</span></div>
-              <div class="v8-arch-row"><b>客户价值</b><span>把技术、渠道和业务优化转化为持续经营质量提升。</span></div>
+          <div class="ops-arch">
+            <div><span class="ops-tag">Integration</span><h3>产业整合升级</h3><div class="sub">通过横向或纵向整合提升产品、客户和供应链能力。</div></div>
+            <div class="ops-arch-facts">
+              <div class="ops-arch-row"><b>海欣食品</b><span>收购嘉兴松村食品，获取高端餐饮流通先进生产工艺。</span></div>
+              <div class="ops-arch-row"><b>中能 / 诺邦</b><span>资产出售及并购整合，服务盈利能力和业务结构优化。</span></div>
+              <div class="ops-arch-row"><b>客户价值</b><span>把技术、渠道和业务优化转化为持续经营质量提升。</span></div>
             </div>
-            <div class="v8-arch-result">交易重点：商业协同、利润贡献、整合计划和信息披露。</div>
+            <div class="ops-arch-result">交易重点：商业协同、利润贡献、整合计划和信息披露。</div>
           </div>
-          <div class="v8-arch">
-            <div><span class="v8-tag">Sell-side</span><h3>出售非主业资产</h3><div class="sub">通过资产剥离降低压力并聚焦主业投入。</div></div>
-            <div class="v8-arch-facts">
-              <div class="v8-arch-row"><b>元力股份</b><span>出售广州创娱网络、广州冰鸟网络 100% 股权。</span></div>
-              <div class="v8-arch-row"><b>主业聚焦</b><span>降低偿债压力，为扩大主业投入奠定基础。</span></div>
-              <div class="v8-arch-row"><b>客户价值</b><span>优化资产结构、改善报表质量、释放后续融资空间。</span></div>
+          <div class="ops-arch">
+            <div><span class="ops-tag">Sell-side</span><h3>出售非主业资产</h3><div class="sub">通过资产剥离降低压力并聚焦主业投入。</div></div>
+            <div class="ops-arch-facts">
+              <div class="ops-arch-row"><b>元力股份</b><span>出售广州创娱网络、广州冰鸟网络 100% 股权。</span></div>
+              <div class="ops-arch-row"><b>主业聚焦</b><span>降低偿债压力，为扩大主业投入奠定基础。</span></div>
+              <div class="ops-arch-row"><b>客户价值</b><span>优化资产结构、改善报表质量、释放后续融资空间。</span></div>
             </div>
-            <div class="v8-arch-result">交易重点：资产边界、对价安排、债务压力和投资者沟通。</div>
+            <div class="ops-arch-result">交易重点：资产边界、对价安排、债务压力和投资者沟通。</div>
           </div>
         </div>
-        <div class="v8-flow" style="grid-template-columns:repeat(5,1fr)">
-          <div class="v8-step"><b>主业扩张</b><span>扩大产业链关键资产布局。</span></div>
-          <div class="v8-step"><b>技术升级</b><span>引入工艺、客户和产品能力。</span></div>
-          <div class="v8-step"><b>资产剥离</b><span>退出非主业资产，降低债务压力。</span></div>
-          <div class="v8-step"><b>结构优化</b><span>提升盈利质量和主业集中度。</span></div>
-          <div class="v8-step"><b>信息披露</b><span>交易程序、估值和投资者沟通。</span></div>
+        <div class="ops-flow" style="grid-template-columns:repeat(5,1fr)">
+          <div class="ops-step"><b>主业扩张</b><span>扩大产业链关键资产布局。</span></div>
+          <div class="ops-step"><b>技术升级</b><span>引入工艺、客户和产品能力。</span></div>
+          <div class="ops-step"><b>资产剥离</b><span>退出非主业资产，降低债务压力。</span></div>
+          <div class="ops-step"><b>结构优化</b><span>提升盈利质量和主业集中度。</span></div>
+          <div class="ops-step"><b>信息披露</b><span>交易程序、估值和投资者沟通。</span></div>
         </div>
       </div>
     </div>
@@ -4701,20 +4693,20 @@
     <div style="display:grid;grid-template-rows:auto 1fr;gap:2vh;min-height:0">
       <div><div class="eyebrow">Implementation Advantages</div><h2 class="headline">投行七部以区域服务、专业团队、扁平化管理和资源协同支持客户投融资活动</h2></div>
       
-      <div class="v8-page-stack two">
-        <div class="v8-role-loop" style="grid-template-columns:1.05fr repeat(4,1fr)">
-          <div class="v8-role dark">
-            <span class="v8-tag">Core</span>
+      <div class="ops-page-stack two">
+        <div class="ops-role-loop" style="grid-template-columns:1.05fr repeat(4,1fr)">
+          <div class="ops-role dark">
+            <span class="ops-tag">Core</span>
             <h3>客户项目确定性</h3>
             <ul><li>材料、底稿、问询和信息披露边界提前复核。</li><li>项目负责人直接协调一线、总部和外部中介。</li><li>研究销售反馈进入发行和资本市场沟通。</li></ul>
             <div class="out">结果：材料质量、沟通效率、执行节奏</div>
           </div>
-          <div class="v8-role"><span class="v8-tag">01</span><h3>针对性解决方案</h3><ul><li>上市前顾问、IPO、再融资和并购重组组合使用。</li><li>按行业、阶段、融资目标和审核风险匹配路径。</li></ul><div class="out">输出：方案包、路径图、问题清单</div></div>
-          <div class="v8-role"><span class="v8-tag">02</span><h3>贴身服务</h3><ul><li>华东地区独立业务部门支持项目团队常驻企业。</li><li>日常沟通、材料迭代和关键问题快速反馈。</li></ul><div class="out">输出：现场推进表、材料版本、反馈闭环</div></div>
-          <div class="v8-role"><span class="v8-tag">03</span><h3>区域资源</h3><ul><li>与证监局、发改委、国资委和中介机构保持沟通。</li><li>把地方监管、产业资源和交易资源纳入项目节奏。</li></ul><div class="out">输出：沟通安排、协同资源、外部反馈</div></div>
-          <div class="v8-role"><span class="v8-tag">04</span><h3>扁平化管理</h3><ul><li>项目负责人直接协调一线员工和总部高管。</li><li>重大问题减少层级传递，降低客户沟通成本。</li></ul><div class="out">输出：决策链路、责任分工、时间表</div></div>
+          <div class="ops-role"><span class="ops-tag">01</span><h3>针对性解决方案</h3><ul><li>上市前顾问、IPO、再融资和并购重组组合使用。</li><li>按行业、阶段、融资目标和审核风险匹配路径。</li></ul><div class="out">输出：方案包、路径图、问题清单</div></div>
+          <div class="ops-role"><span class="ops-tag">02</span><h3>贴身服务</h3><ul><li>华东地区独立业务部门支持项目团队常驻企业。</li><li>日常沟通、材料迭代和关键问题快速反馈。</li></ul><div class="out">输出：现场推进表、材料版本、反馈闭环</div></div>
+          <div class="ops-role"><span class="ops-tag">03</span><h3>区域资源</h3><ul><li>与证监局、发改委、国资委和中介机构保持沟通。</li><li>把地方监管、产业资源和交易资源纳入项目节奏。</li></ul><div class="out">输出：沟通安排、协同资源、外部反馈</div></div>
+          <div class="ops-role"><span class="ops-tag">04</span><h3>扁平化管理</h3><ul><li>项目负责人直接协调一线员工和总部高管。</li><li>重大问题减少层级传递，降低客户沟通成本。</li></ul><div class="out">输出：决策链路、责任分工、时间表</div></div>
         </div>
-        <div class="v8-deliverables">
+        <div class="ops-deliverables">
           <div><b>Pre-IPO</b><span>股改方案、合规整改、股权融资和上市路径图。</span></div>
           <div><b>Filing</b><span>申报文件、底稿证据、审核问询和回复材料。</span></div>
           <div><b>Issuance</b><span>发行方案、路演问答、投资者反馈和定价执行。</span></div>
@@ -4744,14 +4736,14 @@
     <div style="display:grid;grid-template-rows:auto 1fr;gap:2vh;min-height:0">
       <div><div class="eyebrow">Service Summary</div><h2 class="headline">客户可获得从上市前顾问到上市后资本运作的持续服务</h2></div>
       
-      <div class="v8-page-stack two">
-        <div class="v8-journey">
-          <div class="v8-stage dark"><span class="v8-tag">Stage 01</span><h3>上市前</h3><ul><li>股改咨询、合规咨询。</li><li>股权融资咨询、IPO 规范辅导。</li><li>板块判断、股权结构、历史沿革和募投规划。</li></ul><p>代表能力：上市路径设计和规范整改。</p><div class="v8-output">输出：整改清单、融资方案、申报路径图</div></div>
-          <div class="v8-stage"><span class="v8-tag">Stage 02</span><h3>IPO</h3><ul><li>申报文件、底稿证据。</li><li>问询回复、审核沟通。</li><li>发行承销、路演和定价。</li></ul><p>代表案例：榕基软件、元力股份、特宝生物、博思软件。</p><div class="v8-output">输出：审核推进、定价发行、上市落地</div></div>
-          <div class="v8-stage"><span class="v8-tag">Stage 03</span><h3>上市后融资</h3><ul><li>定增、配股、可转债。</li><li>募投论证、注册审核。</li><li>发行组织和投资者沟通。</li></ul><p>代表案例：三安光电、元力股份、海欣食品、特宝生物。</p><div class="v8-output">输出：融资方案、注册审核、发行执行</div></div>
-          <div class="v8-stage"><span class="v8-tag">Stage 04</span><h3>并购重组</h3><ul><li>资产购买、资产出售。</li><li>借壳上市、产业整合。</li><li>信息披露和交易执行。</li></ul><p>代表案例：大名城、中福实业、元力股份、海欣食品、中能电气。</p><div class="v8-output">输出：交易结构、资产优化、资本运作落地</div></div>
+      <div class="ops-page-stack two">
+        <div class="ops-journey">
+          <div class="ops-stage dark"><span class="ops-tag">Stage 01</span><h3>上市前</h3><ul><li>股改咨询、合规咨询。</li><li>股权融资咨询、IPO 规范辅导。</li><li>板块判断、股权结构、历史沿革和募投规划。</li></ul><p>代表能力：上市路径设计和规范整改。</p><div class="ops-output">输出：整改清单、融资方案、申报路径图</div></div>
+          <div class="ops-stage"><span class="ops-tag">Stage 02</span><h3>IPO</h3><ul><li>申报文件、底稿证据。</li><li>问询回复、审核沟通。</li><li>发行承销、路演和定价。</li></ul><p>代表案例：榕基软件、元力股份、特宝生物、博思软件。</p><div class="ops-output">输出：审核推进、定价发行、上市落地</div></div>
+          <div class="ops-stage"><span class="ops-tag">Stage 03</span><h3>上市后融资</h3><ul><li>定增、配股、可转债。</li><li>募投论证、注册审核。</li><li>发行组织和投资者沟通。</li></ul><p>代表案例：三安光电、元力股份、海欣食品、特宝生物。</p><div class="ops-output">输出：融资方案、注册审核、发行执行</div></div>
+          <div class="ops-stage"><span class="ops-tag">Stage 04</span><h3>并购重组</h3><ul><li>资产购买、资产出售。</li><li>借壳上市、产业整合。</li><li>信息披露和交易执行。</li></ul><p>代表案例：大名城、中福实业、元力股份、海欣食品、中能电气。</p><div class="ops-output">输出：交易结构、资产优化、资本运作落地</div></div>
         </div>
-        <div class="v8-deliverables">
+        <div class="ops-deliverables">
           <div><b>顾问</b><span>规范整改、股权融资、板块路径和上市时间表。</span></div>
           <div><b>审核</b><span>申报文件、底稿证据、问询回复和监管沟通。</span></div>
           <div><b>发行</b><span>路演推介、询价反馈、簿记配售和上市安排。</span></div>
@@ -5064,7 +5056,6 @@ go(Number.isFinite(initialSlide) ? initialSlide : 0);
 <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 <script>lucide.createIcons();</script>
 
-<!-- Motion One 动效引擎 (与原模板一致) -->
 <script type="module">
 let motion;
 try {
@@ -5082,11 +5073,6 @@ try {
 if(motion){
   const { animate } = motion;
   document.body.classList.add('motion-ready');
-
-  /* ============================================================
-     IBM Carbon Motion · 每个 recipe 服务一种表达
-     不是一刀切的 stagger,而是把动效绑在内容语义上
-     ============================================================ */
   const EASE_PROD       = [.2, 0, .38, .9];
   const EASE_ENTRY_EXP  = [0, 0, .3, 1];
 
