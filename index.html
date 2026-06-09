@@ -4252,8 +4252,8 @@
       position:relative;
       isolation:isolate;
       background:
-        linear-gradient(180deg,rgba(3,22,34,.70) 0%,rgba(5,34,51,.52) 45%,rgba(3,22,34,.88) 100%),
-        url("assets/cover-background.png") 62% center / cover no-repeat;
+        linear-gradient(180deg,rgba(3,22,34,.84) 0%,rgba(5,34,51,.30) 46%,rgba(3,22,34,.86) 100%),
+        url("assets/cover-background.png") 64% center / cover no-repeat;
       color:#fff;
     }
     .phone-page.phone-cover::before{
@@ -4262,8 +4262,8 @@
       inset:0;
       z-index:-1;
       background:
-        linear-gradient(90deg,rgba(3,22,34,.66) 0%,rgba(3,22,34,.18) 54%,rgba(3,22,34,.42) 100%),
-        radial-gradient(circle at 72% 18%,rgba(194,151,91,.30),transparent 34%);
+        linear-gradient(90deg,rgba(3,22,34,.70) 0%,rgba(3,22,34,.22) 42%,rgba(3,22,34,.08) 66%,rgba(3,22,34,.38) 100%),
+        radial-gradient(circle at 76% 24%,rgba(194,151,91,.28),transparent 32%);
       pointer-events:none;
     }
     .phone-page.phone-cover::after{
@@ -4687,38 +4687,45 @@
       flex:1 1 auto;
       display:flex!important;
       flex-direction:column;
-      justify-content:flex-end;
-      gap:24px;
-      padding-bottom:22px;
+      justify-content:space-between;
+      gap:18px;
+      padding:28px 0 20px;
     }
-    .phone-page.phone-cover .cover-meta-grid{
+    .phone-page.phone-cover .phone-cover-grid{
       display:grid!important;
-      grid-template-columns:repeat(2,minmax(0,1fr))!important;
       gap:1px!important;
-      background:rgba(255,255,255,.20)!important;
-      border:1px solid rgba(255,255,255,.26)!important;
-      box-shadow:0 16px 38px rgba(0,0,0,.18);
+      background:rgba(255,255,255,.18)!important;
+      border:1px solid rgba(255,255,255,.24)!important;
+      box-shadow:0 14px 32px rgba(0,0,0,.20);
       backdrop-filter:blur(2px);
     }
-    .phone-page.phone-cover .cover-meta-grid div{
-      min-height:74px!important;
-      padding:12px!important;
-      background:rgba(255,255,255,.12)!important;
+    .opening-cover .phone-cover-grid{
+      grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    }
+    .phone-page.phone-cover .phone-cover-grid div{
+      min-height:52px!important;
+      padding:9px 8px!important;
+      background:rgba(255,255,255,.10)!important;
       color:#fff!important;
-      font-size:15px!important;
-      line-height:1.35!important;
+      font-size:13px!important;
+      line-height:1.25!important;
+      justify-content:center;
     }
     .phone-page.phone-cover .headline.big,
     .phone-page.phone-cover .closing-title{
       color:#fff!important;
-      font-size:clamp(35px,10.4vw,48px)!important;
-      line-height:1.04!important;
+      font-size:clamp(31px,9vw,42px)!important;
+      line-height:1.06!important;
       text-shadow:0 10px 28px rgba(0,0,0,.34);
     }
     .phone-page.phone-cover .closing-title span{
       display:block;
       white-space:nowrap;
-      font-size:clamp(25px,7vw,34px)!important;
+      font-size:clamp(26px,7.2vw,35px)!important;
+    }
+    .phone-page.phone-cover .phone-kicker{
+      color:rgba(194,151,91,.96)!important;
+      text-shadow:0 6px 18px rgba(0,0,0,.28);
     }
     .phone-body.curated{
       gap:9px;
@@ -4993,13 +5000,13 @@
       min-height:0;
       display:flex;
       flex-direction:column;
-      justify-content:flex-end;
-      gap:22px;
-      padding-bottom:22px;
+      justify-content:space-between;
+      gap:18px;
+      padding:30px 0 20px;
     }
     .phone-cover-title{
-      font-size:clamp(36px,10.4vw,50px)!important;
-      line-height:1.05!important;
+      font-size:clamp(33px,9.4vw,44px)!important;
+      line-height:1.07!important;
       font-weight:520!important;
       color:#fff!important;
       margin:0!important;
@@ -5012,9 +5019,27 @@
       line-height:1.14!important;
     }
     .phone-cover-line{
-      width:76px;
+      width:88px;
       height:3px;
       background:linear-gradient(90deg,var(--gold),rgba(255,255,255,.18));
+    }
+    .phone-cover-spacer{
+      flex:1 1 auto;
+      min-height:170px;
+    }
+    .opening-cover .phone-cover-title,
+    .closing-cover .phone-cover-title{
+      max-width:92%;
+    }
+    .closing-cover .phone-cover-lock{
+      padding-top:44px;
+    }
+    .closing-cover .phone-cover-grid{
+      grid-template-columns:repeat(4,minmax(0,1fr))!important;
+    }
+    .closing-cover .phone-cover-grid div{
+      min-height:48px!important;
+      font-size:12.5px!important;
     }
     .phone-cover-grid{
       display:grid;
@@ -7065,9 +7090,13 @@ function coverDef(slide, slideIndex){
   if(isClosing) title.classList.add('closing');
   wrap.appendChild(title);
   wrap.appendChild(makeTextEl('div','phone-cover-line',''));
+  wrap.appendChild(makeTextEl('div','phone-cover-spacer',''));
   const grid=document.createElement('div');
   grid.className='phone-cover-grid';
-  [...slide.querySelectorAll('.cover-meta-grid div')].forEach(item=>grid.appendChild(makeTextEl('div','',nodeText(item))));
+  const labels=isClosing
+    ? ['上市前顾问','IPO执行','再融资','并购重组']
+    : [...slide.querySelectorAll('.cover-meta-grid div')].map(item=>nodeText(item));
+  labels.forEach(label=>grid.appendChild(makeTextEl('div','',label)));
   wrap.appendChild(grid);
   return {fragments:[wrap], opts:{cover:true,omitTitle:true,bodyClass:'curated',pageClass:isClosing?'closing-cover':'opening-cover'}};
 }
