@@ -3679,10 +3679,508 @@
     line-height:1.18;
   }
 
+  @media (max-width:767px) and (orientation:portrait){
+    html,body{
+      width:100%;
+      height:auto;
+      min-height:100%;
+      overflow-x:hidden;
+      background:var(--paper);
+    }
+    body.canvas-mode.reading-flow{
+      overflow-y:auto;
+      touch-action:pan-y;
+      -webkit-text-size-adjust:100%;
+    }
+    body.reading-flow,
+    body.reading-flow *{
+      max-width:100%;
+    }
+    body.reading-flow #deck{
+      position:relative!important;
+      inset:auto!important;
+      width:100%!important;
+      height:auto!important;
+      min-height:100vh!important;
+      display:block!important;
+      transform:none!important;
+      transition:none!important;
+      will-change:auto!important;
+      z-index:1;
+    }
+    body.reading-flow .slide{
+      width:100%!important;
+      height:auto!important;
+      min-height:auto!important;
+      flex:none!important;
+      position:relative!important;
+      display:block!important;
+      overflow:visible!important;
+      padding:0!important;
+      background:var(--paper);
+      color:var(--ink);
+      border-bottom:1px solid rgba(6,25,39,.12);
+    }
+    body.reading-flow .canvas-card{
+      width:100%!important;
+      height:auto!important;
+      min-height:auto!important;
+      display:block!important;
+      overflow:visible!important;
+      padding:22px 18px 24px!important;
+      background:transparent!important;
+      box-shadow:none!important;
+    }
+    body.reading-flow .canvas-card > div:not(.page-top):not(.page-foot),
+    body.reading-flow .canvas-card > div:not(.page-top):not(.page-foot) > [style*="display:grid"]{
+      display:block!important;
+      height:auto!important;
+      min-height:auto!important;
+    }
+    body.reading-flow .canvas-card [style*="grid-template"]{
+      height:auto!important;
+      min-height:auto!important;
+    }
+    body.reading-flow.motion-ready [data-anim],
+    body.reading-flow [data-anim]{
+      opacity:1!important;
+      transform:none!important;
+    }
+    body.reading-flow .page-top{
+      display:flex;
+      gap:8px;
+      align-items:flex-start;
+      padding:0 0 12px;
+      margin:0 0 16px;
+      border-bottom:1px solid rgba(6,25,39,.16);
+    }
+    body.reading-flow .page-top.dark{
+      border-bottom-color:rgba(255,255,255,.25);
+    }
+    body.reading-flow .brand-lockup,
+    body.reading-flow .date-lockup{
+      max-width:50%;
+      font-size:11px!important;
+      line-height:1.35!important;
+      letter-spacing:.08em!important;
+    }
+    body.reading-flow .eyebrow{
+      font-size:12px!important;
+      line-height:1.25!important;
+      letter-spacing:.12em!important;
+      margin-bottom:6px;
+    }
+    body.reading-flow .headline{
+      font-size:clamp(25px,7.2vw,34px)!important;
+      line-height:1.13!important;
+      margin:0 0 16px!important;
+      overflow-wrap:anywhere;
+      word-break:normal;
+    }
+    body.reading-flow .headline.big{
+      font-size:clamp(31px,9.2vw,38px)!important;
+      line-height:1.04!important;
+      margin-bottom:18px!important;
+      color:#fff;
+    }
+    body.reading-flow .subline,
+    body.reading-flow p,
+    body.reading-flow li,
+    body.reading-flow .chain-body,
+    body.reading-flow .matrix-axis span,
+    body.reading-flow .matrix-cell span,
+    body.reading-flow .process-row > div,
+    body.reading-flow .case-row > div,
+    body.reading-flow .client-matrix-row > div,
+    body.reading-flow .ops-step span,
+    body.reading-flow .ops-node span,
+    body.reading-flow .ops-panel p,
+    body.reading-flow .ops-panel li,
+    body.reading-flow .ops-cell p,
+    body.reading-flow .ops-cell li,
+    body.reading-flow .ops-stage li,
+    body.reading-flow .ops-stage p,
+    body.reading-flow .ops-role p,
+    body.reading-flow .ops-role li,
+    body.reading-flow .ops-arch .sub,
+    body.reading-flow .ops-arch-row span,
+    body.reading-flow .ops-arch-result,
+    body.reading-flow .deal-card .desc,
+    body.reading-flow .deal-fields span,
+    body.reading-flow .source-box p{
+      font-size:14px!important;
+      line-height:1.46!important;
+    }
+    body.reading-flow .page-foot{
+      margin-top:18px;
+      padding-top:12px;
+      font-size:11px!important;
+      line-height:1.3!important;
+      letter-spacing:.08em!important;
+    }
+    body.reading-flow .cover{
+      background:var(--navy);
+      color:#fff;
+    }
+    body.reading-flow .cover::before{
+      background:
+        linear-gradient(180deg,rgba(7,50,74,.97) 0%,rgba(7,50,74,.88) 52%,rgba(7,50,74,.72) 100%),
+        url("assets/cover-background.png") 62% center / cover no-repeat;
+    }
+    body.reading-flow .cover::after{
+      height:4px;
+    }
+    body.reading-flow .cover .canvas-card{
+      min-height:100svh!important;
+      padding:28px 18px 28px!important;
+      display:flex!important;
+      flex-direction:column!important;
+      justify-content:space-between!important;
+    }
+    body.reading-flow .cover-body{
+      display:grid!important;
+      grid-template-columns:1fr!important;
+      gap:24px!important;
+      align-items:end!important;
+    }
+    body.reading-flow .cover-body [style*="max-width"]{
+      max-width:100%!important;
+      font-size:16px!important;
+      line-height:1.48!important;
+      overflow-wrap:anywhere;
+    }
+    body.reading-flow .cover-meta-grid{
+      display:grid!important;
+      grid-template-columns:repeat(2,1fr)!important;
+      gap:1px!important;
+      background:rgba(255,255,255,.16);
+      border:1px solid rgba(255,255,255,.18);
+    }
+    body.reading-flow .cover-meta-grid div{
+      min-height:74px;
+      border:0!important;
+      background:rgba(255,255,255,.06);
+      padding:12px!important;
+      font-size:14px!important;
+      line-height:1.4!important;
+    }
+    body.reading-flow .metric-strip,
+    body.reading-flow .advisory-ledger,
+    body.reading-flow .execution-matrix,
+    body.reading-flow .thesis-list,
+    body.reading-flow .process-table,
+    body.reading-flow .logo-map,
+    body.reading-flow .side-ledger,
+    body.reading-flow .case-layout,
+    body.reading-flow .use-of-proceeds,
+    body.reading-flow .case-workbench,
+    body.reading-flow .ops-split,
+    body.reading-flow .ops-kpi-row,
+    body.reading-flow .ops-grid-2,
+    body.reading-flow .ops-grid-3,
+    body.reading-flow .ops-grid-4,
+    body.reading-flow .ops-flow,
+    body.reading-flow .ops-deal-grid,
+    body.reading-flow .ops-deal-grid.four,
+    body.reading-flow .ops-timeline,
+    body.reading-flow .ops-center-map,
+    body.reading-flow .ops-journey,
+    body.reading-flow .ops-role-loop,
+    body.reading-flow .ops-deliverables,
+    body.reading-flow .ops-arch-grid,
+    body.reading-flow .ops-arch-grid.three,
+    body.reading-flow .ops-mechanism-grid,
+    body.reading-flow .ops-proof-grid,
+    body.reading-flow .client-header-strip,
+    body.reading-flow .client-cluster-grid,
+    body.reading-flow .client-cluster-grid.three,
+    body.reading-flow .source-list{
+      display:grid!important;
+      grid-template-columns:1fr!important;
+      grid-template-rows:auto!important;
+      grid-auto-rows:auto!important;
+      height:auto!important;
+      min-height:auto!important;
+      gap:10px!important;
+      background:transparent!important;
+      border:0!important;
+    }
+    body.reading-flow .agenda-grid,
+    body.reading-flow .stat-mosaic,
+    body.reading-flow .metric-table,
+    body.reading-flow .execution-grid-v7,
+    body.reading-flow .process-strip-v7,
+    body.reading-flow .preipo-board,
+    body.reading-flow .dense-grid,
+    body.reading-flow .positioning-board,
+    body.reading-flow .timeline-dense,
+    body.reading-flow .ops-page-stack,
+    body.reading-flow .ops-page-stack.two{
+      display:grid!important;
+      grid-template-columns:1fr!important;
+      grid-template-rows:auto!important;
+      grid-auto-rows:auto!important;
+      height:auto!important;
+      min-height:auto!important;
+      gap:12px!important;
+    }
+    body.reading-flow .rank-ledger{
+      display:grid!important;
+      grid-template-columns:repeat(2,minmax(0,1fr))!important;
+      height:auto!important;
+      min-height:auto!important;
+      background:rgba(6,25,39,.14);
+      border:1px solid rgba(6,25,39,.14);
+    }
+    body.reading-flow .rank-head{
+      grid-column:1 / -1;
+    }
+    body.reading-flow .rank-ledger > div{
+      min-height:96px!important;
+      padding:12px!important;
+      border-right:1px solid rgba(6,25,39,.10);
+      border-top:1px solid rgba(6,25,39,.10);
+    }
+    body.reading-flow .rank-no,
+    body.reading-flow .metric .num,
+    body.reading-flow .metric-box b{
+      font-size:clamp(24px,8vw,34px)!important;
+      line-height:1.02!important;
+    }
+    body.reading-flow .metric-strip{
+      grid-template-columns:repeat(2,minmax(0,1fr))!important;
+      gap:1px!important;
+      background:rgba(6,25,39,.14)!important;
+      border:1px solid rgba(6,25,39,.14)!important;
+    }
+    body.reading-flow .metric{
+      min-height:120px!important;
+      padding:14px!important;
+    }
+    body.reading-flow .case-table,
+    body.reading-flow .banker-table,
+    body.reading-flow .client-matrix{
+      display:grid!important;
+      gap:10px!important;
+      background:transparent!important;
+      border:0!important;
+    }
+    body.reading-flow .case-row,
+    body.reading-flow .process-row,
+    body.reading-flow .client-matrix-row{
+      display:grid!important;
+      grid-template-columns:1fr!important;
+      min-height:auto!important;
+      background:#fff;
+      border:1px solid rgba(6,25,39,.14)!important;
+    }
+    body.reading-flow .case-row.head,
+    body.reading-flow .process-row.head,
+    body.reading-flow .client-matrix-row.head{
+      display:none!important;
+    }
+    body.reading-flow .case-row > div,
+    body.reading-flow .process-row > div,
+    body.reading-flow .client-matrix-row > div{
+      border-right:0!important;
+      border-top:1px solid rgba(6,25,39,.10);
+      padding:10px 12px!important;
+    }
+    body.reading-flow .case-row > div:first-child,
+    body.reading-flow .process-row > div:first-child,
+    body.reading-flow .client-matrix-row > div:first-child{
+      border-top:0;
+    }
+    body.reading-flow .client-chip-grid{
+      display:grid!important;
+      grid-template-columns:repeat(2,minmax(0,1fr))!important;
+      gap:1px!important;
+      background:rgba(6,25,39,.10)!important;
+    }
+    body.reading-flow .client-chip{
+      min-height:70px!important;
+      padding:10px!important;
+      align-content:center!important;
+    }
+    body.reading-flow .client-name{
+      font-size:16px!important;
+      line-height:1.18!important;
+      white-space:normal!important;
+      overflow:visible!important;
+      text-overflow:clip!important;
+    }
+    body.reading-flow .client-code,
+    body.reading-flow .client-chip em{
+      font-size:12px!important;
+      line-height:1.2!important;
+      white-space:normal!important;
+    }
+    body.reading-flow .industry-panel,
+    body.reading-flow .client-cluster,
+    body.reading-flow .stat-tile,
+    body.reading-flow .agenda-item,
+    body.reading-flow .execution-card-v7,
+    body.reading-flow .advisory-card,
+    body.reading-flow .ops-panel,
+    body.reading-flow .ops-cell,
+    body.reading-flow .ops-deal,
+    body.reading-flow .ops-stage,
+    body.reading-flow .ops-role,
+    body.reading-flow .ops-arch,
+    body.reading-flow .ops-proof,
+    body.reading-flow .source-box{
+      height:auto!important;
+      min-height:auto!important;
+      padding:14px!important;
+      display:block!important;
+    }
+    body.reading-flow .deal-metrics,
+    body.reading-flow .deal-notes,
+    body.reading-flow .deal-fields,
+    body.reading-flow .ops-arch-facts,
+    body.reading-flow .ops-mini-ledger{
+      display:grid!important;
+      grid-template-columns:1fr!important;
+      grid-template-rows:auto!important;
+      grid-auto-rows:auto!important;
+      height:auto!important;
+      min-height:auto!important;
+      gap:1px!important;
+    }
+    body.reading-flow .tombstone{
+      display:block!important;
+      height:auto!important;
+      min-height:auto!important;
+    }
+    body.reading-flow .tombstone .top-band{
+      grid-template-columns:1fr auto!important;
+      padding:18px!important;
+    }
+    body.reading-flow .tombstone .top-band img{
+      max-width:92px!important;
+      max-height:44px!important;
+    }
+    body.reading-flow .tombstone .co,
+    body.reading-flow .deal-summary .band h3{
+      font-size:clamp(28px,8.8vw,38px)!important;
+      line-height:1.05!important;
+    }
+    body.reading-flow .deal-label{
+      padding:14px 18px!important;
+      font-size:18px!important;
+      line-height:1.34!important;
+    }
+    body.reading-flow .deal-metrics div,
+    body.reading-flow .deal-notes div,
+    body.reading-flow .deal-fields div,
+    body.reading-flow .ops-arch-row,
+    body.reading-flow .ops-ledger-row{
+      display:block!important;
+      min-height:auto!important;
+      padding:10px 12px!important;
+    }
+    body.reading-flow .deal-metrics b,
+    body.reading-flow .deal-summary .facts b{
+      font-size:18px!important;
+      line-height:1.18!important;
+    }
+    body.reading-flow .status-box{
+      margin:12px 18px 18px!important;
+      padding:12px!important;
+      font-size:16px!important;
+      line-height:1.42!important;
+    }
+    body.reading-flow .yearbook{
+      display:grid!important;
+      grid-template-columns:1fr!important;
+      gap:10px!important;
+      background:transparent!important;
+      border:0!important;
+    }
+    body.reading-flow .deal-card{
+      min-height:auto!important;
+      padding:14px!important;
+      gap:10px!important;
+      display:block!important;
+      border:1px solid rgba(6,25,39,.14);
+    }
+    body.reading-flow .deal-card h3,
+    body.reading-flow .ops-deal h3,
+    body.reading-flow .ops-stage h3,
+    body.reading-flow .ops-role h3,
+    body.reading-flow .ops-arch h3,
+    body.reading-flow .industry-panel h3,
+    body.reading-flow .advisory-card h3{
+      font-size:20px!important;
+      line-height:1.18!important;
+      margin-bottom:8px!important;
+    }
+    body.reading-flow .deal-card .type,
+    body.reading-flow .deal-card .amount,
+    body.reading-flow .deal-card .details span,
+    body.reading-flow .ops-tag,
+    body.reading-flow .ops-deliverables b,
+    body.reading-flow .ops-arch-row b,
+    body.reading-flow .ops-ledger-row b{
+      font-size:13px!important;
+      line-height:1.24!important;
+    }
+    body.reading-flow .ops-output,
+    body.reading-flow .ops-role .out,
+    body.reading-flow .ops-deliverables span,
+    body.reading-flow .deal-card .amount{
+      font-size:14px!important;
+      line-height:1.38!important;
+    }
+    body.reading-flow .milestone-line{
+      display:grid!important;
+      grid-template-columns:1fr!important;
+      gap:10px!important;
+      border-top:0!important;
+      padding-top:0!important;
+    }
+    body.reading-flow .milestone{
+      padding:12px!important;
+      border-left:3px solid var(--gold);
+      background:#fff;
+    }
+    body.reading-flow .milestone::before{
+      display:none;
+    }
+    body.reading-flow .logo-grid{
+      grid-template-columns:1fr!important;
+    }
+    body.reading-flow .logo-card{
+      min-height:112px!important;
+      padding:14px!important;
+    }
+    body.reading-flow .logo-card img{
+      max-height:46px!important;
+    }
+    body.reading-flow .closing-title{
+      font-size:clamp(28px,7.2vw,32px)!important;
+      line-height:1.18!important;
+    }
+    body.reading-flow .closing-title span{
+      white-space:nowrap!important;
+    }
+  }
+
 </style>
 </head>
 <body class="canvas-mode">
 <script>
+  (function(){
+    const query = matchMedia('(max-width: 767px) and (orientation: portrait)');
+    function sync(){
+      document.body.classList.toggle('reading-flow', query.matches);
+    }
+    sync();
+    if(query.addEventListener) query.addEventListener('change', sync);
+    else query.addListener(sync);
+    window.__readingFlowQuery = query;
+    window.__syncReadingFlowClass = sync;
+  })();
   // Windows 平台标记 — 雅黑没有 ExtraLight,需要字重补偿
   if(/Win/i.test(navigator.platform || navigator.userAgentData?.platform || '')){
     document.body.classList.add('is-win');
@@ -4943,8 +5441,18 @@ const deck=document.getElementById('deck');
 const slides=deck.querySelectorAll('.slide');
 const nav=document.getElementById('nav');
 let idx=0,total=slides.length,lock=false;
+const readingQuery = window.__readingFlowQuery || matchMedia('(max-width: 767px) and (orientation: portrait)');
 
-deck.style.width=(total*100)+'vw';
+function readingActive(){
+  return document.body.classList.contains('reading-flow');
+}
+
+function setDeckGeometry(){
+  deck.style.width = readingActive() ? '100%' : (total*100)+'vw';
+  if(readingActive()) deck.style.transform = 'none';
+}
+
+setDeckGeometry();
 
 slides.forEach((s,i)=>{
   const b=document.createElement('button');
@@ -4953,19 +5461,64 @@ slides.forEach((s,i)=>{
   nav.appendChild(b);
 });
 
-function go(n){
-  if(lock)return;
+function syncSlideState(el){
+  const isDark = el.classList.contains('dark') || el.classList.contains('accent') || el.classList.contains('cover');
+  document.body.classList.toggle('dark-bg', isDark && !readingActive());
+  darkMode = isDark;
+}
+
+function scrollToReadingSlide(el, instant){
+  window.scrollTo({top:el.offsetTop,left:0,behavior:instant?'auto':'smooth'});
+}
+
+function go(n, opts={}){
+  if(lock && !opts.force)return;
   idx=Math.max(0,Math.min(total-1,n));
   window.__currentSlideIndex = idx;
-  deck.style.transform=`translateX(${-idx*100}vw)`;
-  nav.querySelectorAll('.dot').forEach((d,i)=>d.classList.toggle('active',i===idx));
   const el=slides[idx];
-  const isDark = el.classList.contains('dark') || el.classList.contains('accent');
-  document.body.classList.toggle('dark-bg', isDark);
-  darkMode = isDark;
-  if(window.__playSlide) setTimeout(()=>window.__playSlide(idx), 450);
+  if(readingActive()){
+    setDeckGeometry();
+    if(opts.scroll !== false){
+      scrollToReadingSlide(el, !!opts.instant);
+    }
+  }else{
+    deck.style.transform=`translateX(${-idx*100}vw)`;
+  }
+  nav.querySelectorAll('.dot').forEach((d,i)=>d.classList.toggle('active',i===idx));
+  syncSlideState(el);
+  if(window.__playSlide && !readingActive()) setTimeout(()=>window.__playSlide(idx), 450);
+  if(readingActive()){
+    lock=false;
+    return;
+  }
   lock=true;setTimeout(()=>lock=false,700);
 }
+
+function syncReadingLayout(){
+  if(window.__syncReadingFlowClass) window.__syncReadingFlowClass();
+  setDeckGeometry();
+  go(idx,{force:true,instant:true,scroll:readingActive()});
+}
+
+if(readingQuery.addEventListener) readingQuery.addEventListener('change', syncReadingLayout);
+else readingQuery.addListener(syncReadingLayout);
+
+let readingScrollTO=null;
+addEventListener('scroll',()=>{
+  if(!readingActive())return;
+  clearTimeout(readingScrollTO);
+  readingScrollTO=setTimeout(()=>{
+    let best=0,dist=Infinity;
+    slides.forEach((s,i)=>{
+      const d=Math.abs(s.getBoundingClientRect().top);
+      if(d<dist){dist=d;best=i;}
+    });
+    idx=best;
+    window.__currentSlideIndex=idx;
+    nav.querySelectorAll('.dot').forEach((d,i)=>d.classList.toggle('active',i===idx));
+    syncSlideState(slides[idx]);
+  },80);
+},{passive:true});
 
 /* =============== ESC 索引视图 =============== */
 let overviewOn=false;
@@ -5027,6 +5580,7 @@ addEventListener('keydown',e=>{
 
 let wheelTO=null,wheelAcc=0;
 addEventListener('wheel',e=>{
+  if(readingActive())return;
   wheelAcc+=e.deltaY+e.deltaX;
   if(Math.abs(wheelAcc)>50){
     if(wheelAcc>0 && window.__pipeAdvance && window.__pipeAdvance()){
@@ -5041,6 +5595,7 @@ addEventListener('wheel',e=>{
 let tx=0,ty=0;
 addEventListener('touchstart',e=>{tx=e.touches[0].clientX;ty=e.touches[0].clientY},{passive:true});
 addEventListener('touchend',e=>{
+  if(readingActive())return;
   const dx=(e.changedTouches[0].clientX-tx);
   const dy=(e.changedTouches[0].clientY-ty);
   if(Math.abs(dx)>50&&Math.abs(dx)>Math.abs(dy)){
@@ -5051,7 +5606,11 @@ addEventListener('touchend',e=>{
 
 const initialSlideParam = new URLSearchParams(location.search).get('slide');
 const initialSlide = initialSlideParam ? Number(initialSlideParam) - 1 : 0;
-go(Number.isFinite(initialSlide) ? initialSlide : 0);
+syncReadingLayout();
+go(Number.isFinite(initialSlide) ? initialSlide : 0,{force:true,instant:true});
+addEventListener('load',()=>{
+  if(readingActive()) setTimeout(()=>go(idx,{force:true,instant:true}),120);
+},{once:true});
 </script>
 <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 <script>lucide.createIcons();</script>
