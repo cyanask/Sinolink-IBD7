@@ -3240,6 +3240,54 @@
     gap:1.12vh;
     min-height:0;
   }
+  .recognition-page{
+    grid-template-rows:auto minmax(0,1fr) auto;
+  }
+  .recognition-page .ops-split{
+    grid-template-columns:.82fr 1.58fr!important;
+  }
+  .recognition-page .ops-panel{
+    display:grid;
+    grid-template-rows:auto minmax(0,1fr);
+    gap:.7vh;
+  }
+  .recognition-page .ops-panel h3{
+    margin:0;
+  }
+  .recognition-page .ops-mini-ledger{
+    height:100%;
+    grid-template-rows:repeat(4,1fr);
+  }
+  .recognition-page .ops-ledger-row{
+    min-height:0;
+    align-items:center;
+    padding:.74vh .7vw;
+  }
+  .recognition-page .ops-grid-3{
+    height:100%;
+    grid-template-rows:repeat(2,1fr);
+  }
+  .recognition-page .ops-cell{
+    align-content:start;
+    padding:1vh .86vw;
+    display:grid;
+    grid-template-rows:auto auto minmax(0,1fr) auto;
+  }
+  .recognition-page .ops-cell p{
+    font-size:max(11px,.66vw);
+    line-height:1.33;
+  }
+  .recognition-page .cell-output{
+    border-top:1px solid rgba(6,25,39,.12);
+    padding-top:.55vh;
+    color:var(--navy);
+    font-size:max(10px,.59vw);
+    line-height:1.22;
+    font-weight:560;
+  }
+  .recognition-page .proof-chain .ops-step{
+    min-height:8.3vh;
+  }
   .ops-page-stack.two{
     grid-template-rows:1fr auto;
   }
@@ -3380,6 +3428,180 @@
     font-size:max(11px,.62vw);
     line-height:1.18;
     text-align:right;
+  }
+  .ipo-panel{
+    display:grid;
+    grid-template-rows:auto auto minmax(0,1fr) auto;
+    gap:1.15vh;
+  }
+  .ipo-panel h3{
+    margin:0;
+  }
+  .ipo-action-board{
+    display:grid;
+    grid-template-columns:1fr;
+    grid-template-rows:auto minmax(0,1fr);
+    gap:1px;
+    background:rgba(6,25,39,.16);
+    border:1px solid rgba(6,25,39,.16);
+    min-height:0;
+  }
+  .ipo-action-core{
+    background:var(--navy);
+    color:#fff;
+    padding:1.05vh .92vw;
+    display:grid;
+    grid-template-rows:auto auto auto;
+    gap:.65vh;
+    min-height:0;
+  }
+  .ipo-action-core span{
+    color:var(--gold);
+    font-family:var(--mono);
+    font-size:max(10px,.58vw);
+    letter-spacing:.1em;
+    text-transform:uppercase;
+  }
+  .ipo-action-core b{
+    color:#fff;
+    font-size:max(23px,1.35vw);
+    line-height:1.08;
+    font-weight:560;
+  }
+  .ipo-action-core p{
+    margin:0;
+    color:rgba(255,255,255,.78);
+    font-size:max(11px,.64vw);
+    line-height:1.32;
+  }
+  .ipo-action-core-list{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:1px;
+    background:rgba(255,255,255,.16);
+    border:1px solid rgba(255,255,255,.16);
+    min-height:0;
+  }
+  .ipo-action-core-list div{
+    background:rgba(255,255,255,.08);
+    padding:.52vh .56vw;
+    display:grid;
+    grid-template-columns:1fr;
+    align-content:start;
+    align-items:center;
+    gap:.24vh;
+  }
+  .ipo-action-core-list b{
+    color:var(--gold);
+    font-family:var(--mono);
+    font-size:max(10px,.56vw);
+    line-height:1.16;
+  }
+  .ipo-action-core-list span{
+    color:rgba(255,255,255,.8);
+    font-family:var(--sans);
+    font-size:max(10px,.6vw);
+    letter-spacing:0;
+    line-height:1.22;
+    text-transform:none;
+  }
+  .ipo-action-core em{
+    display:none;
+  }
+  .ipo-action-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    grid-template-rows:repeat(2,1fr);
+    gap:1px;
+    background:rgba(6,25,39,.12);
+    min-height:0;
+  }
+  .ipo-action-cell{
+    background:#fff;
+    padding:.9vh .8vw;
+    display:grid;
+    grid-template-rows:auto auto auto 1fr;
+    align-content:start;
+    min-height:0;
+  }
+  .ipo-action-cell span{
+    display:block;
+    color:var(--gold);
+    font-family:var(--mono);
+    font-size:max(10px,.56vw);
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    margin-bottom:.52vh;
+  }
+  .ipo-action-cell b{
+    display:block;
+    color:var(--navy);
+    font-size:max(15px,.86vw);
+    line-height:1.15;
+    margin-bottom:.55vh;
+  }
+  .ipo-action-cell p{
+    margin:0;
+    color:var(--text-secondary);
+    font-size:max(11px,.63vw);
+    line-height:1.28;
+  }
+  .ipo-action-cell .action-fields{
+    align-self:end;
+    display:grid;
+    gap:1px;
+    background:rgba(6,25,39,.12);
+    border:1px solid rgba(6,25,39,.12);
+    margin-top:1vh;
+  }
+  .ipo-action-cell .action-fields div{
+    background:var(--grey-1);
+    padding:.48vh .52vw;
+    display:grid;
+    grid-template-columns:.34fr 1fr;
+    gap:.45vw;
+    align-items:center;
+  }
+  .ipo-action-cell .action-fields b{
+    color:var(--gold);
+    font-family:var(--mono);
+    font-size:max(9px,.52vw);
+    margin:0;
+  }
+  .ipo-action-cell .action-fields span{
+    color:var(--text-secondary);
+    font-family:var(--sans);
+    font-size:max(10px,.58vw);
+    letter-spacing:0;
+    line-height:1.2;
+    text-transform:none;
+    margin:0;
+  }
+  .ipo-decision-strip{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:1px;
+    background:rgba(6,25,39,.16);
+    border:1px solid rgba(6,25,39,.16);
+  }
+  .ipo-decision-strip div{
+    background:#fff;
+    padding:.72vh .72vw;
+    min-height:7.2vh;
+    border-top:3px solid var(--gold);
+  }
+  .ipo-decision-strip b{
+    display:block;
+    color:var(--navy);
+    font-size:max(13px,.75vw);
+    line-height:1.16;
+  }
+  .ipo-decision-strip span{
+    display:block;
+    margin-top:.4vh;
+    color:var(--text-secondary);
+    font-size:max(10px,.58vw);
+    line-height:1.22;
   }
   .ops-org-grid{
     display:grid;
@@ -6253,7 +6475,7 @@
       <div><div class="eyebrow">Awards & Research</div><h2 class="headline">市场认可与研究能力共同支撑项目定位、估值和销售</h2></div>
 
       <div style="display:grid;grid-template-rows:1fr auto;gap:1.2vh;min-height:0">
-        <div class="ops-page-stack">
+        <div class="ops-page-stack recognition-page">
         <div class="ops-proof-grid">
           <div class="ops-proof dark"><span>Awards</span><b>市场认可</b><p>君鼎奖、新财富和行业奖项共同体现 IPO、再融资、股票承销和科创板服务能力。</p></div>
           <div class="ops-proof"><span>IPO</span><b>最佳 IPO 投行</b><p>项目执行、审核沟通和发行承销能力获得市场排名和奖项支撑。</p></div>
@@ -6273,16 +6495,16 @@
           <div class="ops-panel">
             <h3>研究覆盖转化为投行项目能力</h3>
             <div class="ops-grid-3" style="border:0">
-              <div class="ops-cell"><span class="ops-tag">Industry</span><h3>重点行业</h3><p>医药生物、新能源、装备制造、汽车、消费、TMT 等。</p></div>
-              <div class="ops-cell"><span class="ops-tag">Team</span><h3>复合背景</h3><p>博士、硕士比例高，具备行业背景和财务分析能力。</p></div>
-              <div class="ops-cell"><span class="ops-tag">Output</span><h3>项目交付</h3><p>支持板块定位、估值锚定、投价报告、路演问答和投资者沟通。</p></div>
-              <div class="ops-cell"><span class="ops-tag">Coverage</span><h3>客户覆盖</h3><p>把行业研究沉淀用于客户筛选、辅导路径和上市板块判断。</p></div>
-              <div class="ops-cell"><span class="ops-tag">Pricing</span><h3>估值支持</h3><p>通过可比公司、市场反馈和投资者问答支持发行定价。</p></div>
-              <div class="ops-cell"><span class="ops-tag">IR</span><h3>持续沟通</h3><p>上市后支持再融资、可转债和资本市场表达持续迭代。</p></div>
+              <div class="ops-cell"><span class="ops-tag">Industry</span><h3>行业判断</h3><p>产业趋势、竞争格局、监管口径和商业化路径，服务客户筛选与板块选择。</p><div class="cell-output">交付：行业判断、监管关注和上市板块建议。</div></div>
+              <div class="ops-cell"><span class="ops-tag">Valuation</span><h3>估值表达</h3><p>可比公司、成长逻辑、募投与资本开支解释，转化为投价报告和路演问答。</p><div class="cell-output">交付：可比公司、估值区间和募投解释框架。</div></div>
+              <div class="ops-cell"><span class="ops-tag">Feedback</span><h3>销售反馈</h3><p>机构关注点、路演纪要和发行反馈回到项目组，持续校准沟通重点。</p><div class="cell-output">交付：投资者问题清单、路演纪要和反馈闭环。</div></div>
+              <div class="ops-cell"><span class="ops-tag">Execution</span><h3>项目推进</h3><p>把研究语言转为审核问询、发行材料和上市后资本市场沟通材料。</p><div class="cell-output">交付：问询口径、发行材料和持续沟通素材。</div></div>
+              <div class="ops-cell"><span class="ops-tag">Coverage</span><h3>客户覆盖</h3><p>以行业研究沉淀识别客户阶段、辅导路径和长期资本市场服务机会。</p><div class="cell-output">交付：客户阶段判断、辅导路径和项目储备。</div></div>
+              <div class="ops-cell"><span class="ops-tag">Pricing</span><h3>定价支持</h3><p>结合市场窗口、可比公司和投资者反馈，形成发行定价协同。</p><div class="cell-output">交付：窗口判断、询价反馈和定价协同建议。</div></div>
             </div>
           </div>
         </div>
-        <div class="ops-flow" style="grid-template-columns:repeat(4,1fr)">
+        <div class="ops-flow proof-chain" style="grid-template-columns:repeat(4,1fr)">
           <div class="ops-step"><b>行业判断</b><span>产业趋势、竞争格局、监管和商业化路径。</span></div>
           <div class="ops-step"><b>估值表达</b><span>可比公司、成长逻辑、募投和资本开支解释。</span></div>
           <div class="ops-step"><b>销售反馈</b><span>机构投资者关注点、路演纪要和发行反馈。</span></div>
@@ -6344,26 +6566,37 @@
           <div><div class="rank-year">2025</div><div class="rank-no">#10</div><div class="rank-note">并列</div></div>
           <div class="rank-ytd"><div class="rank-year">2026.01-05</div><div class="rank-no">TOP5</div><div class="rank-note">5 家保荐上市</div></div>
         </div>
-        <div class="ops-panel">
+        <div class="ops-panel ipo-panel">
           <h3>2026 年前 5 月阶段性动能</h3>
-          <div class="ops-kpi-row" style="grid-template-columns:repeat(2,1fr);margin-top:0">
-            <div class="ops-kpi"><b>TOP5</b><span>A 股发行上市保荐家数。</span></div>
-            <div class="ops-kpi"><b>5家</b><span>截至 2026 年 5 月阶段性数据。</span></div>
-          </div>
-          <div class="ops-bar-list" style="margin-top:1.05vh">
+          <div class="ops-bar-list" style="margin-top:0">
             <div class="ops-bar-row"><b>2026YTD</b><i style="--w:96%"></i><span>TOP5 / 5家</span></div>
             <div class="ops-bar-row"><b>2025</b><i style="--w:78%"></i><span>#10 并列</span></div>
             <div class="ops-bar-row"><b>2024</b><i style="--w:78%"></i><span>#10 并列</span></div>
             <div class="ops-bar-row"><b>2023</b><i style="--w:82%"></i><span>#9</span></div>
           </div>
-          <div class="ops-grid-2" style="margin-top:1.05vh;border:0">
-            <div class="ops-cell"><span class="ops-tag">2020-2025</span><h3>完整年度排名</h3><p>展示 IPO 及北交所上市主承销家数的连续市场位置。</p></div>
-            <div class="ops-cell dark"><span class="ops-tag">2026.01-05</span><h3>阶段性领先</h3><p>前 5 月保荐上市家数进入市场 TOP5，显示最新项目动能。</p></div>
+          <div class="ipo-action-board">
+            <div class="ipo-action-core">
+              <span>From Rank To Action</span>
+              <b>从排名背书转化为项目推进确定性</b>
+              <p>右侧不再重复年度排名，而是呈现客户在上市路径、审核推进、发行窗口和投资者沟通中可以直接使用的执行动作。</p>
+              <div class="ipo-action-core-list">
+                <div><b>PIPELINE</b><span>项目储备支撑客户筛选、板块定位和申报时点判断。</span></div>
+                <div><b>REVIEW</b><span>审核经验沉淀为关注事项拆解、问询应对和材料节奏。</span></div>
+                <div><b>OFFERING</b><span>近期发行落地能力转化为路演、询价、配售和上市组织。</span></div>
+              </div>
+              <em>核心判断：项目储备、审核推进和发行落地三条线同时有效。</em>
+            </div>
+            <div class="ipo-action-grid">
+              <div class="ipo-action-cell"><span>Path</span><b>上市路径判断</b><p>结合客户行业、板块定位和申报节奏，提前判断上市路线。</p><div class="action-fields"><div><b>输入</b><span>行业属性、财务基础、申报条件</span></div><div><b>输出</b><span>板块选择、时间表和路径建议</span></div></div></div>
+              <div class="ipo-action-cell"><span>Review</span><b>审核推进信心</b><p>以近期项目经验拆解监管关注，减少重大事项解释的不确定性。</p><div class="action-fields"><div><b>输入</b><span>业务、财务、合规和募投关注</span></div><div><b>输出</b><span>问询拆解、材料节奏和反馈计划</span></div></div></div>
+              <div class="ipo-action-cell"><span>Offering</span><b>发行窗口管理</b><p>把市场窗口、路演反馈和询价节奏转化为发行组织安排。</p><div class="action-fields"><div><b>输入</b><span>窗口、路演反馈、询价画像</span></div><div><b>输出</b><span>定价建议、配售方案和上市节奏</span></div></div></div>
+              <div class="ipo-action-cell"><span>Aftermarket</span><b>上市后沟通</b><p>形成投资者理解、定价反馈和上市后持续资本市场维护基础。</p><div class="action-fields"><div><b>输入</b><span>交易反馈、投资者问题、信息披露</span></div><div><b>输出</b><span>持续督导、IR议题和后续融资准备</span></div></div></div>
+            </div>
           </div>
-          <div class="ops-flow" style="grid-template-columns:repeat(3,1fr);margin-top:1.05vh">
-            <div class="ops-step"><b>传统优势</b><span>IPO 保荐承销项目基础。</span></div>
-            <div class="ops-step"><b>最新动能</b><span>2026YTD 保荐上市家数进入 TOP5。</span></div>
-            <div class="ops-step"><b>客户价值</b><span>支撑上市路径判断和申报推进信心。</span></div>
+          <div class="ipo-decision-strip">
+            <div><b>申报前</b><span>判断板块、时间表和申报条件成熟度。</span></div>
+            <div><b>审核中</b><span>拆解业务、财务、合规和募投关注事项。</span></div>
+            <div><b>发行期</b><span>组织路演、反馈、簿记、配售和上市节奏。</span></div>
           </div>
         </div>
       </div>
