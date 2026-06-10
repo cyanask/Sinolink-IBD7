@@ -2293,6 +2293,7 @@
   }
   .headline{
     font-size:min(2.72vw,5.05vh);
+    line-height:1.12;
   }
   .stat-mosaic{
     display:grid;
@@ -3491,6 +3492,503 @@
     align-self:end;
   }
   .ops-arch.dark .ops-arch-result{color:#fff;border-top-color:rgba(255,255,255,.18)}
+  .tx-page,
+  .ma-page,
+  .adv-page,
+  .journey-page{
+    display:grid;
+    grid-template-rows:minmax(0,1fr) auto;
+    gap:1.08vh;
+    min-height:0;
+  }
+  .tx-architecture,
+  .ma-board{
+    display:grid;
+    gap:1px;
+    background:rgba(6,25,39,.16);
+    border:1px solid rgba(6,25,39,.16);
+    min-height:0;
+  }
+  .tx-architecture{
+    grid-template-columns:1.36fr .64fr;
+    grid-template-rows:repeat(2,1fr);
+  }
+  .tx-architecture .tx-panel{
+    grid-column:2;
+    grid-row:1 / span 2;
+  }
+  .tx-case,
+  .ma-card,
+  .journey-stage{
+    background:#fff;
+    background-image:repeating-linear-gradient(180deg,rgba(6,25,39,0) 0,rgba(6,25,39,0) 5.9vh,rgba(6,25,39,.032) 5.9vh,rgba(6,25,39,.032) 6vh);
+    padding:1.05vh .88vw;
+    display:grid;
+    min-height:0;
+    border-top:4px solid var(--gold);
+  }
+  .tx-case{
+    grid-template-rows:auto auto minmax(0,1fr);
+    gap:.82vh;
+  }
+  .tx-case.dark,
+  .ma-card.dark,
+  .adv-core,
+  .journey-anchor,
+  .journey-stage.dark{
+    background:var(--navy);
+    background-image:repeating-linear-gradient(180deg,rgba(255,255,255,0) 0,rgba(255,255,255,0) 5.9vh,rgba(255,255,255,.05) 5.9vh,rgba(255,255,255,.05) 6vh);
+    color:#fff;
+  }
+  .tx-head,
+  .ma-head{
+    display:grid;
+    gap:.42vh;
+  }
+  .tx-head h3,
+  .ma-head h3,
+  .adv-card h3,
+  .journey-stage h3{
+    color:inherit;
+    font-size:max(19px,1.08vw);
+    line-height:1.14;
+    margin:0;
+    font-weight:580;
+  }
+  .tx-head p,
+  .ma-head p,
+  .adv-card p,
+  .journey-anchor p{
+    margin:0;
+    color:var(--text-secondary);
+    font-size:max(13px,.74vw);
+    line-height:1.28;
+  }
+  .tx-case.dark .tx-head p,
+  .ma-card.dark .ma-head p,
+  .adv-core p,
+  .journey-anchor p,
+  .journey-stage.dark p{
+    color:rgba(255,255,255,.78);
+  }
+  .tx-chain{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:1px;
+    background:rgba(6,25,39,.13);
+    border:1px solid rgba(6,25,39,.13);
+  }
+  .tx-case.dark .tx-chain{background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.16)}
+  .tx-node{
+    background:#fff;
+    padding:.72vh .58vw;
+    min-height:6.2vh;
+    display:grid;
+    align-content:start;
+    gap:.3vh;
+  }
+  .tx-case.dark .tx-node{background:rgba(255,255,255,.08)}
+  .tx-node b,
+  .ma-deal b,
+  .ma-work-row b,
+  .adv-deliverable b,
+  .journey-action b,
+  .journey-foot b{
+    color:var(--gold);
+    font-family:var(--mono);
+    font-size:max(11.5px,.64vw);
+    line-height:1.15;
+    letter-spacing:.04em;
+  }
+  .tx-node span,
+  .ma-deal span,
+  .ma-work-row span,
+  .adv-deliverable span,
+  .journey-action span,
+  .journey-foot span{
+    color:var(--text-secondary);
+    font-size:max(12.5px,.7vw);
+    line-height:1.24;
+  }
+  .tx-case.dark .tx-node span,
+  .ma-card.dark .ma-deal span,
+  .ma-card.dark .ma-work-row span,
+  .adv-core .adv-deliverable span,
+  .journey-stage.dark .journey-action span,
+  .journey-anchor .journey-foot span{
+    color:rgba(255,255,255,.78);
+  }
+  .tx-fields,
+  .ma-workbench,
+  .journey-actions{
+    display:grid;
+    gap:1px;
+    min-height:0;
+    background:rgba(6,25,39,.12);
+    border:1px solid rgba(6,25,39,.12);
+  }
+  .tx-fields{grid-template-rows:repeat(4,1fr)}
+  .tx-case.dark .tx-fields,
+  .ma-card.dark .ma-workbench,
+  .journey-stage.dark .journey-actions{
+    background:rgba(255,255,255,.16);
+    border-color:rgba(255,255,255,.16);
+  }
+  .tx-field,
+  .ma-work-row,
+  .journey-action{
+    background:#fff;
+    padding:.64vh .62vw;
+    display:grid;
+    grid-template-columns:.54fr 1fr;
+    align-items:start;
+    gap:.62vw;
+    min-height:0;
+  }
+  .tx-case.dark .tx-field,
+  .ma-card.dark .ma-work-row,
+  .journey-stage.dark .journey-action{
+    background:rgba(255,255,255,.08);
+  }
+  .tx-field b{
+    color:var(--gold);
+    font-family:var(--mono);
+    font-size:max(11.5px,.64vw);
+    line-height:1.15;
+  }
+  .tx-field span{
+    color:var(--text-secondary);
+    font-size:max(12.5px,.7vw);
+    line-height:1.24;
+  }
+  .tx-case.dark .tx-field span{color:rgba(255,255,255,.78)}
+  .tx-panel{
+    background:var(--cool-paper);
+    padding:1.05vh .84vw;
+    display:grid;
+    grid-template-rows:auto minmax(0,1fr) auto;
+    gap:.82vh;
+    min-height:0;
+    border-top:4px solid var(--gold);
+  }
+  .tx-panel h3,
+  .journey-anchor h3{
+    color:var(--navy);
+    font-size:max(19px,1.08vw);
+    line-height:1.14;
+    margin:0;
+  }
+  .tx-panel-list{
+    display:grid;
+    grid-template-rows:repeat(5,1fr);
+    gap:1px;
+    background:rgba(6,25,39,.12);
+    border:1px solid rgba(6,25,39,.12);
+    min-height:0;
+  }
+  .tx-panel-row{
+    background:#fff;
+    padding:.66vh .62vw;
+    display:grid;
+    grid-template-columns:.7fr 1fr;
+    gap:.56vw;
+    align-items:center;
+  }
+  .tx-panel-row b{
+    color:var(--navy);
+    font-size:max(13px,.74vw);
+    line-height:1.16;
+  }
+  .tx-panel-row span{
+    color:var(--text-secondary);
+    font-size:max(12.5px,.7vw);
+    line-height:1.23;
+  }
+  .tx-panel-note,
+  .ma-result,
+  .adv-proof,
+  .journey-proof{
+    border-top:1px solid rgba(6,25,39,.14);
+    padding-top:.62vh;
+    color:var(--navy);
+    font-weight:560;
+    font-size:max(12.5px,.7vw);
+    line-height:1.24;
+  }
+  .ma-card.dark .ma-result,
+  .journey-stage.dark .journey-proof{
+    color:#fff;
+    border-top-color:rgba(255,255,255,.18);
+  }
+  .tx-bottom,
+  .ma-ledger,
+  .adv-deliverables,
+  .journey-foot-grid{
+    display:grid;
+    gap:1px;
+    background:rgba(6,25,39,.16);
+    border:1px solid rgba(6,25,39,.16);
+  }
+  .tx-bottom{grid-template-columns:repeat(6,1fr)}
+  .tx-bottom div,
+  .ma-ledger div,
+  .adv-deliverable,
+  .journey-foot{
+    background:#fff;
+    padding:.72vh .66vw;
+    min-height:6.8vh;
+  }
+  .tx-bottom b,
+  .ma-ledger b{
+    display:block;
+    color:var(--gold);
+    font-family:var(--mono);
+    font-size:max(11.5px,.64vw);
+    line-height:1.15;
+    margin-bottom:.32vh;
+  }
+  .tx-bottom span,
+  .ma-ledger span{
+    color:var(--text-secondary);
+    font-size:max(12.5px,.7vw);
+    line-height:1.24;
+  }
+  .ma-board{
+    grid-template-columns:repeat(3,1fr);
+  }
+  .ma-card{
+    grid-template-rows:auto auto minmax(0,1fr) auto;
+    gap:.78vh;
+  }
+  .ma-deals{
+    display:grid;
+    grid-template-rows:repeat(3,1fr);
+    gap:1px;
+    background:rgba(6,25,39,.12);
+    border:1px solid rgba(6,25,39,.12);
+  }
+  .ma-card.dark .ma-deals{background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.16)}
+  .ma-deal{
+    background:#fff;
+    padding:.62vh .62vw;
+    display:grid;
+    grid-template-columns:.5fr 1fr;
+    gap:.6vw;
+    align-items:start;
+  }
+  .ma-card.dark .ma-deal{background:rgba(255,255,255,.08)}
+  .ma-workbench{grid-template-rows:repeat(4,1fr)}
+  .ma-work-row{grid-template-columns:.5fr 1fr}
+  .ma-ledger{grid-template-columns:repeat(5,1fr)}
+  .adv-page{
+    grid-template-rows:minmax(0,1fr) auto;
+  }
+  .adv-system{
+    display:grid;
+    grid-template-columns:.92fr 1.08fr;
+    gap:1px;
+    background:rgba(6,25,39,.16);
+    border:1px solid rgba(6,25,39,.16);
+    min-height:0;
+  }
+  .adv-core{
+    padding:1.2vh 1vw;
+    display:grid;
+    grid-template-rows:auto auto minmax(0,1fr) auto;
+    gap:.86vh;
+    min-height:0;
+  }
+  .adv-core h3{
+    color:#fff;
+    font-size:max(27px,1.55vw);
+    line-height:1.12;
+    margin:0;
+    font-weight:560;
+  }
+  .adv-signal{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:1px;
+    background:rgba(255,255,255,.16);
+    border:1px solid rgba(255,255,255,.16);
+  }
+  .adv-signal div{
+    background:rgba(255,255,255,.08);
+    padding:.72vh .62vw;
+  }
+  .adv-signal b{
+    display:block;
+    color:var(--gold);
+    font-family:var(--mono);
+    font-size:max(12px,.66vw);
+    line-height:1.15;
+  }
+  .adv-signal span{
+    display:block;
+    color:rgba(255,255,255,.78);
+    font-size:max(12.5px,.7vw);
+    line-height:1.24;
+    margin-top:.32vh;
+  }
+  .adv-core-list{
+    display:grid;
+    grid-template-rows:repeat(5,1fr);
+    gap:1px;
+    background:rgba(255,255,255,.16);
+    border:1px solid rgba(255,255,255,.16);
+    min-height:0;
+  }
+  .adv-core-list div{
+    background:rgba(255,255,255,.08);
+    padding:.66vh .62vw;
+    display:grid;
+    grid-template-columns:.52fr 1fr;
+    gap:.56vw;
+    align-items:center;
+  }
+  .adv-core-list b{
+    color:var(--gold);
+    font-family:var(--mono);
+    font-size:max(11.5px,.64vw);
+    line-height:1.15;
+  }
+  .adv-core-list span{
+    color:rgba(255,255,255,.78);
+    font-size:max(12.5px,.7vw);
+    line-height:1.24;
+  }
+  .adv-proof{color:#fff;border-top-color:rgba(255,255,255,.18)}
+  .adv-mechanisms{
+    display:grid;
+    grid-template-columns:1fr;
+    grid-template-rows:repeat(4,1fr);
+    gap:1px;
+    min-height:0;
+  }
+  .adv-card{
+    background:#fff;
+    background-image:repeating-linear-gradient(180deg,rgba(6,25,39,0) 0,rgba(6,25,39,0) 5.9vh,rgba(6,25,39,.032) 5.9vh,rgba(6,25,39,.032) 6vh);
+    padding:.95vh .82vw;
+    display:grid;
+    grid-template-columns:.34fr 1fr .42fr;
+    grid-template-rows:auto 1fr;
+    align-content:stretch;
+    column-gap:.85vw;
+    row-gap:.45vh;
+    min-height:0;
+    border-top:4px solid var(--gold);
+  }
+  .adv-card .ops-tag{grid-column:1;grid-row:1}
+  .adv-card h3{grid-column:1;grid-row:2}
+  .adv-card p{grid-column:2;grid-row:1}
+  .adv-card ul{
+    grid-column:2;
+    grid-row:2;
+    margin:0;
+    padding:0;
+    list-style:none;
+    display:grid;
+    grid-template-rows:repeat(2,1fr);
+    gap:1px;
+    background:rgba(6,25,39,.12);
+    border:1px solid rgba(6,25,39,.12);
+    min-height:0;
+  }
+  .adv-card li{
+    background:#fff;
+    padding:.72vh .62vw;
+    color:var(--text-secondary);
+    font-size:max(12.5px,.7vw);
+    line-height:1.24;
+    display:grid;
+    align-content:center;
+  }
+  .adv-card .out{
+    grid-column:3;
+    grid-row:1 / span 2;
+    border-top:0;
+    border-left:1px solid rgba(6,25,39,.12);
+    padding:.2vh 0 .2vh .78vw;
+    color:var(--navy);
+    font-weight:560;
+    font-size:max(12.5px,.7vw);
+    line-height:1.22;
+    display:grid;
+    align-content:center;
+  }
+  .adv-deliverables{
+    grid-template-columns:repeat(6,1fr);
+  }
+  .journey-map{
+    display:grid;
+    grid-template-columns:.78fr repeat(4,1fr);
+    gap:1px;
+    background:rgba(6,25,39,.16);
+    border:1px solid rgba(6,25,39,.16);
+    min-height:0;
+  }
+  .journey-anchor{
+    padding:1.05vh .9vw;
+    display:grid;
+    grid-template-rows:auto minmax(0,1fr) auto;
+    gap:.86vh;
+    min-height:0;
+  }
+  .journey-anchor h3{color:#fff;font-size:max(24px,1.42vw)}
+  .journey-anchor-list{
+    display:grid;
+    grid-template-rows:repeat(4,1fr);
+    gap:1px;
+    background:rgba(255,255,255,.16);
+    border:1px solid rgba(255,255,255,.16);
+    min-height:0;
+  }
+  .journey-anchor-list div{
+    background:rgba(255,255,255,.08);
+    padding:.64vh .6vw;
+    display:grid;
+    align-content:center;
+  }
+  .journey-anchor-list b{
+    color:var(--gold);
+    font-family:var(--mono);
+    font-size:max(11.5px,.64vw);
+    line-height:1.15;
+  }
+  .journey-anchor-list span{
+    color:rgba(255,255,255,.78);
+    font-size:max(12.5px,.7vw);
+    line-height:1.23;
+    margin-top:.24vh;
+  }
+  .journey-anchor .journey-foot{
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.16);
+    min-height:auto;
+  }
+  .journey-anchor .journey-foot span{
+    color:rgba(255,255,255,.78);
+  }
+  .journey-stage{
+    grid-template-rows:auto minmax(0,1fr) auto;
+    gap:.76vh;
+  }
+  .journey-stage h3{
+    font-size:max(20px,1.12vw);
+  }
+  .journey-actions{
+    grid-template-rows:repeat(5,1fr);
+  }
+  .journey-action{
+    grid-template-columns:.55fr 1fr;
+    padding:.58vh .56vw;
+  }
+  .journey-proof{
+    color:var(--navy);
+  }
+  .journey-foot-grid{
+    grid-template-columns:repeat(5,1fr);
+  }
   .ops-mechanism-grid{
     display:grid;
     grid-template-columns:1.05fr repeat(4,1fr);
@@ -6465,34 +6963,57 @@
     <div style="display:grid;grid-template-rows:auto 1fr;gap:2vh;min-height:0">
       <div><div class="eyebrow">Backdoor Listing</div><h2 class="headline">借壳上市案例体现复杂重组、破产重整和协商定价项目执行能力</h2></div>
 
-      <div style="display:grid;grid-template-rows:1fr auto;gap:1.2vh;min-height:0">
-        <div class="ops-arch-grid">
-          <div class="ops-arch dark">
-            <div><span class="ops-tag">600094.SH</span><h3>名城地产借壳 ST 华源</h3><div class="sub">破产重整 + 协商定价 + A/B 股上市平台重组。</div></div>
-            <div class="ops-arch-facts">
-              <div class="ops-arch-row"><b>交易结构</b><span>重整方案、股东权益调整、资产注入和上市平台控制权安排。</span></div>
-              <div class="ops-arch-row"><b>执行难点</b><span>兼有 A/B 股、央企上市公司破产重整、民营企业借壳和协商定价机制。</span></div>
-              <div class="ops-arch-row"><b>客户价值</b><span>帮助优质地产资产取得资本市场平台，并恢复上市公司持续融资能力。</span></div>
-              <div class="ops-arch-row"><b>投行任务</b><span>交易方案论证、沟通协调、信息披露和审核反馈组织。</span></div>
+      <div class="tx-page">
+        <div class="tx-architecture">
+          <div class="tx-case dark">
+            <div class="tx-head"><span class="ops-tag">600094.SH</span><h3>名城地产借壳 ST 华源</h3><p>破产重整、协商定价、A/B 股平台重组同步推进。</p></div>
+            <div class="tx-chain">
+              <div class="tx-node"><b>壳资源</b><span>央企上市平台进入破产重整程序。</span></div>
+              <div class="tx-node"><b>权益调整</b><span>重整方案和股东权益安排协同设计。</span></div>
+              <div class="tx-node"><b>资产注入</b><span>民营地产资产接入上市平台。</span></div>
+              <div class="tx-node"><b>平台恢复</b><span>恢复融资功能和持续经营能力。</span></div>
             </div>
-            <div class="ops-arch-result">复杂重组执行样本：央企壳资源、民营资产和资本市场平台之间的交易落地。</div>
+            <div class="tx-fields">
+              <div class="tx-field"><b>交易结构</b><span>重整方案、股东权益调整、资产注入和控制权安排。</span></div>
+              <div class="tx-field"><b>核心难点</b><span>A/B 股、破产重整、借壳上市和协商定价机制并行。</span></div>
+              <div class="tx-field"><b>客户价值</b><span>优质地产资产取得资本市场平台，形成后续融资基础。</span></div>
+              <div class="tx-field"><b>投行任务</b><span>方案论证、沟通协调、信息披露和审核反馈组织。</span></div>
+            </div>
           </div>
-          <div class="ops-arch">
-            <div><span class="ops-tag">000592.SZ</span><h3>中福实业借壳 ST 昌源</h3><div class="sub">暂停上市公司恢复上市，清偿占款并注入优质资产。</div></div>
-            <div class="ops-arch-facts">
-              <div class="ops-arch-row"><b>交易结构</b><span>定向增发、资产置换、资产注入和债务/占款清偿同步推进。</span></div>
-              <div class="ops-arch-row"><b>执行难点</b><span>暂停上市、历史占款、资产质量、恢复上市条件和投资者信心重建。</span></div>
-              <div class="ops-arch-row"><b>客户价值</b><span>恢复上市平台功能，重组后首个交易日股价表现获得市场认可。</span></div>
-              <div class="ops-arch-row"><b>投行任务</b><span>交易路径设计、资产边界梳理、披露材料和多方沟通。</span></div>
+          <div class="tx-case">
+            <div class="tx-head"><span class="ops-tag">000592.SZ</span><h3>中福实业借壳 ST 昌源</h3><p>暂停上市平台恢复上市，历史占款清偿与优质资产注入并行。</p></div>
+            <div class="tx-chain">
+              <div class="tx-node"><b>风险识别</b><span>暂停上市、历史占款和资产质量先行梳理。</span></div>
+              <div class="tx-node"><b>资产置换</b><span>置出低效资产，注入可持续经营资产。</span></div>
+              <div class="tx-node"><b>债务清偿</b><span>占款、债务和恢复上市条件同步推进。</span></div>
+              <div class="tx-node"><b>市场认可</b><span>重组后交易表现体现平台修复价值。</span></div>
             </div>
-            <div class="ops-arch-result">区域重组标杆：通过交易结构恢复上市平台和资本市场功能。</div>
+            <div class="tx-fields">
+              <div class="tx-field"><b>交易结构</b><span>定向增发、资产置换、资产注入和债务清偿。</span></div>
+              <div class="tx-field"><b>核心难点</b><span>恢复上市条件、投资者信心、历史问题和资产边界。</span></div>
+              <div class="tx-field"><b>客户价值</b><span>恢复上市平台功能，重建资本市场沟通基础。</span></div>
+              <div class="tx-field"><b>投行任务</b><span>交易路径设计、资产边界梳理、披露材料和多方沟通。</span></div>
+            </div>
+          </div>
+          <div class="tx-panel">
+            <div><span class="ops-tag">Execution Matrix</span><h3>复杂交易执行矩阵</h3></div>
+            <div class="tx-panel-list">
+              <div class="tx-panel-row"><b>资产边界</b><span>置入、置出、债务和控制权口径一次性拉齐。</span></div>
+              <div class="tx-panel-row"><b>定价机制</b><span>协商定价、股东权益和投资者预期同步沟通。</span></div>
+              <div class="tx-panel-row"><b>程序安排</b><span>董事会、股东会、监管反馈和公告窗口衔接。</span></div>
+              <div class="tx-panel-row"><b>信息披露</b><span>交易结构、风险因素和资产质量边界清晰表达。</span></div>
+              <div class="tx-panel-row"><b>交易落地</b><span>多方协调下恢复上市平台和资本市场功能。</span></div>
+            </div>
+            <div class="tx-panel-note">借壳和重组类交易的价值不在单一融资动作，而在交易结构、历史问题处理和多方协调的组合执行。</div>
           </div>
         </div>
-        <div class="ops-flow" style="grid-template-columns:repeat(4,1fr)">
-          <div class="ops-step"><b>交易结构</b><span>重整、置换、增发、资产注入。</span></div>
-          <div class="ops-step"><b>核心难点</b><span>权属、债务、股东权益和定价机制。</span></div>
-          <div class="ops-step"><b>执行能力</b><span>多方协调、信息披露和监管沟通。</span></div>
-          <div class="ops-step"><b>客户价值</b><span>恢复上市平台和资本市场功能。</span></div>
+        <div class="tx-bottom">
+          <div><b>Restructuring</b><span>重整、权益调整、历史问题处理。</span></div>
+          <div><b>Asset Scope</b><span>资产置换、注入和边界梳理。</span></div>
+          <div><b>Pricing</b><span>协商定价和投资者预期管理。</span></div>
+          <div><b>Governance</b><span>董事会、股东会和中介协同。</span></div>
+          <div><b>Disclosure</b><span>披露材料、反馈回复和风险解释。</span></div>
+          <div><b>Value</b><span>恢复上市平台和融资功能。</span></div>
         </div>
       </div>
     </div>
@@ -6506,42 +7027,60 @@
     <div style="display:grid;grid-template-rows:auto 1fr;gap:2vh;min-height:0">
       <div><div class="eyebrow">M&A Cases</div><h2 class="headline">市场化并购案例围绕主业扩张、技术升级、业务剥离和资产优化展开</h2></div>
 
-      <div style="display:grid;grid-template-rows:1fr auto;gap:1.2vh;min-height:0">
-        <div class="ops-arch-grid three">
-          <div class="ops-arch dark">
-            <div><span class="ops-tag">Buy-side</span><h3>收购主业资产</h3><div class="sub">围绕客户主业扩张和产业链补强组织收购。</div></div>
-            <div class="ops-arch-facts">
-              <div class="ops-arch-row"><b>元力股份</b><span>收购怀玉山三达、满洲里鑫富活性炭，扩大活性炭主业布局。</span></div>
-              <div class="ops-arch-row"><b>中能电气</b><span>收购广东科源电气，实现变压器业务战略升级。</span></div>
-              <div class="ops-arch-row"><b>客户价值</b><span>补强核心资产、扩大收入基础、形成上市后产业整合路径。</span></div>
+      <div class="ma-page">
+        <div class="ma-board">
+          <div class="ma-card dark">
+            <div class="ma-head"><span class="ops-tag">Buy-side</span><h3>收购主业资产</h3><p>围绕客户主业扩张和产业链补强组织收购。</p></div>
+            <div class="ma-deals">
+              <div class="ma-deal"><b>元力股份</b><span>收购怀玉山三达、满洲里鑫富活性炭，扩大活性炭主业布局。</span></div>
+              <div class="ma-deal"><b>中能电气</b><span>收购广东科源电气，推进变压器业务战略升级。</span></div>
+              <div class="ma-deal"><b>客户价值</b><span>补强核心资产，形成上市后产业整合路径。</span></div>
             </div>
-            <div class="ops-arch-result">交易重点：资产质量、产业协同、估值定价和交割安排。</div>
+            <div class="ma-workbench">
+              <div class="ma-work-row"><b>资产动作</b><span>取得主业相关资产、产能和业务资源。</span></div>
+              <div class="ma-work-row"><b>交易难点</b><span>标的质量、协同口径、估值定价和交割安排。</span></div>
+              <div class="ma-work-row"><b>投行交付</b><span>尽调组织、交易方案、审议程序和披露材料。</span></div>
+              <div class="ma-work-row"><b>资本效果</b><span>扩大收入基础，提升上市公司主业集中度。</span></div>
+            </div>
+            <div class="ma-result">交易重点：资产质量、产业协同、估值定价和交割安排。</div>
           </div>
-          <div class="ops-arch">
-            <div><span class="ops-tag">Integration</span><h3>产业整合升级</h3><div class="sub">通过横向或纵向整合提升产品、客户和供应链能力。</div></div>
-            <div class="ops-arch-facts">
-              <div class="ops-arch-row"><b>海欣食品</b><span>收购嘉兴松村食品，获取高端餐饮流通先进生产工艺。</span></div>
-              <div class="ops-arch-row"><b>中能 / 诺邦</b><span>资产出售及并购整合，服务盈利能力和业务结构优化。</span></div>
-              <div class="ops-arch-row"><b>客户价值</b><span>把技术、渠道和业务优化转化为持续经营质量提升。</span></div>
+          <div class="ma-card">
+            <div class="ma-head"><span class="ops-tag">Integration</span><h3>产业整合升级</h3><p>通过横向或纵向整合提升产品、客户和供应链能力。</p></div>
+            <div class="ma-deals">
+              <div class="ma-deal"><b>海欣食品</b><span>收购嘉兴松村食品，获取高端餐饮流通先进生产工艺。</span></div>
+              <div class="ma-deal"><b>中能 / 诺邦</b><span>资产出售及并购整合，服务盈利能力和业务结构优化。</span></div>
+              <div class="ma-deal"><b>客户价值</b><span>把技术、渠道和业务优化转化为经营质量提升。</span></div>
             </div>
-            <div class="ops-arch-result">交易重点：商业协同、利润贡献、整合计划和信息披露。</div>
+            <div class="ma-workbench">
+              <div class="ma-work-row"><b>资产动作</b><span>引入工艺、客户、渠道或供应链能力。</span></div>
+              <div class="ma-work-row"><b>交易难点</b><span>商业协同、利润贡献、整合计划和业绩承诺。</span></div>
+              <div class="ma-work-row"><b>投行交付</b><span>协同逻辑、估值说明、风险因素和投资者沟通。</span></div>
+              <div class="ma-work-row"><b>资本效果</b><span>提升产品结构、客户结构和持续经营质量。</span></div>
+            </div>
+            <div class="ma-result">交易重点：商业协同、利润贡献、整合计划和信息披露。</div>
           </div>
-          <div class="ops-arch">
-            <div><span class="ops-tag">Sell-side</span><h3>出售非主业资产</h3><div class="sub">通过资产剥离降低压力并聚焦主业投入。</div></div>
-            <div class="ops-arch-facts">
-              <div class="ops-arch-row"><b>元力股份</b><span>出售广州创娱网络、广州冰鸟网络 100% 股权。</span></div>
-              <div class="ops-arch-row"><b>主业聚焦</b><span>降低偿债压力，为扩大主业投入奠定基础。</span></div>
-              <div class="ops-arch-row"><b>客户价值</b><span>优化资产结构、改善报表质量、释放后续融资空间。</span></div>
+          <div class="ma-card">
+            <div class="ma-head"><span class="ops-tag">Sell-side</span><h3>出售非主业资产</h3><p>通过资产剥离降低压力并聚焦主业投入。</p></div>
+            <div class="ma-deals">
+              <div class="ma-deal"><b>元力股份</b><span>出售广州创娱网络、广州冰鸟网络 100% 股权。</span></div>
+              <div class="ma-deal"><b>主业聚焦</b><span>降低偿债压力，为扩大主业投入奠定基础。</span></div>
+              <div class="ma-deal"><b>客户价值</b><span>优化资产结构、改善报表质量、释放后续融资空间。</span></div>
             </div>
-            <div class="ops-arch-result">交易重点：资产边界、对价安排、债务压力和投资者沟通。</div>
+            <div class="ma-workbench">
+              <div class="ma-work-row"><b>资产动作</b><span>退出非核心资产，释放资本和管理资源。</span></div>
+              <div class="ma-work-row"><b>交易难点</b><span>资产边界、对价安排、债务压力和程序合规。</span></div>
+              <div class="ma-work-row"><b>投行交付</b><span>交易结构、对价论证、公告披露和沟通安排。</span></div>
+              <div class="ma-work-row"><b>资本效果</b><span>聚焦主业投入，改善投资者对报表质量的理解。</span></div>
+            </div>
+            <div class="ma-result">交易重点：资产边界、对价安排、债务压力和投资者沟通。</div>
           </div>
         </div>
-        <div class="ops-flow" style="grid-template-columns:repeat(5,1fr)">
-          <div class="ops-step"><b>主业扩张</b><span>扩大产业链关键资产布局。</span></div>
-          <div class="ops-step"><b>技术升级</b><span>引入工艺、客户和产品能力。</span></div>
-          <div class="ops-step"><b>资产剥离</b><span>退出非主业资产，降低债务压力。</span></div>
-          <div class="ops-step"><b>结构优化</b><span>提升盈利质量和主业集中度。</span></div>
-          <div class="ops-step"><b>信息披露</b><span>交易程序、估值和投资者沟通。</span></div>
+        <div class="ma-ledger">
+          <div><b>主业扩张</b><span>扩大产业链关键资产布局。</span></div>
+          <div><b>技术升级</b><span>引入工艺、客户和产品能力。</span></div>
+          <div><b>资产剥离</b><span>退出非主业资产，降低债务压力。</span></div>
+          <div><b>结构优化</b><span>提升盈利质量和主业集中度。</span></div>
+          <div><b>信息披露</b><span>交易程序、估值和投资者沟通。</span></div>
         </div>
       </div>
     </div>
@@ -6555,25 +7094,38 @@
     <div style="display:grid;grid-template-rows:auto 1fr;gap:2vh;min-height:0">
       <div><div class="eyebrow">Implementation Advantages</div><h2 class="headline">投行七部以区域服务、专业团队、扁平化管理和资源协同支持客户投融资活动</h2></div>
 
-      <div class="ops-page-stack two">
-        <div class="ops-role-loop" style="grid-template-columns:1.05fr repeat(4,1fr)">
-          <div class="ops-role dark">
-            <span class="ops-tag">Core</span>
-            <h3>客户项目确定性</h3>
-            <ul><li>材料、底稿、问询和信息披露边界提前复核。</li><li>项目负责人直接协调一线、总部和外部中介。</li><li>研究销售反馈进入发行和资本市场沟通。</li></ul>
-            <div class="out">结果：材料质量、沟通效率、执行节奏</div>
+      <div class="adv-page">
+        <div class="adv-system">
+          <div class="adv-core">
+            <div><span class="ops-tag">Core</span><h3>客户项目确定性</h3><p>把监管审核、发行窗口、投资者沟通和交易执行拆成可管理的任务链。</p></div>
+            <div class="adv-signal">
+              <div><b>Quality</b><span>材料质量</span></div>
+              <div><b>Rhythm</b><span>执行节奏</span></div>
+              <div><b>Feedback</b><span>反馈闭环</span></div>
+            </div>
+            <div class="adv-core-list">
+              <div><b>前置复核</b><span>材料、底稿、问询和信息披露边界提前校准。</span></div>
+              <div><b>统一协调</b><span>项目负责人直接协调一线、总部和外部中介。</span></div>
+              <div><b>市场反馈</b><span>研究销售反馈进入发行和资本市场沟通。</span></div>
+              <div><b>风险清单</b><span>把监管关注、客户关注和投资者关注合并管理。</span></div>
+              <div><b>复盘迭代</b><span>通过材料版本、沟通记录和反馈结果持续优化。</span></div>
+            </div>
+            <div class="adv-proof">结果：材料质量、沟通效率、执行节奏和客户资本市场任务落地。</div>
           </div>
-          <div class="ops-role"><span class="ops-tag">01</span><h3>针对性解决方案</h3><ul><li>上市前顾问、IPO、再融资和并购重组组合使用。</li><li>按行业、阶段、融资目标和审核风险匹配路径。</li></ul><div class="out">输出：方案包、路径图、问题清单</div></div>
-          <div class="ops-role"><span class="ops-tag">02</span><h3>贴身服务</h3><ul><li>华东地区独立业务部门支持项目团队常驻企业。</li><li>日常沟通、材料迭代和关键问题快速反馈。</li></ul><div class="out">输出：现场推进表、材料版本、反馈闭环</div></div>
-          <div class="ops-role"><span class="ops-tag">03</span><h3>区域资源</h3><ul><li>与证监局、发改委、国资委和中介机构保持沟通。</li><li>把地方监管、产业资源和交易资源纳入项目节奏。</li></ul><div class="out">输出：沟通安排、协同资源、外部反馈</div></div>
-          <div class="ops-role"><span class="ops-tag">04</span><h3>扁平化管理</h3><ul><li>项目负责人直接协调一线员工和总部高管。</li><li>重大问题减少层级传递，降低客户沟通成本。</li></ul><div class="out">输出：决策链路、责任分工、时间表</div></div>
+          <div class="adv-mechanisms">
+            <div class="adv-card"><span class="ops-tag">01</span><h3>针对性解决方案</h3><p>按行业、阶段、融资目标和审核风险匹配路径。</p><ul><li>上市前顾问、IPO、再融资和并购重组组合使用。</li><li>项目启动阶段输出问题清单和路径图。</li></ul><div class="out">输出：方案包、路径图、问题清单</div></div>
+            <div class="adv-card"><span class="ops-tag">02</span><h3>贴身服务</h3><p>项目团队围绕企业现场需求持续迭代材料。</p><ul><li>日常沟通、材料迭代和关键问题快速反馈。</li><li>把企业经营变化及时转化为披露和沟通材料。</li></ul><div class="out">输出：现场推进表、材料版本、反馈闭环</div></div>
+            <div class="adv-card"><span class="ops-tag">03</span><h3>区域资源</h3><p>把地方监管、产业资源和交易资源纳入项目节奏。</p><ul><li>与证监局、发改委、国资委和中介机构保持沟通。</li><li>围绕项目关键节点组织外部反馈。</li></ul><div class="out">输出：沟通安排、协同资源、外部反馈</div></div>
+            <div class="adv-card"><span class="ops-tag">04</span><h3>扁平化管理</h3><p>减少层级传递，让重大问题直接进入决策链路。</p><ul><li>项目负责人直接协调一线员工和总部高管。</li><li>把责任分工、时间表和节点结果对齐到客户侧。</li></ul><div class="out">输出：决策链路、责任分工、时间表</div></div>
+          </div>
         </div>
-        <div class="ops-deliverables">
-          <div><b>Pre-IPO</b><span>股改方案、合规整改、股权融资和上市路径图。</span></div>
-          <div><b>Filing</b><span>申报文件、底稿证据、审核问询和回复材料。</span></div>
-          <div><b>Issuance</b><span>发行方案、路演问答、投资者反馈和定价执行。</span></div>
-          <div><b>Refi</b><span>定增、配股、可转债和注册审核推进。</span></div>
-          <div><b>M&A</b><span>交易结构、资产边界、估值沟通和信息披露。</span></div>
+        <div class="adv-deliverables">
+          <div class="adv-deliverable"><b>Pre-IPO</b><span>股改方案、合规整改、股权融资和上市路径图。</span></div>
+          <div class="adv-deliverable"><b>Filing</b><span>申报文件、底稿证据、审核问询和回复材料。</span></div>
+          <div class="adv-deliverable"><b>Issuance</b><span>发行方案、路演问答、投资者反馈和定价执行。</span></div>
+          <div class="adv-deliverable"><b>Refi</b><span>定增、配股、可转债和注册审核推进。</span></div>
+          <div class="adv-deliverable"><b>M&A</b><span>交易结构、资产边界、估值沟通和信息披露。</span></div>
+          <div class="adv-deliverable"><b>Review</b><span>材料版本、问题清单、时间表和沟通纪要。</span></div>
         </div>
       </div>
     </div>
@@ -6598,19 +7150,69 @@
     <div style="display:grid;grid-template-rows:auto 1fr;gap:2vh;min-height:0">
       <div><div class="eyebrow">Service Summary</div><h2 class="headline">客户可获得从上市前顾问到上市后资本运作的持续服务</h2></div>
 
-      <div class="ops-page-stack two">
-        <div class="ops-journey">
-          <div class="ops-stage dark"><span class="ops-tag">Stage 01</span><h3>上市前</h3><ul><li>股改咨询、合规咨询。</li><li>股权融资咨询、IPO 规范辅导。</li><li>板块判断、股权结构、历史沿革和募投规划。</li></ul><p>代表能力：上市路径设计和规范整改。</p><div class="ops-output">输出：整改清单、融资方案、申报路径图</div></div>
-          <div class="ops-stage"><span class="ops-tag">Stage 02</span><h3>IPO</h3><ul><li>申报文件、底稿证据。</li><li>问询回复、审核沟通。</li><li>发行承销、路演和定价。</li></ul><p>代表案例：榕基软件、元力股份、特宝生物、云汉芯城。</p><div class="ops-output">输出：审核推进、定价发行、上市落地</div></div>
-          <div class="ops-stage"><span class="ops-tag">Stage 03</span><h3>上市后融资</h3><ul><li>定增、配股、可转债。</li><li>募投论证、注册审核。</li><li>发行组织和投资者沟通。</li></ul><p>代表案例：三安光电、元力股份、海欣食品、特宝生物。</p><div class="ops-output">输出：融资方案、注册审核、发行执行</div></div>
-          <div class="ops-stage"><span class="ops-tag">Stage 04</span><h3>并购重组</h3><ul><li>资产购买、资产出售。</li><li>借壳上市、产业整合。</li><li>信息披露和交易执行。</li></ul><p>代表案例：大名城、中福实业、元力股份、海欣食品、中能电气。</p><div class="ops-output">输出：交易结构、资产优化、资本运作落地</div></div>
+      <div class="journey-page">
+        <div class="journey-map">
+          <div class="journey-anchor">
+            <div><span class="ops-tag">Client Journey</span><h3>连续服务链条</h3><p>客户从上市准备到上市后资本运作，核心任务持续变化，但项目管理和信息披露要求持续存在。</p></div>
+            <div class="journey-anchor-list">
+              <div><b>01</b><span>上市路径和规范基础先行。</span></div>
+              <div><b>02</b><span>审核、发行和投资者沟通协同。</span></div>
+              <div><b>03</b><span>上市后融资工具围绕业务目标选择。</span></div>
+              <div><b>04</b><span>并购重组服务产业整合和资产优化。</span></div>
+            </div>
+            <div class="journey-foot"><b>Outcome</b><span>把单次项目服务转化为长期资本市场任务管理。</span></div>
+          </div>
+          <div class="journey-stage">
+            <div><span class="ops-tag">Stage 01</span><h3>上市前</h3></div>
+            <div class="journey-actions">
+              <div class="journey-action"><b>股改咨询</b><span>股权结构、历史沿革和治理架构梳理。</span></div>
+              <div class="journey-action"><b>合规咨询</b><span>规范运行、内控整改和监管基础准备。</span></div>
+              <div class="journey-action"><b>融资咨询</b><span>股权融资、引战安排和估值沟通。</span></div>
+              <div class="journey-action"><b>路径判断</b><span>板块选择、时间表和申报条件评估。</span></div>
+              <div class="journey-action"><b>客户产出</b><span>整改清单、融资方案、申报路径图。</span></div>
+            </div>
+            <div class="journey-proof">目标：建立可验证的业财口径和上市基础。</div>
+          </div>
+          <div class="journey-stage">
+            <div><span class="ops-tag">Stage 02</span><h3>IPO</h3></div>
+            <div class="journey-actions">
+              <div class="journey-action"><b>申报材料</b><span>招股书、底稿证据和专项核查组织。</span></div>
+              <div class="journey-action"><b>问询回复</b><span>业务模式、财务数据和监管关注解释。</span></div>
+              <div class="journey-action"><b>发行承销</b><span>路演推介、询价反馈和簿记配售。</span></div>
+              <div class="journey-action"><b>代表案例</b><span>榕基软件、元力股份、特宝生物、云汉芯城。</span></div>
+              <div class="journey-action"><b>客户产出</b><span>审核推进、定价发行、上市落地。</span></div>
+            </div>
+            <div class="journey-proof">目标：把企业经营逻辑转化为可审核、可发行的上市叙事。</div>
+          </div>
+          <div class="journey-stage">
+            <div><span class="ops-tag">Stage 03</span><h3>上市后融资</h3></div>
+            <div class="journey-actions">
+              <div class="journey-action"><b>持续督导</b><span>规范运作、募集资金和信息披露维护。</span></div>
+              <div class="journey-action"><b>融资工具</b><span>定增、配股、可转债和其他融资安排。</span></div>
+              <div class="journey-action"><b>审核注册</b><span>募投论证、申报材料和注册审核推进。</span></div>
+              <div class="journey-action"><b>代表案例</b><span>三安光电、元力股份、海欣食品、特宝生物。</span></div>
+              <div class="journey-action"><b>客户产出</b><span>融资方案、注册审核、发行执行。</span></div>
+            </div>
+            <div class="journey-proof">目标：把上市后资金需求和产业投入转化为合适融资工具。</div>
+          </div>
+          <div class="journey-stage dark">
+            <div><span class="ops-tag">Stage 04</span><h3>并购重组</h3></div>
+            <div class="journey-actions">
+              <div class="journey-action"><b>资产购买</b><span>主业资产收购、产业链补强和技术升级。</span></div>
+              <div class="journey-action"><b>资产出售</b><span>非主业资产剥离、债务压力缓释和主业聚焦。</span></div>
+              <div class="journey-action"><b>复杂重组</b><span>借壳上市、破产重整和资产边界梳理。</span></div>
+              <div class="journey-action"><b>代表案例</b><span>大名城、中福实业、元力股份、海欣食品、中能电气。</span></div>
+              <div class="journey-action"><b>客户产出</b><span>交易结构、资产优化、资本运作落地。</span></div>
+            </div>
+            <div class="journey-proof">目标：围绕主业升级和资产优化完成关键交易动作。</div>
+          </div>
         </div>
-        <div class="ops-deliverables">
-          <div><b>顾问</b><span>规范整改、股权融资、板块路径和上市时间表。</span></div>
-          <div><b>审核</b><span>申报文件、底稿证据、问询回复和监管沟通。</span></div>
-          <div><b>发行</b><span>路演推介、询价反馈、簿记配售和上市安排。</span></div>
-          <div><b>融资</b><span>定增、可转债、募投论证和注册审核推进。</span></div>
-          <div><b>交易</b><span>并购重组、资产优化、交易结构和信息披露。</span></div>
+        <div class="journey-foot-grid">
+          <div class="journey-foot"><b>顾问</b><span>规范整改、股权融资、板块路径和上市时间表。</span></div>
+          <div class="journey-foot"><b>审核</b><span>申报文件、底稿证据、问询回复和监管沟通。</span></div>
+          <div class="journey-foot"><b>发行</b><span>路演推介、询价反馈、簿记配售和上市安排。</span></div>
+          <div class="journey-foot"><b>融资</b><span>定增、可转债、募投论证和注册审核推进。</span></div>
+          <div class="journey-foot"><b>交易</b><span>并购重组、资产优化、交易结构和信息披露。</span></div>
         </div>
       </div>
     </div>
