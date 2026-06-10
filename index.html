@@ -4191,16 +4191,19 @@
     html.phone-paged-root,
     html.phone-paged-root body{
       width:100%;
-      height:100%;
-      min-height:100%;
+      height:var(--phone-page-h, 100svh);
+      min-height:var(--phone-page-h, 100svh);
       overflow:hidden!important;
       background:var(--paper);
     }
     body.phone-paged{
+      --phone-page-h:100svh;
       position:fixed;
       inset:0;
+      height:var(--phone-page-h, 100svh);
       overflow:hidden!important;
       touch-action:none;
+      overscroll-behavior:none;
       -webkit-text-size-adjust:100%;
     }
     body.phone-paged #deck,
@@ -4213,7 +4216,7 @@
       position:fixed;
       inset:0;
       width:100vw;
-      height:100svh;
+      height:var(--phone-page-h, 100svh);
       overflow:hidden;
       background:var(--paper);
       color:var(--ink);
@@ -4229,13 +4232,13 @@
     }
     .phone-page{
       width:100%;
-      height:100svh;
-      flex:0 0 100svh;
+      height:var(--phone-page-h, 100svh);
+      flex:0 0 var(--phone-page-h, 100svh);
       min-height:0;
       display:flex;
       flex-direction:column;
       gap:12px;
-      padding:18px 17px 16px;
+      padding:18px 17px calc(16px + env(safe-area-inset-bottom, 0px));
       overflow:hidden;
       background:
         linear-gradient(90deg,rgba(6,50,75,.08) 0 1px,transparent 1px) 0 0/25% 100%,
@@ -5196,6 +5199,10 @@
     .phone-page.roadshow .phone-deal-code{
       max-width:46%;
       font-size:12px!important;
+      white-space:normal!important;
+      overflow:visible!important;
+      text-overflow:clip!important;
+      overflow-wrap:anywhere;
     }
     .phone-case-ledger{
       flex:1 1 auto;
@@ -5282,6 +5289,187 @@
       border-color:rgba(255,255,255,.24);
       color:#fff!important;
     }
+    body.phone-small .phone-page{
+      gap:9px;
+      padding:14px 14px calc(12px + env(safe-area-inset-bottom, 0px));
+    }
+    body.phone-small .phone-top{
+      padding-bottom:7px;
+      font-size:9.5px;
+      letter-spacing:.08em;
+    }
+    body.phone-small .phone-title{
+      gap:4px;
+    }
+    body.phone-small .phone-title .eyebrow{
+      font-size:10px!important;
+      letter-spacing:.11em!important;
+    }
+    body.phone-small .phone-title h1{
+      font-size:clamp(28px,8.3vw,35px)!important;
+      line-height:1.02!important;
+    }
+    body.phone-small .phone-page.roadshow{
+      gap:8px;
+      padding:14px 14px calc(12px + env(safe-area-inset-bottom, 0px));
+    }
+    body.phone-small .phone-page.roadshow .phone-title h2{
+      font-size:clamp(22px,6.05vw,26px)!important;
+      line-height:1.1!important;
+    }
+    body.phone-small .phone-page.roadshow .phone-body,
+    body.phone-small .phone-page.roadshow .phone-pack{
+      gap:7px;
+    }
+    body.phone-small .phone-page.roadshow .phone-card,
+    body.phone-small .phone-page.roadshow .phone-row-card,
+    body.phone-small .phone-page.roadshow .phone-deal-card,
+    body.phone-small .phone-page.roadshow .phone-client-section,
+    body.phone-small .phone-page.roadshow .phone-source-card{
+      padding:10px!important;
+      gap:6px;
+    }
+    body.phone-small .phone-page.roadshow .phone-card h3,
+    body.phone-small .phone-page.roadshow .phone-row-card h3,
+    body.phone-small .phone-page.roadshow .phone-deal-card h3,
+    body.phone-small .phone-page.roadshow .phone-client-section h3,
+    body.phone-small .phone-page.roadshow .phone-source-card h3,
+    body.phone-small .phone-case-row h3{
+      font-size:17px!important;
+      line-height:1.12!important;
+    }
+    body.phone-small .phone-page.roadshow .phone-card p,
+    body.phone-small .phone-page.roadshow .phone-row-card p,
+    body.phone-small .phone-page.roadshow .phone-deal-card p,
+    body.phone-small .phone-page.roadshow .phone-client-section p,
+    body.phone-small .phone-page.roadshow .phone-source-card p,
+    body.phone-small .phone-page.roadshow .phone-field span,
+    body.phone-small .phone-case-row p{
+      font-size:14px!important;
+      line-height:1.32!important;
+    }
+    body.phone-small .phone-page.roadshow .phone-field{
+      grid-template-columns:56px minmax(0,1fr);
+      gap:6px;
+      padding-top:5px;
+    }
+    body.phone-small .phone-page.roadshow .phone-kicker,
+    body.phone-small .phone-page.roadshow .phone-meta,
+    body.phone-small .phone-case-type,
+    body.phone-small .phone-case-code{
+      font-size:10px!important;
+    }
+    body.phone-small .phone-page.roadshow .phone-result{
+      padding:7px 8px;
+      font-size:16px!important;
+      line-height:1.24!important;
+    }
+    body.phone-small .phone-page.roadshow .phone-pack.deal-focus{
+      grid-template-rows:minmax(0,.95fr) auto auto;
+      gap:7px;
+    }
+    body.phone-small .phone-client-grid,
+    body.phone-small .phone-page.roadshow .phone-client-grid{
+      gap:5px;
+    }
+    body.phone-small .phone-page.roadshow .phone-client-chip{
+      min-height:48px;
+      padding:7px;
+    }
+    body.phone-small .phone-page.roadshow .phone-client-name{
+      font-size:15px!important;
+    }
+    body.phone-small .phone-page.roadshow .phone-client-code,
+    body.phone-small .phone-page.roadshow .phone-client-tag{
+      font-size:11px!important;
+    }
+    body.phone-small .phone-case-ledger{
+      gap:6px;
+    }
+    body.phone-small .phone-case-row{
+      padding:8px 9px;
+      gap:5px;
+    }
+    body.phone-small .phone-case-result{
+      padding:6px 8px;
+      font-size:14px!important;
+      line-height:1.22!important;
+    }
+    body.phone-small .phone-cover-lock{
+      gap:14px;
+      padding:24px 0 16px;
+    }
+    body.phone-small .phone-cover-title{
+      font-size:clamp(30px,8.5vw,36px)!important;
+      line-height:1.05!important;
+    }
+    body.phone-small .phone-cover-title.closing span{
+      font-size:clamp(24px,7.1vw,31px)!important;
+      line-height:1.09!important;
+    }
+    body.phone-small .phone-cover-spacer{
+      min-height:112px;
+    }
+    body.phone-small .phone-cover-grid div{
+      min-height:48px;
+      padding:8px;
+      font-size:12.5px!important;
+      line-height:1.22!important;
+    }
+    body.phone-large .phone-page{
+      gap:14px;
+      padding:22px 22px calc(19px + env(safe-area-inset-bottom, 0px));
+    }
+    body.phone-large .phone-page.roadshow{
+      gap:12px;
+      padding:22px 21px calc(18px + env(safe-area-inset-bottom, 0px));
+    }
+    body.phone-large .phone-page.roadshow .phone-body,
+    body.phone-large .phone-page.roadshow .phone-pack{
+      gap:11px;
+    }
+    body.phone-large .phone-page.roadshow .phone-card,
+    body.phone-large .phone-page.roadshow .phone-row-card,
+    body.phone-large .phone-page.roadshow .phone-deal-card,
+    body.phone-large .phone-page.roadshow .phone-client-section,
+    body.phone-large .phone-page.roadshow .phone-source-card{
+      padding:15px!important;
+    }
+    body.phone-large .phone-page.roadshow .phone-client-chip{
+      min-height:62px;
+      padding:10px;
+    }
+    body.phone-large .phone-cover-lock{
+      padding:36px 0 24px;
+    }
+    body.phone-large .phone-cover-spacer{
+      min-height:220px;
+    }
+    body.phone-large .phone-cover-grid div{
+      min-height:78px;
+      padding:13px;
+    }
+    body.phone-android .phone-page,
+    body.phone-wechat .phone-page{
+      text-rendering:optimizeLegibility;
+      -webkit-font-smoothing:antialiased;
+    }
+    body.phone-android .phone-page.roadshow .phone-card p,
+    body.phone-android .phone-page.roadshow .phone-row-card p,
+    body.phone-android .phone-page.roadshow .phone-deal-card p,
+    body.phone-android .phone-page.roadshow .phone-client-section p,
+    body.phone-wechat .phone-page.roadshow .phone-card p,
+    body.phone-wechat .phone-page.roadshow .phone-row-card p,
+    body.phone-wechat .phone-page.roadshow .phone-deal-card p,
+    body.phone-wechat .phone-page.roadshow .phone-client-section p{
+      line-height:1.42!important;
+    }
+    body.phone-wechat .phone-page{
+      padding-bottom:calc(18px + env(safe-area-inset-bottom, 0px));
+    }
+    body.phone-wechat.phone-small .phone-page{
+      padding-bottom:calc(14px + env(safe-area-inset-bottom, 0px));
+    }
   }
 
   @media (max-width: 767px) and (orientation: portrait) and (max-height: 620px){
@@ -5306,16 +5494,45 @@
 <script>
   (function(){
     const query = matchMedia('(max-width: 767px) and (orientation: portrait)');
+    const ua = navigator.userAgent || '';
+    const isAndroid = /Android|HarmonyOS|HUAWEI|HONOR/i.test(ua);
+    const isWechat = /MicroMessenger/i.test(ua);
+    function viewportSize(){
+      const vv = window.visualViewport;
+      const width = Math.round(vv?.width || window.innerWidth || document.documentElement.clientWidth || 390);
+      const height = Math.round(vv?.height || window.innerHeight || document.documentElement.clientHeight || 844);
+      return {width,height};
+    }
+    function syncPhoneViewport(){
+      const active = query.matches;
+      const {width,height} = viewportSize();
+      const pageHeight = active ? Math.max(520,height) : height;
+      const isSmall = active && (width <= 375 || height < 720);
+      const isLarge = active && (width >= 428 || height >= 900);
+      const isStandard = active && !isSmall && !isLarge;
+      document.documentElement.style.setProperty('--phone-page-h', `${pageHeight}px`);
+      document.body.style.setProperty('--phone-page-h', `${pageHeight}px`);
+      document.body.classList.toggle('phone-small', isSmall);
+      document.body.classList.toggle('phone-standard', isStandard);
+      document.body.classList.toggle('phone-large', isLarge);
+      document.body.classList.toggle('phone-android', active && isAndroid);
+      document.body.classList.toggle('phone-wechat', active && isWechat);
+      window.__phonePageHeight = pageHeight;
+      window.__phoneViewport = {width,height,pageHeight,isSmall,isStandard,isLarge,isAndroid,isWechat};
+      return pageHeight;
+    }
     function sync(){
       document.body.classList.remove('reading-flow');
       document.body.classList.toggle('phone-paged', query.matches);
       document.documentElement.classList.toggle('phone-paged-root', query.matches);
+      syncPhoneViewport();
     }
     sync();
     if(query.addEventListener) query.addEventListener('change', sync);
     else query.addListener(sync);
     window.__phonePagedQuery = query;
     window.__syncPhonePagedClass = sync;
+    window.__syncPhoneViewport = syncPhoneViewport;
     window.__readingFlowQuery = query;
   })();
   // Windows 平台标记 — 雅黑没有 ExtraLight,需要字重补偿
@@ -6638,6 +6855,41 @@ let phoneIdx=0;
 let phonePages=[];
 let phoneIndexBySlide=[];
 
+function fallbackPhonePageHeight(){
+  const vv=window.visualViewport;
+  const height=Math.round(vv?.height || window.innerHeight || document.documentElement.clientHeight || 0);
+  return Math.max(520,height || 844);
+}
+
+function refreshPhoneViewport(){
+  const pageHeight=window.__syncPhoneViewport ? window.__syncPhoneViewport() : fallbackPhonePageHeight();
+  if(phoneActive()){
+    phoneTrack.style.transform=`translate3d(0,${-phoneIdx*pageHeight}px,0)`;
+  }
+  return pageHeight;
+}
+
+function phoneSwipeThreshold(){
+  const info=window.__phoneViewport || {};
+  if(info.isSmall || info.isWechat) return 36;
+  if(info.isLarge) return 50;
+  return 42;
+}
+
+window.__refreshPhoneViewport = refreshPhoneViewport;
+
+function handlePhoneViewportChange(){
+  refreshPhoneViewport();
+  setDeckGeometry();
+}
+
+if(window.visualViewport){
+  window.visualViewport.addEventListener('resize', handlePhoneViewportChange, {passive:true});
+  window.visualViewport.addEventListener('scroll', handlePhoneViewportChange, {passive:true});
+}
+addEventListener('resize', handlePhoneViewportChange, {passive:true});
+addEventListener('orientationchange', ()=>setTimeout(handlePhoneViewportChange, 80), {passive:true});
+
 function cleanPhoneClone(node){
   const clone=node.cloneNode(true);
   if(clone.nodeType===1){
@@ -7613,6 +7865,7 @@ function buildPhoneDeck(){
     phoneIndexBySlide[i]=prev>=0 ? phoneIndexBySlide[prev] : (next<total ? phoneIndexBySlide[next] : 0);
   }
   phoneReady=true;
+  refreshPhoneViewport();
 }
 
 function ensurePhoneDeck(){
@@ -7636,8 +7889,9 @@ function goPhone(n, opts={}){
   phoneIdx=Math.max(0,Math.min(phonePages.length-1,n));
   const page=phonePages[phoneIdx];
   const transition=opts.instant ? 'none' : '';
+  const pageHeight=refreshPhoneViewport();
   if(transition) phoneTrack.style.transition=transition;
-  phoneTrack.style.transform=`translate3d(0,${-phoneIdx*100}svh,0)`;
+  phoneTrack.style.transform=`translate3d(0,${-phoneIdx*pageHeight}px,0)`;
   if(transition) requestAnimationFrame(()=>{phoneTrack.style.transition='';});
   phoneCounter.textContent=`${phoneIdx+1}/${phonePages.length}`;
   if(page) syncPhoneState(page);
@@ -7795,7 +8049,7 @@ addEventListener('wheel',e=>{
   if(phoneActive()){
     e.preventDefault();
     wheelAcc+=e.deltaY+e.deltaX;
-    if(Math.abs(wheelAcc)>45){
+    if(Math.abs(wheelAcc)>phoneSwipeThreshold()){
       goPhone(phoneIdx+(wheelAcc>0?1:-1));
       wheelAcc=0;
     }
@@ -7823,7 +8077,7 @@ addEventListener('touchend',e=>{
   if(phoneActive()){
     const dx=(e.changedTouches[0].clientX-tx);
     const dy=(e.changedTouches[0].clientY-ty);
-    if(Math.abs(dy)>42&&Math.abs(dy)>Math.abs(dx)){
+    if(Math.abs(dy)>phoneSwipeThreshold()&&Math.abs(dy)>Math.abs(dx)){
       goPhone(phoneIdx+(dy<0?1:-1));
     }
     return;
