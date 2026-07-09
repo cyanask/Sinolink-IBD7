@@ -516,6 +516,122 @@
       border-top: 1px solid rgba(214,220,229,.75);
       padding-top: 10px;
     }
+    .industry-map-layout {
+      height: calc(100% - 46px);
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+    .industry-map-visual {
+      background: var(--navy-900);
+      border: 1px solid rgba(200,164,93,.34);
+      box-shadow: 0 16px 38px rgba(7,21,38,.12);
+      overflow: hidden;
+    }
+    .industry-map-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background: var(--navy-950);
+      display: block;
+    }
+    .industry-callouts {
+      display: grid;
+      gap: 18px;
+    }
+    .mini-callout {
+      background: white;
+      border: 1px solid var(--line);
+      padding: 24px 26px;
+      box-shadow: 0 10px 24px rgba(7,21,38,.055);
+    }
+    .mini-callout b {
+      display: block;
+      color: var(--gold-600);
+      font-size: 17px;
+      letter-spacing: .05em;
+      margin-bottom: 12px;
+    }
+    .mini-callout p {
+      margin: 0;
+      font-size: 22px;
+      line-height: 1.46;
+      color: var(--ink-900);
+      font-weight: 560;
+    }
+    .case-ledger.industry-ledger {
+      height: 76%;
+      grid-template-rows: 52px repeat(5, 1fr);
+    }
+    .industry-ledger .case-ledger-head,
+    .industry-ledger .case-ledger-row {
+      grid-template-columns: 210px 560px 420px 1fr;
+    }
+    .industry-ledger .case-ledger-row b {
+      font-size: 20px;
+    }
+    .industry-ledger .case-ledger-row p {
+      font-size: 18px;
+      line-height: 1.38;
+    }
+    .industry-cycle-grid,
+    .supply-demand-grid {
+      display: grid;
+      gap: 22px;
+      height: 72%;
+    }
+    .industry-cycle-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+    .supply-demand-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .cycle-card,
+    .supply-card {
+      background: white;
+      border: 1px solid var(--line);
+      padding: 28px 28px 24px;
+      position: relative;
+      box-shadow: 0 12px 28px rgba(7,21,38,.06);
+    }
+    .cycle-card::after {
+      content: "";
+      position: absolute;
+      top: 44px;
+      right: -14px;
+      width: 28px;
+      height: 2px;
+      background: var(--gold-500);
+      z-index: 2;
+    }
+    .cycle-card:last-child::after {
+      display: none;
+    }
+    .cycle-card span,
+    .supply-card span {
+      display: block;
+      color: var(--gold-600);
+      font: 800 16px/1 Inter, Arial, sans-serif;
+      letter-spacing: .08em;
+      margin-bottom: 16px;
+    }
+    .cycle-card b,
+    .supply-card b {
+      display: block;
+      font-size: 24px;
+      line-height: 1.32;
+      color: var(--navy-950);
+      margin-bottom: 18px;
+    }
+    .cycle-card p,
+    .supply-card p {
+      margin: 0;
+      font-size: 20px;
+      line-height: 1.48;
+      color: var(--ink-900);
+      font-weight: 540;
+    }
     .implication-box {
       background: var(--navy-900);
       color: white;
@@ -1030,7 +1146,7 @@
     </div></main>
           <footer class="slide-footer">
             <span>宁德思客琦 IPO 重启项目建议书</span>
-            <span>01 / 48</span>
+            <span>1 / 53</span>
           </footer>
         </article>
       </div>
@@ -1053,7 +1169,7 @@
     <div class="source-note">口径：本页为沟通框架，需结合现有公开信息和后续尽调资料更新。</div></main>
           <footer class="slide-footer">
             <span>宁德思客琦 IPO 重启项目建议书</span>
-            <span>02 / 48</span>
+            <span>2 / 53</span>
           </footer>
         </article>
       </div>
@@ -1076,7 +1192,7 @@
     <div class="source-note">口径：正面基础来自前次公开资料和现有公开信息；期后财务和撤回背景需结合公司资料更新。</div></main>
           <footer class="slide-footer">
             <span>宁德思客琦 IPO 重启项目建议书</span>
-            <span>03 / 48</span>
+            <span>3 / 53</span>
           </footer>
         </article>
       </div>
@@ -1099,7 +1215,7 @@
     <div class="source-note">口径：本页为目录式决策框架，不新增事实。</div></main>
           <footer class="slide-footer">
             <span>宁德思客琦 IPO 重启项目建议书</span>
-            <span>04 / 48</span>
+            <span>4 / 53</span>
           </footer>
         </article>
       </div>
@@ -1120,7 +1236,7 @@
     </div></main>
           <footer class="slide-footer">
             <span>宁德思客琦 IPO 重启项目建议书</span>
-            <span>05 / 48</span>
+            <span>5 / 53</span>
           </footer>
         </article>
       </div>
@@ -1141,7 +1257,7 @@
     <div class="source-note">口径：来自深交所项目进程和前次公开披露；撤回背景不作公开信息外推断。</div></main>
           <footer class="slide-footer">
             <span>宁德思客琦 IPO 重启项目建议书</span>
-            <span>06 / 48</span>
+            <span>6 / 53</span>
           </footer>
         </article>
       </div>
@@ -1162,7 +1278,7 @@
     <div class="source-note">口径：依据公开工商及信用信息及前次招股书整理。</div></main>
           <footer class="slide-footer">
             <span>宁德思客琦 IPO 重启项目建议书</span>
-            <span>07 / 48</span>
+            <span>7 / 53</span>
           </footer>
         </article>
       </div>
@@ -1200,7 +1316,7 @@
     <div class="source-note">口径：依据前次招股书和公开工商及信用信息。</div></main>
           <footer class="slide-footer">
             <span>宁德思客琦 IPO 重启项目建议书</span>
-            <span>08 / 48</span>
+            <span>8 / 53</span>
           </footer>
         </article>
       </div>
@@ -1224,7 +1340,7 @@
     <div class="source-note">口径：依据公司官网公开业务表述、公开工商及信用信息和现有备忘录归纳。</div></main>
           <footer class="slide-footer">
             <span>宁德思客琦 IPO 重启项目建议书</span>
-            <span>09 / 48</span>
+            <span>9 / 53</span>
           </footer>
         </article>
       </div>
@@ -1248,7 +1364,7 @@
     <div class="source-note">口径：来自公开工商及信用信息和现有公开资料整理；具体收入贡献需尽调确认。</div></main>
           <footer class="slide-footer">
             <span>宁德思客琦 IPO 重启项目建议书</span>
-            <span>10 / 48</span>
+            <span>10 / 53</span>
           </footer>
         </article>
       </div>
@@ -1269,7 +1385,7 @@
     <div class="source-note">口径：数量来自公开信用信息；产业化和收入映射待公司资料验证。</div></main>
           <footer class="slide-footer">
             <span>宁德思客琦 IPO 重启项目建议书</span>
-            <span>11 / 48</span>
+            <span>11 / 53</span>
           </footer>
         </article>
       </div>
@@ -1290,7 +1406,7 @@
     <div class="source-note">口径：本页为公司定位归纳，需后续以业务和收入资料支撑。</div></main>
           <footer class="slide-footer">
             <span>宁德思客琦 IPO 重启项目建议书</span>
-            <span>12 / 48</span>
+            <span>12 / 53</span>
           </footer>
         </article>
       </div>
@@ -1311,7 +1427,7 @@
     </div></main>
           <footer class="slide-footer">
             <span>宁德思客琦 IPO 重启项目建议书</span>
-            <span>13 / 48</span>
+            <span>13 / 53</span>
           </footer>
         </article>
       </div>
@@ -1319,7 +1435,119 @@
 
     <section class="slide-shell" id="slide-14">
       <div class="stage-frame">
-        <article class="stage light pt-business_map" data-slide="14" data-page-type="business_map">
+        <article class="stage light pt-case_layer_table" data-slide="14" data-page-type="industry_map">
+          <header class="slide-header"><div><span>赛道理解</span><h2>思客琦处于电池产业链的设备与检测环节，订单来自下游资本开支和产线升级</h2></div></header>
+          <main class="slide-main">
+    <div class="industry-map-layout">
+      <div class="industry-map-visual"><img src="assets/image2/skeqi_battery_industry_chain_20260709.png" alt="新能源电池产业链与思客琦位置图谱"></div>
+      <div class="industry-callouts">
+        <div class="mini-callout"><b>产业链位置</b><p>公司不属于锂、电解液等材料环节，也不是电芯厂；更准确位置是电池制造装备、检测追溯和产线集成。</p></div>
+        <div class="mini-callout"><b>订单来源</b><p>设备需求由电池厂、整车厂和储能系统客户的扩产、技改、产品换型、良率提升和安全检测要求共同决定。</p></div>
+        <div class="mini-callout"><b>判断重点</b><p>思客琦业绩受行业周期影响的顺序，应看客户资本开支、新签和在手订单、发货与发出商品、验收收入、毛利率和回款。</p></div>
+      </div>
+    </div>
+    <div class="source-note">口径：产业链图谱为行业位置示意；具体客户、订单和收入仍需以公司资料和公开披露为准。</div></main>
+          <footer class="slide-footer">
+            <span>宁德思客琦 IPO 重启项目建议书</span>
+            <span>14 / 53</span>
+          </footer>
+        </article>
+      </div>
+    </section>
+
+    <section class="slide-shell" id="slide-15">
+      <div class="stage-frame">
+        <article class="stage light pt-case_layer_table" data-slide="15" data-page-type="industry_ledger">
+          <header class="slide-header"><div><span>赛道理解</span><h2>上下游上市公司图谱应从订单传导关系理解，而不是只看设备同行</h2></div></header>
+          <main class="slide-main">
+      <div class="case-ledger industry-ledger">
+        <div class="case-ledger-head">
+          <span>产业环节</span><span>代表上市公司</span><span>主要变量</span><span>与思客琦的关系</span>
+        </div>
+        <div class="case-ledger-row">
+          <div><b>上游原材料</b><em>资源与基础材料</em></div>
+          <div><p>天齐锂业、赣锋锂业、盐湖股份、华友钴业、格林美等。</p></div>
+          <div><p>资源价格、供给释放、库存周期和海外资源布局。</p></div>
+          <div><p>影响电池产业链成本和景气预期，但不直接决定设备订单。</p></div>
+        </div>
+        <div class="case-ledger-row">
+          <div><b>电池材料</b><em>正负极/隔膜/电解液</em></div>
+          <div><p>湖南裕能、德方纳米、容百科技、当升科技、恩捷股份、星源材质、新宙邦、多氟多、诺德股份等。</p></div>
+          <div><p>出货量、价格价差、产能利用率、库存和客户份额。</p></div>
+          <div><p>材料景气回升是需求改善信号，但需进一步观察电池厂资本开支。</p></div>
+        </div>
+        <div class="case-ledger-row">
+          <div><b>电芯及系统</b><em>动力与储能电池</em></div>
+          <div><p>宁德时代、比亚迪、亿纬锂能、国轩高科、欣旺达、孚能科技、鹏辉能源等。</p></div>
+          <div><p>新能源车销量、储能装机、产品迭代、产能利用率和海外建厂。</p></div>
+          <div><p>是设备订单的核心来源，决定扩产、技改、检测和追溯投入。</p></div>
+        </div>
+        <div class="case-ledger-row">
+          <div><b>设备同行</b><em>制造装备与检测</em></div>
+          <div><p>先导智能、赢合科技、利元亨、杭可科技、海目星、联赢激光、星云股份、先惠技术、科瑞技术等。</p></div>
+          <div><p>新签订单、发出商品、验收周期、海外收入和毛利率。</p></div>
+          <div><p>同行可用于观察设备周期、收入确认和技术升级表达。</p></div>
+        </div>
+        <div class="case-ledger-row">
+          <div><b>终端应用</b><em>车端与储能</em></div>
+          <div><p>比亚迪、上汽集团、长安汽车、理想汽车、蔚来、小鹏、阳光电源、南都电源、派能科技等。</p></div>
+          <div><p>终端需求、价格战、储能招投标、海外市场和政策节奏。</p></div>
+          <div><p>终端需求决定电池厂扩产意愿，是设备需求的最远端变量。</p></div>
+        </div>
+      </div>
+      <div class="source-note">口径：公司名单为A股及港股公开上市公司示例，用于说明产业链位置和传导关系，不构成估值可比公司结论。</div></main>
+          <footer class="slide-footer">
+            <span>宁德思客琦 IPO 重启项目建议书</span>
+            <span>15 / 53</span>
+          </footer>
+        </article>
+      </div>
+    </section>
+
+    <section class="slide-shell" id="slide-16">
+      <div class="stage-frame">
+        <article class="stage light pt-roadmap" data-slide="16" data-page-type="industry_cycle">
+          <header class="slide-header"><div><span>赛道理解</span><h2>行业周期传导到思客琦，核心看订单、交付、验收和回款</h2></div></header>
+          <main class="slide-main">
+      <div class="industry-cycle-grid">
+        <div class="cycle-card"><span>01</span><b>终端需求</b><p>新能源车、储能和海外市场影响电池客户产能利用率、盈利预期和投资意愿，是设备需求的最远端变量。</p></div>
+        <div class="cycle-card"><span>02</span><b>电池厂资本开支</b><p>只有当客户恢复扩产、技改、产品换型或提升检测追溯要求时，行业需求才转化为思客琦新签订单和在手订单。</p></div>
+        <div class="cycle-card"><span>03</span><b>设备订单与交付</b><p>项目执行先体现为排产、发货、发出商品、安装调试和客户现场推进；这会影响存货、营运资金和收入确认节奏。</p></div>
+        <div class="cycle-card"><span>04</span><b>验收与回款</b><p>利润表最终取决于客户验收、收入确认、产品结构、毛利率；现金流则取决于回款、应收账款和项目周转。</p></div>
+      </div>
+      <div class="bottom-claim compact">思客琦业绩改善的观察顺序，应是下游电池客户资本开支恢复、公司新签和在手订单改善、发出商品转化为验收收入、毛利率和回款同步修复；单一材料环节景气不能直接推导设备公司业绩恢复。</div>
+      <div class="source-note">口径：行业周期判断聚焦思客琦设备业务的业绩传导链条，后续应结合客户资本开支、公司订单、发货、验收、毛利率和回款数据验证。</div></main>
+          <footer class="slide-footer">
+            <span>宁德思客琦 IPO 重启项目建议书</span>
+            <span>16 / 53</span>
+          </footer>
+        </article>
+      </div>
+    </section>
+
+    <section class="slide-shell" id="slide-17">
+      <div class="stage-frame">
+        <article class="stage light pt-roadmap" data-slide="17" data-page-type="industry_outlook">
+          <header class="slide-header"><div><span>赛道理解</span><h2>2025-2027年更像结构性复苏：总量增长、普通产能宽松、优质产线升级</h2></div></header>
+          <main class="slide-main">
+      <div class="supply-demand-grid">
+        <div class="supply-card"><span>需求侧</span><b>动力电池和储能仍在增长</b><p>新能源车渗透率提升、储能装机增长和海外建厂继续提供需求基础；政策延续至2027年但补贴强度和价格战会影响节奏。</p></div>
+        <div class="supply-card"><span>供给侧</span><b>普通产能仍偏宽松</b><p>过去扩产形成的电芯和材料产能仍需消化，行业不是全面缺产能，而是低效产能出清和头部份额集中。</p></div>
+        <div class="supply-card"><span>设备侧</span><b>机会集中在升级型投入</b><p>新增大规模扩产未必回到2021-2022年强度，但海外产线、储能大电芯、AI视觉、无损检测、追溯和柔性制造更有机会。</p></div>
+      </div>
+      <div class="bottom-claim compact">对思客琦的行业判断不应写成“锂电扩产周期回来了”，而应写成电池制造从扩产转向质量、良率、安全检测、数据追溯和柔性制造升级。</div>
+      <div class="source-note">口径：2025-2027年为趋势判断，需以最新公开行业数据、设备同行订单和公司项目资料持续校验。</div></main>
+          <footer class="slide-footer">
+            <span>宁德思客琦 IPO 重启项目建议书</span>
+            <span>17 / 53</span>
+          </footer>
+        </article>
+      </div>
+    </section>
+
+    <section class="slide-shell" id="slide-18">
+      <div class="stage-frame">
+        <article class="stage light pt-business_map" data-slide="18" data-page-type="business_map">
           <header class="slide-header"><div><span>赛道理解</span><h2>新能源电池智能制造装备处于电池制造产业链关键工艺环节</h2></div></header>
           <main class="slide-main">
     <div class="business-map">
@@ -1335,15 +1563,15 @@
     <div class="source-note">口径：依据官网公开业务表述及现有备忘录整理。</div></main>
           <footer class="slide-footer">
             <span>宁德思客琦 IPO 重启项目建议书</span>
-            <span>14 / 48</span>
+            <span>18 / 53</span>
           </footer>
         </article>
       </div>
     </section>
 
-    <section class="slide-shell" id="slide-15">
+    <section class="slide-shell" id="slide-19">
       <div class="stage-frame">
-        <article class="stage light pt-business_map" data-slide="15" data-page-type="business_map">
+        <article class="stage light pt-business_map" data-slide="19" data-page-type="business_map">
           <header class="slide-header"><div><span>赛道理解</span><h2>公司技术模块需要嵌入电池制造场景，形成主业支撑</h2></div></header>
           <main class="slide-main">
     <div class="business-map">
@@ -1359,15 +1587,15 @@
     <div class="source-note">口径：技术模块来自公开专利、软著和官网线索；实际应用项目待公司确认。</div></main>
           <footer class="slide-footer">
             <span>宁德思客琦 IPO 重启项目建议书</span>
-            <span>15 / 48</span>
+            <span>19 / 53</span>
           </footer>
         </article>
       </div>
     </section>
 
-    <section class="slide-shell" id="slide-16">
+    <section class="slide-shell" id="slide-20">
       <div class="stage-frame">
-        <article class="stage light pt-evidence_dashboard" data-slide="16" data-page-type="evidence_dashboard">
+        <article class="stage light pt-evidence_dashboard" data-slide="20" data-page-type="evidence_dashboard">
           <header class="slide-header"><div><span>赛道理解</span><h2>设备投资逻辑正在从产能扩张转向质量和良率提升</h2></div></header>
           <main class="slide-main">
     <div class="dashboard-layout">
@@ -1380,15 +1608,15 @@
     <div class="source-note">口径：行业判断，后续可补公开行业数据或客户访谈资料。</div></main>
           <footer class="slide-footer">
             <span>宁德思客琦 IPO 重启项目建议书</span>
-            <span>16 / 48</span>
+            <span>20 / 53</span>
           </footer>
         </article>
       </div>
     </section>
 
-    <section class="slide-shell" id="slide-17">
+    <section class="slide-shell" id="slide-21">
       <div class="stage-frame">
-        <article class="stage light pt-evidence_dashboard" data-slide="17" data-page-type="evidence_dashboard">
+        <article class="stage light pt-evidence_dashboard" data-slide="21" data-page-type="evidence_dashboard">
           <header class="slide-header"><div><span>赛道理解</span><h2>上市审核更关注装备背后的关键技术和产业化收入，而不是单纯产线集成规模</h2></div></header>
           <main class="slide-main">
     <div class="dashboard-layout">
@@ -1401,15 +1629,15 @@
     <div class="source-note">口径：收入映射目前需公司补充资料。</div></main>
           <footer class="slide-footer">
             <span>宁德思客琦 IPO 重启项目建议书</span>
-            <span>17 / 48</span>
+            <span>21 / 53</span>
           </footer>
         </article>
       </div>
     </section>
 
-    <section class="slide-shell" id="slide-18">
+    <section class="slide-shell" id="slide-22">
       <div class="stage-frame">
-        <article class="stage light pt-industry_shift" data-slide="18" data-page-type="industry_shift">
+        <article class="stage light pt-industry_shift" data-slide="22" data-page-type="industry_shift">
           <header class="slide-header"><div><span>赛道理解</span><h2>赛道本身具备 IPO 讨论基础，关键在于公司证据能否跟上赛道升级</h2></div></header>
           <main class="slide-main">
     <div class="shift-flow">
@@ -1435,15 +1663,15 @@
     <div class="source-note">口径：本页为行业和路径之间的过渡判断。</div></main>
           <footer class="slide-footer">
             <span>宁德思客琦 IPO 重启项目建议书</span>
-            <span>18 / 48</span>
+            <span>22 / 53</span>
           </footer>
         </article>
       </div>
     </section>
 
-    <section class="slide-shell" id="slide-19">
+    <section class="slide-shell" id="slide-23">
       <div class="stage-frame">
-        <article class="stage dark pt-chapter_divider" data-slide="19" data-page-type="chapter_divider">
+        <article class="stage dark pt-chapter_divider" data-slide="23" data-page-type="chapter_divider">
 
           <main class="slide-main">
     <div class="chapter-layout image-chapter-layout">
@@ -1456,15 +1684,15 @@
     </div></main>
           <footer class="slide-footer">
             <span>宁德思客琦 IPO 重启项目建议书</span>
-            <span>19 / 48</span>
+            <span>23 / 53</span>
           </footer>
         </article>
       </div>
     </section>
 
-    <section class="slide-shell" id="slide-20">
+    <section class="slide-shell" id="slide-24">
       <div class="stage-frame">
-        <article class="stage light pt-evidence_dashboard" data-slide="20" data-page-type="evidence_dashboard">
+        <article class="stage light pt-evidence_dashboard" data-slide="24" data-page-type="evidence_dashboard">
           <header class="slide-header"><div><span>板块选择</span><h2>板块选择不是偏好排序，而是申报条件、行业定位和资料状态的匹配</h2></div></header>
           <main class="slide-main">
     <div class="dashboard-layout">
@@ -1477,15 +1705,186 @@
     <div class="source-note">口径：属于投行专业判断，具体标准需按现行规则和最新财务数据测算。</div></main>
           <footer class="slide-footer">
             <span>宁德思客琦 IPO 重启项目建议书</span>
-            <span>20 / 48</span>
+            <span>24 / 53</span>
           </footer>
         </article>
       </div>
     </section>
 
-    <section class="slide-shell" id="slide-21">
+
+    <section class="slide-shell" id="slide-25">
       <div class="stage-frame">
-        <article class="stage light pt-standard_check" data-slide="21" data-page-type="standard_check">
+        <article class="stage light pt-ipo_timing_chart" data-slide="25" data-page-type="ipo_timing_chart">
+          <header class="slide-header"><div><span>板块选择</span><h2>三板 IPO 节奏对比：过会和注册节奏需要分开观察</h2></div></header>
+          <main class="slide-main">
+    <div class="ipo-timing-layout">
+      <div class="timing-panels">
+        <div class="timing-panel"><div class="timing-panel-title">月度过会家数</div><svg viewBox="0 0 760 360" role="img" aria-label="月度过会家数">
+<line x1="58" y1="304.0" x2="702" y2="304.0" class="timing-gridline" />
+<text x="42" y="308.0" class="timing-y-label">0</text>
+<line x1="58" y1="214.0" x2="702" y2="214.0" class="timing-gridline" />
+<text x="42" y="218.0" class="timing-y-label">6</text>
+<line x1="58" y1="124.0" x2="702" y2="124.0" class="timing-gridline" />
+<text x="42" y="128.0" class="timing-y-label">12</text>
+<line x1="58" y1="34.0" x2="702" y2="34.0" class="timing-gridline" />
+<text x="42" y="38.0" class="timing-y-label">18</text>
+<text x="58.0" y="344" class="timing-x-label">25-01</text>
+<text x="171.6" y="344" class="timing-x-label">25-04</text>
+<text x="285.3" y="344" class="timing-x-label">25-07</text>
+<text x="398.9" y="344" class="timing-x-label">25-10</text>
+<text x="512.6" y="344" class="timing-x-label">26-01</text>
+<text x="626.2" y="344" class="timing-x-label">26-04</text>
+<text x="702.0" y="344" class="timing-x-label">26-06</text>
+<polyline points="58.0,304.0 95.9,289.0 133.8,304.0 171.6,304.0 209.5,304.0 247.4,304.0 285.3,274.0 323.2,274.0 361.1,274.0 398.9,229.0 436.8,259.0 474.7,244.0 512.6,289.0 550.5,289.0 588.4,274.0 626.2,289.0 664.1,259.0 702.0,244.0" fill="none" stroke="#B89045" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+<circle cx="58.0" cy="304.0" r="4.1" fill="#B89045" stroke="white" stroke-width="1.8" />
+<circle cx="95.9" cy="289.0" r="4.1" fill="#B89045" stroke="white" stroke-width="1.8" />
+<circle cx="133.8" cy="304.0" r="4.1" fill="#B89045" stroke="white" stroke-width="1.8" />
+<circle cx="171.6" cy="304.0" r="4.1" fill="#B89045" stroke="white" stroke-width="1.8" />
+<circle cx="209.5" cy="304.0" r="4.1" fill="#B89045" stroke="white" stroke-width="1.8" />
+<circle cx="247.4" cy="304.0" r="4.1" fill="#B89045" stroke="white" stroke-width="1.8" />
+<circle cx="285.3" cy="274.0" r="4.1" fill="#B89045" stroke="white" stroke-width="1.8" />
+<circle cx="323.2" cy="274.0" r="4.1" fill="#B89045" stroke="white" stroke-width="1.8" />
+<circle cx="361.1" cy="274.0" r="4.1" fill="#B89045" stroke="white" stroke-width="1.8" />
+<circle cx="398.9" cy="229.0" r="4.1" fill="#B89045" stroke="white" stroke-width="1.8" />
+<circle cx="436.8" cy="259.0" r="4.1" fill="#B89045" stroke="white" stroke-width="1.8" />
+<circle cx="474.7" cy="244.0" r="4.1" fill="#B89045" stroke="white" stroke-width="1.8" />
+<circle cx="512.6" cy="289.0" r="4.1" fill="#B89045" stroke="white" stroke-width="1.8" />
+<circle cx="550.5" cy="289.0" r="4.1" fill="#B89045" stroke="white" stroke-width="1.8" />
+<circle cx="588.4" cy="274.0" r="4.1" fill="#B89045" stroke="white" stroke-width="1.8" />
+<circle cx="626.2" cy="289.0" r="4.1" fill="#B89045" stroke="white" stroke-width="1.8" />
+<circle cx="664.1" cy="259.0" r="4.1" fill="#B89045" stroke="white" stroke-width="1.8" />
+<circle cx="702.0" cy="244.0" r="5.2" fill="#B89045" stroke="white" stroke-width="1.8" />
+<polyline points="58.0,304.0 95.9,304.0 133.8,289.0 171.6,289.0 209.5,304.0 247.4,274.0 285.3,304.0 323.2,289.0 361.1,274.0 398.9,289.0 436.8,304.0 474.7,229.0 512.6,274.0 550.5,289.0 588.4,289.0 626.2,259.0 664.1,229.0 702.0,244.0" fill="none" stroke="#245E8F" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+<circle cx="58.0" cy="304.0" r="4.1" fill="#245E8F" stroke="white" stroke-width="1.8" />
+<circle cx="95.9" cy="304.0" r="4.1" fill="#245E8F" stroke="white" stroke-width="1.8" />
+<circle cx="133.8" cy="289.0" r="4.1" fill="#245E8F" stroke="white" stroke-width="1.8" />
+<circle cx="171.6" cy="289.0" r="4.1" fill="#245E8F" stroke="white" stroke-width="1.8" />
+<circle cx="209.5" cy="304.0" r="4.1" fill="#245E8F" stroke="white" stroke-width="1.8" />
+<circle cx="247.4" cy="274.0" r="4.1" fill="#245E8F" stroke="white" stroke-width="1.8" />
+<circle cx="285.3" cy="304.0" r="4.1" fill="#245E8F" stroke="white" stroke-width="1.8" />
+<circle cx="323.2" cy="289.0" r="4.1" fill="#245E8F" stroke="white" stroke-width="1.8" />
+<circle cx="361.1" cy="274.0" r="4.1" fill="#245E8F" stroke="white" stroke-width="1.8" />
+<circle cx="398.9" cy="289.0" r="4.1" fill="#245E8F" stroke="white" stroke-width="1.8" />
+<circle cx="436.8" cy="304.0" r="4.1" fill="#245E8F" stroke="white" stroke-width="1.8" />
+<circle cx="474.7" cy="229.0" r="4.1" fill="#245E8F" stroke="white" stroke-width="1.8" />
+<circle cx="512.6" cy="274.0" r="4.1" fill="#245E8F" stroke="white" stroke-width="1.8" />
+<circle cx="550.5" cy="289.0" r="4.1" fill="#245E8F" stroke="white" stroke-width="1.8" />
+<circle cx="588.4" cy="289.0" r="4.1" fill="#245E8F" stroke="white" stroke-width="1.8" />
+<circle cx="626.2" cy="259.0" r="4.1" fill="#245E8F" stroke="white" stroke-width="1.8" />
+<circle cx="664.1" cy="229.0" r="4.1" fill="#245E8F" stroke="white" stroke-width="1.8" />
+<circle cx="702.0" cy="244.0" r="5.2" fill="#245E8F" stroke="white" stroke-width="1.8" />
+<polyline points="58.0,304.0 95.9,304.0 133.8,289.0 171.6,259.0 209.5,259.0 247.4,244.0 285.3,244.0 323.2,229.0 361.1,244.0 398.9,274.0 436.8,154.0 474.7,109.0 512.6,154.0 550.5,214.0 588.4,49.0 626.2,154.0 664.1,184.0 702.0,154.0" fill="none" stroke="#4D8B6A" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+<circle cx="58.0" cy="304.0" r="4.1" fill="#4D8B6A" stroke="white" stroke-width="1.8" />
+<circle cx="95.9" cy="304.0" r="4.1" fill="#4D8B6A" stroke="white" stroke-width="1.8" />
+<circle cx="133.8" cy="289.0" r="4.1" fill="#4D8B6A" stroke="white" stroke-width="1.8" />
+<circle cx="171.6" cy="259.0" r="4.1" fill="#4D8B6A" stroke="white" stroke-width="1.8" />
+<circle cx="209.5" cy="259.0" r="4.1" fill="#4D8B6A" stroke="white" stroke-width="1.8" />
+<circle cx="247.4" cy="244.0" r="4.1" fill="#4D8B6A" stroke="white" stroke-width="1.8" />
+<circle cx="285.3" cy="244.0" r="4.1" fill="#4D8B6A" stroke="white" stroke-width="1.8" />
+<circle cx="323.2" cy="229.0" r="4.1" fill="#4D8B6A" stroke="white" stroke-width="1.8" />
+<circle cx="361.1" cy="244.0" r="4.1" fill="#4D8B6A" stroke="white" stroke-width="1.8" />
+<circle cx="398.9" cy="274.0" r="4.1" fill="#4D8B6A" stroke="white" stroke-width="1.8" />
+<circle cx="436.8" cy="154.0" r="4.1" fill="#4D8B6A" stroke="white" stroke-width="1.8" />
+<circle cx="474.7" cy="109.0" r="4.1" fill="#4D8B6A" stroke="white" stroke-width="1.8" />
+<circle cx="512.6" cy="154.0" r="4.1" fill="#4D8B6A" stroke="white" stroke-width="1.8" />
+<circle cx="550.5" cy="214.0" r="4.1" fill="#4D8B6A" stroke="white" stroke-width="1.8" />
+<circle cx="588.4" cy="49.0" r="4.1" fill="#4D8B6A" stroke="white" stroke-width="1.8" />
+<circle cx="626.2" cy="154.0" r="4.1" fill="#4D8B6A" stroke="white" stroke-width="1.8" />
+<circle cx="664.1" cy="184.0" r="4.1" fill="#4D8B6A" stroke="white" stroke-width="1.8" />
+<circle cx="702.0" cy="154.0" r="5.2" fill="#4D8B6A" stroke="white" stroke-width="1.8" />
+</svg></div>
+        <div class="timing-panel"><div class="timing-panel-title">月度注册家数</div><svg viewBox="0 0 760 360" role="img" aria-label="月度注册家数">
+<line x1="58" y1="304.0" x2="702" y2="304.0" class="timing-gridline" />
+<text x="42" y="308.0" class="timing-y-label">0</text>
+<line x1="58" y1="169.0" x2="702" y2="169.0" class="timing-gridline" />
+<text x="42" y="173.0" class="timing-y-label">5</text>
+<line x1="58" y1="34.0" x2="702" y2="34.0" class="timing-gridline" />
+<text x="42" y="38.0" class="timing-y-label">10</text>
+<text x="58.0" y="344" class="timing-x-label">25-01</text>
+<text x="171.6" y="344" class="timing-x-label">25-04</text>
+<text x="285.3" y="344" class="timing-x-label">25-07</text>
+<text x="398.9" y="344" class="timing-x-label">25-10</text>
+<text x="512.6" y="344" class="timing-x-label">26-01</text>
+<text x="626.2" y="344" class="timing-x-label">26-04</text>
+<text x="702.0" y="344" class="timing-x-label">26-06</text>
+<polyline points="58.0,304.0 95.9,277.0 133.8,250.0 171.6,304.0 209.5,304.0 247.4,304.0 285.3,277.0 323.2,250.0 361.1,277.0 398.9,196.0 436.8,223.0 474.7,169.0 512.6,223.0 550.5,304.0 588.4,277.0 626.2,250.0 664.1,304.0 702.0,196.0" fill="none" stroke="#B89045" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+<circle cx="58.0" cy="304.0" r="4.1" fill="#B89045" stroke="white" stroke-width="1.8" />
+<circle cx="95.9" cy="277.0" r="4.1" fill="#B89045" stroke="white" stroke-width="1.8" />
+<circle cx="133.8" cy="250.0" r="4.1" fill="#B89045" stroke="white" stroke-width="1.8" />
+<circle cx="171.6" cy="304.0" r="4.1" fill="#B89045" stroke="white" stroke-width="1.8" />
+<circle cx="209.5" cy="304.0" r="4.1" fill="#B89045" stroke="white" stroke-width="1.8" />
+<circle cx="247.4" cy="304.0" r="4.1" fill="#B89045" stroke="white" stroke-width="1.8" />
+<circle cx="285.3" cy="277.0" r="4.1" fill="#B89045" stroke="white" stroke-width="1.8" />
+<circle cx="323.2" cy="250.0" r="4.1" fill="#B89045" stroke="white" stroke-width="1.8" />
+<circle cx="361.1" cy="277.0" r="4.1" fill="#B89045" stroke="white" stroke-width="1.8" />
+<circle cx="398.9" cy="196.0" r="4.1" fill="#B89045" stroke="white" stroke-width="1.8" />
+<circle cx="436.8" cy="223.0" r="4.1" fill="#B89045" stroke="white" stroke-width="1.8" />
+<circle cx="474.7" cy="169.0" r="4.1" fill="#B89045" stroke="white" stroke-width="1.8" />
+<circle cx="512.6" cy="223.0" r="4.1" fill="#B89045" stroke="white" stroke-width="1.8" />
+<circle cx="550.5" cy="304.0" r="4.1" fill="#B89045" stroke="white" stroke-width="1.8" />
+<circle cx="588.4" cy="277.0" r="4.1" fill="#B89045" stroke="white" stroke-width="1.8" />
+<circle cx="626.2" cy="250.0" r="4.1" fill="#B89045" stroke="white" stroke-width="1.8" />
+<circle cx="664.1" cy="304.0" r="4.1" fill="#B89045" stroke="white" stroke-width="1.8" />
+<circle cx="702.0" cy="196.0" r="5.2" fill="#B89045" stroke="white" stroke-width="1.8" />
+<polyline points="58.0,169.0 95.9,196.0 133.8,250.0 171.6,250.0 209.5,277.0 247.4,223.0 285.3,223.0 323.2,304.0 361.1,277.0 398.9,223.0 436.8,304.0 474.7,250.0 512.6,196.0 550.5,250.0 588.4,277.0 626.2,277.0 664.1,196.0 702.0,196.0" fill="none" stroke="#245E8F" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+<circle cx="58.0" cy="169.0" r="4.1" fill="#245E8F" stroke="white" stroke-width="1.8" />
+<circle cx="95.9" cy="196.0" r="4.1" fill="#245E8F" stroke="white" stroke-width="1.8" />
+<circle cx="133.8" cy="250.0" r="4.1" fill="#245E8F" stroke="white" stroke-width="1.8" />
+<circle cx="171.6" cy="250.0" r="4.1" fill="#245E8F" stroke="white" stroke-width="1.8" />
+<circle cx="209.5" cy="277.0" r="4.1" fill="#245E8F" stroke="white" stroke-width="1.8" />
+<circle cx="247.4" cy="223.0" r="4.1" fill="#245E8F" stroke="white" stroke-width="1.8" />
+<circle cx="285.3" cy="223.0" r="4.1" fill="#245E8F" stroke="white" stroke-width="1.8" />
+<circle cx="323.2" cy="304.0" r="4.1" fill="#245E8F" stroke="white" stroke-width="1.8" />
+<circle cx="361.1" cy="277.0" r="4.1" fill="#245E8F" stroke="white" stroke-width="1.8" />
+<circle cx="398.9" cy="223.0" r="4.1" fill="#245E8F" stroke="white" stroke-width="1.8" />
+<circle cx="436.8" cy="304.0" r="4.1" fill="#245E8F" stroke="white" stroke-width="1.8" />
+<circle cx="474.7" cy="250.0" r="4.1" fill="#245E8F" stroke="white" stroke-width="1.8" />
+<circle cx="512.6" cy="196.0" r="4.1" fill="#245E8F" stroke="white" stroke-width="1.8" />
+<circle cx="550.5" cy="250.0" r="4.1" fill="#245E8F" stroke="white" stroke-width="1.8" />
+<circle cx="588.4" cy="277.0" r="4.1" fill="#245E8F" stroke="white" stroke-width="1.8" />
+<circle cx="626.2" cy="277.0" r="4.1" fill="#245E8F" stroke="white" stroke-width="1.8" />
+<circle cx="664.1" cy="196.0" r="4.1" fill="#245E8F" stroke="white" stroke-width="1.8" />
+<circle cx="702.0" cy="196.0" r="5.2" fill="#245E8F" stroke="white" stroke-width="1.8" />
+<polyline points="58.0,277.0 95.9,304.0 133.8,277.0 171.6,277.0 209.5,250.0 247.4,250.0 285.3,169.0 323.2,250.0 361.1,115.0 398.9,277.0 436.8,223.0 474.7,88.0 512.6,142.0 550.5,196.0 588.4,88.0 626.2,169.0 664.1,196.0 702.0,34.0" fill="none" stroke="#4D8B6A" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+<circle cx="58.0" cy="277.0" r="4.1" fill="#4D8B6A" stroke="white" stroke-width="1.8" />
+<circle cx="95.9" cy="304.0" r="4.1" fill="#4D8B6A" stroke="white" stroke-width="1.8" />
+<circle cx="133.8" cy="277.0" r="4.1" fill="#4D8B6A" stroke="white" stroke-width="1.8" />
+<circle cx="171.6" cy="277.0" r="4.1" fill="#4D8B6A" stroke="white" stroke-width="1.8" />
+<circle cx="209.5" cy="250.0" r="4.1" fill="#4D8B6A" stroke="white" stroke-width="1.8" />
+<circle cx="247.4" cy="250.0" r="4.1" fill="#4D8B6A" stroke="white" stroke-width="1.8" />
+<circle cx="285.3" cy="169.0" r="4.1" fill="#4D8B6A" stroke="white" stroke-width="1.8" />
+<circle cx="323.2" cy="250.0" r="4.1" fill="#4D8B6A" stroke="white" stroke-width="1.8" />
+<circle cx="361.1" cy="115.0" r="4.1" fill="#4D8B6A" stroke="white" stroke-width="1.8" />
+<circle cx="398.9" cy="277.0" r="4.1" fill="#4D8B6A" stroke="white" stroke-width="1.8" />
+<circle cx="436.8" cy="223.0" r="4.1" fill="#4D8B6A" stroke="white" stroke-width="1.8" />
+<circle cx="474.7" cy="88.0" r="4.1" fill="#4D8B6A" stroke="white" stroke-width="1.8" />
+<circle cx="512.6" cy="142.0" r="4.1" fill="#4D8B6A" stroke="white" stroke-width="1.8" />
+<circle cx="550.5" cy="196.0" r="4.1" fill="#4D8B6A" stroke="white" stroke-width="1.8" />
+<circle cx="588.4" cy="88.0" r="4.1" fill="#4D8B6A" stroke="white" stroke-width="1.8" />
+<circle cx="626.2" cy="169.0" r="4.1" fill="#4D8B6A" stroke="white" stroke-width="1.8" />
+<circle cx="664.1" cy="196.0" r="4.1" fill="#4D8B6A" stroke="white" stroke-width="1.8" />
+<circle cx="702.0" cy="34.0" r="5.2" fill="#4D8B6A" stroke="white" stroke-width="1.8" />
+</svg></div>
+      </div>
+      <div class="timing-ledger">
+        <div style="border-left-color: #B89045;"><b>科创板</b><span>过会 31 家</span><span>注册 29 家</span></div>
+<div style="border-left-color: #245E8F;"><b>创业板</b><span>过会 29 家</span><span>注册 42 家</span></div>
+<div style="border-left-color: #4D8B6A;"><b>北交所</b><span>过会 110 家</span><span>注册 70 家</span></div>
+      </div>
+      <div class="bottom-claim compact">2025年下半年后，三板 IPO 节奏均有恢复；北交所数量恢复最快，科创板和创业板节奏更集中，板块选择应同时看通过节奏、注册节奏和项目画像。</div>
+    </div>
+    <div class="source-note">口径：统计范围为2025-01-01至2026-06-30；过会按公开新股上会信息中“上会通过”的上会日期统计，注册按证监会科创板、创业板和北交所注册结果栏目批复发布日期统计；提交注册不计入注册家数。</div></main>
+          <footer class="slide-footer">
+            <span>宁德思客琦 IPO 重启项目建议书</span>
+            <span>25 / 53</span>
+          </footer>
+        </article>
+      </div>
+    </section>
+
+    <section class="slide-shell" id="slide-26">
+      <div class="stage-frame">
+        <article class="stage light pt-standard_check" data-slide="26" data-page-type="standard_check">
           <header class="slide-header"><div><span>板块选择</span><h2>科创板路径可优先按第一套上市标准测算</h2></div></header>
           <main class="slide-main">
     <div class="standard-check">
@@ -1498,15 +1897,15 @@
     <div class="source-note">口径：公开上市规则口径及前次招股书财务数据。</div></main>
           <footer class="slide-footer">
             <span>宁德思客琦 IPO 重启项目建议书</span>
-            <span>21 / 48</span>
+            <span>26 / 53</span>
           </footer>
         </article>
       </div>
     </section>
 
-    <section class="slide-shell" id="slide-22">
+    <section class="slide-shell" id="slide-27">
       <div class="stage-frame">
-        <article class="stage light pt-standard_check" data-slide="22" data-page-type="standard_check">
+        <article class="stage light pt-standard_check" data-slide="27" data-page-type="standard_check">
           <header class="slide-header"><div><span>板块选择</span><h2>科创板路径的核心是主要依靠核心技术开展经营</h2></div></header>
           <main class="slide-main">
     <div class="standard-check">
@@ -1519,15 +1918,15 @@
     <div class="source-note">口径：前次招股书、企查查信用报告、科创属性公开规则。</div></main>
           <footer class="slide-footer">
             <span>宁德思客琦 IPO 重启项目建议书</span>
-            <span>22 / 48</span>
+            <span>27 / 53</span>
           </footer>
         </article>
       </div>
     </section>
 
-    <section class="slide-shell" id="slide-23">
+    <section class="slide-shell" id="slide-28">
       <div class="stage-frame">
-        <article class="stage light pt-case_layer_table" data-slide="23" data-page-type="case_layer_table">
+        <article class="stage light pt-case_layer_table" data-slide="28" data-page-type="case_layer_table">
           <header class="slide-header"><div><span>板块选择</span><h2>2025年以来科创板过会/注册全景应先看行业分布，再看可迁移证据</h2></div></header>
           <main class="slide-main">
       <div class="case-ledger">
@@ -1564,15 +1963,15 @@
       <div class="source-note">口径：全景按行业归类呈现，不铺全量项目名单；项目数量以官方节点证据包反算为准。</div></main>
           <footer class="slide-footer">
             <span>宁德思客琦 IPO 重启项目建议书</span>
-            <span>23 / 48</span>
+            <span>28 / 53</span>
           </footer>
         </article>
       </div>
     </section>
 
-    <section class="slide-shell" id="slide-24">
+    <section class="slide-shell" id="slide-29">
       <div class="stage-frame">
-        <article class="stage light pt-case_layer_table" data-slide="24" data-page-type="case_layer_table">
+        <article class="stage light pt-case_layer_table" data-slide="29" data-page-type="case_layer_table">
           <header class="slide-header"><div><span>板块选择</span><h2>科创板赛道参考边界：有近似技术链，未见完全直接可比</h2></div></header>
           <main class="slide-main">
       <div class="case-ledger">
@@ -1603,15 +2002,15 @@
       <div class="source-note">口径：科创板案例只作为参考边界，不构成确定申报判断。</div></main>
           <footer class="slide-footer">
             <span>宁德思客琦 IPO 重启项目建议书</span>
-            <span>24 / 48</span>
+            <span>29 / 53</span>
           </footer>
         </article>
       </div>
     </section>
 
-    <section class="slide-shell" id="slide-25">
+    <section class="slide-shell" id="slide-30">
       <div class="stage-frame">
-        <article class="stage light pt-standard_check" data-slide="25" data-page-type="standard_check">
+        <article class="stage light pt-standard_check" data-slide="30" data-page-type="standard_check">
           <header class="slide-header"><div><span>板块选择</span><h2>创业板路径可优先按第一套标准测算，并备测第二套标准</h2></div></header>
           <main class="slide-main">
     <div class="standard-check">
@@ -1624,15 +2023,15 @@
     <div class="source-note">口径：创业板上市规则和前次深交所审核项目状态。</div></main>
           <footer class="slide-footer">
             <span>宁德思客琦 IPO 重启项目建议书</span>
-            <span>25 / 48</span>
+            <span>30 / 53</span>
           </footer>
         </article>
       </div>
     </section>
 
-    <section class="slide-shell" id="slide-26">
+    <section class="slide-shell" id="slide-31">
       <div class="stage-frame">
-        <article class="stage light pt-case_layer_table" data-slide="26" data-page-type="case_layer_table">
+        <article class="stage light pt-case_layer_table" data-slide="31" data-page-type="case_layer_table">
           <header class="slide-header"><div><span>板块选择</span><h2>2025年以来创业板过会/注册全景应突出成长性和电池装备可比案例</h2></div></header>
           <main class="slide-main">
       <div class="case-ledger">
@@ -1669,15 +2068,15 @@
       <div class="source-note">口径：创业板全景按行业归类呈现；电池装备可比案例以巨潮资讯项目进展和招股书为基础。</div></main>
           <footer class="slide-footer">
             <span>宁德思客琦 IPO 重启项目建议书</span>
-            <span>26 / 48</span>
+            <span>31 / 53</span>
           </footer>
         </article>
       </div>
     </section>
 
-    <section class="slide-shell" id="slide-27">
+    <section class="slide-shell" id="slide-32">
       <div class="stage-frame">
-        <article class="stage light pt-case_layer_table" data-slide="27" data-page-type="case_layer_table">
+        <article class="stage light pt-case_layer_table" data-slide="32" data-page-type="case_layer_table">
           <header class="slide-header"><div><span>板块选择</span><h2>创业板赛道参考边界：存在直接/强可比案例，但环节并不完全相同</h2></div></header>
           <main class="slide-main">
       <div class="case-ledger">
@@ -1714,15 +2113,15 @@
       <div class="source-note">口径：创业板案例用于路径测算和问题承接，不作为忽略前次审核事项、客户集中或收入确认问题的依据。</div></main>
           <footer class="slide-footer">
             <span>宁德思客琦 IPO 重启项目建议书</span>
-            <span>27 / 48</span>
+            <span>32 / 53</span>
           </footer>
         </article>
       </div>
     </section>
 
-    <section class="slide-shell" id="slide-28">
+    <section class="slide-shell" id="slide-33">
       <div class="stage-frame">
-        <article class="stage light pt-standard_check" data-slide="28" data-page-type="standard_check">
+        <article class="stage light pt-standard_check" data-slide="33" data-page-type="standard_check">
           <header class="slide-header"><div><span>板块选择</span><h2>北交所路径可优先按第一套盈利标准测算，但存在挂牌和创新层前置成本</h2></div></header>
           <main class="slide-main">
     <div class="standard-check">
@@ -1735,15 +2134,15 @@
     <div class="source-note">口径：北交所上市规则及公司历史财务口径；是否适用需结合挂牌路径测算。</div></main>
           <footer class="slide-footer">
             <span>宁德思客琦 IPO 重启项目建议书</span>
-            <span>28 / 48</span>
+            <span>33 / 53</span>
           </footer>
         </article>
       </div>
     </section>
 
-    <section class="slide-shell" id="slide-29">
+    <section class="slide-shell" id="slide-34">
       <div class="stage-frame">
-        <article class="stage light pt-case_layer_table" data-slide="29" data-page-type="case_layer_table">
+        <article class="stage light pt-case_layer_table" data-slide="34" data-page-type="case_layer_table">
           <header class="slide-header"><div><span>板块选择</span><h2>2025年以来北交所过会/注册全景应围绕专精特新和细分制造业观察</h2></div></header>
           <main class="slide-main">
       <div class="case-ledger">
@@ -1774,15 +2173,15 @@
       <div class="source-note">口径：北交所全景页采用与科创板、创业板相同结构；本页不列项目数量，进入路径测算时再逐项目复核官方节点。</div></main>
           <footer class="slide-footer">
             <span>宁德思客琦 IPO 重启项目建议书</span>
-            <span>29 / 48</span>
+            <span>34 / 53</span>
           </footer>
         </article>
       </div>
     </section>
 
-    <section class="slide-shell" id="slide-30">
+    <section class="slide-shell" id="slide-35">
       <div class="stage-frame">
-        <article class="stage light pt-case_layer_table" data-slide="30" data-page-type="case_layer_table">
+        <article class="stage light pt-case_layer_table" data-slide="35" data-page-type="case_layer_table">
           <header class="slide-header"><div><span>板块选择</span><h2>北交所赛道参考边界：未见同等直接可比，可参考近似技术链</h2></div></header>
           <main class="slide-main">
       <div class="case-ledger">
@@ -1813,15 +2212,15 @@
       <div class="source-note">口径：北交所路径只作为并列测算，不以板块调整替代资料准备。</div></main>
           <footer class="slide-footer">
             <span>宁德思客琦 IPO 重启项目建议书</span>
-            <span>30 / 48</span>
+            <span>35 / 53</span>
           </footer>
         </article>
       </div>
     </section>
 
-    <section class="slide-shell" id="slide-31">
+    <section class="slide-shell" id="slide-36">
       <div class="stage-frame">
-        <article class="stage light pt-case_layer_table" data-slide="31" data-page-type="case_layer_table">
+        <article class="stage light pt-case_layer_table" data-slide="36" data-page-type="case_layer_table">
           <header class="slide-header"><div><span>板块选择</span><h2>可参考案例迁移的是证据组织方式，不是简单寻找同行替代</h2></div></header>
           <main class="slide-main">
       <div class="case-transfer-table">
@@ -1859,15 +2258,15 @@
       <div class="source-note">口径：案例迁移页不铺全量名单，聚焦证据组织和适用边界。</div></main>
           <footer class="slide-footer">
             <span>宁德思客琦 IPO 重启项目建议书</span>
-            <span>31 / 48</span>
+            <span>36 / 53</span>
           </footer>
         </article>
       </div>
     </section>
 
-    <section class="slide-shell" id="slide-32">
+    <section class="slide-shell" id="slide-37">
       <div class="stage-frame">
-        <article class="stage light pt-path_matrix" data-slide="32" data-page-type="path_matrix">
+        <article class="stage light pt-path_matrix" data-slide="37" data-page-type="path_matrix">
           <header class="slide-header"><div><span>板块选择</span><h2>最终路径应由四类资料状态决定</h2></div></header>
           <main class="slide-main">
       <div class="decision-matrix">
@@ -1886,15 +2285,15 @@
       <div class="source-note">口径：路径矩阵为投行专业判断，需结合后续尽调资料更新。</div></main>
           <footer class="slide-footer">
             <span>宁德思客琦 IPO 重启项目建议书</span>
-            <span>32 / 48</span>
+            <span>37 / 53</span>
           </footer>
         </article>
       </div>
     </section>
 
-    <section class="slide-shell" id="slide-33">
+    <section class="slide-shell" id="slide-38">
       <div class="stage-frame">
-        <article class="stage dark pt-chapter_divider" data-slide="33" data-page-type="chapter_divider">
+        <article class="stage dark pt-chapter_divider" data-slide="38" data-page-type="chapter_divider">
 
           <main class="slide-main">
     <div class="chapter-layout image-chapter-layout">
@@ -1907,15 +2306,15 @@
     </div></main>
           <footer class="slide-footer">
             <span>宁德思客琦 IPO 重启项目建议书</span>
-            <span>33 / 48</span>
+            <span>38 / 53</span>
           </footer>
         </article>
       </div>
     </section>
 
-    <section class="slide-shell" id="slide-34">
+    <section class="slide-shell" id="slide-39">
       <div class="stage-frame">
-        <article class="stage light pt-timeline" data-slide="34" data-page-type="timeline">
+        <article class="stage light pt-timeline" data-slide="39" data-page-type="timeline">
           <header class="slide-header"><div><span>审核事项</span><h2>前次审核问题应按延续性重新分层，而不是简单罗列问询</h2></div></header>
           <main class="slide-main">
     <div class="timeline">
@@ -1941,15 +2340,15 @@
     <div class="source-note">口径：依据前次公开问询和现有备忘录整理。</div></main>
           <footer class="slide-footer">
             <span>宁德思客琦 IPO 重启项目建议书</span>
-            <span>34 / 48</span>
+            <span>39 / 53</span>
           </footer>
         </article>
       </div>
     </section>
 
-    <section class="slide-shell" id="slide-35">
+    <section class="slide-shell" id="slide-40">
       <div class="stage-frame">
-        <article class="stage light pt-issue_workpack" data-slide="35" data-page-type="issue_workpack">
+        <article class="stage light pt-issue_workpack" data-slide="40" data-page-type="issue_workpack">
           <header class="slide-header"><div><span>审核事项</span><h2>专项一：客户集中和宁德时代收入占比较高是重启论证重点事项</h2></div></header>
           <main class="slide-main">
     <div class="workpack">
@@ -1977,15 +2376,15 @@
     <div class="source-note">口径：历史数据来自前次招股书；期后数据待公司提供。</div></main>
           <footer class="slide-footer">
             <span>宁德思客琦 IPO 重启项目建议书</span>
-            <span>35 / 48</span>
+            <span>40 / 53</span>
           </footer>
         </article>
       </div>
     </section>
 
-    <section class="slide-shell" id="slide-36">
+    <section class="slide-shell" id="slide-41">
       <div class="stage-frame">
-        <article class="stage light pt-issue_workpack" data-slide="36" data-page-type="issue_workpack">
+        <article class="stage light pt-issue_workpack" data-slide="41" data-page-type="issue_workpack">
           <header class="slide-header"><div><span>审核事项</span><h2>专项二：项目制收入、验收周期、存货和现金流需要穿透核查</h2></div></header>
           <main class="slide-main">
     <div class="workpack">
@@ -2013,15 +2412,15 @@
     <div class="source-note">口径：历史数据来自前次招股书；期后项目明细和验收资料待公司提供。</div></main>
           <footer class="slide-footer">
             <span>宁德思客琦 IPO 重启项目建议书</span>
-            <span>36 / 48</span>
+            <span>41 / 53</span>
           </footer>
         </article>
       </div>
     </section>
 
-    <section class="slide-shell" id="slide-37">
+    <section class="slide-shell" id="slide-42">
       <div class="stage-frame">
-        <article class="stage light pt-issue_workpack" data-slide="37" data-page-type="issue_workpack">
+        <article class="stage light pt-issue_workpack" data-slide="42" data-page-type="issue_workpack">
           <header class="slide-header"><div><span>审核事项</span><h2>专项三：毛利率、产品结构和核心技术边界需要形成专项说明</h2></div></header>
           <main class="slide-main">
     <div class="workpack">
@@ -2053,15 +2452,15 @@
     <div class="source-note">口径：前次公开资料可支持问题来源；当前状态待公司补充。</div></main>
           <footer class="slide-footer">
             <span>宁德思客琦 IPO 重启项目建议书</span>
-            <span>37 / 48</span>
+            <span>42 / 53</span>
           </footer>
         </article>
       </div>
     </section>
 
-    <section class="slide-shell" id="slide-38">
+    <section class="slide-shell" id="slide-43">
       <div class="stage-frame">
-        <article class="stage light pt-issue_workpack" data-slide="38" data-page-type="issue_workpack">
+        <article class="stage light pt-issue_workpack" data-slide="43" data-page-type="issue_workpack">
           <header class="slide-header"><div><span>审核事项</span><h2>专项四：专利软著需对应产品模块、客户应用和核心技术收入</h2></div></header>
           <main class="slide-main">
     <div class="workpack">
@@ -2093,15 +2492,15 @@
     <div class="source-note">口径：数量来自公开信用信息；应用和收入映射待公司资料验证。</div></main>
           <footer class="slide-footer">
             <span>宁德思客琦 IPO 重启项目建议书</span>
-            <span>38 / 48</span>
+            <span>43 / 53</span>
           </footer>
         </article>
       </div>
     </section>
 
-    <section class="slide-shell" id="slide-39">
+    <section class="slide-shell" id="slide-44">
       <div class="stage-frame">
-        <article class="stage light pt-issue_workpack" data-slide="39" data-page-type="issue_workpack">
+        <article class="stage light pt-issue_workpack" data-slide="44" data-page-type="issue_workpack">
           <header class="slide-header"><div><span>审核事项</span><h2>前次撤回背景是重启窗口判断的前置事项</h2></div></header>
           <main class="slide-main">
     <div class="workpack">
@@ -2133,15 +2532,15 @@
     <div class="source-note">口径：本页仅基于公开终止事实和待尽调事项设置。</div></main>
           <footer class="slide-footer">
             <span>宁德思客琦 IPO 重启项目建议书</span>
-            <span>39 / 48</span>
+            <span>44 / 53</span>
           </footer>
         </article>
       </div>
     </section>
 
-    <section class="slide-shell" id="slide-40">
+    <section class="slide-shell" id="slide-45">
       <div class="stage-frame">
-        <article class="stage dark pt-chapter_divider" data-slide="40" data-page-type="chapter_divider">
+        <article class="stage dark pt-chapter_divider" data-slide="45" data-page-type="chapter_divider">
 
           <main class="slide-main">
     <div class="chapter-layout image-chapter-layout">
@@ -2154,15 +2553,15 @@
     </div></main>
           <footer class="slide-footer">
             <span>宁德思客琦 IPO 重启项目建议书</span>
-            <span>40 / 48</span>
+            <span>45 / 53</span>
           </footer>
         </article>
       </div>
     </section>
 
-    <section class="slide-shell" id="slide-41">
+    <section class="slide-shell" id="slide-46">
       <div class="stage-frame">
-        <article class="stage light pt-case_layer_table" data-slide="41" data-page-type="case_layer_table">
+        <article class="stage light pt-case_layer_table" data-slide="46" data-page-type="case_layer_table">
           <header class="slide-header"><div><span>选择保荐团队</span><h2>IPO重启项目需要稳定的组织能力和持续推进机制</h2></div></header>
           <main class="slide-main">
       <div class="case-ledger">
@@ -2199,15 +2598,15 @@
       <div class="source-note">口径：能力介绍页，不构成审核结果或发行结果承诺。</div></main>
           <footer class="slide-footer">
             <span>宁德思客琦 IPO 重启项目建议书</span>
-            <span>41 / 48</span>
+            <span>46 / 53</span>
           </footer>
         </article>
       </div>
     </section>
 
-    <section class="slide-shell" id="slide-42">
+    <section class="slide-shell" id="slide-47">
       <div class="stage-frame">
-        <article class="stage light pt-case_layer_table" data-slide="42" data-page-type="case_layer_table">
+        <article class="stage light pt-case_layer_table" data-slide="47" data-page-type="case_layer_table">
           <header class="slide-header"><div><span>选择保荐团队</span><h2>国金投行平台可提供规模、质量评价和跨条线资源支撑</h2></div></header>
           <main class="slide-main">
       <div class="case-ledger">
@@ -2244,15 +2643,15 @@
       <div class="source-note">口径：平台数据采用参考项目建议书素材口径，正式对外使用前建议由公司最新口径复核。</div></main>
           <footer class="slide-footer">
             <span>宁德思客琦 IPO 重启项目建议书</span>
-            <span>42 / 48</span>
+            <span>47 / 53</span>
           </footer>
         </article>
       </div>
     </section>
 
-    <section class="slide-shell" id="slide-43">
+    <section class="slide-shell" id="slide-48">
       <div class="stage-frame">
-        <article class="stage light pt-case_layer_table" data-slide="43" data-page-type="case_layer_table">
+        <article class="stage light pt-case_layer_table" data-slide="48" data-page-type="case_layer_table">
           <header class="slide-header"><div><span>选择保荐团队</span><h2>历史案例覆盖新能源与汽车、高端制造、信息技术等相关方向</h2></div></header>
           <main class="slide-main">
       <div class="case-ledger">
@@ -2289,15 +2688,15 @@
       <div class="source-note">口径：案例用于说明团队经验边界，不作为思客琦同行可比或审核结果参照。</div></main>
           <footer class="slide-footer">
             <span>宁德思客琦 IPO 重启项目建议书</span>
-            <span>43 / 48</span>
+            <span>48 / 53</span>
           </footer>
         </article>
       </div>
     </section>
 
-    <section class="slide-shell" id="slide-44">
+    <section class="slide-shell" id="slide-49">
       <div class="stage-frame">
-        <article class="stage light pt-case_layer_table" data-slide="44" data-page-type="case_layer_table">
+        <article class="stage light pt-case_layer_table" data-slide="49" data-page-type="case_layer_table">
           <header class="slide-header"><div><span>选择保荐团队</span><h2>价值表达和发行定价经验有助于公司把技术升级讲清楚</h2></div></header>
           <main class="slide-main">
       <div class="case-ledger">
@@ -2328,15 +2727,15 @@
       <div class="source-note">口径：价值表达需以公司事实和后续尽调资料为基础；本页为发行沟通能力说明。</div></main>
           <footer class="slide-footer">
             <span>宁德思客琦 IPO 重启项目建议书</span>
-            <span>44 / 48</span>
+            <span>49 / 53</span>
           </footer>
         </article>
       </div>
     </section>
 
-    <section class="slide-shell" id="slide-45">
+    <section class="slide-shell" id="slide-50">
       <div class="stage-frame">
-        <article class="stage light pt-workplan_roadmap" data-slide="45" data-page-type="workplan_roadmap">
+        <article class="stage light pt-workplan_roadmap" data-slide="50" data-page-type="workplan_roadmap">
           <header class="slide-header"><div><span>选择保荐团队</span><h2>落实到思客琦，投行七部可围绕四条工作线提供支持</h2></div></header>
           <main class="slide-main">
     <div class="roadmap">
@@ -2362,15 +2761,15 @@
     <div class="source-note">口径：工作安排将随公司资料开放和预沟通结果更新。</div></main>
           <footer class="slide-footer">
             <span>宁德思客琦 IPO 重启项目建议书</span>
-            <span>45 / 48</span>
+            <span>50 / 53</span>
           </footer>
         </article>
       </div>
     </section>
 
-    <section class="slide-shell" id="slide-46">
+    <section class="slide-shell" id="slide-51">
       <div class="stage-frame">
-        <article class="stage light pt-workplan_roadmap" data-slide="46" data-page-type="workplan_roadmap">
+        <article class="stage light pt-workplan_roadmap" data-slide="51" data-page-type="workplan_roadmap">
           <header class="slide-header"><div><span>选择保荐团队</span><h2>合作后的阶段性输出服务于管理层决策和后续申报准备</h2></div></header>
           <main class="slide-main">
     <div class="roadmap">
@@ -2396,15 +2795,15 @@
     <div class="source-note">口径：本页说明阶段性工作输出，不构成项目进度或审核结果承诺。</div></main>
           <footer class="slide-footer">
             <span>宁德思客琦 IPO 重启项目建议书</span>
-            <span>46 / 48</span>
+            <span>51 / 53</span>
           </footer>
         </article>
       </div>
     </section>
 
-    <section class="slide-shell" id="slide-47">
+    <section class="slide-shell" id="slide-52">
       <div class="stage-frame">
-        <article class="stage light pt-workplan_roadmap" data-slide="47" data-page-type="workplan_roadmap">
+        <article class="stage light pt-workplan_roadmap" data-slide="52" data-page-type="workplan_roadmap">
           <header class="slide-header"><div><span>后续安排</span><h2>后续建议以保密沟通为起点，先形成重启路径和重点事项清单</h2></div></header>
           <main class="slide-main">
     <div class="roadmap">
@@ -2430,15 +2829,15 @@
     <div class="source-note">口径：后续沟通安排将随公司资料开放和管理层决策更新。</div></main>
           <footer class="slide-footer">
             <span>宁德思客琦 IPO 重启项目建议书</span>
-            <span>47 / 48</span>
+            <span>52 / 53</span>
           </footer>
         </article>
       </div>
     </section>
 
-    <section class="slide-shell" id="slide-48">
+    <section class="slide-shell" id="slide-53">
       <div class="stage-frame">
-        <article class="stage dark pt-closing" data-slide="48" data-page-type="closing">
+        <article class="stage dark pt-closing" data-slide="53" data-page-type="closing">
 
           <main class="slide-main">
     <div class="closing-layout">
@@ -2451,7 +2850,7 @@
     </div></main>
           <footer class="slide-footer">
             <span>宁德思客琦 IPO 重启项目建议书</span>
-            <span>48 / 48</span>
+            <span>53 / 53</span>
           </footer>
         </article>
       </div>
@@ -2460,14 +2859,16 @@
 </div>
 <nav class="deck-nav" aria-label="页面导航">
   <button type="button" class="deck-prev" aria-label="上一页">‹</button>
-  <span class="deck-counter">01 / 48</span>
+  <span class="deck-counter">01 / 53</span>
   <button type="button" class="deck-next" aria-label="下一页">›</button>
 </nav>
 <script>
-  const exportMode = new URLSearchParams(location.search).has("export");
+  const params = new URLSearchParams(location.search);
+  const exportMode = params.has("export");
   if (exportMode) document.body.classList.add("export");
-  const totalSlides = 48;
-  let currentSlide = 1;
+  const totalSlides = 53;
+  const initialSlide = Number(params.get("slide") || location.hash.replace("#slide-", "") || "1");
+  let currentSlide = Number.isFinite(initialSlide) ? Math.max(1, Math.min(totalSlides, initialSlide)) : 1;
   const track = document.querySelector(".deck-track");
   const prevButton = document.querySelector(".deck-prev");
   const nextButton = document.querySelector(".deck-next");
