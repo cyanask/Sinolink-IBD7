@@ -253,6 +253,39 @@
       width: 760px;
       padding-top: 0;
     }
+    .cover-eyebrow-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    .cover-eyebrow-row .eyebrow {
+      margin-bottom: 0;
+    }
+    .cover-eyebrow-line {
+      width: 156px;
+      height: 1px;
+      background: rgba(200,164,93,.50);
+    }
+    .cover-dept-en {
+      font-family: Inter, Arial, sans-serif;
+      font-size: 10px;
+      line-height: 1;
+      letter-spacing: .18em;
+      color: rgba(245,229,194,.56);
+      font-weight: 650;
+      white-space: nowrap;
+    }
+    .cover-dept-cn {
+      position: absolute;
+      left: 42px;
+      bottom: 86px;
+      font-size: 14px;
+      line-height: 1;
+      letter-spacing: .12em;
+      color: rgba(245,229,194,.50);
+      font-weight: 600;
+    }
     .image-chapter-layout > div:first-child {
       position: absolute;
       left: 42px;
@@ -984,11 +1017,16 @@
           <main class="slide-main">
     <div class="cover-layout image-cover-layout">
       <div class="cover-copy">
-        <div class="eyebrow">IPO RESTART ADVISORY</div>
+        <div class="cover-eyebrow-row">
+          <div class="eyebrow">IPO RESTART ADVISORY</div>
+          <div class="cover-eyebrow-line"></div>
+          <div class="cover-dept-en">SINOLINK IBD7</div>
+        </div>
         <h1>宁德思客琦 IPO 重启项目建议书</h1>
         <p>本材料用于管理层讨论 IPO 重启基础、上市板块选择及后续推进安排。</p>
         <div class="cover-chips"><span>项目建议书</span><span>IPO重启沟通</span><span>2026年7月</span></div>
       </div>
+      <div class="cover-dept-cn">国金证券投行七部</div>
     </div></main>
           <footer class="slide-footer">
             <span>宁德思客琦 IPO 重启项目建议书</span>
