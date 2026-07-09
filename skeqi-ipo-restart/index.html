@@ -1,0 +1,2482 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>宁德思客琦 IPO 重启项目建议书</title>
+  <style>
+    :root {
+      --navy-950: #071526;
+      --navy-900: #0B1F3A;
+      --navy-800: #12345A;
+      --gold-600: #B89045;
+      --gold-500: #C8A45D;
+      --ink-900: #172033;
+      --ink-700: #3B4658;
+      --gray-100: #F3F5F8;
+      --gray-050: #FAFBFC;
+      --line: #D6DCE5;
+      --success: #4D8B6A;
+      --amber: #B87928;
+      --white: #FFFFFF;
+      --scale: 1;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; width: 100%; height: 100%; background: #111927; color: var(--ink-900); }
+    body {
+      font-family: "Noto Sans CJK SC", "Source Han Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+      overflow: hidden;
+    }
+    .deck-viewport {
+      position: fixed;
+      inset: 0;
+      overflow: hidden;
+      background: #111927;
+    }
+    .deck-track {
+      height: 100%;
+      display: flex;
+      will-change: transform;
+      transition: transform .42s cubic-bezier(.22,.61,.36,1);
+    }
+    .slide-shell {
+      width: 100vw;
+      height: 100vh;
+      flex: 0 0 100vw;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+    }
+    .stage-frame {
+      width: min(100vw, calc(100vh * 16 / 9), 1920px);
+      height: min(100vh, calc(100vw * 9 / 16), 1080px);
+      position: relative;
+      overflow: visible;
+      flex: 0 0 auto;
+    }
+    body.export {
+      overflow: visible;
+      background: white;
+    }
+    body.export .deck-viewport {
+      position: static;
+      width: 1920px;
+      height: auto;
+      overflow: visible;
+      background: white;
+    }
+    body.export .deck-track {
+      display: block;
+      height: auto;
+      transform: none !important;
+      transition: none;
+    }
+    body.export .slide-shell { width: 1920px; height: 1080px; padding: 0; }
+    body.export .stage-frame { width: 1920px; height: 1080px; }
+    .stage {
+      width: 1920px;
+      height: 1080px;
+      position: absolute;
+      left: 0;
+      top: 0;
+      overflow: hidden;
+      transform: scale(var(--scale));
+      transform-origin: top left;
+      background: var(--gray-050);
+      box-shadow: 0 24px 80px rgba(0,0,0,.35);
+    }
+    body.export .stage { position: relative; transform: none; box-shadow: none; }
+    .deck-nav {
+      position: fixed;
+      inset: 0;
+      z-index: 20;
+      pointer-events: none;
+    }
+    .deck-nav button {
+      position: fixed;
+      top: 50%;
+      width: 46px;
+      height: 58px;
+      transform: translateY(-50%);
+      border: 1px solid rgba(200, 164, 93, .48);
+      background: rgba(7, 21, 38, .72);
+      color: #F5E5C2;
+      backdrop-filter: blur(10px);
+      font-size: 30px;
+      line-height: 1;
+      cursor: pointer;
+      pointer-events: auto;
+    }
+    .deck-prev { left: 22px; }
+    .deck-next { right: 22px; }
+    .deck-nav button:hover {
+      background: rgba(11, 31, 58, .88);
+    }
+    .deck-nav button:disabled {
+      opacity: .35;
+      cursor: default;
+    }
+    .deck-counter {
+      position: fixed;
+      right: 26px;
+      bottom: 20px;
+      text-align: center;
+      color: rgba(255,255,255,.82);
+      font: 700 13px/1 Inter, Arial, sans-serif;
+      letter-spacing: .06em;
+      pointer-events: none;
+    }
+    body.export .deck-nav { display: none; }
+    .stage.light::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(11,31,58,.045) 1px, transparent 1px),
+        linear-gradient(0deg, rgba(11,31,58,.035) 1px, transparent 1px);
+      background-size: 96px 96px;
+      pointer-events: none;
+    }
+    .stage.dark {
+      color: white;
+      background:
+        radial-gradient(circle at 78% 30%, rgba(200,164,93,.20), transparent 24%),
+        linear-gradient(135deg, #06101E 0%, #0B1F3A 56%, #071526 100%);
+    }
+    .stage.pt-cover {
+      background:
+        linear-gradient(90deg, rgba(5,14,27,.22) 0%, rgba(5,14,27,.14) 56%, rgba(5,14,27,.04) 100%),
+        url("assets/image2/cover_main_visual_20260708.png") center / cover no-repeat;
+    }
+    .stage.pt-chapter_divider {
+      background:
+        linear-gradient(90deg, rgba(5,14,27,.24) 0%, rgba(5,14,27,.14) 62%, rgba(5,14,27,.02) 100%),
+        url("assets/image2/chapter_background_visual_20260708.png") center / cover no-repeat;
+    }
+    .stage.pt-closing {
+      background:
+        linear-gradient(90deg, rgba(5,14,27,.18) 0%, rgba(5,14,27,.10) 58%, rgba(5,14,27,.04) 100%),
+        url("assets/image2/closing_thank_you_visual_20260708.png") center / cover no-repeat;
+    }
+    .stage.dark::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(90deg, rgba(255,255,255,.055) 1px, transparent 1px),
+        linear-gradient(0deg, rgba(255,255,255,.045) 1px, transparent 1px);
+      background-size: 80px 80px;
+      mask-image: linear-gradient(90deg, transparent 0%, black 42%, black 100%);
+      pointer-events: none;
+    }
+    .stage.pt-cover::after,
+    .stage.pt-chapter_divider::after,
+    .stage.pt-closing::after {
+      background: linear-gradient(90deg, rgba(5,14,27,.12), rgba(5,14,27,.02));
+      mask-image: none;
+    }
+    .slide-header {
+      position: absolute;
+      left: 96px;
+      right: 96px;
+      top: 60px;
+      height: 100px;
+      border-bottom: 1px solid var(--line);
+      z-index: 2;
+    }
+    .slide-header span, .eyebrow {
+      display: block;
+      font-size: 17px;
+      letter-spacing: .08em;
+      color: var(--gold-600);
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .slide-header h2 {
+      margin: 0;
+      max-width: 1380px;
+      font-size: 38px;
+      line-height: 1.22;
+      letter-spacing: 0;
+      font-weight: 760;
+      color: var(--navy-950);
+    }
+    .slide-main {
+      position: absolute;
+      left: 96px;
+      right: 96px;
+      top: 190px;
+      bottom: 70px;
+      z-index: 2;
+    }
+    .slide-footer {
+      position: absolute;
+      left: 96px;
+      right: 96px;
+      bottom: 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+      color: rgba(23,32,51,.62);
+      z-index: 4;
+    }
+    .dark .slide-footer { color: rgba(255,255,255,.60); }
+    .cover-layout, .chapter-layout {
+      position: absolute;
+      inset: 0;
+      padding: 94px 104px;
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 70px;
+      z-index: 2;
+    }
+    .image-cover-layout, .image-chapter-layout {
+      display: block;
+      padding-left: 110px;
+      padding-right: 110px;
+    }
+    .image-cover-layout {
+      padding: 0;
+      padding-left: 76px;
+      padding-right: 130px;
+    }
+    .image-chapter-layout {
+      padding: 0;
+    }
+    .image-cover-layout .cover-copy {
+      position: absolute;
+      left: 42px;
+      top: -24px;
+      width: 760px;
+      padding-top: 0;
+    }
+    .image-chapter-layout > div:first-child {
+      position: absolute;
+      left: 42px;
+      top: 72px;
+      width: 760px;
+      padding-top: 0;
+    }
+    .image-chapter-layout p {
+      max-width: 760px;
+    }
+    .image-chapter-layout .chapter-tags {
+      max-width: 820px;
+    }
+    .cover-copy, .chapter-layout > div:first-child { align-self: center; }
+    .cover-copy h1 {
+      margin: 0;
+      font-size: 64px;
+      line-height: 1.12;
+      letter-spacing: 0;
+      max-width: 760px;
+      font-weight: 780;
+    }
+    .cover-copy p, .chapter-layout p {
+      margin: 30px 0 0;
+      font-size: 26px;
+      line-height: 1.55;
+      color: rgba(255,255,255,.82);
+      max-width: 900px;
+    }
+    .cover-chips, .chapter-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 46px;
+    }
+    .cover-chips span, .chapter-tags span {
+      border: 1px solid rgba(200,164,93,.55);
+      color: #F5E5C2;
+      padding: 12px 20px;
+      font-size: 18px;
+      font-weight: 650;
+    }
+    .cover-visual, .chapter-visual {
+      position: relative;
+      align-self: center;
+      height: 760px;
+      border: 1px solid rgba(255,255,255,.16);
+      background: linear-gradient(145deg, rgba(255,255,255,.08), rgba(255,255,255,.02));
+      overflow: hidden;
+    }
+    .visual-grid {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(255,255,255,.10) 1px, transparent 1px),
+        linear-gradient(0deg, rgba(255,255,255,.08) 1px, transparent 1px);
+      background-size: 64px 64px;
+    }
+    .battery-line {
+      position: absolute;
+      left: 90px;
+      right: 90px;
+      top: 365px;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--gold-500), transparent);
+    }
+    .node {
+      position: absolute;
+      width: 94px;
+      height: 94px;
+      border: 2px solid rgba(200,164,93,.75);
+      background: rgba(7,21,38,.68);
+    }
+    .n1 { left: 90px; top: 190px; }
+    .n2 { left: 255px; top: 365px; }
+    .n3 { right: 260px; top: 245px; }
+    .n4 { right: 115px; top: 510px; }
+    .chapter-layout h2 {
+      margin: 0;
+      font-size: 54px;
+      line-height: 1.16;
+      max-width: 900px;
+      font-weight: 780;
+    }
+    .chapter-visual {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+      padding: 80px;
+    }
+    .chapter-visual div {
+      border: 1px solid rgba(200,164,93,.36);
+      background: linear-gradient(90deg, rgba(200,164,93,.22), rgba(255,255,255,.03));
+    }
+    .closing-layout {
+      position: absolute;
+      inset: 0;
+      padding: 96px 110px;
+      display: flex;
+      align-items: center;
+      z-index: 2;
+    }
+    .closing-copy {
+      width: 940px;
+      padding-top: 80px;
+    }
+    .closing-copy h2 {
+      margin: 0;
+      font-size: 76px;
+      line-height: 1.08;
+      letter-spacing: 0;
+      font-weight: 780;
+    }
+    .closing-copy p {
+      margin: 32px 0 0;
+      max-width: 900px;
+      font-size: 27px;
+      line-height: 1.55;
+      color: rgba(255,255,255,.84);
+    }
+    .closing-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 48px;
+    }
+    .closing-tags span {
+      border: 1px solid rgba(200,164,93,.55);
+      color: #F5E5C2;
+      padding: 12px 20px;
+      font-size: 18px;
+      font-weight: 650;
+    }
+    .dashboard-layout, .standard-check {
+      height: 100%;
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 48px;
+      align-items: stretch;
+    }
+    .split-judgment {
+      height: calc(100% - 48px);
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 300px 1fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+    .major-claim {
+      border-left: 6px solid var(--gold-600);
+      padding: 28px 34px;
+      background: rgba(11,31,58,.045);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .split-judgment .major-claim {
+      border-left: 0;
+      border-top: 6px solid var(--gold-600);
+      padding: 34px 46px;
+      background:
+        linear-gradient(90deg, rgba(11,31,58,.070), rgba(11,31,58,.028)),
+        rgba(255,255,255,.72);
+    }
+    .major-claim h2 {
+      margin: 0;
+      font-size: 38px;
+      line-height: 1.42;
+      color: var(--navy-950);
+    }
+    .split-judgment .major-claim h2 {
+      max-width: 1520px;
+      font-size: 45px;
+      line-height: 1.28;
+    }
+    .condition-grid, .dashboard-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+      height: 100%;
+    }
+    .split-judgment .condition-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-rows: 1fr;
+      gap: 20px;
+    }
+    .dashboard-grid { grid-template-columns: repeat(2, 1fr); }
+    .info-card {
+      position: relative;
+      background: white;
+      border: 1px solid var(--line);
+      padding: 26px 28px 24px;
+      min-height: 145px;
+      box-shadow: 0 10px 26px rgba(7,21,38,.06);
+    }
+    .split-judgment .info-card {
+      min-height: 0;
+      padding: 28px 26px 24px;
+    }
+    .info-card span, .path-card span, .shift-step span, .road-stage span, .appendix-card span, .layer-row span, .workpack-items span {
+      display: block;
+      color: var(--gold-600);
+      font-weight: 800;
+      font-family: Inter, Arial, sans-serif;
+      margin-bottom: 12px;
+      font-size: 16px;
+      letter-spacing: .06em;
+    }
+    .info-card p, .path-card p, .shift-step p, .road-stage p, .appendix-card p, .layer-row p, .workpack-items p {
+      margin: 0;
+      font-size: 22px;
+      line-height: 1.55;
+      color: var(--ink-900);
+      font-weight: 560;
+    }
+    .split-judgment .info-card p {
+      font-size: 20px;
+      line-height: 1.5;
+    }
+    .source-note {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      font-size: 13px;
+      line-height: 1.45;
+      color: rgba(23,32,51,.56);
+      border-top: 1px solid rgba(214,220,229,.75);
+      padding-top: 10px;
+    }
+    .implication-box {
+      background: var(--navy-900);
+      color: white;
+      padding: 34px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .implication-box span {
+      color: var(--gold-500);
+      font-size: 16px;
+      font-weight: 800;
+      margin-bottom: 18px;
+    }
+    .implication-box p {
+      margin: 0;
+      font-size: 30px;
+      line-height: 1.45;
+      font-weight: 720;
+    }
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 18px;
+      align-items: stretch;
+      height: 70%;
+      padding-top: 70px;
+      position: relative;
+    }
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 4%;
+      right: 4%;
+      top: 116px;
+      height: 2px;
+      background: var(--gold-500);
+    }
+    .timeline-node {
+      position: relative;
+      background: white;
+      border: 1px solid var(--line);
+      padding: 82px 22px 24px;
+    }
+    .dot {
+      position: absolute;
+      top: 12px;
+      left: 22px;
+      width: 54px;
+      height: 54px;
+      display: grid;
+      place-items: center;
+      background: var(--navy-900);
+      color: var(--gold-500);
+      font-weight: 800;
+      z-index: 2;
+    }
+    .timeline-node p {
+      margin: 0;
+      font-size: 20px;
+      line-height: 1.5;
+      color: var(--ink-900);
+      font-weight: 560;
+    }
+    .bottom-claim {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 58px;
+      padding: 24px 32px;
+      background: rgba(11,31,58,.06);
+      border-left: 5px solid var(--gold-600);
+      font-size: 26px;
+      line-height: 1.45;
+      font-weight: 720;
+      color: var(--navy-950);
+    }
+    .bottom-claim.compact {
+      bottom: 50px;
+      padding: 18px 28px;
+      font-size: 23px;
+      line-height: 1.42;
+    }
+    .business-map {
+      height: 100%;
+      position: relative;
+      display: grid;
+      place-items: center;
+    }
+    .map-core {
+      width: 560px;
+      min-height: 300px;
+      background: var(--navy-900);
+      color: white;
+      padding: 42px;
+      display: grid;
+      align-content: center;
+      text-align: left;
+      box-shadow: 0 18px 42px rgba(7,21,38,.18);
+    }
+    .map-core span { color: var(--gold-500); font-size: 16px; font-weight: 800; margin-bottom: 16px; }
+    .map-core strong { font-size: 34px; line-height: 1.3; }
+    .map-core p { font-size: 21px; line-height: 1.55; color: rgba(255,255,255,.8); }
+    .module-cloud {
+      position: absolute;
+      inset: 0;
+    }
+    .module-pill {
+      position: absolute;
+      max-width: 360px;
+      background: white;
+      border: 1px solid var(--line);
+      padding: 20px 24px;
+      font-size: 22px;
+      line-height: 1.4;
+      color: var(--ink-900);
+      font-weight: 650;
+      box-shadow: 0 10px 26px rgba(7,21,38,.08);
+    }
+    .p1 { left: 0; top: 16px; }
+    .p2 { right: 0; top: 42px; }
+    .p3 { left: 48px; bottom: 152px; }
+    .p4 { right: 48px; bottom: 138px; }
+    .p5 { left: 650px; top: 0; }
+    .p6 { left: 760px; bottom: 30px; }
+    .shift-flow, .path-matrix, .roadmap, .appendix-grid {
+      height: 74%;
+      display: grid;
+      gap: 22px;
+    }
+    .shift-flow { grid-template-columns: repeat(3, 1fr); }
+    .shift-step, .path-card, .road-stage, .appendix-card {
+      background: white;
+      border: 1px solid var(--line);
+      padding: 30px;
+      box-shadow: 0 10px 26px rgba(7,21,38,.06);
+    }
+    .standard-check {
+      grid-template-columns: .75fr 1.25fr;
+    }
+    .rule-panel {
+      background: var(--navy-900);
+      color: white;
+      padding: 42px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .rule-panel span { color: var(--gold-500); font-weight: 800; margin-bottom: 18px; }
+    .rule-panel p { margin: 0; font-size: 30px; line-height: 1.45; font-weight: 720; }
+    .check-list {
+      background: white;
+      border: 1px solid var(--line);
+      padding: 34px 42px;
+    }
+    .clean-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 20px;
+    }
+    .clean-list li {
+      font-size: 23px;
+      line-height: 1.48;
+      padding-left: 24px;
+      border-left: 4px solid var(--gold-600);
+      font-weight: 560;
+      color: var(--ink-900);
+    }
+    .layer-table {
+      display: grid;
+      gap: 14px;
+      height: 72%;
+    }
+    .pt-case_layer_table .layer-table {
+      gap: 12px;
+      height: 78%;
+    }
+    .layer-row {
+      display: grid;
+      grid-template-columns: 72px 1fr;
+      align-items: center;
+      background: white;
+      border: 1px solid var(--line);
+      padding: 18px 24px;
+    }
+    .pt-case_layer_table .layer-row {
+      grid-template-columns: 64px 1fr;
+      padding: 20px 28px;
+    }
+    .layer-row span { margin: 0; }
+    .case-ledger, .case-transfer-table {
+      height: 70%;
+      display: grid;
+      gap: 0;
+      border: 1px solid var(--line);
+      background: white;
+      box-shadow: 0 14px 34px rgba(7,21,38,.07);
+    }
+    .case-ledger {
+      grid-template-rows: 50px repeat(5, 1fr);
+    }
+    .case-transfer-table {
+      grid-template-rows: 54px repeat(5, 1fr);
+    }
+    .case-ledger-head, .case-ledger-row,
+    .case-transfer-head, .case-transfer-row {
+      display: grid;
+      border-bottom: 1px solid var(--line);
+    }
+    .case-ledger-head, .case-ledger-row {
+      grid-template-columns: 250px 420px 470px 1fr;
+    }
+    .case-transfer-head, .case-transfer-row {
+      grid-template-columns: 310px 1fr 430px;
+    }
+    .case-ledger-head, .case-transfer-head {
+      align-items: center;
+      background: rgba(11,31,58,.055);
+      color: var(--navy-950);
+      font-size: 16px;
+      font-weight: 820;
+      letter-spacing: .04em;
+    }
+    .case-ledger-head span, .case-ledger-row > div,
+    .case-transfer-head span, .case-transfer-row > div {
+      padding: 14px 18px;
+      border-right: 1px solid var(--line);
+    }
+    .case-ledger-head span:last-child, .case-ledger-row > div:last-child,
+    .case-transfer-head span:last-child, .case-transfer-row > div:last-child {
+      border-right: 0;
+    }
+    .case-ledger-row:last-child, .case-transfer-row:last-child {
+      border-bottom: 0;
+    }
+    .case-ledger-row b, .case-transfer-row b {
+      display: block;
+      color: var(--navy-950);
+      font-size: 21px;
+      line-height: 1.22;
+      margin-bottom: 8px;
+    }
+    .case-ledger-row em {
+      display: block;
+      font-style: normal;
+      color: var(--gold-600);
+      font-weight: 760;
+      font-size: 14px;
+      line-height: 1.35;
+    }
+    .case-ledger-row p, .case-transfer-row p {
+      margin: 0;
+      color: var(--ink-900);
+      font-size: 19px;
+      line-height: 1.42;
+      font-weight: 560;
+    }
+    .case-ledger-row small, .case-transfer-row small {
+      display: block;
+      margin-top: 8px;
+      color: rgba(23,32,51,.56);
+      font-size: 13px;
+      line-height: 1.35;
+    }
+    .ipo-timing-layout {
+      height: 100%;
+      position: relative;
+      padding-bottom: 104px;
+    }
+    .timing-panels {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+      height: 520px;
+    }
+    .timing-panel {
+      background: white;
+      border: 1px solid var(--line);
+      box-shadow: 0 14px 34px rgba(7,21,38,.07);
+      padding: 20px 24px 12px;
+    }
+    .timing-panel-title {
+      color: var(--navy-950);
+      font-size: 22px;
+      line-height: 1.25;
+      font-weight: 780;
+      margin-bottom: 6px;
+    }
+    .timing-panel svg {
+      width: 100%;
+      height: 430px;
+      display: block;
+    }
+    .timing-gridline {
+      stroke: rgba(214,220,229,.95);
+      stroke-width: 1;
+    }
+    .timing-gridline.faint {
+      stroke: rgba(214,220,229,.55);
+    }
+    .timing-y-label,
+    .timing-x-label {
+      fill: rgba(23,32,51,.66);
+      font: 700 15px/1 Inter, Arial, sans-serif;
+      text-anchor: middle;
+    }
+    .timing-y-label {
+      text-anchor: end;
+    }
+    .timing-ledger {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 20px;
+    }
+    .timing-ledger div {
+      display: grid;
+      grid-template-columns: 1fr auto auto;
+      align-items: center;
+      gap: 18px;
+      padding: 18px 22px;
+      background: rgba(11,31,58,.055);
+      border-left: 4px solid var(--gold-600);
+    }
+    .timing-ledger b {
+      color: var(--navy-950);
+      font-size: 22px;
+      line-height: 1.2;
+    }
+    .timing-ledger span {
+      color: var(--ink-700);
+      font-size: 18px;
+      line-height: 1.25;
+      font-weight: 720;
+    }
+    .timing-gate {
+      height: 68%;
+      display: grid;
+      align-content: center;
+      justify-items: start;
+      padding: 52px 64px;
+      background: white;
+      border: 1px solid var(--line);
+      border-left: 6px solid var(--gold-600);
+      box-shadow: 0 14px 34px rgba(7,21,38,.07);
+    }
+    .timing-gate span {
+      color: var(--gold-600);
+      font-size: 18px;
+      line-height: 1.2;
+      font-weight: 820;
+      letter-spacing: .08em;
+      margin-bottom: 18px;
+    }
+    .timing-gate p {
+      max-width: 1120px;
+      margin: 0;
+      color: var(--navy-950);
+      font-size: 34px;
+      line-height: 1.42;
+      font-weight: 740;
+    }
+    .timing-panel-empty {
+      background:
+        linear-gradient(135deg, rgba(255,255,255,.96), rgba(243,245,248,.92)),
+        white;
+    }
+    .timing-gate-note {
+      margin-top: 20px;
+      padding: 18px 22px;
+      border-left: 4px solid var(--gold-600);
+      background: rgba(11,31,58,.055);
+      color: var(--ink-700);
+      font-size: 20px;
+      line-height: 1.42;
+      font-weight: 680;
+    }
+    .path-matrix {
+      grid-template-columns: repeat(2, 1fr);
+      height: 72%;
+    }
+    .path-matrix .path-card:nth-child(5):last-child {
+      grid-column: 1 / 3;
+    }
+    .path-matrix.four-paths {
+      grid-template-columns: repeat(4, 1fr);
+      height: 36%;
+    }
+    .decision-matrix {
+      height: 72%;
+      display: grid;
+      grid-template-columns: 160px repeat(4, 1fr);
+      grid-template-rows: 86px repeat(4, 1fr);
+      border: 1px solid var(--line);
+      background: white;
+      box-shadow: 0 14px 34px rgba(7,21,38,.07);
+    }
+    .decision-cell {
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding: 18px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .decision-cell:nth-child(5n) {
+      border-right: 0;
+    }
+    .decision-cell:nth-last-child(-n+5) {
+      border-bottom: 0;
+    }
+    .decision-corner, .decision-label {
+      background: rgba(11,31,58,.055);
+      color: var(--navy-950);
+      font-size: 18px;
+      font-weight: 820;
+      text-align: center;
+      align-items: center;
+    }
+    .decision-path {
+      background: var(--navy-900);
+      color: white;
+      text-align: center;
+      align-items: center;
+    }
+    .decision-path b {
+      font-size: 26px;
+      line-height: 1.15;
+      margin-bottom: 8px;
+    }
+    .decision-path span {
+      color: #F1DCA8;
+      font-size: 14px;
+      font-weight: 760;
+      letter-spacing: .03em;
+    }
+    .decision-cell p {
+      margin: 0;
+      color: var(--ink-900);
+      font-size: 19px;
+      line-height: 1.42;
+      font-weight: 560;
+    }
+    .workpack {
+      height: 100%;
+      display: grid;
+      grid-template-columns: .68fr 1.32fr;
+      gap: 28px;
+    }
+    .workpack-claim {
+      background: var(--navy-900);
+      color: white;
+      padding: 34px;
+      font-size: 30px;
+      line-height: 1.45;
+      font-weight: 740;
+      display: flex;
+      align-items: center;
+    }
+    .workpack-items {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+    .workpack-items div {
+      background: white;
+      border: 1px solid var(--line);
+      padding: 22px 24px;
+    }
+    .roadmap {
+      grid-template-columns: repeat(4, 1fr);
+      height: 66%;
+    }
+    .appendix-grid {
+      grid-template-columns: repeat(2, 1fr);
+      height: 82%;
+    }
+
+    @media print {
+      body { background: white; }
+      .deck-viewport { position: static; overflow: visible; }
+      .deck-track { display: block; transform: none !important; transition: none; }
+      .slide-shell { width: 1920px; height: 1080px; padding: 0; break-after: page; }
+      .stage { transform: none; box-shadow: none; }
+      .deck-nav { display: none; }
+    }
+  </style>
+</head>
+<body>
+<div class="deck-viewport" aria-label="宁德思客琦 IPO 重启项目建议书">
+  <div class="deck-track">
+
+    <section class="slide-shell" id="slide-1">
+      <div class="stage-frame">
+        <article class="stage dark pt-cover" data-slide="1" data-page-type="cover">
+          
+          <main class="slide-main">
+    <div class="cover-layout image-cover-layout">
+      <div class="cover-copy">
+        <div class="eyebrow">IPO RESTART ADVISORY</div>
+        <h1>宁德思客琦 IPO 重启项目建议书</h1>
+        <p>本材料用于管理层讨论 IPO 重启基础、上市板块选择及后续推进安排。</p>
+        <div class="cover-chips"><span>项目建议书</span><span>IPO重启沟通</span><span>2026年7月</span></div>
+      </div>
+    </div></main>
+          <footer class="slide-footer">
+            <span>宁德思客琦 IPO 重启项目建议书</span>
+            <span>01 / 48</span>
+          </footer>
+        </article>
+      </div>
+    </section>
+
+    <section class="slide-shell" id="slide-2">
+      <div class="stage-frame">
+        <article class="stage light pt-opening_judgment" data-slide="2" data-page-type="opening_judgment">
+          <header class="slide-header"><div><span>阶段性判断</span><h2>本次沟通先回答是否具备 IPO 重启基础，再讨论上市板块选择</h2></div></header>
+          <main class="slide-main">
+    <div class="split-judgment">
+      <div class="major-claim">
+        <div class="eyebrow">阶段性判断</div>
+        <h2>本次材料以 IPO 重启为主线，核心是判断公司是否具备进入系统性预沟通和资料完善的基础。</h2>
+      </div>
+      <div>
+        <div class="condition-grid"><div class="info-card"><span>01</span><p>沟通目标：围绕公司价值表达、申报条件、重点事项和后续工作安排形成管理层讨论基础。</p></div><div class="info-card"><span>02</span><p>判断顺序：先看公司是否具备重启 IPO 的事实基础和资料准备基础，再讨论科创板、创业板或北交所路径。</p></div><div class="info-card"><span>03</span><p>重点事项：期后经营质量、前次审核关注事项承接、客户集中、收入确认、毛利率和核心技术收入映射。</p></div><div class="info-card"><span>04</span><p>阶段输出：形成重启可行性判断、板块选择框架、资料缺口和下一步工作安排。</p></div></div>
+      </div>
+    </div>
+    <div class="source-note">口径：本页为沟通框架，需结合现有公开信息和后续尽调资料更新。</div></main>
+          <footer class="slide-footer">
+            <span>宁德思客琦 IPO 重启项目建议书</span>
+            <span>02 / 48</span>
+          </footer>
+        </article>
+      </div>
+    </section>
+
+    <section class="slide-shell" id="slide-3">
+      <div class="stage-frame">
+        <article class="stage light pt-opening_judgment" data-slide="3" data-page-type="opening_judgment">
+          <header class="slide-header"><div><span>阶段性判断</span><h2>阶段性判断：具备进一步重启讨论基础，但申报窗口取决于资料更新</h2></div></header>
+          <main class="slide-main">
+    <div class="split-judgment">
+      <div class="major-claim">
+        <div class="eyebrow">阶段性判断</div>
+        <h2>正面基础在于前次过会、历史规模、主体关系清晰和2026年业务延展；是否进入申报准备仍取决于期后财务质量和重点事项完善情况。</h2>
+      </div>
+      <div>
+        <div class="condition-grid"><div class="info-card"><span>01</span><p>重启基础：前次创业板IPO于2023年6月1日上市委会议通过，说明公司曾达到较高审核阶段。</p></div><div class="info-card"><span>02</span><p>业务基础：2026年主业仍围绕新能源电池智能制造装备，并向数字工厂、工业软件、AI视觉、无损检测、激光应用延展。</p></div><div class="info-card"><span>03</span><p>资料前提：2023年至2026年财务质量、客户结构、撤回背景和审核延续事项需结合公司底层资料更新判断。</p></div><div class="info-card"><span>04</span><p>推进条件：财务质量稳定、重点事项可解释、技术成果与产品模块及收入能够形成映射后，再判断申报节奏。</p></div></div>
+      </div>
+    </div>
+    <div class="source-note">口径：正面基础来自前次公开资料和现有公开信息；期后财务和撤回背景需结合公司资料更新。</div></main>
+          <footer class="slide-footer">
+            <span>宁德思客琦 IPO 重启项目建议书</span>
+            <span>03 / 48</span>
+          </footer>
+        </article>
+      </div>
+    </section>
+
+    <section class="slide-shell" id="slide-4">
+      <div class="stage-frame">
+        <article class="stage light pt-opening_judgment" data-slide="4" data-page-type="opening_judgment">
+          <header class="slide-header"><div><span>阶段性判断</span><h2>本次项目建议书围绕四个 IPO 重启决策问题展开</h2></div></header>
+          <main class="slide-main">
+    <div class="split-judgment">
+      <div class="major-claim">
+        <div class="eyebrow">阶段性判断</div>
+        <h2>本次沟通围绕公司是否适合重启 IPO、适合选择何种路径、需要补强哪些事项以及如何组织后续工作展开。</h2>
+      </div>
+      <div>
+        <div class="condition-grid"><div class="info-card"><span>01</span><p>是否值得重启：从前次过会基础、现主体关系、2026年业务持续性和技术储备判断沟通价值。</p></div><div class="info-card"><span>02</span><p>如何表达公司：把公司定位为围绕质量、良率、检测、追溯和柔性制造的新能源电池智能制造装备企业。</p></div><div class="info-card"><span>03</span><p>如何选择板块：科创板、创业板和北交所应基于不同资料状态和申报条件进行并列测算。</p></div><div class="info-card"><span>04</span><p>如何推进工作：客户集中、收入确认、毛利率、核心技术收入和撤回背景需要转化为专项论证和资料完善安排。</p></div></div>
+      </div>
+    </div>
+    <div class="source-note">口径：本页为目录式决策框架，不新增事实。</div></main>
+          <footer class="slide-footer">
+            <span>宁德思客琦 IPO 重启项目建议书</span>
+            <span>04 / 48</span>
+          </footer>
+        </article>
+      </div>
+    </section>
+
+    <section class="slide-shell" id="slide-5">
+      <div class="stage-frame">
+        <article class="stage dark pt-chapter_divider" data-slide="5" data-page-type="chapter_divider">
+          
+          <main class="slide-main">
+    <div class="chapter-layout image-chapter-layout">
+      <div>
+        <div class="eyebrow">SECTION 1</div>
+        <h2>IPO重启事实底座：前次基础、主体关系与2026年业务表达</h2>
+        <p>公司价值需要从前次过会基础、现主体关系、2026年主业和技术延展四个层面重构。</p>
+        <div class="chapter-tags"><span>前次过会基础</span><span>主体和控制权</span><span>2026年业务主线</span><span>技术模块与申报条件</span></div>
+      </div>
+    </div></main>
+          <footer class="slide-footer">
+            <span>宁德思客琦 IPO 重启项目建议书</span>
+            <span>05 / 48</span>
+          </footer>
+        </article>
+      </div>
+    </section>
+
+    <section class="slide-shell" id="slide-6">
+      <div class="stage-frame">
+        <article class="stage light pt-evidence_dashboard" data-slide="6" data-page-type="evidence_dashboard">
+          <header class="slide-header"><div><span>重启基础</span><h2>前次创业板过会基础说明公司曾达到较高审核阶段</h2></div></header>
+          <main class="slide-main">
+    <div class="dashboard-layout">
+      <div class="dashboard-grid"><div class="info-card"><span>01</span><p>受理节点：2022年6月29日，深交所受理上海思客琦创业板IPO申请。</p></div><div class="info-card"><span>02</span><p>审核节点：2022年7月26日进入问询阶段，公开问询已覆盖业务、规范性及财务会计事项。</p></div><div class="info-card"><span>03</span><p>过会节点：2023年6月1日创业板上市委会议通过，说明公司曾具备较强审核基础。</p></div><div class="info-card"><span>04</span><p>终止节点：2024年7月11日发行人及保荐人撤回申请，公开终止决定未说明具体撤回背景。</p></div></div>
+      <aside class="implication-box">
+        <span>判断落点</span>
+        <p>前次IPO并非早期撤回项目，而是经历受理、问询并通过上市委会议后撤回，重启具备讨论基础。</p>
+      </aside>
+    </div>
+    <div class="source-note">口径：来自深交所项目进程和前次公开披露；撤回背景不作公开信息外推断。</div></main>
+          <footer class="slide-footer">
+            <span>宁德思客琦 IPO 重启项目建议书</span>
+            <span>06 / 48</span>
+          </footer>
+        </article>
+      </div>
+    </section>
+
+    <section class="slide-shell" id="slide-7">
+      <div class="stage-frame">
+        <article class="stage light pt-evidence_dashboard" data-slide="7" data-page-type="evidence_dashboard">
+          <header class="slide-header"><div><span>重启基础</span><h2>现有公开信息下，股份主体和经营主体关系已可形成清晰表述</h2></div></header>
+          <main class="slide-main">
+    <div class="dashboard-layout">
+      <div class="dashboard-grid"><div class="info-card"><span>01</span><p>股份主体：公开工商及信用信息显示宁德思客琦智能装备科技股份有限公司曾用名为上海思客琦智能装备科技股份有限公司。</p></div><div class="info-card"><span>02</span><p>迁址更名：2025年12月11日，住所、名称和登记机关发生变更，形成当前宁德股份主体。</p></div><div class="info-card"><span>03</span><p>经营主体：宁德思客琦智能装备有限公司成立于2016年8月1日，现为股份主体100%持股子公司。</p></div><div class="info-card"><span>04</span><p>控制权：公开工商及信用信息显示付文辉为股份主体第一大股东，持股44.5973%；前次招股书披露其为控股股东、实际控制人。</p></div></div>
+      <aside class="implication-box">
+        <span>判断落点</span>
+        <p>宁德思客琦智能装备科技股份有限公司为前次上海股份主体迁址更名后的现股份主体，宁德有限公司为其全资经营主体。</p>
+      </aside>
+    </div>
+    <div class="source-note">口径：依据公开工商及信用信息及前次招股书整理。</div></main>
+          <footer class="slide-footer">
+            <span>宁德思客琦 IPO 重启项目建议书</span>
+            <span>07 / 48</span>
+          </footer>
+        </article>
+      </div>
+    </section>
+
+    <section class="slide-shell" id="slide-8">
+      <div class="stage-frame">
+        <article class="stage light pt-timeline" data-slide="8" data-page-type="timeline">
+          <header class="slide-header"><div><span>重启基础</span><h2>公司沿革可按股份主体延续和宁德经营主体两条线理解</h2></div></header>
+          <main class="slide-main">
+    <div class="timeline">
+      
+        <div class="timeline-node">
+          <div class="dot">01</div>
+          <p>2012年：上海思客琦自动化工程有限公司设立，构成前次发行人前身。</p>
+        </div>
+        <div class="timeline-node">
+          <div class="dot">02</div>
+          <p>2016年：宁德思客琦智能装备有限公司设立，后成为面向宁德及周边新能源客户的重要经营主体。</p>
+        </div>
+        <div class="timeline-node">
+          <div class="dot">03</div>
+          <p>2020年：上海思客琦整体变更为股份有限公司，作为前次创业板IPO发行人。</p>
+        </div>
+        <div class="timeline-node">
+          <div class="dot">04</div>
+          <p>2022年：宁德有限公司注册资本增至10,000万元，股东名称变更为上海思客琦智能装备科技股份有限公司。</p>
+        </div>
+        <div class="timeline-node">
+          <div class="dot">05</div>
+          <p>2025年至2026年：股份主体迁址更名为宁德股份主体，宁德有限公司新增东莞、福州分公司。</p>
+        </div>
+    </div>
+    <div class="bottom-claim">沿革表达应服务于重启判断：前次发行人延续、宁德主体承接核心经营、2024年后仍有组织和经营变化。</div>
+    <div class="source-note">口径：依据前次招股书和公开工商及信用信息。</div></main>
+          <footer class="slide-footer">
+            <span>宁德思客琦 IPO 重启项目建议书</span>
+            <span>08 / 48</span>
+          </footer>
+        </article>
+      </div>
+    </section>
+
+    <section class="slide-shell" id="slide-9">
+      <div class="stage-frame">
+        <article class="stage light pt-business_map" data-slide="9" data-page-type="business_map">
+          <header class="slide-header"><div><span>重启基础</span><h2>2026年公司主业应定位为新能源电池智能制造装备</h2></div></header>
+          <main class="slide-main">
+    <div class="business-map">
+      <div class="map-core">
+        <span>核心场景</span>
+        <strong>主业定位：新能源电池智能制造装备及系统解决方案提供商。</strong>
+        <p>公司当前业务表达不应脱离电池制造装备主业，工业软件、AI视觉等技术延展应围绕主业展开。</p>
+      </div>
+      <div class="module-cloud">
+        <div class="module-pill p1">制造场景：动力电池和储能电池的电芯装配、模组成型、PACK封装、CTP/CIR线及回收拆解。</div><div class="module-pill p2">交付形态：智能装备、自动化产线、检测设备、智能物流和数字工厂系统。</div><div class="module-pill p3">技术延展：工业软件、AI视觉、X-ray/CT无损检测、激光焊接及检测是围绕主业形成的模块。</div>
+      </div>
+    </div>
+    <div class="source-note">口径：依据公司官网公开业务表述、公开工商及信用信息和现有备忘录归纳。</div></main>
+          <footer class="slide-footer">
+            <span>宁德思客琦 IPO 重启项目建议书</span>
+            <span>09 / 48</span>
+          </footer>
+        </article>
+      </div>
+    </section>
+
+    <section class="slide-shell" id="slide-10">
+      <div class="stage-frame">
+        <article class="stage light pt-business_map" data-slide="10" data-page-type="business_map">
+          <header class="slide-header"><div><span>重启基础</span><h2>撤回后公开线索显示公司仍保持经营活跃度</h2></div></header>
+          <main class="slide-main">
+    <div class="business-map">
+      <div class="map-core">
+        <span>核心场景</span>
+        <strong>人员线索：宁德有限公司2025年报参保人数1,106人，显示主要经营主体仍有较大人员规模。</strong>
+        <p>公开信息显示公司仍有人员规模、专利软著、分公司、招投标和经营范围变化等持续经营线索。</p>
+      </div>
+      <div class="module-cloud">
+        <div class="module-pill p1">组织线索：2026年4月设立东莞分公司，2026年6月设立福州分公司，区域服务布局继续延展。</div><div class="module-pill p2">经营范围：2024年11月宁德有限公司新增货物进出口、技术进出口，支持业务外延和出口能力线索。</div><div class="module-pill p3">技术储备：公开信用信息列示专利238项、软件著作权40项、标准14项、荣誉18项。</div><div class="module-pill p4">项目线索：公开信用信息列示若干2024年至2026年招投标、客户和公开新闻线索，仍需财务数据验证收入贡献。</div>
+      </div>
+    </div>
+    <div class="source-note">口径：来自公开工商及信用信息和现有公开资料整理；具体收入贡献需尽调确认。</div></main>
+          <footer class="slide-footer">
+            <span>宁德思客琦 IPO 重启项目建议书</span>
+            <span>10 / 48</span>
+          </footer>
+        </article>
+      </div>
+    </section>
+
+    <section class="slide-shell" id="slide-11">
+      <div class="stage-frame">
+        <article class="stage light pt-evidence_dashboard" data-slide="11" data-page-type="evidence_dashboard">
+          <header class="slide-header"><div><span>重启基础</span><h2>专利和软著数量形成技术储备线索，后续需落到产品和收入</h2></div></header>
+          <main class="slide-main">
+    <div class="dashboard-layout">
+      <div class="dashboard-grid"><div class="info-card"><span>01</span><p>数量改善：公开信用信息列示宁德有限公司专利238项、软件著作权40项，技术储备较前次申报阶段已有改善线索。</p></div><div class="info-card"><span>02</span><p>技术方向：公开专利和软著涉及AI视觉、X-ray影像分割、CT检测、激光焊接控制、红外热成像检测和数据平台。</p></div><div class="info-card"><span>03</span><p>权属基础：宁德有限公司为股份主体全资子公司，母子公司体系内权属关系具备清晰基础。</p></div><div class="info-card"><span>04</span><p>后续重点：核验法律状态、权利限制、共同权利人和实际实施主体，并映射至产品模块、客户项目和收入明细。</p></div></div>
+      <aside class="implication-box">
+        <span>判断落点</span>
+        <p>母子公司体系内权属关系具备清晰基础，后续重点是把专利、软著、产品模块、客户项目和收入明细对应起来。</p>
+      </aside>
+    </div>
+    <div class="source-note">口径：数量来自公开信用信息；产业化和收入映射待公司资料验证。</div></main>
+          <footer class="slide-footer">
+            <span>宁德思客琦 IPO 重启项目建议书</span>
+            <span>11 / 48</span>
+          </footer>
+        </article>
+      </div>
+    </section>
+
+    <section class="slide-shell" id="slide-12">
+      <div class="stage-frame">
+        <article class="stage light pt-evidence_dashboard" data-slide="12" data-page-type="evidence_dashboard">
+          <header class="slide-header"><div><span>重启基础</span><h2>公司价值表达应服务于 IPO 重启，而不是单一路径论证</h2></div></header>
+          <main class="slide-main">
+    <div class="dashboard-layout">
+      <div class="dashboard-grid"><div class="info-card"><span>01</span><p>基本盘：智能装备交付仍是收入基础，质量取决于项目验收、回款、客户结构和新增订单。</p></div><div class="info-card"><span>02</span><p>技术层：激光焊接、机器视觉、X-ray/CT无损检测和工业控制软件可提升装备技术含量。</p></div><div class="info-card"><span>03</span><p>平台层：数字工厂、数据追溯和柔性制造能力有助于形成更完整的智能制造表达。</p></div><div class="info-card"><span>04</span><p>重启落点：只有当主营业务、技术成果、客户应用和收入质量形成一致证据，IPO重启才具备更稳基础。</p></div></div>
+      <aside class="implication-box">
+        <span>判断落点</span>
+        <p>公司价值不应只围绕某一板块适配展开，而应说明主营业务、技术能力、客户价值和财务质量能否支撑重新进入资本市场沟通。</p>
+      </aside>
+    </div>
+    <div class="source-note">口径：本页为公司定位归纳，需后续以业务和收入资料支撑。</div></main>
+          <footer class="slide-footer">
+            <span>宁德思客琦 IPO 重启项目建议书</span>
+            <span>12 / 48</span>
+          </footer>
+        </article>
+      </div>
+    </section>
+
+    <section class="slide-shell" id="slide-13">
+      <div class="stage-frame">
+        <article class="stage dark pt-chapter_divider" data-slide="13" data-page-type="chapter_divider">
+          
+          <main class="slide-main">
+    <div class="chapter-layout image-chapter-layout">
+      <div>
+        <div class="eyebrow">SECTION 2</div>
+        <h2>新能源电池智能制造装备赛道理解</h2>
+        <p>行业逻辑应从扩产设备转向质量、良率、检测、追溯和柔性制造。</p>
+        <div class="chapter-tags"><span>电池制造装备</span><span>质量与良率</span><span>检测与追溯</span><span>柔性制造升级</span></div>
+      </div>
+    </div></main>
+          <footer class="slide-footer">
+            <span>宁德思客琦 IPO 重启项目建议书</span>
+            <span>13 / 48</span>
+          </footer>
+        </article>
+      </div>
+    </section>
+
+    <section class="slide-shell" id="slide-14">
+      <div class="stage-frame">
+        <article class="stage light pt-business_map" data-slide="14" data-page-type="business_map">
+          <header class="slide-header"><div><span>赛道理解</span><h2>新能源电池智能制造装备处于电池制造产业链关键工艺环节</h2></div></header>
+          <main class="slide-main">
+    <div class="business-map">
+      <div class="map-core">
+        <span>核心场景</span>
+        <strong>产业链位置：公司围绕动力及储能电池制造中后段装备和系统集成环节展开。</strong>
+        <p>思客琦业务围绕动力和储能电池制造流程，不是一般工业自动化外包服务。</p>
+      </div>
+      <div class="module-cloud">
+        <div class="module-pill p1">核心环节：模组、PACK、CTP/CIR线是前次招股书及现有官网表述中的重要业务场景。</div><div class="module-pill p2">延伸环节：电芯装配、电池回收拆解、智能物流和数字工厂系统显示公司业务边界进一步外延。</div><div class="module-pill p3">判断意义：公司不是普通工业自动化外包服务商，客户价值来自电池制造工艺、质量控制和产线效率。</div>
+      </div>
+    </div>
+    <div class="source-note">口径：依据官网公开业务表述及现有备忘录整理。</div></main>
+          <footer class="slide-footer">
+            <span>宁德思客琦 IPO 重启项目建议书</span>
+            <span>14 / 48</span>
+          </footer>
+        </article>
+      </div>
+    </section>
+
+    <section class="slide-shell" id="slide-15">
+      <div class="stage-frame">
+        <article class="stage light pt-business_map" data-slide="15" data-page-type="business_map">
+          <header class="slide-header"><div><span>赛道理解</span><h2>公司技术模块需要嵌入电池制造场景，形成主业支撑</h2></div></header>
+          <main class="slide-main">
+    <div class="business-map">
+      <div class="map-core">
+        <span>核心场景</span>
+        <strong>主业场景：技术模块需嵌入电池制造装备，围绕产线质量、效率和可追溯性形成价值。</strong>
+        <p>AI视觉、无损检测、激光应用和工业软件的意义在于提升电池制造产线的质量、效率和可追溯性。</p>
+      </div>
+      <div class="module-cloud">
+        <div class="module-pill p1">AI视觉：服务于识别、定位、缺陷检测、焊接质量判断和在线检测。</div><div class="module-pill p2">无损检测：X-ray/CT等方向用于内部结构、极耳、OverHang等质量检测场景。</div><div class="module-pill p3">激光应用：服务于Busbar、顶盖、密封钉、极耳等焊接及焊接过程监测。</div><div class="module-pill p4">工业软件：生产管理、数据中台、项目流程、参数化设计和控制软件支撑数字化交付。</div>
+      </div>
+    </div>
+    <div class="source-note">口径：技术模块来自公开专利、软著和官网线索；实际应用项目待公司确认。</div></main>
+          <footer class="slide-footer">
+            <span>宁德思客琦 IPO 重启项目建议书</span>
+            <span>15 / 48</span>
+          </footer>
+        </article>
+      </div>
+    </section>
+
+    <section class="slide-shell" id="slide-16">
+      <div class="stage-frame">
+        <article class="stage light pt-evidence_dashboard" data-slide="16" data-page-type="evidence_dashboard">
+          <header class="slide-header"><div><span>赛道理解</span><h2>设备投资逻辑正在从产能扩张转向质量和良率提升</h2></div></header>
+          <main class="slide-main">
+    <div class="dashboard-layout">
+      <div class="dashboard-grid"><div class="info-card"><span>01</span><p>扩产设备：下游电池企业资本开支波动会直接影响新增产线订单。</p></div><div class="info-card"><span>02</span><p>质量检测：电池安全、良率和一致性要求提升，使视觉、X-ray/CT和在线检测更重要。</p></div><div class="info-card"><span>03</span><p>数据追溯：客户认证、过程质量管理和售后追责要求产线具备数据采集和追溯能力。</p></div><div class="info-card"><span>04</span><p>柔性制造：不同电池路线、工艺迭代和客户项目制需求，要求装备平台具备适配与快速切换能力。</p></div><div class="info-card"><span>05</span><p>对思客琦的论证重点：证明订单价值从“扩产设备”延伸到“质量控制和柔性制造能力”。</p></div></div>
+      <aside class="implication-box">
+        <span>判断落点</span>
+        <p>下游扩产周期波动下，智能装备企业需要证明自身价值不只来自新增产线，而来自质量控制和柔性制造升级。</p>
+      </aside>
+    </div>
+    <div class="source-note">口径：行业判断，后续可补公开行业数据或客户访谈资料。</div></main>
+          <footer class="slide-footer">
+            <span>宁德思客琦 IPO 重启项目建议书</span>
+            <span>16 / 48</span>
+          </footer>
+        </article>
+      </div>
+    </section>
+
+    <section class="slide-shell" id="slide-17">
+      <div class="stage-frame">
+        <article class="stage light pt-evidence_dashboard" data-slide="17" data-page-type="evidence_dashboard">
+          <header class="slide-header"><div><span>赛道理解</span><h2>上市审核更关注装备背后的关键技术和产业化收入，而不是单纯产线集成规模</h2></div></header>
+          <main class="slide-main">
+    <div class="dashboard-layout">
+      <div class="dashboard-grid"><div class="info-card"><span>01</span><p>技术指标：需要披露检测精度、焊接稳定性、影像识别能力、控制软件效率等可验证指标。</p></div><div class="info-card"><span>02</span><p>产品模块：需拆分智能装备、检测设备、软件平台、激光设备和产线解决方案的收入贡献。</p></div><div class="info-card"><span>03</span><p>客户应用：应说明技术模块落在哪些客户项目和生产环节，而不是只列专利或荣誉。</p></div><div class="info-card"><span>04</span><p>收入映射：核心技术收入及占比是技术能力论证的核心，不应只用研发投入和专利数量替代。</p></div><div class="info-card"><span>05</span><p>审核关注：前次二轮已关注配套设备及配件收入是否使用核心技术，重启后仍需承接。</p></div></div>
+      <aside class="implication-box">
+        <span>判断落点</span>
+        <p>思客琦需要把技术模块、产品收入和客户应用打通，证明核心技术已经支撑主营产品和经营质量。</p>
+      </aside>
+    </div>
+    <div class="source-note">口径：收入映射目前需公司补充资料。</div></main>
+          <footer class="slide-footer">
+            <span>宁德思客琦 IPO 重启项目建议书</span>
+            <span>17 / 48</span>
+          </footer>
+        </article>
+      </div>
+    </section>
+
+    <section class="slide-shell" id="slide-18">
+      <div class="stage-frame">
+        <article class="stage light pt-industry_shift" data-slide="18" data-page-type="industry_shift">
+          <header class="slide-header"><div><span>赛道理解</span><h2>赛道本身具备 IPO 讨论基础，关键在于公司证据能否跟上赛道升级</h2></div></header>
+          <main class="slide-main">
+    <div class="shift-flow">
+      
+        <div class="shift-step">
+          <span>01</span>
+          <p>赛道基础：新能源电池智能制造装备、机器视觉、无损检测、激光检测和工业软件均可落入高端装备和智能制造方向。</p>
+        </div>
+        <div class="shift-step">
+          <span>02</span>
+          <p>市场约束：设备企业仍受下游扩产周期、客户集中、项目制验收、现金流和存货压力影响。</p>
+        </div>
+        <div class="shift-step">
+          <span>03</span>
+          <p>公司条件：只有证明技术模块支撑主营业务和收入质量，赛道优势才能转化为 IPO 重启优势。</p>
+        </div>
+        <div class="shift-step">
+          <span>04</span>
+          <p>沟通结论：后续材料应围绕“质量、良率、检测、追溯、柔性制造”组织行业价值，而不是泛泛讲锂电扩产。</p>
+        </div>
+    </div>
+    <div class="bottom-claim">新能源电池智能制造装备、机器视觉、无损检测、激光检测和工业软件均属于先进制造相关方向，但申报说服力取决于公司自身证据。</div>
+    <div class="source-note">口径：本页为行业和路径之间的过渡判断。</div></main>
+          <footer class="slide-footer">
+            <span>宁德思客琦 IPO 重启项目建议书</span>
+            <span>18 / 48</span>
+          </footer>
+        </article>
+      </div>
+    </section>
+
+    <section class="slide-shell" id="slide-19">
+      <div class="stage-frame">
+        <article class="stage dark pt-chapter_divider" data-slide="19" data-page-type="chapter_divider">
+          
+          <main class="slide-main">
+    <div class="chapter-layout image-chapter-layout">
+      <div>
+        <div class="eyebrow">SECTION 3</div>
+        <h2>IPO重启路径与上市板块选择判断</h2>
+        <p>板块选择应服务于 IPO 重启可行性判断，科创板、创业板和北交所均需结合申报条件和资料准备情况并列测算。</p>
+        <div class="chapter-tags"><span>三板节奏观察</span><span>科创板路径</span><span>创业板路径</span><span>北交所路径</span></div>
+      </div>
+    </div></main>
+          <footer class="slide-footer">
+            <span>宁德思客琦 IPO 重启项目建议书</span>
+            <span>19 / 48</span>
+          </footer>
+        </article>
+      </div>
+    </section>
+
+    <section class="slide-shell" id="slide-20">
+      <div class="stage-frame">
+        <article class="stage light pt-evidence_dashboard" data-slide="20" data-page-type="evidence_dashboard">
+          <header class="slide-header"><div><span>板块选择</span><h2>板块选择不是偏好排序，而是申报条件、行业定位和资料状态的匹配</h2></div></header>
+          <main class="slide-main">
+    <div class="dashboard-layout">
+      <div class="dashboard-grid"><div class="info-card"><span>01</span><p>共性底线：收入真实性、客户独立性、财务质量、规范性和信息披露真实准确完整，是三个板块都要回答的问题。</p></div><div class="info-card"><span>02</span><p>科创板侧重：硬科技属性、核心技术壁垒、研发投入、发明专利、核心技术收入和产业化能力。</p></div><div class="info-card"><span>03</span><p>创业板侧重：成长性、创新创业属性、业务模式解释、客户结构改善和前次审核基础承接。</p></div><div class="info-card"><span>04</span><p>北交所侧重：创新型中小企业定位、规范性基础、盈利质量、公众公司路径和时间成本。</p></div></div>
+      <aside class="implication-box">
+        <span>判断落点</span>
+        <p>同一家公司可以同时测算三条路径，但最终主路径应由财务质量、行业定位、创新属性、规范性和审核遗留事项共同决定。</p>
+      </aside>
+    </div>
+    <div class="source-note">口径：属于投行专业判断，具体标准需按现行规则和最新财务数据测算。</div></main>
+          <footer class="slide-footer">
+            <span>宁德思客琦 IPO 重启项目建议书</span>
+            <span>20 / 48</span>
+          </footer>
+        </article>
+      </div>
+    </section>
+
+    <section class="slide-shell" id="slide-21">
+      <div class="stage-frame">
+        <article class="stage light pt-standard_check" data-slide="21" data-page-type="standard_check">
+          <header class="slide-header"><div><span>板块选择</span><h2>科创板路径可优先按第一套上市标准测算</h2></div></header>
+          <main class="slide-main">
+    <div class="standard-check">
+      <div class="rule-panel">
+        <span>判断口径</span>
+        <p>历史收入和利润规模提供论证基础，后续应结合2023年至2025年及最新一期数据重新测算。</p>
+      </div>
+      <div class="check-list"><ul class="clean-list"><li>标准选择：优先按第一套标准测算，即预计市值不低于10亿元，最近两年净利润均为正且累计净利润不低于5,000万元。</li><li>备测标准：若期后利润波动，需要同步测算预计市值不低于10亿元、最近一年净利润为正且营业收入不低于1亿元的分支。</li><li>历史基础：2021年、2022年归母净利润分别为6,930.01万元、9,129.98万元，2022年营业收入11.45亿元。</li><li>重算要求：结合2023年至2025年及最新一期财务数据重新测算，不沿用历史三年直接下结论。</li><li>实质条件：满足财务标准之外，还应形成收入真实性、持续经营、客户集中和财务规范性的说明基础。</li></ul></div>
+    </div>
+    <div class="source-note">口径：公开上市规则口径及前次招股书财务数据。</div></main>
+          <footer class="slide-footer">
+            <span>宁德思客琦 IPO 重启项目建议书</span>
+            <span>21 / 48</span>
+          </footer>
+        </article>
+      </div>
+    </section>
+
+    <section class="slide-shell" id="slide-22">
+      <div class="stage-frame">
+        <article class="stage light pt-standard_check" data-slide="22" data-page-type="standard_check">
+          <header class="slide-header"><div><span>板块选择</span><h2>科创板路径的核心是主要依靠核心技术开展经营</h2></div></header>
+          <main class="slide-main">
+    <div class="standard-check">
+      <div class="rule-panel">
+        <span>判断口径</span>
+        <p>研发投入、研发人员、发明专利和收入规模只是入口，关键是核心技术是否支撑主营产品和收入。</p>
+      </div>
+      <div class="check-list"><ul class="clean-list"><li>研发投入：2020年至2022年研发投入占比分别为6.80%、3.64%、5.45%，历史口径需结合2023年至2025年最新数据重新测算。</li><li>研发人员：2022年末研发人员392人、占比38.13%；最新研发人员口径需按合并范围和岗位明细重新确认。</li><li>发明专利：历史披露发明专利3项，公开信用信息显示专利数量明显增加，但需确认发明专利、法律状态和主营业务应用。</li><li>收入规模：2022年营业收入11.45亿元，历史规模较强，关键是期后是否保持收入和利润质量。</li><li>关注重点：配套设备、配件收入和核心技术适用边界，将决定“主要依靠核心技术开展经营”的说服力。</li></ul></div>
+    </div>
+    <div class="source-note">口径：前次招股书、企查查信用报告、科创属性公开规则。</div></main>
+          <footer class="slide-footer">
+            <span>宁德思客琦 IPO 重启项目建议书</span>
+            <span>22 / 48</span>
+          </footer>
+        </article>
+      </div>
+    </section>
+
+    <section class="slide-shell" id="slide-23">
+      <div class="stage-frame">
+        <article class="stage light pt-case_layer_table" data-slide="23" data-page-type="case_layer_table">
+          <header class="slide-header"><div><span>板块选择</span><h2>2025年以来科创板过会/注册全景应先看行业分布，再看可迁移证据</h2></div></header>
+          <main class="slide-main">
+      <div class="case-ledger">
+        <div class="case-ledger-head">
+          <span>类别</span><span>代表项目</span><span>行业与主业特征</span><span>与本项目的关系</span>
+        </div>
+        
+          <div class="case-ledger-row">
+            <div><b>半导体芯片及材料</b><em>硬科技权重最高</em></div>
+            <div><p>沐曦股份、优迅股份、强一股份、摩尔线程、长鑫科技等。</p><small>口径：上交所发行上市审核项目动态、项目详情页及项目公开披露文件。</small></div>
+            <div><p>GPU及AI芯片、光通信芯片、半导体材料、存储芯片和关键制造环节。</p></div>
+            <div><p>说明科创板当前更重视关键核心技术和国产替代，但不宜作为思客琦同行可比。</p></div>
+          </div>
+          <div class="case-ledger-row">
+            <div><b>高端装备及核心部件</b><em>近似证据组织</em></div>
+            <div><p>屹唐半导体、西安泰金新能、恒运昌真空、重庆臻宝科技、江苏高凯精密等。</p><small>口径：上交所发行上市审核项目动态、项目详情页及项目公开披露文件。</small></div>
+            <div><p>半导体设备、真空系统、精密核心部件、新能源装备和关键工艺设备。</p></div>
+            <div><p>适合迁移技术模块、客户验证、项目验收、收入映射和国产替代价值的证据组织方式。</p></div>
+          </div>
+          <div class="case-ledger-row">
+            <div><b>仪器仪表及机器视觉</b><em>技术模块参考</em></div>
+            <div><p>苏州联讯仪器、易思维、频准激光、国仪量子等。</p><small>口径：上交所发行上市审核项目动态、项目详情页及项目公开披露文件。</small></div>
+            <div><p>高端测试仪器、机器视觉检测、激光检测、量子精密测量等软硬件结合场景。</p></div>
+            <div><p>可借鉴技术指标、软件算法、客户应用和核心技术收入披露方式。</p></div>
+          </div>
+          <div class="case-ledger-row">
+            <div><b>医药医疗及其他硬科技</b><em>低可比背景</em></div>
+            <div><p>必贝特、禾元生物等。</p><small>口径：上交所发行上市审核项目动态、项目详情页及项目公开披露文件。</small></div>
+            <div><p>创新药、生物医药等研发型项目。</p></div>
+            <div><p>可作为科创板审核偏好背景，不作为思客琦主业可比。</p></div>
+          </div>
+      </div>
+      <div class="bottom-claim compact">科创板恢复后，代表项目更集中于高技术壁垒、国产替代、研发强度和产业化能力。</div>
+      <div class="source-note">口径：全景按行业归类呈现，不铺全量项目名单；项目数量以官方节点证据包反算为准。</div></main>
+          <footer class="slide-footer">
+            <span>宁德思客琦 IPO 重启项目建议书</span>
+            <span>23 / 48</span>
+          </footer>
+        </article>
+      </div>
+    </section>
+
+    <section class="slide-shell" id="slide-24">
+      <div class="stage-frame">
+        <article class="stage light pt-case_layer_table" data-slide="24" data-page-type="case_layer_table">
+          <header class="slide-header"><div><span>板块选择</span><h2>科创板赛道参考边界：有近似技术链，未见完全直接可比</h2></div></header>
+          <main class="slide-main">
+      <div class="case-ledger">
+        <div class="case-ledger-head">
+          <span>类别</span><span>代表项目</span><span>行业与主业特征</span><span>与本项目的关系</span>
+        </div>
+        
+          <div class="case-ledger-row">
+            <div><b>直接可比</b><em>结论</em></div>
+            <div><p>未见与思客琦主业完全直接可比的新能源电池智能制造装备整线项目。</p><small>口径：上交所发行上市审核项目动态、项目详情页及项目公开披露文件。</small></div>
+            <div><p>思客琦仍应定位为新能源电池智能制造装备企业，而非工业软件或AI视觉单一公司。</p></div>
+            <div><p>不能用“同业已过会”替代自身财务质量、客户集中和核心技术收入论证。</p></div>
+          </div>
+          <div class="case-ledger-row">
+            <div><b>近似技术链</b><em>重点使用</em></div>
+            <div><p>易思维、苏州联讯仪器、西安泰金新能、恒运昌真空、重庆臻宝科技、江苏高凯精密。</p><small>口径：上交所发行上市审核项目动态、项目详情页及项目公开披露文件。</small></div>
+            <div><p>机器视觉、测试仪器、新能源装备、真空系统、核心部件等。</p></div>
+            <div><p>迁移的是证据组织：技术指标、产品模块、客户项目、核心技术收入和产业化验证。</p></div>
+          </div>
+          <div class="case-ledger-row">
+            <div><b>硬科技门槛</b><em>背景使用</em></div>
+            <div><p>沐曦股份、摩尔线程、长鑫科技、国仪量子、频准激光。</p><small>口径：上交所发行上市审核项目动态、项目详情页及项目公开披露文件。</small></div>
+            <div><p>芯片、量子测量、激光检测等硬科技项目。</p></div>
+            <div><p>用于说明门槛趋严，不写成思客琦同行。</p></div>
+          </div>
+      </div>
+      <div class="bottom-claim compact">思客琦不能靠早年锂电设备案例直接论证，需证明2026年业务中的检测、软件、激光和无损检测模块已形成收入支撑。</div>
+      <div class="source-note">口径：科创板案例只作为参考边界，不构成确定申报判断。</div></main>
+          <footer class="slide-footer">
+            <span>宁德思客琦 IPO 重启项目建议书</span>
+            <span>24 / 48</span>
+          </footer>
+        </article>
+      </div>
+    </section>
+
+    <section class="slide-shell" id="slide-25">
+      <div class="stage-frame">
+        <article class="stage light pt-standard_check" data-slide="25" data-page-type="standard_check">
+          <header class="slide-header"><div><span>板块选择</span><h2>创业板路径可优先按第一套标准测算，并备测第二套标准</h2></div></header>
+          <main class="slide-main">
+    <div class="standard-check">
+      <div class="rule-panel">
+        <span>判断口径</span>
+        <p>创业板的价值在于承接前次过会基础，但重启后仍需说明撤回背景、期后财务质量和审核关注事项变化。</p>
+      </div>
+      <div class="check-list"><ul class="clean-list"><li>优先标准：结合公司历史盈利规模，创业板路径可优先按“最近两年净利润均为正、累计净利润达到规则要求、最近一年净利润达到规则要求”的盈利标准测算。</li><li>备测标准：如期后净利润波动，应同步测算市值、最近一年净利润和营业收入组合标准；预计市值不能脱离融资环境和同行估值单独假设。</li><li>历史基础：公司前次创业板已于2023年通过上市委会议，具备重新沟通的历史基础和审核材料积累。</li><li>重启重点：撤回背景、二轮仍追问问题、客户集中、收入确认、毛利率和配套设备核心技术边界仍需承接。</li><li>适用状态：若科创属性论证不够强，但成长性、盈利质量和规范性基础较好，创业板可作为并列测算路径。</li></ul></div>
+    </div>
+    <div class="source-note">口径：创业板上市规则和前次深交所审核项目状态。</div></main>
+          <footer class="slide-footer">
+            <span>宁德思客琦 IPO 重启项目建议书</span>
+            <span>25 / 48</span>
+          </footer>
+        </article>
+      </div>
+    </section>
+
+    <section class="slide-shell" id="slide-26">
+      <div class="stage-frame">
+        <article class="stage light pt-case_layer_table" data-slide="26" data-page-type="case_layer_table">
+          <header class="slide-header"><div><span>板块选择</span><h2>2025年以来创业板过会/注册全景应突出成长性和电池装备可比案例</h2></div></header>
+          <main class="slide-main">
+      <div class="case-ledger">
+        <div class="case-ledger-head">
+          <span>类别</span><span>代表项目</span><span>行业与主业特征</span><span>与本项目的关系</span>
+        </div>
+        
+          <div class="case-ledger-row">
+            <div><b>新能源电池智能制造装备</b><em>直接/强可比</em></div>
+            <div><p>尚水智能、理奇智能、宏工科技。</p><small>口径：巨潮资讯创业板发行上市项目进展及招股说明书披露。</small></div>
+            <div><p>新能源电池极片制造、新材料制备、锂电制造物料智能处理、正负极材料和匀浆等装备及系统。</p></div>
+            <div><p>说明创业板并非没有电池装备可比案例，可作为思客琦创业板路径的重要参照。</p></div>
+          </div>
+          <div class="case-ledger-row">
+            <div><b>先进制造及核心部件</b><em>制造业参考</em></div>
+            <div><p>苏州绿控传动、洛阳轴承、新剑传动、越疆科技等。</p><small>口径：深交所发行上市审核项目信息公开、项目详情页及项目公开披露文件。</small></div>
+            <div><p>汽车传动、轴承、机电传动、机器人及智能硬件等制造业项目。</p></div>
+            <div><p>参考其成长性、产品迭代、客户认证和制造业创新属性表达。</p></div>
+          </div>
+          <div class="case-ledger-row">
+            <div><b>半导体及电子制造</b><em>硬科技交叉</em></div>
+            <div><p>矽电股份、粤芯半导体、越亚半导体等。</p><small>口径：深交所发行上市审核项目信息公开、项目详情页及项目公开披露文件。</small></div>
+            <div><p>半导体设备、半导体制造、电子材料、电子元器件及相关产业链。</p></div>
+            <div><p>可作为先进制造和国产替代背景，但不作为思客琦主业同业。</p></div>
+          </div>
+          <div class="case-ledger-row">
+            <div><b>医药医疗、新材料及其他</b><em>低可比背景</em></div>
+            <div><p>医疗器械、医药制造、高分子材料、化学原料和消费制造项目。</p><small>口径：深交所发行上市审核项目信息公开、项目详情页及项目公开披露文件。</small></div>
+            <div><p>与思客琦业务逻辑差异较大。</p></div>
+            <div><p>不作为主案例，只用于观察创业板行业包容度和审核节奏。</p></div>
+          </div>
+      </div>
+      <div class="bottom-claim compact">创业板已有电池制造智能装备直接或强可比案例，但仍需回到成长性、经营质量和前次审核承接。</div>
+      <div class="source-note">口径：创业板全景按行业归类呈现；电池装备可比案例以巨潮资讯项目进展和招股书为基础。</div></main>
+          <footer class="slide-footer">
+            <span>宁德思客琦 IPO 重启项目建议书</span>
+            <span>26 / 48</span>
+          </footer>
+        </article>
+      </div>
+    </section>
+
+    <section class="slide-shell" id="slide-27">
+      <div class="stage-frame">
+        <article class="stage light pt-case_layer_table" data-slide="27" data-page-type="case_layer_table">
+          <header class="slide-header"><div><span>板块选择</span><h2>创业板赛道参考边界：存在直接/强可比案例，但环节并不完全相同</h2></div></header>
+          <main class="slide-main">
+      <div class="case-ledger">
+        <div class="case-ledger-head">
+          <span>类别</span><span>代表项目</span><span>行业与主业特征</span><span>与本项目的关系</span>
+        </div>
+        
+          <div class="case-ledger-row">
+            <div><b>直接/强可比</b><em>重点案例</em></div>
+            <div><p>尚水智能、理奇智能、宏工科技。</p><small>口径：巨潮资讯创业板发行上市项目进展及招股说明书披露。</small></div>
+            <div><p>覆盖制浆、涂布、辊压、分切、物料智能处理、正负极材料和匀浆等新能源电池制造装备环节。</p></div>
+            <div><p>可用于说明创业板存在电池制造智能装备案例，不宜再写成“没有直接可比”。</p></div>
+          </div>
+          <div class="case-ledger-row">
+            <div><b>差异边界</b><em>适用边界</em></div>
+            <div><p>上述项目主要偏电芯前段、材料制备或物料处理。</p><small>口径：项目招股书主营业务描述及思客琦前次招股书。</small></div>
+            <div><p>思客琦前次披露主业更偏模组/PACK、产线集成和后段智能装备交付。</p></div>
+            <div><p>可以作为强可比参照，但与思客琦产品环节并不完全相同。</p></div>
+          </div>
+          <div class="case-ledger-row">
+            <div><b>前次基础</b><em>项目历史</em></div>
+            <div><p>思客琦前次创业板IPO项目。</p><small>前次招股书、问询回复、深交所公开项目状态。</small></div>
+            <div><p>2022年受理、2023年上市委会议通过、2024年撤回终止。</p></div>
+            <div><p>可承接既有问询回复、审核关注事项和过会基础，但需解释撤回背景及期后变化。</p></div>
+          </div>
+          <div class="case-ledger-row">
+            <div><b>可迁移证据</b><em>重点事项</em></div>
+            <div><p>2025年以来创业板电池装备和先进制造项目。</p><small>口径：深交所发行上市审核项目信息公开、项目详情页及项目公开披露文件。</small></div>
+            <div><p>通常围绕收入增长、盈利稳定、客户拓展、产品迭代、项目验收和经营现金流组织说明。</p></div>
+            <div><p>思客琦需补2023年至2026年收入、利润、订单、客户、验收和回款数据。</p></div>
+          </div>
+      </div>
+      <div class="bottom-claim compact">创业板已有电池制造装备可比案例，能支持并列测算；但思客琦仍需解释前次撤回、期后财务质量和后段装备业务差异。</div>
+      <div class="source-note">口径：创业板案例用于路径测算和问题承接，不作为忽略前次审核事项、客户集中或收入确认问题的依据。</div></main>
+          <footer class="slide-footer">
+            <span>宁德思客琦 IPO 重启项目建议书</span>
+            <span>27 / 48</span>
+          </footer>
+        </article>
+      </div>
+    </section>
+
+    <section class="slide-shell" id="slide-28">
+      <div class="stage-frame">
+        <article class="stage light pt-standard_check" data-slide="28" data-page-type="standard_check">
+          <header class="slide-header"><div><span>板块选择</span><h2>北交所路径可优先按第一套盈利标准测算，但存在挂牌和创新层前置成本</h2></div></header>
+          <main class="slide-main">
+    <div class="standard-check">
+      <div class="rule-panel">
+        <span>判断口径</span>
+        <p>北交所可作为务实备选，但前提仍是规范性、盈利质量、持续经营和公众公司路径条件具备基础。</p>
+      </div>
+      <div class="check-list"><ul class="clean-list"><li>优先标准：如考虑北交所，思客琦可先按第一套盈利标准测算，即市值、最近两年净利润和加权平均净资产收益率组合条件。</li><li>备测标准：收入增长和现金流组合标准可作为备测，但公司历史经营现金流波动较大，不宜作为当前主测标准。</li><li>路径条件：需要评估是否具备新三板挂牌、进入创新层、公众公司治理、股本安排和时间成本。</li><li>重启重点：北交所同样关注收入真实性、客户集中、规范性、持续经营和信息披露质量。</li><li>适用状态：若科创板论证强度不足、创业板节奏不优，但盈利质量和规范性基础较好，可作为务实备选。</li></ul></div>
+    </div>
+    <div class="source-note">口径：北交所上市规则及公司历史财务口径；是否适用需结合挂牌路径测算。</div></main>
+          <footer class="slide-footer">
+            <span>宁德思客琦 IPO 重启项目建议书</span>
+            <span>28 / 48</span>
+          </footer>
+        </article>
+      </div>
+    </section>
+
+    <section class="slide-shell" id="slide-29">
+      <div class="stage-frame">
+        <article class="stage light pt-case_layer_table" data-slide="29" data-page-type="case_layer_table">
+          <header class="slide-header"><div><span>板块选择</span><h2>2025年以来北交所过会/注册全景应围绕专精特新和细分制造业观察</h2></div></header>
+          <main class="slide-main">
+      <div class="case-ledger">
+        <div class="case-ledger-head">
+          <span>类别</span><span>代表项目</span><span>行业与主业特征</span><span>与本项目的关系</span>
+        </div>
+        
+          <div class="case-ledger-row">
+            <div><b>先进制造及工业基础件</b><em>主要参考</em></div>
+            <div><p>金万众、广泰真空、长鹰硬科等。</p><small>口径：北交所审核项目动态、项目详情页及项目公开披露文件；进入路径测算时需逐项目复核节点。</small></div>
+            <div><p>机械设备、真空设备、硬质材料、工业基础件等。</p></div>
+            <div><p>参考细分行业地位、稳定盈利、规范经营和持续创新能力表达。</p></div>
+          </div>
+          <div class="case-ledger-row">
+            <div><b>汽车及零部件</b><em>制造业参考</em></div>
+            <div><p>莫森泰克等。</p><small>口径：北交所审核项目动态、项目详情页及项目公开披露文件；进入路径测算时需逐项目复核节点。</small></div>
+            <div><p>汽车零部件、智能制造配套和产业链协同。</p></div>
+            <div><p>参考客户认证、供应链位置和盈利质量披露。</p></div>
+          </div>
+          <div class="case-ledger-row">
+            <div><b>材料、化工及其他</b><em>补充参考</em></div>
+            <div><p>以北交所项目动态和招股书逐项复核后列示。</p><small>口径：北交所审核项目动态、项目详情页及项目公开披露文件；进入路径测算时需逐项目复核节点。</small></div>
+            <div><p>细分材料、化工、消费制造和信息技术等。</p></div>
+            <div><p>用于观察北交所行业包容度，不作为思客琦主案例。</p></div>
+          </div>
+      </div>
+      <div class="bottom-claim compact">北交所不是问题规避路径，而是在规范性和盈利质量具备基础时，对申报节奏和市场定位的务实选择。</div>
+      <div class="source-note">口径：北交所全景页采用与科创板、创业板相同结构；本页不列项目数量，进入路径测算时再逐项目复核官方节点。</div></main>
+          <footer class="slide-footer">
+            <span>宁德思客琦 IPO 重启项目建议书</span>
+            <span>29 / 48</span>
+          </footer>
+        </article>
+      </div>
+    </section>
+
+    <section class="slide-shell" id="slide-30">
+      <div class="stage-frame">
+        <article class="stage light pt-case_layer_table" data-slide="30" data-page-type="case_layer_table">
+          <header class="slide-header"><div><span>板块选择</span><h2>北交所赛道参考边界：未见同等直接可比，可参考近似技术链</h2></div></header>
+          <main class="slide-main">
+      <div class="case-ledger">
+        <div class="case-ledger-head">
+          <span>类别</span><span>代表项目</span><span>行业与主业特征</span><span>与本项目的关系</span>
+        </div>
+        
+          <div class="case-ledger-row">
+            <div><b>直接可比</b><em>结论</em></div>
+            <div><p>未见与思客琦同等直接可比的2025年以来北交所注册案例。</p><small>口径：北交所审核项目动态、巨潮资讯招股书披露及项目公开文件。</small></div>
+            <div><p>北交所更接近的是智能装备、新能源应用、汽车新能源三电设备和工业基础件。</p></div>
+            <div><p>北交所只能作为备选测算，不宜写成主路径或替代专项完善安排。</p></div>
+          </div>
+          <div class="case-ledger-row">
+            <div><b>近似技术链</b><em>可参考</em></div>
+            <div><p>奥美森、大鹏工业、巴兰仕、三协电机、酉立智能等。</p><small>口径：北交所审核项目动态、巨潮资讯招股书披露及项目公开文件。</small></div>
+            <div><p>智能生产设备、工业精密清洗、汽车维修检测、运动控制部件、光伏支架核心零部件等。</p></div>
+            <div><p>迁移细分市场地位、客户认证、盈利稳定性、存货应收和持续经营说明。</p></div>
+          </div>
+          <div class="case-ledger-row">
+            <div><b>路径成本</b><em>单独评估</em></div>
+            <div><p>已挂牌后申报或挂牌后进入创新层项目。</p><small>北交所及股转系统规则。</small></div>
+            <div><p>路径涉及挂牌、创新层、辅导、申报和审核多环节。</p></div>
+            <div><p>需与科创板、创业板重新申报的时间、确定性和市场接受度并列比较。</p></div>
+          </div>
+      </div>
+      <div class="bottom-claim compact">北交所未见与思客琦同等直接可比的电池制造装备案例，路径重点仍是规范基础、盈利质量和时间成本。</div>
+      <div class="source-note">口径：北交所路径只作为并列测算，不以板块调整替代资料准备。</div></main>
+          <footer class="slide-footer">
+            <span>宁德思客琦 IPO 重启项目建议书</span>
+            <span>30 / 48</span>
+          </footer>
+        </article>
+      </div>
+    </section>
+
+    <section class="slide-shell" id="slide-31">
+      <div class="stage-frame">
+        <article class="stage light pt-case_layer_table" data-slide="31" data-page-type="case_layer_table">
+          <header class="slide-header"><div><span>板块选择</span><h2>可参考案例迁移的是证据组织方式，不是简单寻找同行替代</h2></div></header>
+          <main class="slide-main">
+      <div class="case-transfer-table">
+        <div class="case-transfer-head">
+          <span>案例</span><span>可迁移证据</span><span>适用边界</span>
+        </div>
+        
+          <div class="case-transfer-row">
+            <div><b>尚水智能、理奇智能、宏工科技</b><small>口径：巨潮资讯创业板发行上市项目进展及招股说明书披露。</small></div>
+            <div><p>创业板电池制造装备或锂电制造物料处理项目，可迁移项目制装备、客户验证、验收周期、收入确认、成长性和经营质量说明方式。</p></div>
+            <div><p>作为创业板直接/强可比案例使用，但需说明其主要偏电芯前段、材料制备或物料处理，不等同于思客琦模组/PACK后段环节。</p></div>
+          </div>
+          <div class="case-transfer-row">
+            <div><b>易思维</b><small>公开披露来源：上交所项目披露文件/公开案例材料。</small></div>
+            <div><p>机器视觉检测设备的核心技术、产品模块、客户场景、技术指标和核心技术收入映射方式。</p></div>
+            <div><p>作为机器视觉和检测模块披露参考，不将其写成新能源电池装备同行。</p></div>
+          </div>
+          <div class="case-transfer-row">
+            <div><b>苏州联讯仪器</b><small>公开披露来源：上交所项目详情页及招股书披露。</small></div>
+            <div><p>高端测试仪器在技术指标、客户验证、国产替代和产品收入之间的证据表达。</p></div>
+            <div><p>可保留，但定位为高端测试仪器/半导体测试设备参考，不作为新能源装备同行。</p></div>
+          </div>
+          <div class="case-transfer-row">
+            <div><b>奥美森、大鹏工业等北交所近似技术链项目</b><small>口径：北交所审核项目动态、巨潮资讯招股书披露及项目公开文件。</small></div>
+            <div><p>智能装备、新能源应用、汽车新能源三电设备和工业基础件的细分行业地位、客户认证、盈利稳定性和规范经营说明。</p></div>
+            <div><p>北交所未见同等直接可比案例，不能把近似技术链写成同业可比或降低审核要求。</p></div>
+          </div>
+          <div class="case-transfer-row">
+            <div><b>西安泰金新能、恒运昌真空、重庆臻宝科技</b><small>公开披露来源：上交所项目动态及公开披露文件。</small></div>
+            <div><p>新能源成套装备、真空系统、核心零部件国产替代、客户认证和设备供应链价值表达。</p></div>
+            <div><p>用于说明硬科技证据组织要求，不作为思客琦同行可比公司。</p></div>
+          </div>
+      </div>
+      <div class="bottom-claim compact">科创板、创业板和北交所案例的共同价值，是帮助公司拆解技术模块、客户验证、财务质量和审核事项承接方式。</div>
+      <div class="source-note">口径：案例迁移页不铺全量名单，聚焦证据组织和适用边界。</div></main>
+          <footer class="slide-footer">
+            <span>宁德思客琦 IPO 重启项目建议书</span>
+            <span>31 / 48</span>
+          </footer>
+        </article>
+      </div>
+    </section>
+
+    <section class="slide-shell" id="slide-32">
+      <div class="stage-frame">
+        <article class="stage light pt-path_matrix" data-slide="32" data-page-type="path_matrix">
+          <header class="slide-header"><div><span>板块选择</span><h2>最终路径应由四类资料状态决定</h2></div></header>
+          <main class="slide-main">
+      <div class="decision-matrix">
+        <div class="decision-cell decision-corner">路径选择</div>
+        <div class="decision-cell decision-path"><b>科创板</b><span>主攻路径</span></div><div class="decision-cell decision-path"><b>创业板</b><span>并列测算</span></div><div class="decision-cell decision-path"><b>北交所</b><span>务实备选</span></div><div class="decision-cell decision-path"><b>阶段性完善</b><span>择机推进</span></div>
+        <div class="decision-cell decision-label">证据状态</div>
+        <div class="decision-cell"><p>财务质量稳定，科创属性和核心技术收入映射可以形成说明基础。</p></div><div class="decision-cell"><p>前次过会基础可解释，创新成长性和前次审核延续事项可承接。</p></div><div class="decision-cell"><p>规范性、盈利质量、持续经营和公众公司路径条件较好。</p></div><div class="decision-cell"><p>重点事项尚未形成可核验说明，或期后财务、撤回背景等事项仍需进一步梳理。</p></div>
+        <div class="decision-cell decision-label">适用条件</div>
+        <div class="decision-cell"><p>2026年业务可证明从新能源电池智能制造装备延展出检测、软件、激光等产业化模块。</p></div><div class="decision-cell"><p>科创属性论证不够强，但成长性、盈利质量和规范性具备重新沟通基础。</p></div><div class="decision-cell"><p>科创板说服力偏弱，但客户集中和收入确认事项具备说明基础。</p></div><div class="decision-cell"><p>客户、收入、现金流、存货、核心技术收入或规范性事项尚需补充资料和说明。</p></div>
+        <div class="decision-cell decision-label">下一步动作</div>
+        <div class="decision-cell"><p>完成财务质量测算、核心技术收入拆分、客户集中事项梳理和案例口径梳理。</p></div><div class="decision-cell"><p>复盘撤回背景、二轮仍追问问题和期后经营变化，判断是否沿用前次审核基础。</p></div><div class="decision-cell"><p>另行测算股本、挂牌路径、财务规模、投资者接受度和时间成本。</p></div><div class="decision-cell"><p>先完成专项论证和资料完善，再择机重启，不以板块调整替代资料准备。</p></div>
+        <div class="decision-cell decision-label">边界</div>
+        <div class="decision-cell"><p>在申报条件和资料准备尚未充分时，不提前形成确定申报判断。</p></div><div class="decision-cell"><p>同步完善收入真实性、客户集中和毛利率说明。</p></div><div class="decision-cell"><p>结合挂牌和创新层前置条件进行适用性判断。</p></div><div class="decision-cell"><p>阶段性完善有助于保存申报窗口和推进资源。</p></div>
+      </div>
+      <div class="bottom-claim compact">科创板、创业板、北交所和阶段性完善安排不是偏好排序，而是不同资料状态下的推进选择。</div>
+      <div class="source-note">口径：路径矩阵为投行专业判断，需结合后续尽调资料更新。</div></main>
+          <footer class="slide-footer">
+            <span>宁德思客琦 IPO 重启项目建议书</span>
+            <span>32 / 48</span>
+          </footer>
+        </article>
+      </div>
+    </section>
+
+    <section class="slide-shell" id="slide-33">
+      <div class="stage-frame">
+        <article class="stage dark pt-chapter_divider" data-slide="33" data-page-type="chapter_divider">
+          
+          <main class="slide-main">
+    <div class="chapter-layout image-chapter-layout">
+      <div>
+        <div class="eyebrow">SECTION 4</div>
+        <h2>本次重启需要重点承接的公开审核事项</h2>
+        <p>公开问询和招股书已经显示的延续问题，应先转化为专项论证和资料完善安排。</p>
+        <div class="chapter-tags"><span>二轮仍重点追问</span><span>阶段性回复复核</span><span>持续性风险重审</span><span>撤回背景说明</span></div>
+      </div>
+    </div></main>
+          <footer class="slide-footer">
+            <span>宁德思客琦 IPO 重启项目建议书</span>
+            <span>33 / 48</span>
+          </footer>
+        </article>
+      </div>
+    </section>
+
+    <section class="slide-shell" id="slide-34">
+      <div class="stage-frame">
+        <article class="stage light pt-timeline" data-slide="34" data-page-type="timeline">
+          <header class="slide-header"><div><span>审核事项</span><h2>前次审核问题应按延续性重新分层，而不是简单罗列问询</h2></div></header>
+          <main class="slide-main">
+    <div class="timeline">
+      
+        <div class="timeline-node">
+          <div class="dot">01</div>
+          <p>二轮仍重点追问：毛利率下滑且低于同行、配套设备及配件收入占比上升、研发费用率和专利数量、供应链依赖。</p>
+        </div>
+        <div class="timeline-node">
+          <div class="dot">02</div>
+          <p>阶段性回复复核：创业板定位、创新成长性等首轮问题虽未在二轮财务专项中集中呈现，仍需确认最终落实情况。</p>
+        </div>
+        <div class="timeline-node">
+          <div class="dot">03</div>
+          <p>持续性风险重审：客户集中、宁德时代依赖、项目制收入确认、验收周期、应收账款、现金流和存货。</p>
+        </div>
+        <div class="timeline-node">
+          <div class="dot">04</div>
+          <p>前置事项：公开终止决定未披露撤回背景，公司可在沟通阶段说明具体背景及当前解决状态。</p>
+        </div>
+    </div>
+    <div class="bottom-claim">毛利率、配套设备及配件核心技术边界、研发专利、供应链依赖属于二轮仍重点关注事项。</div>
+    <div class="source-note">口径：依据前次公开问询和现有备忘录整理。</div></main>
+          <footer class="slide-footer">
+            <span>宁德思客琦 IPO 重启项目建议书</span>
+            <span>34 / 48</span>
+          </footer>
+        </article>
+      </div>
+    </section>
+
+    <section class="slide-shell" id="slide-35">
+      <div class="stage-frame">
+        <article class="stage light pt-issue_workpack" data-slide="35" data-page-type="issue_workpack">
+          <header class="slide-header"><div><span>审核事项</span><h2>专项一：客户集中和宁德时代收入占比较高是重启论证重点事项</h2></div></header>
+          <main class="slide-main">
+    <div class="workpack">
+      <div class="workpack-claim">前次披露显示客户集中度较高，期后是否改善会直接影响收入稳定性和独立性判断。</div>
+      <div class="workpack-items">
+        
+          <div>
+            <span>01</span>
+            <p>历史事实：2020年至2022年前五大客户收入占比分别为68.76%、85.97%、85.33%，客户集中度持续较高。</p>
+          </div>
+          <div>
+            <span>02</span>
+            <p>核心客户：2020年至2022年宁德时代收入占比分别为43.31%、65.71%、54.39%，对宁德时代收入占比较高。</p>
+          </div>
+          <div>
+            <span>03</span>
+            <p>期后核验：需取得2023年至2026年客户结构、订单来源、合同条款、议价能力、新增客户和存量客户变化。</p>
+          </div>
+          <div>
+            <span>04</span>
+            <p>核查输出：形成客户集中度趋势、宁德时代收入占比变化、客户独立性和收入稳定性的专项判断。</p>
+          </div>
+      </div>
+    </div>
+    <div class="source-note">口径：历史数据来自前次招股书；期后数据待公司提供。</div></main>
+          <footer class="slide-footer">
+            <span>宁德思客琦 IPO 重启项目建议书</span>
+            <span>35 / 48</span>
+          </footer>
+        </article>
+      </div>
+    </section>
+
+    <section class="slide-shell" id="slide-36">
+      <div class="stage-frame">
+        <article class="stage light pt-issue_workpack" data-slide="36" data-page-type="issue_workpack">
+          <header class="slide-header"><div><span>审核事项</span><h2>专项二：项目制收入、验收周期、存货和现金流需要穿透核查</h2></div></header>
+          <main class="slide-main">
+    <div class="workpack">
+      <div class="workpack-claim">非标装备项目的验收和回款节奏，是判断收入质量和申报窗口的重要基础。</div>
+      <div class="workpack-items">
+        
+          <div>
+            <span>01</span>
+            <p>现金流事实：2020年至2022年经营活动现金流净额分别为-4,163.29万元、9,992.75万元、2,076.36万元，现金流波动明显。</p>
+          </div>
+          <div>
+            <span>02</span>
+            <p>存货事实：2020年至2022年存货账面价值分别为11,766.76万元、25,513.67万元、63,920.55万元，2022年末存货规模大幅增加。</p>
+          </div>
+          <div>
+            <span>03</span>
+            <p>项目制核验重点：非标装备验收、发出商品、在执行订单和回款节奏会直接影响收入确认质量。</p>
+          </div>
+          <div>
+            <span>04</span>
+            <p>期后核验：需穿透发出商品、验收单据、应收账款、回款、合同里程碑和收入确认依据。</p>
+          </div>
+      </div>
+    </div>
+    <div class="source-note">口径：历史数据来自前次招股书；期后项目明细和验收资料待公司提供。</div></main>
+          <footer class="slide-footer">
+            <span>宁德思客琦 IPO 重启项目建议书</span>
+            <span>36 / 48</span>
+          </footer>
+        </article>
+      </div>
+    </section>
+
+    <section class="slide-shell" id="slide-37">
+      <div class="stage-frame">
+        <article class="stage light pt-issue_workpack" data-slide="37" data-page-type="issue_workpack">
+          <header class="slide-header"><div><span>审核事项</span><h2>专项三：毛利率、产品结构和核心技术边界需要形成专项说明</h2></div></header>
+          <main class="slide-main">
+    <div class="workpack">
+      <div class="workpack-claim">配套设备及配件收入是否使用核心技术，直接关系到科创板“主要依靠核心技术经营”的判断。</div>
+      <div class="workpack-items">
+        
+          <div>
+            <span>01</span>
+            <p>毛利率事实：2020年至2022年综合毛利率分别为23.72%、19.04%、19.46%，前次问询已关注毛利率下滑及低于同行。</p>
+          </div>
+          <div>
+            <span>02</span>
+            <p>产品结构：配套设备及配件收入占比上升，并被追问相关销售是否使用发行人核心技术。</p>
+          </div>
+          <div>
+            <span>03</span>
+            <p>科创影响：需确认核心技术覆盖主要收入的范围和比例，以支撑科创板“主要依靠核心技术经营”的判断。</p>
+          </div>
+          <div>
+            <span>04</span>
+            <p>需拆资料：产品类型、收入金额、毛利率、核心技术使用情况、外购设备占比和项目定价机制。</p>
+          </div>
+          <div>
+            <span>05</span>
+            <p>完成标准：形成产品结构与核心技术收入映射表，并能解释毛利率差异和变化原因。</p>
+          </div>
+      </div>
+    </div>
+    <div class="source-note">口径：前次公开资料可支持问题来源；当前状态待公司补充。</div></main>
+          <footer class="slide-footer">
+            <span>宁德思客琦 IPO 重启项目建议书</span>
+            <span>37 / 48</span>
+          </footer>
+        </article>
+      </div>
+    </section>
+
+    <section class="slide-shell" id="slide-38">
+      <div class="stage-frame">
+        <article class="stage light pt-issue_workpack" data-slide="38" data-page-type="issue_workpack">
+          <header class="slide-header"><div><span>审核事项</span><h2>专项四：专利软著需对应产品模块、客户应用和核心技术收入</h2></div></header>
+          <main class="slide-main">
+    <div class="workpack">
+      <div class="workpack-claim">专利和软著数量改善只是起点，审核需要看到技术成果如何支撑主营业务和收入。</div>
+      <div class="workpack-items">
+        
+          <div>
+            <span>01</span>
+            <p>数量线索：公开信用信息列示专利238项、软件著作权40项，支持技术储备改善的正面叙事。</p>
+          </div>
+          <div>
+            <span>02</span>
+            <p>权利核验：需确认发明专利数量、授权状态、有效期限、权利限制、共同权利人和是否存在质押或纠纷。</p>
+          </div>
+          <div>
+            <span>03</span>
+            <p>产品映射：将AI视觉、X-ray/CT检测、激光控制、数据平台等技术成果对应到具体设备和软件模块。</p>
+          </div>
+          <div>
+            <span>04</span>
+            <p>收入映射：将技术模块进一步对应到客户项目、合同收入、验收情况和核心技术收入占比。</p>
+          </div>
+          <div>
+            <span>05</span>
+            <p>披露目标：让专利软著从“数量展示”变成“主营业务由核心技术支撑”的证据链。</p>
+          </div>
+      </div>
+    </div>
+    <div class="source-note">口径：数量来自公开信用信息；应用和收入映射待公司资料验证。</div></main>
+          <footer class="slide-footer">
+            <span>宁德思客琦 IPO 重启项目建议书</span>
+            <span>38 / 48</span>
+          </footer>
+        </article>
+      </div>
+    </section>
+
+    <section class="slide-shell" id="slide-39">
+      <div class="stage-frame">
+        <article class="stage light pt-issue_workpack" data-slide="39" data-page-type="issue_workpack">
+          <header class="slide-header"><div><span>审核事项</span><h2>前次撤回背景是重启窗口判断的前置事项</h2></div></header>
+          <main class="slide-main">
+    <div class="workpack">
+      <div class="workpack-claim">公开终止决定仅披露撤回申请，管理层可在沟通阶段说明撤回背景及当前解决状态。</div>
+      <div class="workpack-items">
+        
+          <div>
+            <span>01</span>
+            <p>公开事实：2024年7月11日，发行人及保荐人撤回创业板IPO申请，深交所终止审核。</p>
+          </div>
+          <div>
+            <span>02</span>
+            <p>表达边界：公开信息不支持推断具体撤回背景，也不支持推断监管沟通细节或项目实质障碍。</p>
+          </div>
+          <div>
+            <span>03</span>
+            <p>说明事项：撤回是否涉及财务质量、客户结构、规范性、科创属性、发行窗口或其他事项。</p>
+          </div>
+          <div>
+            <span>04</span>
+            <p>重启影响：撤回背景及解决状态将影响重启时间窗口、主路径优先级和阶段性完善安排。</p>
+          </div>
+          <div>
+            <span>05</span>
+            <p>沟通输出：形成“继续推进、重点完善后推进、阶段性观察”三类判断，而非直接承诺申报。</p>
+          </div>
+      </div>
+    </div>
+    <div class="source-note">口径：本页仅基于公开终止事实和待尽调事项设置。</div></main>
+          <footer class="slide-footer">
+            <span>宁德思客琦 IPO 重启项目建议书</span>
+            <span>39 / 48</span>
+          </footer>
+        </article>
+      </div>
+    </section>
+
+    <section class="slide-shell" id="slide-40">
+      <div class="stage-frame">
+        <article class="stage dark pt-chapter_divider" data-slide="40" data-page-type="chapter_divider">
+          
+          <main class="slide-main">
+    <div class="chapter-layout image-chapter-layout">
+      <div>
+        <div class="eyebrow">SECTION 5</div>
+        <h2>为什么选择投行七部作为保荐团队</h2>
+        <p>IPO重启需要持续组织复杂事项、监管沟通和资本市场表达，保荐团队的协同能力会直接影响推进效率。</p>
+        <div class="chapter-tags"><span>平台资源</span><span>项目团队</span><span>历史案例</span><span>发行表达</span></div>
+      </div>
+    </div></main>
+          <footer class="slide-footer">
+            <span>宁德思客琦 IPO 重启项目建议书</span>
+            <span>40 / 48</span>
+          </footer>
+        </article>
+      </div>
+    </section>
+
+    <section class="slide-shell" id="slide-41">
+      <div class="stage-frame">
+        <article class="stage light pt-case_layer_table" data-slide="41" data-page-type="case_layer_table">
+          <header class="slide-header"><div><span>选择保荐团队</span><h2>IPO重启项目需要稳定的组织能力和持续推进机制</h2></div></header>
+          <main class="slide-main">
+      <div class="case-ledger">
+        <div class="case-ledger-head">
+          <span>类别</span><span>代表项目</span><span>行业与主业特征</span><span>与本项目的关系</span>
+        </div>
+        
+          <div class="case-ledger-row">
+            <div><b>机制基础</b><em>平台与效率</em></div>
+            <div><p>国金证券为上市券商，投行业务实行扁平化管理，项目组可协调投行、研究、资本市场和质控资源。</p><small>口径：国金投行项目建议书素材。</small></div>
+            <div><p>重启项目涉及预沟通、专项论证、质量复核和申报节奏安排，需要多条线协同推进。</p></div>
+            <div><p>有利于本项目在资料开放后较快形成重点事项清单和路径判断。</p></div>
+          </div>
+          <div class="case-ledger-row">
+            <div><b>项目匹配</b><em>民营制造</em></div>
+            <div><p>国金投行长期服务成长型、创新型企业，参考项目涵盖新能源与汽车、高端制造、信息技术等方向。</p><small>口径：项目建议书素材及本项目预审资料。</small></div>
+            <div><p>思客琦属于新能源电池智能制造装备企业，重启重点包括财务质量、审核延续事项和技术属性表达。</p></div>
+            <div><p>相关经验可用于本项目的问题拆解、证据组织和板块路径比较。</p></div>
+          </div>
+          <div class="case-ledger-row">
+            <div><b>团队风格</b><em>稳定协同</em></div>
+            <div><p>参考国金投行项目建议书素材，华南团队骨干长期共事，强调务实、高效和项目现场推进。</p><small>口径：国金投行项目建议书素材。</small></div>
+            <div><p>IPO重启需要保荐代表人、现场执行、行业研究、资本市场和质量复核持续协同。</p></div>
+            <div><p>有利于在资料开放、问题论证、监管沟通和发行准备之间保持稳定节奏。</p></div>
+          </div>
+          <div class="case-ledger-row">
+            <div><b>工作体系</b><em>客户视角</em></div>
+            <div><p>项目推进需要签字保代、现场团队、行业研究、资本市场和质量复核共同参与。</p><small>口径：本项目建议书定位。</small></div>
+            <div><p>思客琦当前更需要形成管理层、监管机构和投资者均可理解的IPO重启方案。</p></div>
+            <div><p>投行七部可提供持续讨论、持续更新和持续复核的项目组织支持。</p></div>
+          </div>
+      </div>
+      <div class="bottom-claim compact">思客琦项目需要同步推进前次审核承接、期后经营更新、板块选择和发行表达。</div>
+      <div class="source-note">口径：能力介绍页，不构成审核结果或发行结果承诺。</div></main>
+          <footer class="slide-footer">
+            <span>宁德思客琦 IPO 重启项目建议书</span>
+            <span>41 / 48</span>
+          </footer>
+        </article>
+      </div>
+    </section>
+
+    <section class="slide-shell" id="slide-42">
+      <div class="stage-frame">
+        <article class="stage light pt-case_layer_table" data-slide="42" data-page-type="case_layer_table">
+          <header class="slide-header"><div><span>选择保荐团队</span><h2>国金投行平台可提供规模、质量评价和跨条线资源支撑</h2></div></header>
+          <main class="slide-main">
+      <div class="case-ledger">
+        <div class="case-ledger-head">
+          <span>类别</span><span>代表项目</span><span>行业与主业特征</span><span>与本项目的关系</span>
+        </div>
+        
+          <div class="case-ledger-row">
+            <div><b>投行平台</b><em>资源基础</em></div>
+            <div><p>国金投行团队接近900人，注册保荐代表人近300名；累计完成项目数量超过1,750个/只。</p><small>口径：国金投行项目建议书素材。</small></div>
+            <div><p>覆盖IPO及北交所、再融资、并购重组、债券主承销、新三板挂牌及定增等业务类型。</p></div>
+            <div><p>可为本项目的重启论证、审核沟通和发行准备提供跨条线支持。</p></div>
+          </div>
+          <div class="case-ledger-row">
+            <div><b>质量评价</b><em>执业基础</em></div>
+            <div><p>项目建议书素材显示，国金证券在中国证券业协会2025年证券公司投行业务质量评价中获得A类评价。</p><small>口径：国金投行项目建议书素材。</small></div>
+            <div><p>IPO重启项目在预沟通阶段即需要纳入质控、内核和签字责任视角。</p></div>
+            <div><p>有助于在推进效率和执业质量之间形成更稳定的工作安排。</p></div>
+          </div>
+          <div class="case-ledger-row">
+            <div><b>人员构成</b><em>项目组织</em></div>
+            <div><p>建议由部门负责人/高级协调人、项目负责人、保荐代表人、现场执行、行业研究、资本市场、质控内核支持共同组成项目组。</p><small>口径：参考国金投行项目建议书组织机制。</small></div>
+            <div><p>各角色分别负责客户沟通、资料推进、申报判断、行业表达、发行沟通和质量复核。</p></div>
+            <div><p>有利于保持预沟通、资料完善、申报判断和发行准备之间的连续性。</p></div>
+          </div>
+          <div class="case-ledger-row">
+            <div><b>协同机制</b><em>效率保障</em></div>
+            <div><p>扁平化沟通机制下，项目组可围绕重点事项协调投行、研究、销售交易和质量控制资源。</p><small>口径：国金投行项目建议书素材。</small></div>
+            <div><p>本项目涉及客户集中、收入确认、科创属性、板块选择等事项同步推进。</p></div>
+            <div><p>可形成一体化项目组织，而非单点顾问支持。</p></div>
+          </div>
+      </div>
+      <div class="bottom-claim compact">七部项目执行可依托国金投行平台，将项目判断、质量控制、研究和发行资源组织到同一条工作线上。</div>
+      <div class="source-note">口径：平台数据采用参考项目建议书素材口径，正式对外使用前建议由公司最新口径复核。</div></main>
+          <footer class="slide-footer">
+            <span>宁德思客琦 IPO 重启项目建议书</span>
+            <span>42 / 48</span>
+          </footer>
+        </article>
+      </div>
+    </section>
+
+    <section class="slide-shell" id="slide-43">
+      <div class="stage-frame">
+        <article class="stage light pt-case_layer_table" data-slide="43" data-page-type="case_layer_table">
+          <header class="slide-header"><div><span>选择保荐团队</span><h2>历史案例覆盖新能源与汽车、高端制造、信息技术等相关方向</h2></div></header>
+          <main class="slide-main">
+      <div class="case-ledger">
+        <div class="case-ledger-head">
+          <span>类别</span><span>代表项目</span><span>行业与主业特征</span><span>与本项目的关系</span>
+        </div>
+        
+          <div class="case-ledger-row">
+            <div><b>新能源与汽车</b><em>产业链经验</em></div>
+            <div><p>华丰股份、恒帅股份、正强股份、超捷股份、苏奥传感、冠盛股份、松原股份、华培动力等。</p><small>口径：国金投行项目建议书素材。</small></div>
+            <div><p>汽车发动机、结构件及模具、安全气囊、检测设备、汽车零部件等产业链环节。</p></div>
+            <div><p>相关经验可用于动力电池装备客户的制造业场景、客户验证、质量控制和供应链表达。</p></div>
+          </div>
+          <div class="case-ledger-row">
+            <div><b>高端制造</b><em>制造属性</em></div>
+            <div><p>公牛集团、立达信、西力科技等。</p><small>口径：国金投行项目建议书素材。</small></div>
+            <div><p>智能仪表、电子电气、智能控制系统、光学仪器、PCB等高端制造方向。</p></div>
+            <div><p>可为本项目的智能装备、检测设备、工业控制和制造能力表达提供参照。</p></div>
+          </div>
+          <div class="case-ledger-row">
+            <div><b>信息技术</b><em>软件表达</em></div>
+            <div><p>开普云、光庭信息、浩瀚深度、钜泉科技等。</p><small>口径：国金投行项目建议书素材。</small></div>
+            <div><p>软件平台、汽车软件、网络智能化、芯片及信息技术相关业务。</p></div>
+            <div><p>可借鉴软件算法和平台化能力表达，同时保持思客琦新能源电池智能制造装备的主业定位。</p></div>
+          </div>
+          <div class="case-ledger-row">
+            <div><b>科创复杂项目</b><em>审核经验</em></div>
+            <div><p>特宝生物、上海谊众、浩瀚深度、钜泉科技等科创板项目。</p><small>口径：国金投行项目建议书素材。</small></div>
+            <div><p>研发属性强、技术路线复杂、投资者理解成本较高的项目。</p></div>
+            <div><p>可为科创属性、研发投入、核心技术收入和专业化发行表达提供经验参照。</p></div>
+          </div>
+      </div>
+      <div class="bottom-claim compact">思客琦项目可结合制造业、智能装备、软件算法和发行表达经验进行组织。</div>
+      <div class="source-note">口径：案例用于说明团队经验边界，不作为思客琦同行可比或审核结果参照。</div></main>
+          <footer class="slide-footer">
+            <span>宁德思客琦 IPO 重启项目建议书</span>
+            <span>43 / 48</span>
+          </footer>
+        </article>
+      </div>
+    </section>
+
+    <section class="slide-shell" id="slide-44">
+      <div class="stage-frame">
+        <article class="stage light pt-case_layer_table" data-slide="44" data-page-type="case_layer_table">
+          <header class="slide-header"><div><span>选择保荐团队</span><h2>价值表达和发行定价经验有助于公司把技术升级讲清楚</h2></div></header>
+          <main class="slide-main">
+      <div class="case-ledger">
+        <div class="case-ledger-head">
+          <span>类别</span><span>代表项目</span><span>行业与主业特征</span><span>与本项目的关系</span>
+        </div>
+        
+          <div class="case-ledger-row">
+            <div><b>创业板发行</b><em>定价经验</em></div>
+            <div><p>百诚医药、光庭信息、唯科科技、仲景食品、达嘉维康、冠中生态等。</p><small>口径：国金投行项目建议书素材。</small></div>
+            <div><p>项目建议书素材显示，部分注册制项目发行市盈率和超募比例表现突出。</p></div>
+            <div><p>相关经验可用于将业务价值转化为资本市场沟通语言。</p></div>
+          </div>
+          <div class="case-ledger-row">
+            <div><b>价值重塑</b><em>叙事能力</em></div>
+            <div><p>参考素材中，某模具企业被提炼为“时尚健康家电爆款产品提供商”；某软件企业被提炼为“超级软件工场”。</p><small>口径：国金投行项目建议书素材。</small></div>
+            <div><p>核心不是改变事实，而是在事实基础上形成投资者更容易理解的价值主线。</p></div>
+            <div><p>可迁移到思客琦“新能源电池智能制造装备+检测+软件+追溯”的表达。</p></div>
+          </div>
+          <div class="case-ledger-row">
+            <div><b>思客琦表达</b><em>客户价值</em></div>
+            <div><p>公司现阶段宜定位为新能源电池智能制造装备企业，突出质量、良率、检测、追溯和柔性制造升级。</p><small>口径：本项目预审资料及公开信息整理。</small></div>
+            <div><p>工业软件、AI视觉、无损检测、激光应用可作为技术模块和产品延展来组织证据。</p></div>
+            <div><p>有助于形成更完整的IPO重启业务主线。</p></div>
+          </div>
+      </div>
+      <div class="bottom-claim compact">IPO重启不仅需要回应审核问题，也需要把公司从装备交付延展到检测、软件、追溯和柔性制造的价值逻辑讲清楚。</div>
+      <div class="source-note">口径：价值表达需以公司事实和后续尽调资料为基础；本页为发行沟通能力说明。</div></main>
+          <footer class="slide-footer">
+            <span>宁德思客琦 IPO 重启项目建议书</span>
+            <span>44 / 48</span>
+          </footer>
+        </article>
+      </div>
+    </section>
+
+    <section class="slide-shell" id="slide-45">
+      <div class="stage-frame">
+        <article class="stage light pt-workplan_roadmap" data-slide="45" data-page-type="workplan_roadmap">
+          <header class="slide-header"><div><span>选择保荐团队</span><h2>落实到思客琦，投行七部可围绕四条工作线提供支持</h2></div></header>
+          <main class="slide-main">
+    <div class="roadmap">
+      
+        <div class="road-stage">
+          <span>阶段 1</span>
+          <p>重启判断：结合期后财务、客户结构、审核延续事项和板块条件，形成IPO重启路径建议。</p>
+        </div>
+        <div class="road-stage">
+          <span>阶段 2</span>
+          <p>专项论证：围绕客户集中、收入确认、毛利率、存货发出商品、专利软著和技术收入形成资料包。</p>
+        </div>
+        <div class="road-stage">
+          <span>阶段 3</span>
+          <p>问询准备：把前次问询、2025年以来案例和现行板块要求转化为预计问询与回复准备。</p>
+        </div>
+        <div class="road-stage">
+          <span>阶段 4</span>
+          <p>发行表达：围绕新能源电池智能制造装备、检测、软件、追溯和柔性制造升级形成资本市场表达。</p>
+        </div>
+    </div>
+    <div class="bottom-claim">团队支持最终应转化为公司可使用的判断、论证、材料和沟通成果。</div>
+    <div class="source-note">口径：工作安排将随公司资料开放和预沟通结果更新。</div></main>
+          <footer class="slide-footer">
+            <span>宁德思客琦 IPO 重启项目建议书</span>
+            <span>45 / 48</span>
+          </footer>
+        </article>
+      </div>
+    </section>
+
+    <section class="slide-shell" id="slide-46">
+      <div class="stage-frame">
+        <article class="stage light pt-workplan_roadmap" data-slide="46" data-page-type="workplan_roadmap">
+          <header class="slide-header"><div><span>选择保荐团队</span><h2>合作后的阶段性输出服务于管理层决策和后续申报准备</h2></div></header>
+          <main class="slide-main">
+    <div class="roadmap">
+      
+        <div class="road-stage">
+          <span>阶段 1</span>
+          <p>保密预沟通：形成IPO重启路径建议、资料清单、重点事项清单和董事会讨论问题。</p>
+        </div>
+        <div class="road-stage">
+          <span>阶段 2</span>
+          <p>资料开放：形成财务、法律、业务、行业四条线专项核查资料和问题解决安排。</p>
+        </div>
+        <div class="road-stage">
+          <span>阶段 3</span>
+          <p>立项辅导：形成立项判断、辅导计划、申报时间表和核心专项论证。</p>
+        </div>
+        <div class="road-stage">
+          <span>阶段 4</span>
+          <p>申报发行：形成申报文件、问询回复、监管沟通材料、投资者沟通口径和发行衔接方案。</p>
+        </div>
+    </div>
+    <div class="bottom-claim">后续合作可围绕路径判断、重点事项完善、申报准备和发行沟通形成阶段性成果。</div>
+    <div class="source-note">口径：本页说明阶段性工作输出，不构成项目进度或审核结果承诺。</div></main>
+          <footer class="slide-footer">
+            <span>宁德思客琦 IPO 重启项目建议书</span>
+            <span>46 / 48</span>
+          </footer>
+        </article>
+      </div>
+    </section>
+
+    <section class="slide-shell" id="slide-47">
+      <div class="stage-frame">
+        <article class="stage light pt-workplan_roadmap" data-slide="47" data-page-type="workplan_roadmap">
+          <header class="slide-header"><div><span>后续安排</span><h2>后续建议以保密沟通为起点，先形成重启路径和重点事项清单</h2></div></header>
+          <main class="slide-main">
+    <div class="roadmap">
+      
+        <div class="road-stage">
+          <span>阶段 1</span>
+          <p>资料开放：先补充最新财务、订单、客户、验收、回款、研发专利、核心技术收入和撤回背景资料。</p>
+        </div>
+        <div class="road-stage">
+          <span>阶段 2</span>
+          <p>重点事项梳理：围绕客户集中、收入确认、毛利率、存货发出商品、技术收入映射和前次问询事项形成清单。</p>
+        </div>
+        <div class="road-stage">
+          <span>阶段 3</span>
+          <p>板块路径测算：同步测算科创板、创业板和北交所适用条件，区分主攻路径、并列测算和备选路径。</p>
+        </div>
+        <div class="road-stage">
+          <span>阶段 4</span>
+          <p>后续合作节奏：在重点事项和资料准备情况形成初步判断后，再讨论正式立项、辅导和申报时间表。</p>
+        </div>
+    </div>
+    <div class="bottom-claim">下一步可先围绕资料开放、重点事项梳理、板块测算和合作节奏形成共同判断。</div>
+    <div class="source-note">口径：后续沟通安排将随公司资料开放和管理层决策更新。</div></main>
+          <footer class="slide-footer">
+            <span>宁德思客琦 IPO 重启项目建议书</span>
+            <span>47 / 48</span>
+          </footer>
+        </article>
+      </div>
+    </section>
+
+    <section class="slide-shell" id="slide-48">
+      <div class="stage-frame">
+        <article class="stage dark pt-closing" data-slide="48" data-page-type="closing">
+          
+          <main class="slide-main">
+    <div class="closing-layout">
+      <div class="closing-copy">
+        <div class="eyebrow">NEXT STEP DIALOGUE</div>
+        <h2>感谢观看</h2>
+        <p>后续可通过保密沟通形成重启路径、重点事项和申报节奏的共同判断。</p>
+        <div class="closing-tags"><span>下一步沟通重点</span><span>资料开放清单</span><span>重点事项梳理</span><span>路径判断更新</span></div>
+      </div>
+    </div></main>
+          <footer class="slide-footer">
+            <span>宁德思客琦 IPO 重启项目建议书</span>
+            <span>48 / 48</span>
+          </footer>
+        </article>
+      </div>
+    </section>
+  </div>
+</div>
+<nav class="deck-nav" aria-label="页面导航">
+  <button type="button" class="deck-prev" aria-label="上一页">‹</button>
+  <span class="deck-counter">01 / 48</span>
+  <button type="button" class="deck-next" aria-label="下一页">›</button>
+</nav>
+<script>
+  const exportMode = new URLSearchParams(location.search).has("export");
+  if (exportMode) document.body.classList.add("export");
+  const totalSlides = 48;
+  let currentSlide = 1;
+  const track = document.querySelector(".deck-track");
+  const prevButton = document.querySelector(".deck-prev");
+  const nextButton = document.querySelector(".deck-next");
+  const counter = document.querySelector(".deck-counter");
+  function fit() {
+    if (exportMode) {
+      document.documentElement.style.setProperty("--scale", "1");
+      return;
+    }
+    const sx = window.innerWidth / 1920;
+    const sy = window.innerHeight / 1080;
+    const scale = Math.max(0.25, Math.min(sx, sy, 1));
+    document.documentElement.style.setProperty("--scale", scale.toFixed(4));
+    updateDeck(false);
+  }
+  function updateDeck(animated = true) {
+    if (exportMode) return;
+    if (!track) return;
+    track.style.transition = animated ? "" : "none";
+    track.style.transform = "translateX(" + ((currentSlide - 1) * -100) + "vw)";
+    if (counter) counter.textContent = String(currentSlide).padStart(2, "0") + " / " + String(totalSlides).padStart(2, "0");
+    if (prevButton) prevButton.disabled = currentSlide === 1;
+    if (nextButton) nextButton.disabled = currentSlide === totalSlides;
+    if (!animated) requestAnimationFrame(() => { track.style.transition = ""; });
+  }
+  function goTo(slideNumber) {
+    if (exportMode) return;
+    const nextSlide = Math.max(1, Math.min(totalSlides, slideNumber));
+    if (nextSlide === currentSlide) return;
+    currentSlide = nextSlide;
+    updateDeck(true);
+  }
+  fit();
+  updateDeck(false);
+  window.addEventListener("resize", fit);
+  window.addEventListener("keydown", (event) => {
+    if (event.key === "ArrowRight" || event.key === "ArrowDown" || event.key === "PageDown" || event.key === " ") {
+      event.preventDefault();
+      goTo(currentSlide + 1);
+    }
+    if (event.key === "ArrowLeft" || event.key === "ArrowUp" || event.key === "PageUp") {
+      event.preventDefault();
+      goTo(currentSlide - 1);
+    }
+  });
+  prevButton?.addEventListener("click", () => goTo(currentSlide - 1));
+  nextButton?.addEventListener("click", () => goTo(currentSlide + 1));
+</script>
+</body>
+</html>
